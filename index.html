@@ -1589,7 +1589,7 @@
       </div>
     </div>
 
-    <div class="ai-full-drawer" id="mm-drawer-row-a">
+    <div class="ai-full-drawer" style="display:none" id="mm-drawer-row-a">
       <div class="ai-full-drawer-inner" id="mm-inner-row-a">
         <div class="ai-drawer-content" id="mm-drawer-0" style="display:none">
           <div class="drawer-hero"><div class="drawer-hero-placeholder"><span>Hero image — Generative AI</span></div></div>
@@ -2202,7 +2202,7 @@
       </div>
     </div>
 
-    <div class="ai-full-drawer" id="cd-drawer-row-a">
+    <div class="ai-full-drawer" style="display:none" id="cd-drawer-row-a">
       <div class="ai-full-drawer-inner" id="cd-inner-row-a">
         <div class="ai-drawer-content" id="cd-drawer-0" style="display:none">
           <div class="drawer-hero"><div class="drawer-hero-placeholder"><span>Hero image — Creative Design</span></div></div>
@@ -2306,7 +2306,7 @@
       </div>
     </div>
 
-    <div class="ai-full-drawer" id="cd-drawer-row-b">
+    <div class="ai-full-drawer" style="display:none" id="cd-drawer-row-b">
       <div class="ai-full-drawer-inner" id="cd-inner-row-b">
         <div class="ai-drawer-content" id="cd-drawer-3" style="display:none">
           <div class="drawer-hero"><div class="drawer-hero-placeholder"><span>Hero image — VFX & Compositing</span></div></div>
@@ -2788,9 +2788,9 @@
 
 
         /* CREATIVE DESIGN CARD DRAWERS */
-    const cdRows = {
-      a: { drawer: document.getElementById('cd-drawer-row-a'), inner: document.getElementById('cd-inner-row-a'), active: null },
-      b: { drawer: document.getElementById('cd-drawer-row-b'), inner: document.getElementById('cd-inner-row-b'), active: null }
+        const cdRows = {
+      a: { drawer: document.getElementById('cd-drawer-row-a'), active: null },
+      b: { drawer: document.getElementById('cd-drawer-row-b'), active: null }
     };
 
     function openCdPanel(index) {
@@ -2799,44 +2799,31 @@
       const panel = document.getElementById('cd-drawer-' + index);
       if (!panel) return;
 
-      // Instantly close other row
+      // Instant close other row
       const otherRow = row === 'a' ? 'b' : 'a';
       const other = cdRows[otherRow];
-      instantCloseDrawer(other.drawer, other.inner);
-      other.active = null;
+      if (other.drawer) other.drawer.style.display = 'none';
+      document.querySelectorAll('#cd-row-' + otherRow + ' .ai-drawer-content').forEach(el => el.style.display = 'none');
       document.querySelectorAll('#cd-row-' + otherRow + ' .ai-vert-card').forEach(c => c.classList.remove('is-open'));
+      other.active = null;
 
       // Toggle same card
-      if (r.active === index) { closeCdRow(row); return; }
-      r.active = index;
+      if (r.active === index) {
+        r.active = null;
+        document.querySelectorAll('#cd-row-' + row + ' .ai-vert-card').forEach(c => c.classList.remove('is-open'));
+        document.querySelectorAll('#cd-drawer-row-' + row + ' .ai-drawer-content').forEach(el => el.style.display = 'none');
+        r.drawer.style.display = 'none';
+        return;
+      }
 
-      // Show panel
+      r.active = index;
       document.querySelectorAll('#cd-row-' + row + ' .ai-vert-card').forEach((c, i) => {
         const globalI = row === 'a' ? i : i + 3;
         c.classList.toggle('is-open', globalI === index);
       });
-      [0,1,2,3,4,5].forEach(i => {
-        const el = document.getElementById('cd-drawer-' + i);
-        if (el) el.classList.remove('active');
-      });
-      panel.classList.add('active');
-
-      if (parseFloat(getComputedStyle(r.drawer).height) > 0) {
-        swapDrawerPanel(r.inner, () => animateDrawerContent(panel));
-        return;
-      }
-      openDrawerPanel(r.drawer, r.inner, panel, () => animateDrawerContent(panel));
-    }
-
-    function closeCdRow(row, animate = true) {
-      const r = cdRows[row];
-      r.active = null;
-      document.querySelectorAll('#cd-row-' + row + ' .ai-vert-card').forEach(c => c.classList.remove('is-open'));
-      if (animate) {
-        closeDrawerEl(r.drawer, r.inner);
-      } else {
-        instantCloseDrawer(r.drawer, r.inner);
-      }
+      document.querySelectorAll('#cd-drawer-row-' + row + ' .ai-drawer-content').forEach(el => el.style.display = 'none');
+      panel.style.display = 'grid';
+      r.drawer.style.display = 'block';
     }
 
     document.querySelectorAll('#cd-row-a .ai-vert-card, #cd-row-b .ai-vert-card').forEach((card) => {
