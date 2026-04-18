@@ -3,14 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Paul Salva — Senior Product Designer & AI-Integrated Design Consultant</title>
+  <title>Paul Salva | Senior Product Designer & AI-Integrated Design Consultant</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap');
-  </style>
-  <style>
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     html { scroll-behavior: smooth; }
@@ -77,15 +76,25 @@
       grid-template-columns: 1fr 1fr;
       gap: 0 60px;
       align-items: start;
-      max-width: 1100px;
+      max-width: none;
+      width: 100%;
     }
 
-    .hero-left { display: flex; flex-direction: column; }
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      max-width: 520px;
+    }
 
     .hero-right {
       display: flex;
       flex-direction: column;
+      align-items: flex-end;
+      justify-self: end;
+      text-align: right;
       padding-top: 8px;
+      width: 100%;
+      max-width: 360px;
     }
 
     .ticker-label {
@@ -95,19 +104,23 @@
       text-transform: uppercase;
       color: rgba(232,230,223,0.2);
       margin-bottom: 20px;
+      text-align: right;
     }
 
     .ticker-wrap {
       height: 220px;
       overflow: hidden;
       position: relative;
+      width: 100%;
+      text-align: right;
     }
 
     .ticker-wrap::before,
     .ticker-wrap::after {
       content: '';
       position: absolute;
-      left: 0; right: 0;
+      left: 0;
+      right: 0;
       height: 48px;
       z-index: 2;
       pointer-events: none;
@@ -126,31 +139,28 @@
     .ticker-track {
       display: flex;
       flex-direction: column;
+      align-items: flex-end;
       animation: ticker-scroll 14s linear infinite;
     }
 
     .ticker-item {
-      font-size: clamp(18px, 2.2vw, 26px);
+      font-size: clamp(14px, 1.5vw, 18px);
       font-weight: 700;
       letter-spacing: -0.01em;
       color: rgba(232,230,223,0.12);
       line-height: 1.2;
-      padding: 10px 0;
+      padding: 8px 0;
       white-space: nowrap;
+      text-align: right;
     }
 
     .ticker-item.lit {
-      color: #e8e6df;
+      color: #3d9aff;
     }
 
     @keyframes ticker-scroll {
       0%   { transform: translateY(0); }
       100% { transform: translateY(-50%); }
-    }
-
-    @media (max-width: 720px) {
-      .hero { grid-template-columns: 1fr; }
-      .hero-right { padding-top: 40px; }
     }
 
     .hero-name {
@@ -443,6 +453,30 @@
       transform: translateY(0);
     }
 
+    @media (max-width: 720px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-right {
+        padding-top: 40px;
+        align-items: flex-start;
+        justify-self: start;
+        text-align: left;
+        max-width: 100%;
+      }
+
+      .ticker-label,
+      .ticker-wrap,
+      .ticker-item {
+        text-align: left;
+      }
+
+      .ticker-track {
+        align-items: flex-start;
+      }
+    }
+
     @media (max-width: 640px) {
       .hero { padding: 48px 24px 80px; }
       .section { padding: 60px 24px; }
@@ -487,6 +521,7 @@
           <div class="ticker-item">AR / XR</div>
           <div class="ticker-item">Sound Design</div>
           <div class="ticker-item">Motion</div>
+
           <!-- duplicated for seamless loop -->
           <div class="ticker-item">Spatial UX</div>
           <div class="ticker-item">Generative AI</div>
@@ -526,6 +561,7 @@
           <span class="case-arrow">↗</span>
         </div>
       </a>
+
       <a href="#" class="case reveal">
         <div class="case-meta">
           <div class="case-tags">
@@ -543,6 +579,7 @@
           <span class="case-arrow">↗</span>
         </div>
       </a>
+
       <a href="#" class="case reveal">
         <div class="case-meta">
           <div class="case-tags">
@@ -552,7 +589,7 @@
             <span class="case-tag-sep">·</span>
             <span class="case-tag">Game Mechanics</span>
           </div>
-          <div class="case-title">Rangers Wanted — Educational AR App</div>
+          <div class="case-title">Rangers Wanted | Educational AR App</div>
           <div class="case-desc">Competitive research and UX strategy for a Niantic-partnered education experience at the Teddy Roosevelt Presidential Library.</div>
         </div>
         <div class="case-right">
@@ -560,6 +597,7 @@
           <span class="case-arrow">↗</span>
         </div>
       </a>
+
       <a href="#" class="case reveal">
         <div class="case-meta">
           <div class="case-tags">
@@ -567,7 +605,7 @@
             <span class="case-tag-sep">·</span>
             <span class="case-tag">Prototyping</span>
           </div>
-          <div class="case-title">AR Cooking Utility — Head-Mounted Device</div>
+          <div class="case-title">AR Cooking Utility | Head-Mounted Device</div>
           <div class="case-desc">VR wireframing and spatial UX for a cooking utility on the ThinkReality A24 HMD.</div>
         </div>
         <div class="case-right">
@@ -575,6 +613,7 @@
           <span class="case-arrow">↗</span>
         </div>
       </a>
+
       <a href="#" class="case reveal">
         <div class="case-meta">
           <div class="case-tags">
@@ -584,7 +623,7 @@
             <span class="case-tag-sep">·</span>
             <span class="case-tag">Product Management</span>
           </div>
-          <div class="case-title">The Future of Training — Proof of Concept</div>
+          <div class="case-title">The Future of Training | Proof of Concept</div>
           <div class="case-desc">User acceptance testing and UX design for a Verizon POC with the University of Hawaii football team on Snapdragon AR glasses.</div>
         </div>
         <div class="case-right">
@@ -613,7 +652,7 @@
             <span class="case-tag">Product Management</span>
           </div>
           <div class="case-title">B2B Solutions for Insurance Carriers</div>
-          <div class="case-desc">Full lifecycle UX — research through delivery — for several enterprise products serving commercial and personal insurance carriers on the Guidewire InsuranceNow platform.</div>
+          <div class="case-desc">Full lifecycle UX, research through delivery, for several enterprise products serving commercial and personal insurance carriers on the Guidewire InsuranceNow platform.</div>
         </div>
         <div class="case-right">
           <span class="case-client">Guidewire</span>
@@ -669,7 +708,7 @@
             <span class="case-tag-sep">·</span>
             <span class="case-tag">AR · UX Research</span>
           </div>
-          <div class="case-title">Verizon Portal — System & Experience</div>
+          <div class="case-title">Verizon Portal | System & Experience</div>
           <div class="case-desc">Design system maintenance alongside the immersive 360° Portal experience. See full case study in AR/XR.</div>
         </div>
         <div class="case-right">
@@ -677,6 +716,7 @@
           <span class="case-arrow">↗</span>
         </div>
       </a>
+
       <a href="#enterprise" class="case reveal">
         <div class="case-meta">
           <div class="case-tags">
@@ -684,7 +724,7 @@
             <span class="case-tag-sep">·</span>
             <span class="case-tag">B2B · Enterprise</span>
           </div>
-          <div class="case-title">Guidewire InsuranceNow — Component Library</div>
+          <div class="case-title">Guidewire InsuranceNow | Component Library</div>
           <div class="case-desc">Enterprise design system work across multiple B2B insurance products. See full case study in Enterprise.</div>
         </div>
         <div class="case-right">
@@ -703,22 +743,22 @@
     </div>
     <div class="rec-row reveal">
       <span class="rec-award">FWA Award</span>
-      <span class="rec-project">Hulu — The Screamlands</span>
+      <span class="rec-project">Hulu | The Screamlands</span>
       <span class="rec-badge">FWA of the Day</span>
     </div>
     <div class="rec-row reveal">
       <span class="rec-award">Webby Award</span>
-      <span class="rec-project">—</span>
+      <span class="rec-project">Coming soon</span>
       <span class="rec-badge">Honoree</span>
     </div>
     <div class="rec-row reveal">
       <span class="rec-award">Awwwards</span>
-      <span class="rec-project">—</span>
+      <span class="rec-project">Coming soon</span>
       <span class="rec-badge">Nominee</span>
     </div>
     <div class="rec-row reveal">
       <span class="rec-award">Promax</span>
-      <span class="rec-project">—</span>
+      <span class="rec-project">Coming soon</span>
       <span class="rec-badge">Winner</span>
     </div>
   </section>
@@ -734,26 +774,37 @@
   </footer>
 
   <script>
-    // TICKER HIGHLIGHT — lights up whichever item is nearest center
+    // TICKER HIGHLIGHT
     const track = document.getElementById('ticker');
     const wrap = track.parentElement;
 
     function updateLit() {
       const wrapMid = wrap.getBoundingClientRect().top + wrap.offsetHeight / 2;
       const items = track.querySelectorAll('.ticker-item');
-      let closest = null, closestDist = Infinity;
+      let closest = null;
+      let closestDist = Infinity;
+
       items.forEach(item => {
         const rect = item.getBoundingClientRect();
         const mid = rect.top + rect.height / 2;
         const dist = Math.abs(mid - wrapMid);
-        if (dist < closestDist) { closestDist = dist; closest = item; }
+
+        if (dist < closestDist) {
+          closestDist = dist;
+          closest = item;
+        }
       });
+
       items.forEach(i => i.classList.remove('lit'));
-      if (closest) closest.classList.add('lit');
+
+      if (closest) {
+        closest.classList.add('lit');
+      }
     }
 
     setInterval(updateLit, 60);
     updateLit();
+
     const sections = document.querySelectorAll('section[id]');
     const pills = document.querySelectorAll('.nav-pill');
 
@@ -762,7 +813,10 @@
         if (entry.isIntersecting) {
           pills.forEach(p => p.classList.remove('active'));
           const active = document.querySelector(`.nav-pill[href="#${entry.target.id}"]`);
-          if (active) active.classList.add('active');
+
+          if (active) {
+            active.classList.add('active');
+          }
         }
       });
     }, { threshold: 0.3 });
@@ -771,11 +825,12 @@
 
     // SCROLL REVEAL
     const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry, i) => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           setTimeout(() => {
             entry.target.classList.add('visible');
           }, 60);
+
           revealObserver.unobserve(entry.target);
         }
       });
