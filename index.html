@@ -2742,38 +2742,63 @@
     function openDrawerPanel(drawer, inner, panel, onOpen) {
       gsap.killTweensOf(drawer);
       gsap.killTweensOf(inner);
-      gsap.set(drawer, { height: 0, overflow: 'hidden' });
-      gsap.set(inner, { opacity: 0 });
+      drawer.style.overflow = 'hidden';
+      drawer.style.height = '0px';
+      inner.style.opacity = '0';
       requestAnimationFrame(() => requestAnimationFrame(() => {
         const h = drawer.scrollHeight;
-        gsap.to(drawer, { height: h, duration: 0.65, ease: 'power3.inOut',
-          onComplete: () => gsap.set(drawer, { height: 'auto' })
-        });
-        gsap.to(inner, { opacity: 1, duration: 0.3, ease: 'power2.out', delay: 0.2 });
-        if (onOpen) setTimeout(onOpen, 300);
+        drawer.style.transition = 'height 0.65s cubic-bezier(0.16,1,0.3,1)';
+        drawer.style.height = h + 'px';
+        inner.style.transition = 'opacity 0.3s ease 0.2s';
+        inner.style.opacity = '1';
+        drawer.addEventListener('transitionend', function onEnd() {
+          drawer.removeEventListener('transitionend', onEnd);
+          drawer.style.height = 'auto';
+          drawer.style.transition = '';
+          inner.style.transition = '';
+          if (onOpen) onOpen();
+        }, { once: true });
       }));
     }
 
     function swapDrawerPanel(inner, onSwap) {
-      gsap.killTweensOf(inner);
-      gsap.to(inner, { opacity: 0, duration: 0.1, onComplete: () => {
+      inner.style.transition = 'opacity 0.1s';
+      inner.style.opacity = '0';
+      setTimeout(() => {
         if (onSwap) onSwap();
-        gsap.to(inner, { opacity: 1, duration: 0.25, ease: 'power2.out' });
-      }});
+        inner.style.transition = 'opacity 0.25s';
+        inner.style.opacity = '1';
+        setTimeout(() => { inner.style.transition = ''; }, 250);
+      }, 100);
     }
 
     function closeDrawerEl(drawer, inner, onComplete) {
+      const h = drawer.offsetHeight;
+      drawer.style.overflow = 'hidden';
+      drawer.style.transition = '';
+      drawer.style.height = h + 'px';
+      inner.style.transition = 'opacity 0.12s';
+      inner.style.opacity = '0';
+      requestAnimationFrame(() => {
+        drawer.style.transition = 'height 0.4s cubic-bezier(0.16,1,0.3,1) 0.05s';
+        drawer.style.height = '0px';
+        drawer.addEventListener('transitionend', function onEnd() {
+          drawer.removeEventListener('transitionend', onEnd);
+          drawer.style.cssText = '';
+          inner.style.cssText = '';
+          if (onComplete) onComplete();
+        }, { once: true });
+      });
+    }
+
+    function instantCloseDrawer(drawer, inner) {
       gsap.killTweensOf(drawer);
       gsap.killTweensOf(inner);
-      const h = drawer.offsetHeight;
-      gsap.set(drawer, { height: h });
-      gsap.to(inner, { opacity: 0, duration: 0.12 });
-      gsap.to(drawer, { height: 0, duration: 0.4, ease: 'power3.inOut', delay: 0.05,
-        onComplete: () => {
-          gsap.set(drawer, { clearProps: 'all' });
-          if (onComplete) onComplete();
-        }
-      });
+      drawer.style.cssText = '';
+      inner.style.cssText = '';
+      drawer.style.height = '0px';
+      drawer.style.overflow = 'hidden';
+      inner.style.opacity = '0';
     }
 
     /* MULTIMODAL AI VERTICAL CARD DRAWERS */
@@ -2851,9 +2876,7 @@
           document.querySelectorAll('.ai-drawer-content').forEach(el => el.classList.remove('active'));
         });
       } else {
-        gsap.killTweensOf(aiFullDrawer); gsap.killTweensOf(aiFullInner);
-        gsap.set(aiFullDrawer, { height: 0, clearProps: 'all' });
-        gsap.set(aiFullInner, { opacity: 0 });
+        instantCloseDrawer(aiFullDrawer, aiFullInner);
         document.querySelectorAll('.ai-drawer-content').forEach(el => el.classList.remove('active'));
       }
     }
@@ -2878,9 +2901,7 @@
       // Instantly close other row
       const otherRow = row === 'a' ? 'b' : 'a';
       const other = cdRows[otherRow];
-      gsap.killTweensOf(other.drawer); gsap.killTweensOf(other.inner);
-      gsap.set(other.drawer, { height: 0, clearProps: 'all' });
-      gsap.set(other.inner, { opacity: 0 });
+      instantCloseDrawer(other.drawer, other.inner);
       other.active = null;
       document.querySelectorAll('#cd-row-' + otherRow + ' .ai-vert-card').forEach(c => c.classList.remove('is-open'));
 
@@ -2913,9 +2934,7 @@
       if (animate) {
         closeDrawerEl(r.drawer, r.inner);
       } else {
-        gsap.killTweensOf(r.drawer); gsap.killTweensOf(r.inner);
-        gsap.set(r.drawer, { height: 0, clearProps: 'all' });
-        gsap.set(r.inner, { opacity: 0 });
+        instantCloseDrawer(r.drawer, r.inner);
       }
     }
 
