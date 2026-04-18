@@ -2742,36 +2742,33 @@
     function openDrawerPanel(drawer, inner, panel, onOpen) {
       gsap.killTweensOf(drawer);
       gsap.killTweensOf(inner);
-
-      // Force height 0, then measure in next frame after content is visible
       gsap.set(drawer, { height: 0, overflow: 'hidden' });
       gsap.set(inner, { opacity: 0 });
-
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          const fullH = drawer.scrollHeight;
-          const tl = gsap.timeline();
-          tl.to(drawer, { height: fullH, duration: 0.65, ease: 'power3.inOut' });
-          tl.to(inner, { opacity: 1, duration: 0.3, ease: 'power2.out' }, '-=0.2');
-          tl.add(() => { if (onOpen) onOpen(); }, '-=0.15');
-          tl.to(drawer, { height: 'auto', duration: 0 }); // unlock after anim
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        const h = drawer.scrollHeight;
+        gsap.to(drawer, { height: h, duration: 0.65, ease: 'power3.inOut',
+          onComplete: () => gsap.set(drawer, { height: 'auto' })
         });
-      });
+        gsap.to(inner, { opacity: 1, duration: 0.3, ease: 'power2.out', delay: 0.2 });
+        if (onOpen) setTimeout(onOpen, 300);
+      }));
     }
 
     function swapDrawerPanel(inner, onSwap) {
       gsap.killTweensOf(inner);
-      gsap.to(inner, { opacity: 0, duration: 0.12, ease: 'power2.in', onComplete: () => {
+      gsap.to(inner, { opacity: 0, duration: 0.1, onComplete: () => {
         if (onSwap) onSwap();
-        gsap.to(inner, { opacity: 1, duration: 0.3, ease: 'power2.out' });
+        gsap.to(inner, { opacity: 1, duration: 0.25, ease: 'power2.out' });
       }});
     }
 
     function closeDrawerEl(drawer, inner, onComplete) {
       gsap.killTweensOf(drawer);
       gsap.killTweensOf(inner);
-      gsap.to(inner, { opacity: 0, duration: 0.15, ease: 'power2.in' });
-      gsap.to(drawer, { height: 0, duration: 0.45, ease: 'power3.inOut', delay: 0.05,
+      const h = drawer.offsetHeight;
+      gsap.set(drawer, { height: h });
+      gsap.to(inner, { opacity: 0, duration: 0.12 });
+      gsap.to(drawer, { height: 0, duration: 0.4, ease: 'power3.inOut', delay: 0.05,
         onComplete: () => {
           gsap.set(drawer, { clearProps: 'all' });
           if (onComplete) onComplete();
