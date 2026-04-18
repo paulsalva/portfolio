@@ -1072,6 +1072,32 @@
     }
 
     /* RECOGNITION */
+    a.rec-row.rec-link {
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.15s ease;
+    }
+
+    a.rec-row.rec-link:hover {
+      background: rgba(61,154,255,0.04);
+    }
+
+    a.rec-row.rec-link:hover .rec-award {
+      color: rgba(232,230,223,0.85);
+    }
+
+    a.rec-row.rec-link:hover .rec-badge {
+      opacity: 1;
+    }
+
+    .rec-arrow {
+      width: 10px;
+      height: 10px;
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 4px;
+      margin-bottom: 1px;
+    }
     .rec-row {
       display: flex;
       justify-content: space-between;
@@ -2348,22 +2374,28 @@
     </div>
 
     <div class="rec-row">
+      <span class="rec-award">Pragmatic Institute</span>
+      <span class="rec-project">Product Management Certification · PMC-1</span>
+      <span class="rec-badge">Certified</span>
+    </div>
+
+    <a class="rec-row rec-link" href="https://thefwa.com/cases/huluween-the-screamlands" target="_blank" rel="noopener">
       <span class="rec-award">FWA Award</span>
       <span class="rec-project">Hulu | The Screamlands</span>
-      <span class="rec-badge">FWA of the Day</span>
-    </div>
+      <span class="rec-badge">FWA of the Day <svg class="rec-arrow" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="2" y1="8" x2="8" y2="2"/><polyline points="4,2 8,2 8,6"/></svg></span>
+    </a>
 
-    <div class="rec-row">
+    <a class="rec-row rec-link" href="https://winners.webbyawards.com/2021/websites-and-mobile-sites/general-websites-and-mobile-sites/television-film/183254/huluween--the-screamlands" target="_blank" rel="noopener">
       <span class="rec-award">Webby Award</span>
-      <span class="rec-project">Coming soon</span>
-      <span class="rec-badge">Honoree</span>
-    </div>
+      <span class="rec-project">Hulu | The Screamlands</span>
+      <span class="rec-badge">Nominee <svg class="rec-arrow" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="2" y1="8" x2="8" y2="2"/><polyline points="4,2 8,2 8,6"/></svg></span>
+    </a>
 
-    <div class="rec-row">
+    <a class="rec-row rec-link" href="https://www.awwwards.com/sites/huluween-the-screamlands" target="_blank" rel="noopener">
       <span class="rec-award">Awwwards</span>
-      <span class="rec-project">Coming soon</span>
-      <span class="rec-badge">Nominee</span>
-    </div>
+      <span class="rec-project">Hulu | The Screamlands</span>
+      <span class="rec-badge">Site of the Day <svg class="rec-arrow" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="2" y1="8" x2="8" y2="2"/><polyline points="4,2 8,2 8,6"/></svg></span>
+    </a>
 
     <div class="rec-row">
       <span class="rec-award">Promax</span>
