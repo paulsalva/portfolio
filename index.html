@@ -8,6 +8,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap');
+  </style>
+  <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     html { scroll-behavior: smooth; }
@@ -73,26 +76,22 @@
       max-width: 900px;
     }
 
-    .hero-label {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: #3d9aff;
-      margin-bottom: 28px;
-    }
-
     .hero-name {
       font-size: clamp(52px, 8vw, 88px);
       font-weight: 800;
       line-height: 0.95;
       letter-spacing: -0.03em;
       color: #e8e6df;
-      margin-bottom: 32px;
+      margin-bottom: 16px;
     }
 
-    .hero-name span {
-      color: #3d9aff;
+    .hero-tagline {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(232,230,223,0.35);
+      margin-bottom: 40px;
     }
 
     .hero-desc {
@@ -398,8 +397,8 @@
 
   <!-- HERO -->
   <header class="hero">
-    <div class="hero-label reveal">Senior Product Designer & AI-Integrated Design Consultant</div>
-    <div class="hero-name reveal">Paul<br>Sal<span>v</span>a</div>
+    <div class="hero-name reveal">Paul<br>Salva</div>
+    <div class="hero-tagline reveal">Senior Product Designer &amp; AI-Integrated Design Consultant</div>
     <p class="hero-desc reveal">
       Multidisciplinary designer working across AR/XR interfaces, enterprise product design, generative AI tooling, and creative systems. Based in Los Angeles.
     </p>
