@@ -1604,7 +1604,7 @@
     </div>
 
     <!-- SHARED FULL-WIDTH DRAWER -->
-    <div class="ai-full-drawer" id="ai-full-drawer" style="display:none">
+    <div class="ai-full-drawer" id="ai-full-drawer">
       <div class="ai-full-drawer-inner" id="ai-full-drawer-inner">
 
         <div class="ai-drawer-content" id="ai-drawer-0" style="display:none">
@@ -2223,7 +2223,7 @@
       </div>
     </div>
 
-    <div class="ai-full-drawer" id="cd-drawer-row-a" style="display:none">
+    <div class="ai-full-drawer" id="cd-drawer-row-a">
       <div class="ai-full-drawer-inner" id="cd-inner-row-a">
         <div class="ai-drawer-content" id="cd-drawer-0" style="display:none">
           <div class="drawer-hero"><div class="drawer-hero-placeholder"><span>Hero image — Creative Design</span></div></div>
@@ -2327,7 +2327,7 @@
       </div>
     </div>
 
-    <div class="ai-full-drawer" id="cd-drawer-row-b" style="display:none">
+    <div class="ai-full-drawer" id="cd-drawer-row-b">
       <div class="ai-full-drawer-inner" id="cd-inner-row-b">
         <div class="ai-drawer-content" id="cd-drawer-3" style="display:none">
           <div class="drawer-hero"><div class="drawer-hero-placeholder"><span>Hero image — VFX & Compositing</span></div></div>
@@ -2767,20 +2767,52 @@
     let activeAiIndex  = null;
 
     function openAiPanel(index) {
+      // Hide all content panels, show the right one
+      document.querySelectorAll('.ai-drawer-content').forEach(el => el.classList.remove('active'));
+      document.getElementById('ai-drawer-' + index).classList.add('active');
+
+      const inner = aiFullInner;
       const panel = document.getElementById('ai-drawer-' + index);
-      if (!panel) return;
 
       if (activeAiIndex === index) {
+        // Same card — close
         closeAiPanel();
         return;
       }
 
       activeAiIndex = index;
-      document.querySelectorAll('#ai-card-grid .ai-vert-card').forEach((c, i) => c.classList.toggle('is-open', i === index));
-      document.querySelectorAll('#ai-full-drawer .ai-drawer-content').forEach(el => { el.style.display = 'none'; el.classList.remove('active'); });
-      panel.style.display = 'grid';
-      panel.classList.add('active');
-      aiFullDrawer.style.display = 'block';
+
+      // Mark active card
+      document.querySelectorAll('#ai-card-grid .ai-vert-card').forEach((c, i) => {
+        c.classList.toggle('is-open', i === index);
+      });
+
+      if (parseFloat(getComputedStyle(aiFullDrawer).height) > 0) {
+        // Drawer already open — swap content and resize
+        gsap.to(inner, { opacity: 0, duration: 0.15, onComplete: () => {
+          gsap.to(aiFullDrawer, { height: 'auto', duration: 0.4, ease: 'power3.inOut' });
+          gsap.to(inner, { opacity: 1, duration: 0.35, ease: 'power2.out', delay: 0.1 });
+          animateDrawerContent(panel);
+        }});
+        return;
+      }
+
+      // Open drawer
+      gsap.set(aiFullDrawer, { height: 0, overflow: 'hidden' });
+      gsap.set(inner, { opacity: 0 });
+
+      const tl = gsap.timeline();
+      tl.to(aiFullDrawer, { height: 'auto', duration: 0.7, ease: 'power3.inOut' });
+      tl.to(inner, { opacity: 1, duration: 0.35, ease: 'power2.out' }, '-=0.25');
+      tl.add(() => animateDrawerContent(panel), '-=0.2');
+
+      setTimeout(() => {
+        const section = document.getElementById('multimodal-ai');
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 400);
+
+      const strip = panel.querySelector('.drawer-strip');
+      if (strip) initDragStrip(strip);
     }
 
     function animateDrawerContent(panel) {
@@ -2795,11 +2827,18 @@
       if (strips.length) gsap.from(strips, { x: 24, opacity: 0, duration: 0.4, stagger: 0.06, ease: 'power3.out', delay: 0.25 });
     }
 
-    function closeAiPanel() {
-      document.querySelectorAll('#ai-card-grid .ai-vert-card').forEach(c => c.classList.remove('is-open'));
-      document.querySelectorAll('#ai-full-drawer .ai-drawer-content').forEach(el => { el.style.display = 'none'; el.classList.remove('active'); });
-      aiFullDrawer.style.display = 'none';
+    function closeAiPanel(animate = true) {
+      document.querySelectorAll('.ai-vert-card').forEach(c => c.classList.remove('is-open'));
       activeAiIndex = null;
+
+      if (animate) {
+        closeDrawerEl(aiFullDrawer, aiFullInner, () => {
+          document.querySelectorAll('.ai-drawer-content').forEach(el => el.classList.remove('active'));
+        });
+      } else {
+        instantCloseDrawer(aiFullDrawer, aiFullInner);
+        document.querySelectorAll('.ai-drawer-content').forEach(el => el.classList.remove('active'));
+      }
     }
 
     document.querySelectorAll('#ai-card-grid .ai-vert-card').forEach((card, index) => {
@@ -2819,31 +2858,44 @@
       const panel = document.getElementById('cd-drawer-' + index);
       if (!panel) return;
 
-      // Instant close other row
+      // Instantly close other row
       const otherRow = row === 'a' ? 'b' : 'a';
       const other = cdRows[otherRow];
-      if (other.drawer) other.drawer.style.display = 'none';
-      document.querySelectorAll('#cd-row-' + otherRow + ' .ai-vert-card').forEach(c => c.classList.remove('is-open'));
+      instantCloseDrawer(other.drawer, other.inner);
       other.active = null;
+      document.querySelectorAll('#cd-row-' + otherRow + ' .ai-vert-card').forEach(c => c.classList.remove('is-open'));
 
       // Toggle same card
       if (r.active === index) { closeCdRow(row); return; }
       r.active = index;
 
+      // Show panel
       document.querySelectorAll('#cd-row-' + row + ' .ai-vert-card').forEach((c, i) => {
-        c.classList.toggle('is-open', (row === 'a' ? i : i + 3) === index);
+        const globalI = row === 'a' ? i : i + 3;
+        c.classList.toggle('is-open', globalI === index);
       });
-      document.querySelectorAll('#cd-drawer-row-' + row + ' .ai-drawer-content').forEach(el => el.style.display = 'none');
-      panel.style.display = 'grid';
-      r.drawer.style.display = 'block';
+      [0,1,2,3,4,5].forEach(i => {
+        const el = document.getElementById('cd-drawer-' + i);
+        if (el) el.classList.remove('active');
+      });
+      panel.classList.add('active');
+
+      if (parseFloat(getComputedStyle(r.drawer).height) > 0) {
+        swapDrawerPanel(r.inner, () => animateDrawerContent(panel));
+        return;
+      }
+      openDrawerPanel(r.drawer, r.inner, panel, () => animateDrawerContent(panel));
     }
 
-    function closeCdRow(row) {
+    function closeCdRow(row, animate = true) {
       const r = cdRows[row];
       r.active = null;
       document.querySelectorAll('#cd-row-' + row + ' .ai-vert-card').forEach(c => c.classList.remove('is-open'));
-      document.querySelectorAll('#cd-drawer-row-' + row + ' .ai-drawer-content').forEach(el => el.style.display = 'none');
-      r.drawer.style.display = 'none';
+      if (animate) {
+        closeDrawerEl(r.drawer, r.inner);
+      } else {
+        instantCloseDrawer(r.drawer, r.inner);
+      }
     }
 
     document.querySelectorAll('#cd-row-a .ai-vert-card, #cd-row-b .ai-vert-card').forEach((card) => {
