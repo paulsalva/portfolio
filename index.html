@@ -231,6 +231,8 @@
     .ai-vert-wrapper {
       display: flex;
       flex-direction: column;
+      min-width: 0;
+      overflow: hidden;
     }
 
     .ai-vert-card {
@@ -349,6 +351,16 @@
       overflow: hidden;
       height: 0;
       will-change: height;
+      max-width: 100%;
+    }
+
+    .ai-vert-drawer .drawer-strip {
+      max-width: 100%;
+    }
+
+    .ai-vert-drawer .drawer-strip-img {
+      flex-shrink: 0;
+      width: 260px;
     }
 
     .ai-vert-drawer-inner {
@@ -1477,7 +1489,7 @@
   </section>
 
   <!-- MULTIMODAL AI -->
-  <section class="section" id="multimodal-ai" style="padding-left: 48px; padding-right: 48px;">
+  <section class="section" id="multimodal-ai">
     <div class="section-header">
       <span class="section-number">02</span>
       <span class="section-title">Multimodal AI</span>
