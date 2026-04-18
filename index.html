@@ -117,13 +117,24 @@
       text-transform: uppercase;
       -webkit-text-fill-color: transparent;
       -webkit-text-stroke: 1px transparent;
-      background: linear-gradient(90deg, #3d9aff, #a78bfa, #2dd4bf, #3d9aff);
+      background: linear-gradient(90deg, #3d9aff, #7ec8ff, #1a6fcc, #3d9aff);
       background-size: 300% auto;
       -webkit-background-clip: text;
       background-clip: text;
       animation: gradientShift 5s linear infinite;
-      margin-bottom: 16px;
+      margin-bottom: 4px;
       display: block;
+      line-height: 1.6;
+    }
+
+    .hs-label-dim {
+      -webkit-text-stroke: 1px transparent;
+      background: linear-gradient(90deg, rgba(61,154,255,0.45), rgba(126,200,255,0.45), rgba(26,111,204,0.45), rgba(61,154,255,0.45));
+      background-size: 300% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      animation: gradientShift 5s linear infinite;
+      margin-bottom: 0;
     }
 
     @keyframes gradientShift {
@@ -131,26 +142,7 @@
       100% { background-position: 300% center; }
     }
 
-    .hs-large {
-      font-size: clamp(24px, 3.2vw, 44px);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: #e8e6df;
-      line-height: 1.1;
-    }
 
-    .hs-medium {
-      font-size: clamp(14px, 1.6vw, 20px);
-      font-weight: 500;
-      letter-spacing: -0.01em;
-      color: rgba(232,230,223,0.4);
-      line-height: 1.4;
-      margin-top: 20px;
-    }
-
-    .hs-medium + .hs-medium {
-      margin-top: 0;
-    }
 
     .hs-small {
       font-size: clamp(12px, 1.1vw, 14px);
@@ -861,10 +853,9 @@
     <div class="hero-right">
       <div class="hero-statement">
         <div class="hs-line hs-label" data-delay="0">Product design without borders.</div>
-        <div class="hs-line hs-large" data-delay="140">XR / Spatial, enterprise,</div>
-        <div class="hs-line hs-large" data-delay="240">mobile, data, creative.</div>
-        <div class="hs-line hs-small" data-delay="420">Building the AI pipelines and workflows</div>
-        <div class="hs-line hs-small" data-delay="500">that make it all move faster.</div>
+        <div class="hs-line hs-label hs-label-dim" data-delay="140">Spatial, enterprise, experiential marketing,</div>
+        <div class="hs-line hs-label hs-label-dim" data-delay="220">data, creative design.</div>
+        <div class="hs-line hs-label hs-label-dim" data-delay="320">Building AI workflows to make it all happen.</div>
       </div>
     </div>
   </header>
