@@ -74,18 +74,19 @@
     /* HERO */
     .hero {
       padding: 80px 148px 56px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0 80px;
+      display: flex;
+      flex-direction: column;
       align-items: center;
-      max-width: none;
+      text-align: center;
       width: 100%;
     }
 
     .hero-left {
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      align-items: center;
+      text-align: center;
+      max-width: 640px;
     }
 
     .hero-right {
@@ -211,7 +212,8 @@
       line-height: 1.65;
       color: rgba(232,230,223,0.55);
       max-width: 480px;
-      margin-bottom: 40px;
+      margin-bottom: 0;
+      text-align: center;
     }
 
     /* SECTION */
