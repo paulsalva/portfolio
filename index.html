@@ -216,6 +216,39 @@
       text-align: center;
     }
 
+
+    /* SUBSECTIONS */
+    .subsection {
+      margin-bottom: 56px;
+    }
+
+    .subsection:last-child {
+      margin-bottom: 0;
+    }
+
+    .subsection-header {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 0.5px solid rgba(255,255,255,0.05);
+    }
+
+    .subsection-title {
+      font-size: clamp(14px, 1.5vw, 18px);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: rgba(232,230,223,0.6);
+    }
+
+    .subsection-count {
+      font-size: 11px;
+      font-weight: 400;
+      color: rgba(232,230,223,0.2);
+      margin-left: auto;
+    }
+
     /* SECTION */
     .section {
       padding: 80px 148px;
@@ -863,8 +896,7 @@
   <!-- FLOATING NAV -->
   <nav class="nav">
     <div class="nav-inner">
-      <a href="#design-systems" class="nav-pill active">Design Systems</a>
-      <a href="#ux-research" class="nav-pill">UX Research</a>
+      <a href="#ux-design" class="nav-pill active">UX Design</a>
       <a href="#enterprise" class="nav-pill">Enterprise</a>
       <a href="#data-viz" class="nav-pill">Data Viz</a>
       <a href="#arxr" class="nav-pill">XR / Spatial</a>
@@ -880,21 +912,277 @@
       <div class="hero-name">PAUL SAL<span class="kern-tight">V</span><span class="kern-tighter">A</span></div>
       <div class="hero-tagline">Senior Product Designer &amp; AI Design Strategist</div>
       <div class="hero-location">Los Angeles</div>
-      <p class="hero-desc">From experiential to enterprise. Bridging UX design, immersive media, creative production. Building AI workflows to make it all happen. Product design without borders.</p>
+      <p class="hero-desc">From experiential to enterprise. Bridging product design, immersive media, creative production. Building AI workflows to make it all happen.</p>
     </div>
 
 
   </header>
 
   <!-- DESIGN SYSTEMS -->
-  <section class="section" id="design-systems">
+  <!-- UX DESIGN -->
+  <section class="section" id="ux-design">
     <div class="section-header">
       <span class="section-number">01</span>
-      <span class="section-title">Design Systems</span>
-      <span class="section-count">2 projects</span>
+      <span class="section-title">UX Design</span>
     </div>
 
-    <div class="cases">
+    <!-- UX RESEARCH -->
+    <div class="subsection">
+      <div class="subsection-header">
+        <span class="subsection-title">UX Research</span>
+        <span class="subsection-count">Placeholder</span>
+      </div>
+      <div class="cases">
+            <div class="case-wrapper">
+    <div class="case">
+        <div class="case-meta">
+          <div class="case-tags">
+            <span class="case-tag primary">Research</span>
+            <span class="case-tag-sep">·</span>
+            <span class="case-tag">Testing</span>
+            <span class="case-tag-sep">·</span>
+            <span class="case-tag">Strategy</span>
+          </div>
+          <div class="case-title">Research Case Study Placeholder</div>
+          <div class="case-desc">Placeholder content for discovery, user interviews, usability testing, competitive analysis, and product strategy.</div>
+        </div>
+        <div class="case-right">
+          <span class="case-client">Client</span>
+          <div class="case-toggle-icon"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
+        </div>
+      </div>
+      <div class="case-drawer">
+        <div class="case-drawer-inner">
+          <div class="drawer-hero">
+            <div class="drawer-hero-placeholder"><span>Hero image — Client</span></div>
+          </div>
+          <div class="drawer-body">
+            <div class="drawer-meta">
+              <div class="drawer-meta-item">
+                <label>Role</label>
+                <p>UX Researcher</p>
+              </div>
+              <div class="drawer-meta-item">
+                <label>Year</label>
+                <p>Placeholder</p>
+              </div>
+              <div class="drawer-meta-item">
+                <label>Client</label>
+                <p>Client</p>
+              </div>
+              <div class="drawer-meta-item">
+                <label>Scope</label>
+                <p>Research · Testing · Strategy</p>
+              </div>
+            </div>
+            <div class="drawer-copy">
+              <h3>Discovery, testing, and strategic synthesis</h3>
+              <p>Placeholder — add your UX research case study content here including discovery, user interviews, usability testing, competitive analysis, and product strategy work.</p>
+              <div class="drawer-copy-cols">
+                <p>Describe your research methodology, participant recruitment, and synthesis process.</p>
+                <p>Outline the strategic recommendations and how they influenced product direction.</p>
+              </div>
+            </div>
+          </div>
+          <div class="drawer-strip-label">Process & Work</div>
+          <div class="drawer-strip">
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>Research synthesis</span></div>
+          </div>
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>Affinity mapping</span></div>
+          </div>
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>Usability testing</span></div>
+          </div>
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>Strategic report</span></div>
+          </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+
+    <!-- INFORMATION ARCHITECTURE -->
+    <div class="subsection">
+      <div class="subsection-header">
+        <span class="subsection-title">Information Architecture</span>
+        <span class="subsection-count">Placeholder</span>
+      </div>
+      <div class="cases">
+        <div class="case-wrapper">
+          <div class="case">
+            <div class="case-meta">
+              <div class="case-tags">
+                <span class="case-tag primary">IA</span>
+                <span class="case-tag-sep">·</span>
+                <span class="case-tag">Navigation</span>
+                <span class="case-tag-sep">·</span>
+                <span class="case-tag">Content Strategy</span>
+              </div>
+              <div class="case-title">Information Architecture Placeholder</div>
+              <div class="case-desc">Placeholder for IA work — sitemaps, navigation systems, content hierarchy, and taxonomy design.</div>
+            </div>
+            <div class="case-right">
+              <span class="case-client">Client</span>
+              <div class="case-toggle-icon"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
+            </div>
+          </div>
+          <div class="case-drawer">
+            <div class="case-drawer-inner">
+              <div class="drawer-hero"><div class="drawer-hero-placeholder"><span>Hero image — IA</span></div></div>
+              <div class="drawer-body">
+                <div class="drawer-meta">
+                  <div class="drawer-meta-item"><label>Role</label><p>UX Designer · IA</p></div>
+                  <div class="drawer-meta-item"><label>Year</label><p>Placeholder</p></div>
+                  <div class="drawer-meta-item"><label>Client</label><p>Client</p></div>
+                  <div class="drawer-meta-item"><label>Scope</label><p>IA · Navigation · Content Strategy</p></div>
+                </div>
+                <div class="drawer-copy">
+                  <h3>Structuring complexity into clarity</h3>
+                  <p>Placeholder — add your IA case study content here.</p>
+                  <div class="drawer-copy-cols">
+                    <p>Describe your approach to sitemap design, navigation hierarchy, and content modeling.</p>
+                    <p>Outline how the IA decisions improved findability and reduced user friction.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="drawer-strip-label">Process & Work</div>
+              <div class="drawer-strip">
+                <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Sitemap</span></div></div>
+                <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Navigation audit</span></div></div>
+                <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Card sorting</span></div></div>
+                <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Tree testing</span></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROTOTYPING -->
+    <div class="subsection">
+      <div class="subsection-header">
+        <span class="subsection-title">Prototyping</span>
+        <span class="subsection-count">Placeholder</span>
+      </div>
+      <div class="cases">
+        <div class="case-wrapper">
+          <div class="case">
+            <div class="case-meta">
+              <div class="case-tags">
+                <span class="case-tag primary">Prototyping</span>
+                <span class="case-tag-sep">·</span>
+                <span class="case-tag">Interaction Design</span>
+                <span class="case-tag-sep">·</span>
+                <span class="case-tag">Figma</span>
+              </div>
+              <div class="case-title">Prototyping Case Study Placeholder</div>
+              <div class="case-desc">Placeholder for prototyping work — high-fidelity Figma prototypes, interaction models, and usability validation.</div>
+            </div>
+            <div class="case-right">
+              <span class="case-client">Client</span>
+              <div class="case-toggle-icon"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
+            </div>
+          </div>
+          <div class="case-drawer">
+            <div class="case-drawer-inner">
+              <div class="drawer-hero"><div class="drawer-hero-placeholder"><span>Hero image — Prototyping</span></div></div>
+              <div class="drawer-body">
+                <div class="drawer-meta">
+                  <div class="drawer-meta-item"><label>Role</label><p>Interaction Designer</p></div>
+                  <div class="drawer-meta-item"><label>Year</label><p>Placeholder</p></div>
+                  <div class="drawer-meta-item"><label>Client</label><p>Client</p></div>
+                  <div class="drawer-meta-item"><label>Scope</label><p>Prototyping · Interaction Design</p></div>
+                </div>
+                <div class="drawer-copy">
+                  <h3>From wireframe to validated interaction</h3>
+                  <p>Placeholder — add your prototyping case study content here.</p>
+                  <div class="drawer-copy-cols">
+                    <p>Describe your prototyping process, fidelity decisions, and how prototypes were used in testing.</p>
+                    <p>Outline how prototype feedback directly shaped the final shipped product.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="drawer-strip-label">Process & Work</div>
+              <div class="drawer-strip">
+                <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Wireframes</span></div></div>
+                <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Hi-fi prototype</span></div></div>
+                <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Interaction flows</span></div></div>
+                <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Test results</span></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- UX STRATEGY -->
+    <div class="subsection">
+      <div class="subsection-header">
+        <span class="subsection-title">UX Strategy</span>
+        <span class="subsection-count">Placeholder</span>
+      </div>
+      <div class="cases">
+        <div class="case-wrapper">
+          <div class="case">
+            <div class="case-meta">
+              <div class="case-tags">
+                <span class="case-tag primary">UX Strategy</span>
+                <span class="case-tag-sep">·</span>
+                <span class="case-tag">Product Vision</span>
+                <span class="case-tag-sep">·</span>
+                <span class="case-tag">Roadmapping</span>
+              </div>
+              <div class="case-title">UX Strategy Placeholder</div>
+              <div class="case-desc">Placeholder for UX strategy work — product vision, experience principles, roadmapping, and cross-functional alignment.</div>
+            </div>
+            <div class="case-right">
+              <span class="case-client">Client</span>
+              <div class="case-toggle-icon"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
+            </div>
+          </div>
+          <div class="case-drawer">
+            <div class="case-drawer-inner">
+              <div class="drawer-hero"><div class="drawer-hero-placeholder"><span>Hero image — UX Strategy</span></div></div>
+              <div class="drawer-body">
+                <div class="drawer-meta">
+                  <div class="drawer-meta-item"><label>Role</label><p>UX Strategist</p></div>
+                  <div class="drawer-meta-item"><label>Year</label><p>Placeholder</p></div>
+                  <div class="drawer-meta-item"><label>Client</label><p>Client</p></div>
+                  <div class="drawer-meta-item"><label>Scope</label><p>UX Strategy · Product Vision</p></div>
+                </div>
+                <div class="drawer-copy">
+                  <h3>Aligning design with business outcomes</h3>
+                  <p>Placeholder — add your UX strategy case study content here.</p>
+                  <div class="drawer-copy-cols">
+                    <p>Describe how you developed experience principles and aligned stakeholders around a product vision.</p>
+                    <p>Outline the measurable outcomes that resulted from the strategic design decisions.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="drawer-strip-label">Process & Work</div>
+              <div class="drawer-strip">
+                <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Experience principles</span></div></div>
+                <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Product roadmap</span></div></div>
+                <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Stakeholder alignment</span></div></div>
+                <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Outcomes</span></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DESIGN SYSTEMS -->
+    <div class="subsection">
+      <div class="subsection-header">
+        <span class="subsection-title">Design Systems</span>
+        <span class="subsection-count">2 projects</span>
+      </div>
+      <div class="cases">
             <div class="case-wrapper">
     <div class="case">
         <div class="case-meta">
@@ -1031,93 +1319,14 @@
       </div>
       </div>
     </div>
-  </section>
-
-  <!-- UX RESEARCH -->
-  <section class="section" id="ux-research">
-    <div class="section-header">
-      <span class="section-number">02</span>
-      <span class="section-title">UX Research</span>
-      <span class="section-count">Placeholder</span>
     </div>
 
-    <div class="cases">
-            <div class="case-wrapper">
-    <div class="case">
-        <div class="case-meta">
-          <div class="case-tags">
-            <span class="case-tag primary">Research</span>
-            <span class="case-tag-sep">·</span>
-            <span class="case-tag">Testing</span>
-            <span class="case-tag-sep">·</span>
-            <span class="case-tag">Strategy</span>
-          </div>
-          <div class="case-title">Research Case Study Placeholder</div>
-          <div class="case-desc">Placeholder content for discovery, user interviews, usability testing, competitive analysis, and product strategy.</div>
-        </div>
-        <div class="case-right">
-          <span class="case-client">Client</span>
-          <div class="case-toggle-icon"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
-        </div>
-      </div>
-      <div class="case-drawer">
-        <div class="case-drawer-inner">
-          <div class="drawer-hero">
-            <div class="drawer-hero-placeholder"><span>Hero image — Client</span></div>
-          </div>
-          <div class="drawer-body">
-            <div class="drawer-meta">
-              <div class="drawer-meta-item">
-                <label>Role</label>
-                <p>UX Researcher</p>
-              </div>
-              <div class="drawer-meta-item">
-                <label>Year</label>
-                <p>Placeholder</p>
-              </div>
-              <div class="drawer-meta-item">
-                <label>Client</label>
-                <p>Client</p>
-              </div>
-              <div class="drawer-meta-item">
-                <label>Scope</label>
-                <p>Research · Testing · Strategy</p>
-              </div>
-            </div>
-            <div class="drawer-copy">
-              <h3>Discovery, testing, and strategic synthesis</h3>
-              <p>Placeholder — add your UX research case study content here including discovery, user interviews, usability testing, competitive analysis, and product strategy work.</p>
-              <div class="drawer-copy-cols">
-                <p>Describe your research methodology, participant recruitment, and synthesis process.</p>
-                <p>Outline the strategic recommendations and how they influenced product direction.</p>
-              </div>
-            </div>
-          </div>
-          <div class="drawer-strip-label">Process & Work</div>
-          <div class="drawer-strip">
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>Research synthesis</span></div>
-          </div>
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>Affinity mapping</span></div>
-          </div>
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>Usability testing</span></div>
-          </div>
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>Strategic report</span></div>
-          </div>
-          </div>
-        </div>
-      </div>
-      </div>
-    </div>
   </section>
 
   <!-- ENTERPRISE -->
   <section class="section" id="enterprise">
     <div class="section-header">
-      <span class="section-number">03</span>
+      <span class="section-number">02</span>
       <span class="section-title">Enterprise</span>
       <span class="section-count">1 project</span>
     </div>
@@ -1199,7 +1408,7 @@
   <!-- DATA VISUALIZATION -->
   <section class="section" id="data-viz">
     <div class="section-header">
-      <span class="section-number">04</span>
+      <span class="section-number">03</span>
       <span class="section-title">Data Visualization</span>
       <span class="section-count">Placeholder</span>
     </div>
@@ -1259,7 +1468,7 @@
   <!-- XR / Spatial -->
   <section class="section" id="arxr">
     <div class="section-header">
-      <span class="section-number">05</span>
+      <span class="section-number">04</span>
       <span class="section-title">XR / Spatial</span>
       <span class="section-count">5 projects</span>
     </div>
@@ -1617,9 +1826,67 @@
 
 
   <!-- CREATIVE -->
+  <!-- MULTIMODAL AI -->
+  <section class="section" id="multimodal-ai">
+    <div class="section-header">
+      <span class="section-number">05</span>
+      <span class="section-title">Multimodal AI</span>
+      <span class="section-count">Placeholder</span>
+    </div>
+    <div class="cases">
+      <div class="case-wrapper">
+        <div class="case">
+          <div class="case-meta">
+            <div class="case-tags">
+              <span class="case-tag primary">Multimodal AI</span>
+              <span class="case-tag-sep">·</span>
+              <span class="case-tag">Prompt Engineering</span>
+              <span class="case-tag-sep">·</span>
+              <span class="case-tag">UX Strategy</span>
+            </div>
+            <div class="case-title">Multimodal AI Experience Design</div>
+            <div class="case-desc">Placeholder for multimodal AI product design — vision, language, audio, and generative interfaces across consumer and enterprise contexts.</div>
+          </div>
+          <div class="case-right">
+            <span class="case-client">Placeholder</span>
+            <div class="case-toggle-icon"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
+          </div>
+        </div>
+        <div class="case-drawer">
+          <div class="case-drawer-inner">
+            <div class="drawer-hero"><div class="drawer-hero-placeholder"><span>Hero image — Multimodal AI</span></div></div>
+            <div class="drawer-body">
+              <div class="drawer-meta">
+                <div class="drawer-meta-item"><label>Role</label><p>AI Design Strategist · UX Designer</p></div>
+                <div class="drawer-meta-item"><label>Year</label><p>Placeholder</p></div>
+                <div class="drawer-meta-item"><label>Client</label><p>Placeholder</p></div>
+                <div class="drawer-meta-item"><label>Scope</label><p>Multimodal AI · Prompt Engineering · UX Strategy</p></div>
+              </div>
+              <div class="drawer-copy">
+                <h3>Designing at the frontier of multimodal AI</h3>
+                <p>Placeholder — add your multimodal AI design work here.</p>
+                <div class="drawer-copy-cols">
+                  <p>Describe your approach to prompt engineering, model evaluation, and translating AI capabilities into coherent user experiences.</p>
+                  <p>Outline the strategic framing — how you positioned AI features within a broader product narrative.</p>
+                </div>
+              </div>
+            </div>
+            <div class="drawer-strip-label">Process & Work</div>
+            <div class="drawer-strip">
+              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Interface design</span></div></div>
+              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Prompt systems</span></div></div>
+              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Model evaluation</span></div></div>
+              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>UX strategy</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section" id="creative">
     <div class="section-header">
-      <span class="section-number">07</span>
+      <span class="section-number">06</span>
       <span class="section-title">Creative</span>
       <span class="section-count">Placeholder</span>
     </div>
@@ -1731,7 +1998,7 @@
   <!-- RECOGNITION -->
   <section class="section" id="recognition">
     <div class="section-header">
-      <span class="section-number">08</span>
+      <span class="section-number">07</span>
       <span class="section-title">Recognition</span>
     </div>
 
