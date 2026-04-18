@@ -1,16 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="fonts-loading">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Paul Salva | Senior Product Designer & AI Design Strategist</title>
+
+  <!-- Local Syne font preload -->
+  <link rel="preload" href="/fonts/Syne-Regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="/fonts/Syne-Medium.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="/fonts/Syne-SemiBold.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="/fonts/Syne-Bold.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="/fonts/Syne-ExtraBold.ttf" as="font" type="font/ttf" crossorigin>
+
   <style>
-    @font-face { font-family: 'Syne'; src: url('fonts/Syne-Regular.ttf') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
-    @font-face { font-family: 'Syne'; src: url('fonts/Syne-Medium.ttf') format('truetype'); font-weight: 500; font-style: normal; font-display: swap; }
-    @font-face { font-family: 'Syne'; src: url('fonts/Syne-SemiBold.ttf') format('truetype'); font-weight: 600; font-style: normal; font-display: swap; }
-    @font-face { font-family: 'Syne'; src: url('fonts/Syne-Bold.ttf') format('truetype'); font-weight: 700; font-style: normal; font-display: swap; }
-    @font-face { font-family: 'Syne'; src: url('fonts/Syne-ExtraBold.ttf') format('truetype'); font-weight: 800; font-style: normal; font-display: swap; }
+    @font-face {
+      font-family: "Syne";
+      src: url("/fonts/Syne-Regular.ttf") format("truetype");
+      font-weight: 400;
+      font-style: normal;
+      font-display: block;
+    }
+
+    @font-face {
+      font-family: "Syne";
+      src: url("/fonts/Syne-Medium.ttf") format("truetype");
+      font-weight: 500;
+      font-style: normal;
+      font-display: block;
+    }
+
+    @font-face {
+      font-family: "Syne";
+      src: url("/fonts/Syne-SemiBold.ttf") format("truetype");
+      font-weight: 600;
+      font-style: normal;
+      font-display: block;
+    }
+
+    @font-face {
+      font-family: "Syne";
+      src: url("/fonts/Syne-Bold.ttf") format("truetype");
+      font-weight: 700;
+      font-style: normal;
+      font-display: block;
+    }
+
+    @font-face {
+      font-family: "Syne";
+      src: url("/fonts/Syne-ExtraBold.ttf") format("truetype");
+      font-weight: 800;
+      font-style: normal;
+      font-display: block;
+    }
+
+    html.fonts-loading body {
+      opacity: 0;
+    }
+
+    html.fonts-ready body {
+      opacity: 1;
+      transition: opacity 0.12s ease;
+    }
   </style>
+
+  <script>
+    (function () {
+      function showPage() {
+        document.documentElement.classList.remove("fonts-loading");
+        document.documentElement.classList.add("fonts-ready");
+      }
+
+      if ("fonts" in document) {
+        document.fonts.ready.then(showPage).catch(showPage);
+        setTimeout(showPage, 3000);
+      } else {
+        showPage();
+      }
+    })();
+  </script>
 
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
