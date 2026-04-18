@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap');
 
@@ -19,6 +20,7 @@
       color: #e8e6df;
       font-family: 'Syne', sans-serif;
       min-height: 100vh;
+      overflow-x: hidden;
     }
 
     /* FLOATING NAV */
@@ -441,18 +443,6 @@
 
     .footer-link:hover { color: #3d9aff; }
 
-    /* SCROLL REVEAL */
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1);
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
     @media (max-width: 720px) {
       .hero {
         grid-template-columns: 1fr;
@@ -503,13 +493,14 @@
   <!-- HERO -->
   <header class="hero">
     <div class="hero-left">
-      <div class="hero-name reveal">PAUL<br>SAL<span class="kern-tight">V</span><span class="kern-tighter">A</span></div>
-      <div class="hero-tagline reveal">Senior Product Designer &amp; AI-Integrated Design Consultant</div>
-      <p class="hero-desc reveal">
+      <div class="hero-name">PAUL<br>SAL<span class="kern-tight">V</span><span class="kern-tighter">A</span></div>
+      <div class="hero-tagline">Senior Product Designer &amp; AI-Integrated Design Consultant</div>
+      <p class="hero-desc">
         Multidisciplinary designer working across AR/XR interfaces, enterprise product design, generative AI tooling, and creative systems. Based in Los Angeles.
       </p>
     </div>
-    <div class="hero-right reveal">
+
+    <div class="hero-right">
       <div class="ticker-label">Disciplines</div>
       <div class="ticker-wrap">
         <div class="ticker-track" id="ticker">
@@ -538,13 +529,14 @@
 
   <!-- AR/XR -->
   <section class="section" id="arxr">
-    <div class="section-header reveal">
+    <div class="section-header">
       <span class="section-number">01</span>
       <span class="section-title">AR / XR</span>
       <span class="section-count">5 projects</span>
     </div>
+
     <div class="cases">
-      <a href="#" class="case reveal">
+      <a href="#" class="case">
         <div class="case-meta">
           <div class="case-tags">
             <span class="case-tag primary">AR</span>
@@ -562,7 +554,7 @@
         </div>
       </a>
 
-      <a href="#" class="case reveal">
+      <a href="#" class="case">
         <div class="case-meta">
           <div class="case-tags">
             <span class="case-tag primary">AR · 360°</span>
@@ -580,7 +572,7 @@
         </div>
       </a>
 
-      <a href="#" class="case reveal">
+      <a href="#" class="case">
         <div class="case-meta">
           <div class="case-tags">
             <span class="case-tag primary">AR · Education</span>
@@ -598,7 +590,7 @@
         </div>
       </a>
 
-      <a href="#" class="case reveal">
+      <a href="#" class="case">
         <div class="case-meta">
           <div class="case-tags">
             <span class="case-tag primary">HMD · Spatial UI</span>
@@ -614,7 +606,7 @@
         </div>
       </a>
 
-      <a href="#" class="case reveal">
+      <a href="#" class="case">
         <div class="case-meta">
           <div class="case-tags">
             <span class="case-tag primary">AR · Training</span>
@@ -636,13 +628,14 @@
 
   <!-- ENTERPRISE -->
   <section class="section" id="enterprise">
-    <div class="section-header reveal">
+    <div class="section-header">
       <span class="section-number">02</span>
       <span class="section-title">Enterprise / B2B</span>
       <span class="section-count">1 project</span>
     </div>
+
     <div class="cases">
-      <a href="#" class="case reveal">
+      <a href="#" class="case">
         <div class="case-meta">
           <div class="case-tags">
             <span class="case-tag primary">B2B · SaaS</span>
@@ -664,28 +657,32 @@
 
   <!-- AI & TOOLING -->
   <section class="section" id="ai">
-    <div class="section-header reveal">
+    <div class="section-header">
       <span class="section-number">03</span>
       <span class="section-title">AI & Creative Tooling</span>
       <span class="section-count">Coming soon</span>
     </div>
+
     <div class="ai-grid">
-      <div class="ai-card reveal">
+      <div class="ai-card">
         <div class="ai-card-type">Agentic Tool</div>
         <div class="ai-card-title">Prompt Machine 1.0</div>
         <div class="ai-card-desc">Custom prompt management interface for AI image & video generation workflows.</div>
       </div>
-      <div class="ai-card reveal">
+
+      <div class="ai-card">
         <div class="ai-card-type">Generative Video</div>
         <div class="ai-card-title">Motion & Visual Studies</div>
         <div class="ai-card-desc">Generative art and video work using Runway, Veo, Seedance, and MidJourney.</div>
       </div>
-      <div class="ai-card reveal">
+
+      <div class="ai-card">
         <div class="ai-card-type">Workflow Design</div>
         <div class="ai-card-title">Agentic Pipelines</div>
         <div class="ai-card-desc">Custom automation and multi-model workflows built for creative production.</div>
       </div>
-      <div class="ai-card reveal">
+
+      <div class="ai-card">
         <div class="ai-card-type">Vibecoded</div>
         <div class="ai-card-title">Custom Tools</div>
         <div class="ai-card-desc">Functional AI-integrated interfaces built in collaboration with LLMs.</div>
@@ -695,13 +692,14 @@
 
   <!-- DESIGN SYSTEMS -->
   <section class="section" id="ds">
-    <div class="section-header reveal">
+    <div class="section-header">
       <span class="section-number">04</span>
       <span class="section-title">Design Systems</span>
       <span class="section-count">See also</span>
     </div>
+
     <div class="cases">
-      <a href="#arxr" class="case reveal">
+      <a href="#arxr" class="case">
         <div class="case-meta">
           <div class="case-tags">
             <span class="case-tag primary">Design System</span>
@@ -717,7 +715,7 @@
         </div>
       </a>
 
-      <a href="#enterprise" class="case reveal">
+      <a href="#enterprise" class="case">
         <div class="case-meta">
           <div class="case-tags">
             <span class="case-tag primary">Design System</span>
@@ -737,26 +735,30 @@
 
   <!-- RECOGNITION -->
   <section class="section" id="recognition">
-    <div class="section-header reveal">
+    <div class="section-header">
       <span class="section-number">05</span>
       <span class="section-title">Recognition</span>
     </div>
-    <div class="rec-row reveal">
+
+    <div class="rec-row">
       <span class="rec-award">FWA Award</span>
       <span class="rec-project">Hulu | The Screamlands</span>
       <span class="rec-badge">FWA of the Day</span>
     </div>
-    <div class="rec-row reveal">
+
+    <div class="rec-row">
       <span class="rec-award">Webby Award</span>
       <span class="rec-project">Coming soon</span>
       <span class="rec-badge">Honoree</span>
     </div>
-    <div class="rec-row reveal">
+
+    <div class="rec-row">
       <span class="rec-award">Awwwards</span>
       <span class="rec-project">Coming soon</span>
       <span class="rec-badge">Nominee</span>
     </div>
-    <div class="rec-row reveal">
+
+    <div class="rec-row">
       <span class="rec-award">Promax</span>
       <span class="rec-project">Coming soon</span>
       <span class="rec-badge">Winner</span>
@@ -765,22 +767,129 @@
 
   <!-- FOOTER -->
   <footer class="footer">
-    <div class="footer-cta reveal">Let's build<br>something<br><span>precise.</span></div>
-    <div class="footer-links reveal">
+    <div class="footer-cta">Let's build<br>something<br><span>precise.</span></div>
+
+    <div class="footer-links">
       <a href="mailto:hello@paulsalva.work" class="footer-link">Contact</a>
       <a href="#" class="footer-link">LinkedIn</a>
       <a href="#" class="footer-link">Resume</a>
     </div>
   </footer>
 
+  <!-- GSAP -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+
   <script>
-    // TICKER HIGHLIGHT
-    const track = document.getElementById('ticker');
+    gsap.registerPlugin(ScrollTrigger);
+
+    /* HERO ENTRANCE */
+    gsap.from(".nav", {
+      opacity: 0,
+      y: -16,
+      duration: 0.8,
+      ease: "power3.out"
+    });
+
+    gsap.from(".hero-left > *", {
+      opacity: 0,
+      y: 28,
+      duration: 0.9,
+      stagger: 0.12,
+      ease: "power3.out"
+    });
+
+    gsap.from(".hero-right", {
+      opacity: 0,
+      x: 28,
+      duration: 0.9,
+      delay: 0.2,
+      ease: "power3.out"
+    });
+
+    /* SECTION HEADERS */
+    gsap.utils.toArray(".section-header").forEach((header) => {
+      gsap.from(header.children, {
+        scrollTrigger: {
+          trigger: header,
+          start: "top 82%",
+          toggleActions: "play none none reverse"
+        },
+        opacity: 0,
+        y: 24,
+        duration: 0.7,
+        stagger: 0.08,
+        ease: "power3.out"
+      });
+    });
+
+    /* CASE STUDY ROWS */
+    gsap.utils.toArray(".cases").forEach((group) => {
+      const rows = group.querySelectorAll(".case");
+
+      gsap.from(rows, {
+        scrollTrigger: {
+          trigger: group,
+          start: "top 78%",
+          toggleActions: "play none none reverse"
+        },
+        opacity: 0,
+        y: 36,
+        duration: 0.75,
+        stagger: 0.08,
+        ease: "power3.out"
+      });
+    });
+
+    /* AI CARDS */
+    gsap.from(".ai-card", {
+      scrollTrigger: {
+        trigger: ".ai-grid",
+        start: "top 78%",
+        toggleActions: "play none none reverse"
+      },
+      opacity: 0,
+      y: 32,
+      duration: 0.75,
+      stagger: 0.08,
+      ease: "power3.out"
+    });
+
+    /* RECOGNITION ROWS */
+    gsap.from(".rec-row", {
+      scrollTrigger: {
+        trigger: "#recognition",
+        start: "top 75%",
+        toggleActions: "play none none reverse"
+      },
+      opacity: 0,
+      y: 24,
+      duration: 0.7,
+      stagger: 0.08,
+      ease: "power3.out"
+    });
+
+    /* FOOTER */
+    gsap.from(".footer > *", {
+      scrollTrigger: {
+        trigger: ".footer",
+        start: "top 85%",
+        toggleActions: "play none none reverse"
+      },
+      opacity: 0,
+      y: 28,
+      duration: 0.8,
+      stagger: 0.12,
+      ease: "power3.out"
+    });
+
+    /* TICKER HIGHLIGHT */
+    const track = document.getElementById("ticker");
     const wrap = track.parentElement;
 
     function updateLit() {
       const wrapMid = wrap.getBoundingClientRect().top + wrap.offsetHeight / 2;
-      const items = track.querySelectorAll('.ticker-item');
+      const items = track.querySelectorAll(".ticker-item");
       let closest = null;
       let closestDist = Infinity;
 
@@ -795,48 +904,34 @@
         }
       });
 
-      items.forEach(i => i.classList.remove('lit'));
+      items.forEach(i => i.classList.remove("lit"));
 
       if (closest) {
-        closest.classList.add('lit');
+        closest.classList.add("lit");
       }
     }
 
     setInterval(updateLit, 60);
     updateLit();
 
-    const sections = document.querySelectorAll('section[id]');
-    const pills = document.querySelectorAll('.nav-pill');
+    /* ACTIVE NAV */
+    const sections = document.querySelectorAll("section[id]");
+    const pills = document.querySelectorAll(".nav-pill");
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          pills.forEach(p => p.classList.remove('active'));
+          pills.forEach(p => p.classList.remove("active"));
           const active = document.querySelector(`.nav-pill[href="#${entry.target.id}"]`);
 
           if (active) {
-            active.classList.add('active');
+            active.classList.add("active");
           }
         }
       });
     }, { threshold: 0.3 });
 
     sections.forEach(s => observer.observe(s));
-
-    // SCROLL REVEAL
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          setTimeout(() => {
-            entry.target.classList.add('visible');
-          }, 60);
-
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
   </script>
 
 </body>
