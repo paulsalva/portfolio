@@ -2840,9 +2840,15 @@
       const panel = document.getElementById('cd-drawer-' + index);
       if (!panel) return;
 
-      // Close other row's drawer
+      // Kill and instantly close other row
       const otherRow = row === 'a' ? 'b' : 'a';
-      if (cdRows[otherRow].active !== null) closeCdRow(otherRow, false);
+      const other = cdRows[otherRow];
+      gsap.killTweensOf(other.drawer);
+      gsap.killTweensOf(other.inner);
+      gsap.set(other.drawer, { height: 0, clearProps: 'height' });
+      gsap.set(other.inner, { opacity: 0 });
+      other.active = null;
+      document.querySelectorAll('#cd-row-' + otherRow + ' .ai-vert-card').forEach(c => c.classList.remove('is-open'));
 
       // Toggle same card
       if (r.active === index) { closeCdRow(row); return; }
