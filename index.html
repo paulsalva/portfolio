@@ -372,6 +372,30 @@
       .ai-card-grid { grid-template-columns: 1fr; }
     }
 
+
+    .ai-full-drawer {
+      overflow: hidden;
+      height: 0;
+      will-change: height;
+      margin-top: 16px;
+    }
+
+    .ai-full-drawer-inner {
+      opacity: 0;
+      padding-bottom: 48px;
+      border: 0.5px solid rgba(255,255,255,0.07);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .ai-drawer-content {
+      display: none;
+    }
+
+    .ai-drawer-content.active {
+      display: block;
+    }
+
     /* SUBSECTIONS */
     .subsection {
       margin-bottom: 56px;
@@ -1495,10 +1519,10 @@
       <span class="section-title">Multimodal AI</span>
     </div>
 
-    <div class="ai-card-grid">
+    <div class="ai-card-grid" id="ai-card-grid">
 
       <div class="ai-vert-wrapper">
-        <div class="ai-vert-card" data-index="0">
+        <div class="ai-vert-card" data-index="0" data-title="Generative AI">
           <div class="ai-vert-card-inner">
             <div class="ai-vert-number">01</div>
             <div class="ai-vert-title">Generative AI</div>
@@ -1509,37 +1533,10 @@
             </div>
           </div>
         </div>
-        <div class="ai-vert-drawer">
-          <div class="ai-vert-drawer-inner">
-            <div class="drawer-hero"><div class="drawer-hero-placeholder"><span>Hero image — Generative AI</span></div></div>
-            <div class="drawer-body">
-              <div class="drawer-meta">
-                <div class="drawer-meta-item"><label>Role</label><p>AI Design Strategist</p></div>
-                <div class="drawer-meta-item"><label>Scope</label><p>Generative AI · Interface Design · Workflow</p></div>
-                <div class="drawer-meta-item"><label>Tools</label><p>Runway · Veo · MidJourney · Suno · ElevenLabs</p></div>
-              </div>
-              <div class="drawer-copy">
-                <h3>Designing on top of foundation models</h3>
-                <p>Placeholder — add your generative AI design work here. This could include AI-powered interfaces, generative media workflows, or product strategy for AI-native features.</p>
-                <div class="drawer-copy-cols">
-                  <p>Describe your approach to designing interfaces that expose generative AI capabilities without overwhelming users.</p>
-                  <p>Outline specific workflows or pipelines you designed and the creative or business outcomes they enabled.</p>
-                </div>
-              </div>
-            </div>
-            <div class="drawer-strip-label">Work & Process</div>
-            <div class="drawer-strip">
-              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Generative video</span></div></div>
-              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>AI interface design</span></div></div>
-              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Prompt systems</span></div></div>
-              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Output samples</span></div></div>
-            </div>
-          </div>
-        </div>
       </div>
 
       <div class="ai-vert-wrapper">
-        <div class="ai-vert-card" data-index="1">
+        <div class="ai-vert-card" data-index="1" data-title="Multimodal Pipelines">
           <div class="ai-vert-card-inner">
             <div class="ai-vert-number">02</div>
             <div class="ai-vert-title">Multimodal Pipelines</div>
@@ -1550,37 +1547,10 @@
             </div>
           </div>
         </div>
-        <div class="ai-vert-drawer">
-          <div class="ai-vert-drawer-inner">
-            <div class="drawer-hero"><div class="drawer-hero-placeholder"><span>Hero image — Multimodal Pipelines</span></div></div>
-            <div class="drawer-body">
-              <div class="drawer-meta">
-                <div class="drawer-meta-item"><label>Role</label><p>AI Design Strategist · Pipeline Architect</p></div>
-                <div class="drawer-meta-item"><label>Scope</label><p>Multimodal · Pipeline Design · Integration</p></div>
-                <div class="drawer-meta-item"><label>Tools</label><p>Claude · Gemini · MCP Servers · Automation</p></div>
-              </div>
-              <div class="drawer-copy">
-                <h3>Chaining models to build something new</h3>
-                <p>Placeholder — add your multimodal pipeline work here. This could include multi-model chains, API integrations, or production workflows that combine vision, language, and generative AI.</p>
-                <div class="drawer-copy-cols">
-                  <p>Describe the pipeline architecture — which models, how they connect, and what design decisions governed the flow.</p>
-                  <p>Outline the output: what the pipeline produces, how fast, and how it changed the production process.</p>
-                </div>
-              </div>
-            </div>
-            <div class="drawer-strip-label">Work & Process</div>
-            <div class="drawer-strip">
-              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Pipeline diagram</span></div></div>
-              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Model integration</span></div></div>
-              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Output examples</span></div></div>
-              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Workflow UI</span></div></div>
-            </div>
-          </div>
-        </div>
       </div>
 
       <div class="ai-vert-wrapper">
-        <div class="ai-vert-card" data-index="2">
+        <div class="ai-vert-card" data-index="2" data-title="Agentic Automation">
           <div class="ai-vert-card-inner">
             <div class="ai-vert-number">03</div>
             <div class="ai-vert-title">Agentic Automation</div>
@@ -1591,35 +1561,93 @@
             </div>
           </div>
         </div>
-        <div class="ai-vert-drawer">
-          <div class="ai-vert-drawer-inner">
-            <div class="drawer-hero"><div class="drawer-hero-placeholder"><span>Hero image — Agentic Automation</span></div></div>
-            <div class="drawer-body">
-              <div class="drawer-meta">
-                <div class="drawer-meta-item"><label>Role</label><p>AI Design Strategist · Builder</p></div>
-                <div class="drawer-meta-item"><label>Scope</label><p>Agentic AI · Automation · Vibecoding</p></div>
-                <div class="drawer-meta-item"><label>Tools</label><p>Claude · MCP · Prompt Machine · Browser Automation</p></div>
-              </div>
-              <div class="drawer-copy">
-                <h3>Building AI that acts, not just responds</h3>
-                <p>Placeholder — add your agentic automation work here. This could include custom tools, MCP server integrations, vibecoded interfaces, or autonomous workflow systems.</p>
-                <div class="drawer-copy-cols">
-                  <p>Describe the agentic system — what it does autonomously, how it was designed, and what guardrails and UX decisions shaped its behavior.</p>
-                  <p>Outline the time or effort saved, and what it unlocked for creative or product workflows.</p>
-                </div>
-              </div>
-            </div>
-            <div class="drawer-strip-label">Work & Process</div>
-            <div class="drawer-strip">
-              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Prompt Machine UI</span></div></div>
-              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Agentic flow</span></div></div>
-              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>MCP integration</span></div></div>
-              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Automation output</span></div></div>
-            </div>
-          </div>
-        </div>
       </div>
 
+    </div>
+
+    <!-- SHARED FULL-WIDTH DRAWER -->
+    <div class="ai-full-drawer" id="ai-full-drawer">
+      <div class="ai-full-drawer-inner" id="ai-full-drawer-inner">
+
+        <div class="ai-drawer-content" id="ai-drawer-0" style="display:none">
+          <div class="drawer-hero"><div class="drawer-hero-placeholder"><span>Hero image — Generative AI</span></div></div>
+          <div class="drawer-body">
+            <div class="drawer-meta">
+              <div class="drawer-meta-item"><label>Role</label><p>AI Design Strategist</p></div>
+              <div class="drawer-meta-item"><label>Scope</label><p>Generative AI · Interface Design · Workflow</p></div>
+              <div class="drawer-meta-item"><label>Tools</label><p>Runway · Veo · MidJourney · Suno · ElevenLabs</p></div>
+            </div>
+            <div class="drawer-copy">
+              <h3>Designing on top of foundation models</h3>
+              <p>Placeholder — add your generative AI design work here.</p>
+              <div class="drawer-copy-cols">
+                <p>Describe your approach to designing interfaces that expose generative AI capabilities without overwhelming users.</p>
+                <p>Outline specific workflows or pipelines you designed and the creative or business outcomes they enabled.</p>
+              </div>
+            </div>
+          </div>
+          <div class="drawer-strip-label">Work & Process</div>
+          <div class="drawer-strip">
+            <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Generative video</span></div></div>
+            <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>AI interface design</span></div></div>
+            <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Prompt systems</span></div></div>
+            <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Output samples</span></div></div>
+          </div>
+        </div>
+
+        <div class="ai-drawer-content" id="ai-drawer-1" style="display:none">
+          <div class="drawer-hero"><div class="drawer-hero-placeholder"><span>Hero image — Multimodal Pipelines</span></div></div>
+          <div class="drawer-body">
+            <div class="drawer-meta">
+              <div class="drawer-meta-item"><label>Role</label><p>AI Design Strategist · Pipeline Architect</p></div>
+              <div class="drawer-meta-item"><label>Scope</label><p>Multimodal · Pipeline Design · Integration</p></div>
+              <div class="drawer-meta-item"><label>Tools</label><p>Claude · Gemini · MCP Servers · Automation</p></div>
+            </div>
+            <div class="drawer-copy">
+              <h3>Chaining models to build something new</h3>
+              <p>Placeholder — add your multimodal pipeline work here.</p>
+              <div class="drawer-copy-cols">
+                <p>Describe the pipeline architecture — which models, how they connect, and what design decisions governed the flow.</p>
+                <p>Outline the output: what the pipeline produces, how fast, and how it changed the production process.</p>
+              </div>
+            </div>
+          </div>
+          <div class="drawer-strip-label">Work & Process</div>
+          <div class="drawer-strip">
+            <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Pipeline diagram</span></div></div>
+            <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Model integration</span></div></div>
+            <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Output examples</span></div></div>
+            <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Workflow UI</span></div></div>
+          </div>
+        </div>
+
+        <div class="ai-drawer-content" id="ai-drawer-2" style="display:none">
+          <div class="drawer-hero"><div class="drawer-hero-placeholder"><span>Hero image — Agentic Automation</span></div></div>
+          <div class="drawer-body">
+            <div class="drawer-meta">
+              <div class="drawer-meta-item"><label>Role</label><p>AI Design Strategist · Builder</p></div>
+              <div class="drawer-meta-item"><label>Scope</label><p>Agentic AI · Automation · Vibecoding</p></div>
+              <div class="drawer-meta-item"><label>Tools</label><p>Claude · MCP · Prompt Machine · Browser Automation</p></div>
+            </div>
+            <div class="drawer-copy">
+              <h3>Building AI that acts, not just responds</h3>
+              <p>Placeholder — add your agentic automation work here.</p>
+              <div class="drawer-copy-cols">
+                <p>Describe the agentic system — what it does autonomously, how it was designed, and what guardrails shaped its behavior.</p>
+                <p>Outline the time or effort saved, and what it unlocked for creative or product workflows.</p>
+              </div>
+            </div>
+          </div>
+          <div class="drawer-strip-label">Work & Process</div>
+          <div class="drawer-strip">
+            <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Prompt Machine UI</span></div></div>
+            <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Agentic flow</span></div></div>
+            <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>MCP integration</span></div></div>
+            <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Automation output</span></div></div>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
 
@@ -2579,67 +2607,90 @@
 
 
     /* MULTIMODAL AI VERTICAL CARD DRAWERS */
-    let activeAiDrawer = null;
-    let activeAiCard = null;
+    const aiFullDrawer = document.getElementById('ai-full-drawer');
+    const aiFullInner  = document.getElementById('ai-full-drawer-inner');
+    let activeAiIndex  = null;
 
-    function openAiDrawer(wrapper) {
-      const card = wrapper.querySelector('.ai-vert-card');
-      const drawer = wrapper.querySelector('.ai-vert-drawer');
-      const inner = wrapper.querySelector('.ai-vert-drawer-inner');
+    function openAiPanel(index) {
+      // Hide all content panels, show the right one
+      document.querySelectorAll('.ai-drawer-content').forEach(el => el.classList.remove('active'));
+      document.getElementById('ai-drawer-' + index).classList.add('active');
 
-      if (activeAiDrawer && activeAiDrawer !== drawer) {
-        closeAiDrawer(activeAiDrawer.closest('.ai-vert-wrapper'), false);
+      const inner = aiFullInner;
+      const panel = document.getElementById('ai-drawer-' + index);
+
+      if (activeAiIndex === index) {
+        // Same card — close
+        closeAiPanel();
+        return;
       }
 
-      card.classList.add('is-open');
-      activeAiDrawer = drawer;
-      activeAiCard = card;
+      activeAiIndex = index;
 
-      gsap.set(drawer, { height: 'auto' });
-      const fullH = drawer.offsetHeight;
-      gsap.set(drawer, { height: 0 });
+      // Mark active card
+      document.querySelectorAll('.ai-vert-card').forEach((c, i) => {
+        c.classList.toggle('is-open', i === index);
+      });
+
+      if (parseFloat(getComputedStyle(aiFullDrawer).height) > 0) {
+        // Drawer already open — just swap content
+        gsap.to(inner, { opacity: 0, duration: 0.15, onComplete: () => {
+          gsap.to(inner, { opacity: 1, duration: 0.35, ease: 'power2.out' });
+          animateDrawerContent(panel);
+        }});
+        return;
+      }
+
+      // Open drawer
+      gsap.set(aiFullDrawer, { height: 'auto' });
+      const fullH = aiFullDrawer.offsetHeight;
+      gsap.set(aiFullDrawer, { height: 0 });
 
       const tl = gsap.timeline();
-
-      tl.to(drawer, { height: fullH, duration: 0.7, ease: 'power3.inOut' });
+      tl.to(aiFullDrawer, { height: fullH, duration: 0.7, ease: 'power3.inOut' });
       tl.to(inner, { opacity: 1, duration: 0.35, ease: 'power2.out' }, '-=0.25');
-      tl.from(inner.querySelector('.drawer-hero'), { y: 20, opacity: 0, duration: 0.5, ease: 'power3.out' }, '-=0.2');
-      tl.from(inner.querySelectorAll('.drawer-meta-item'), { y: 14, opacity: 0, duration: 0.45, stagger: 0.07, ease: 'power3.out' }, '-=0.35');
-      tl.from(inner.querySelectorAll('.drawer-copy > *'), { y: 14, opacity: 0, duration: 0.45, stagger: 0.07, ease: 'power3.out' }, '-=0.4');
-      tl.from(inner.querySelectorAll('.drawer-strip-img'), { x: 24, opacity: 0, duration: 0.4, stagger: 0.06, ease: 'power3.out' }, '-=0.25');
+      tl.add(() => animateDrawerContent(panel), '-=0.2');
 
-      setTimeout(() => wrapper.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 80);
+      setTimeout(() => {
+        aiFullDrawer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 200);
 
-      const strip = inner.querySelector('.drawer-strip');
+      const strip = panel.querySelector('.drawer-strip');
       if (strip) initDragStrip(strip);
     }
 
-    function closeAiDrawer(wrapper, animate = true) {
-      const card = wrapper.querySelector('.ai-vert-card');
-      const drawer = wrapper.querySelector('.ai-vert-drawer');
-      const inner = wrapper.querySelector('.ai-vert-drawer-inner');
+    function animateDrawerContent(panel) {
+      const hero = panel.querySelector('.drawer-hero');
+      const metas = panel.querySelectorAll('.drawer-meta-item');
+      const copies = panel.querySelectorAll('.drawer-copy > *');
+      const strips = panel.querySelectorAll('.drawer-strip-img');
 
-      card.classList.remove('is-open');
+      if (hero) gsap.from(hero, { y: 20, opacity: 0, duration: 0.5, ease: 'power3.out' });
+      if (metas.length) gsap.from(metas, { y: 14, opacity: 0, duration: 0.45, stagger: 0.07, ease: 'power3.out', delay: 0.1 });
+      if (copies.length) gsap.from(copies, { y: 14, opacity: 0, duration: 0.45, stagger: 0.07, ease: 'power3.out', delay: 0.15 });
+      if (strips.length) gsap.from(strips, { x: 24, opacity: 0, duration: 0.4, stagger: 0.06, ease: 'power3.out', delay: 0.25 });
+    }
+
+    function closeAiPanel(animate = true) {
+      document.querySelectorAll('.ai-vert-card').forEach(c => c.classList.remove('is-open'));
+      activeAiIndex = null;
 
       if (animate) {
-        gsap.to(inner, { opacity: 0, duration: 0.2, ease: 'power2.in' });
-        gsap.to(drawer, { height: 0, duration: 0.5, ease: 'power3.inOut', delay: 0.1 });
+        gsap.to(aiFullInner, { opacity: 0, duration: 0.2, ease: 'power2.in' });
+        gsap.to(aiFullDrawer, { height: 0, duration: 0.5, ease: 'power3.inOut', delay: 0.1,
+          onComplete: () => {
+            document.querySelectorAll('.ai-drawer-content').forEach(el => el.classList.remove('active'));
+          }
+        });
       } else {
-        gsap.set(inner, { opacity: 0 });
-        gsap.set(drawer, { height: 0 });
-      }
-
-      if (activeAiDrawer === drawer) {
-        activeAiDrawer = null;
-        activeAiCard = null;
+        gsap.set(aiFullInner, { opacity: 0 });
+        gsap.set(aiFullDrawer, { height: 0 });
+        document.querySelectorAll('.ai-drawer-content').forEach(el => el.classList.remove('active'));
       }
     }
 
-    document.querySelectorAll('.ai-vert-wrapper').forEach(wrapper => {
-      const card = wrapper.querySelector('.ai-vert-card');
-      card.addEventListener('click', () => {
-        card.classList.contains('is-open') ? closeAiDrawer(wrapper) : openAiDrawer(wrapper);
-      });
+    document.querySelectorAll('.ai-vert-card').forEach((card, index) => {
+      card.addEventListener('click', () => openAiPanel(index));
     });
 
     /* CREATIVE CARD DRAWERS */
