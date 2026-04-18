@@ -870,15 +870,15 @@
     /* SCROLL-REACTIVE CLIENT NAMES */
     const clientNames = gsap.utils.toArray(".case-client");
 
-function getMaxClientSize() {
-  if (window.innerWidth <= 640) return 20;
-  if (window.innerWidth <= 900) return 28;
-  return Math.min(38, window.innerWidth * 0.026);
-}
+    function getMaxClientSize() {
+      if (window.innerWidth <= 640) return 16;
+      if (window.innerWidth <= 900) return 20;
+      return 26;
+    }
 
     function updateClientNames() {
       const viewportCenter = window.innerHeight * 0.5;
-      const activationRange = window.innerHeight * 0.38;
+      const activationRange = window.innerHeight * 0.3;
       const maxSize = getMaxClientSize();
 
       clientNames.forEach((client) => {
@@ -886,21 +886,19 @@ function getMaxClientSize() {
         const rect = caseRow.getBoundingClientRect();
         const rowCenter = rect.top + rect.height * 0.5;
         const distance = Math.abs(rowCenter - viewportCenter);
+
         const rawStrength = 1 - Math.min(distance / activationRange, 1);
         const strength = rawStrength * rawStrength * (3 - 2 * rawStrength);
 
         const fontSize = 11 + (maxSize - 11) * strength;
-        const y = 28 * strength;
-        const inactiveOpacity = 0.25;
-        const activeOpacity = 1;
-        const opacity = inactiveOpacity + (activeOpacity - inactiveOpacity) * strength;
-        const colorValue = Math.round(64 + (232 - 64) * strength);
+        const y = 10 * strength;
+        const opacity = 0.25 + 0.75 * strength;
 
         gsap.set(client, {
           fontSize: fontSize + "px",
           y: y,
           opacity: opacity,
-          color: `rgba(${colorValue}, ${colorValue}, ${colorValue}, ${opacity})`
+          color: `rgba(232, 230, 223, ${opacity})`
         });
       });
     }
