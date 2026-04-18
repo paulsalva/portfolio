@@ -110,12 +110,33 @@
       display: block;
     }
 
+    .hs-label {
+      font-size: clamp(11px, 1vw, 13px);
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      -webkit-text-fill-color: transparent;
+      -webkit-text-stroke: 1px transparent;
+      background: linear-gradient(90deg, #3d9aff, #a78bfa, #2dd4bf, #3d9aff);
+      background-size: 300% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      animation: gradientShift 5s linear infinite;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    @keyframes gradientShift {
+      0%   { background-position: 0% center; }
+      100% { background-position: 300% center; }
+    }
+
     .hs-large {
-      font-size: clamp(28px, 3.8vw, 52px);
-      font-weight: 800;
-      letter-spacing: -0.03em;
+      font-size: clamp(24px, 3.2vw, 44px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
       color: #e8e6df;
-      line-height: 1.05;
+      line-height: 1.1;
     }
 
     .hs-medium {
@@ -822,10 +843,10 @@
       <a href="#ux-research" class="nav-pill">UX Research</a>
       <a href="#enterprise" class="nav-pill">Enterprise</a>
       <a href="#data-viz" class="nav-pill">Data Viz</a>
-      <a href="#arxr" class="nav-pill">AR / XR</a>
+      <a href="#arxr" class="nav-pill">XR / Spatial</a>
       <a href="#multimodal-ai" class="nav-pill">Multimodal AI</a>
       <a href="#mobile" class="nav-pill">Mobile</a>
-      <a href="#creative-design" class="nav-pill">Creative Design</a>
+      <a href="#creative" class="nav-pill">Creative</a>
       <a href="#recognition" class="nav-pill">Recognition</a>
     </div>
   </nav>
@@ -839,12 +860,11 @@
 
     <div class="hero-right">
       <div class="hero-statement">
-        <div class="hs-line hs-large" data-delay="0">Product design</div>
-        <div class="hs-line hs-large" data-delay="120">without borders.</div>
-        <div class="hs-line hs-medium" data-delay="260">AR/XR, enterprise, mobile,</div>
-        <div class="hs-line hs-medium" data-delay="340">data, creative.</div>
-        <div class="hs-line hs-small" data-delay="500">Building the AI pipelines and workflows</div>
-        <div class="hs-line hs-small" data-delay="580">that make it all move faster.</div>
+        <div class="hs-line hs-label" data-delay="0">Product design without borders.</div>
+        <div class="hs-line hs-large" data-delay="140">XR / Spatial, enterprise,</div>
+        <div class="hs-line hs-large" data-delay="240">mobile, data, creative.</div>
+        <div class="hs-line hs-small" data-delay="420">Building the AI pipelines and workflows</div>
+        <div class="hs-line hs-small" data-delay="500">that make it all move faster.</div>
       </div>
     </div>
   </header>
@@ -867,7 +887,7 @@
             <span class="case-tag">AR · UX Research</span>
           </div>
           <div class="case-title">Verizon Portal | System & Experience</div>
-          <div class="case-desc">Design system maintenance alongside the immersive 360° Portal experience. See full case study in AR/XR.</div>
+          <div class="case-desc">Design system maintenance alongside the immersive 360° Portal experience. See full case study in XR / Spatial.</div>
         </div>
         <div class="case-right">
           <span class="case-client">Verizon</span>
@@ -1219,11 +1239,11 @@
     </div>
   </section>
 
-  <!-- AR/XR -->
+  <!-- XR / Spatial -->
   <section class="section" id="arxr">
     <div class="section-header">
       <span class="section-number">05</span>
-      <span class="section-title">AR / XR</span>
+      <span class="section-title">XR / Spatial</span>
       <span class="section-count">5 projects</span>
     </div>
 
@@ -1701,10 +1721,10 @@
   </section>
 
   <!-- CREATIVE -->
-  <section class="section" id="creative-design">
+  <section class="section" id="creative">
     <div class="section-header">
       <span class="section-number">08</span>
-      <span class="section-title">Creative Design</span>
+      <span class="section-title">Creative</span>
       <span class="section-count">Placeholder</span>
     </div>
 
