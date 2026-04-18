@@ -870,11 +870,11 @@
     /* SCROLL-REACTIVE CLIENT NAMES */
     const clientNames = gsap.utils.toArray(".case-client");
 
-    function getMaxClientSize() {
-      if (window.innerWidth <= 640) return 28;
-      if (window.innerWidth <= 900) return 38;
-      return Math.min(76, window.innerWidth * 0.045);
-    }
+function getMaxClientSize() {
+  if (window.innerWidth <= 640) return 20;
+  if (window.innerWidth <= 900) return 28;
+  return Math.min(38, window.innerWidth * 0.026);
+}
 
     function updateClientNames() {
       const viewportCenter = window.innerHeight * 0.5;
