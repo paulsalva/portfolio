@@ -203,6 +203,160 @@
       margin-bottom: 40px;
     }
 
+
+    /* DATA VISUALIZATION */
+    .dataviz-intro {
+      margin-bottom: 32px;
+    }
+    .dataviz-intro p {
+      font-size: 13px;
+      color: rgba(232,230,223,0.35);
+      letter-spacing: 0.02em;
+    }
+    .dataviz-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 12px;
+    }
+    .dv-card {
+      background: #111;
+      border: 0.5px solid rgba(255,255,255,0.07);
+      border-radius: 8px;
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .dv-wide {
+      grid-column: span 2;
+    }
+    .dv-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .dv-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+    .dv-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(232,230,223,0.3);
+      margin-bottom: 4px;
+    }
+    .dv-value {
+      font-size: 22px;
+      font-weight: 700;
+      color: #e8e6df;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .dv-value-sm {
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(232,230,223,0.4);
+    }
+    .dv-delta {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0;
+    }
+    .dv-up { color: #4ade80; }
+    .dv-down { color: #f87171; }
+    .dv-timerange {
+      display: flex;
+      gap: 4px;
+    }
+    .dv-btn {
+      font-family: 'Syne', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      background: transparent;
+      border: 0.5px solid rgba(255,255,255,0.1);
+      border-radius: 4px;
+      color: rgba(232,230,223,0.35);
+      padding: 4px 8px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .dv-btn.active, .dv-btn:hover {
+      background: rgba(61,154,255,0.12);
+      border-color: #3d9aff;
+      color: #3d9aff;
+    }
+    .donut-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      margin-top: 12px;
+    }
+    .donut-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: rgba(232,230,223,0.5);
+    }
+    .donut-legend-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .gauge-label {
+      font-size: 36px;
+      font-weight: 800;
+      color: #e8e6df;
+      letter-spacing: -0.03em;
+      text-align: center;
+      margin-top: -8px;
+    }
+    .gauge-label span {
+      font-size: 16px;
+      font-weight: 400;
+      color: rgba(232,230,223,0.3);
+    }
+    .gauge-sub {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #3d9aff;
+      text-align: center;
+      margin-top: 4px;
+    }
+    .dv-tooltip {
+      position: fixed;
+      background: #1a1a1a;
+      border: 0.5px solid rgba(255,255,255,0.12);
+      border-radius: 6px;
+      padding: 8px 12px;
+      font-size: 12px;
+      color: #e8e6df;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.15s;
+      z-index: 200;
+      white-space: nowrap;
+    }
+    .dv-tooltip.visible { opacity: 1; }
+    @media (max-width: 900px) {
+      .dataviz-grid { grid-template-columns: 1fr 1fr; }
+      .dv-wide { grid-column: span 2; }
+    }
+    @media (max-width: 600px) {
+      .dataviz-grid { grid-template-columns: 1fr; }
+      .dv-wide { grid-column: span 1; }
+    }
+
     /* SECTION */
     .section {
       padding: 80px 48px;
@@ -241,7 +395,8 @@
     /* CASE STUDY ROWS */
     .cases {
       display: grid;
-      gap: 0;
+      gap: 1px;
+      background: rgba(255,255,255,0.06);
     }
 
     .case {
@@ -343,207 +498,6 @@
       transform: translateY(-0.02em);
     }
 
-    /* CASE DRAWER */
-    .case-wrapper {
-      position: relative;
-      background: #0d0d0d;
-    }
-
-    .case-wrapper + .case-wrapper {
-      border-top: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .case.is-open {
-      background: #111;
-    }
-
-    .case-toggle-icon {
-      width: 28px;
-      height: 28px;
-      border: 0.5px solid rgba(255,255,255,0.12);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      transition: border-color 0.2s, background 0.2s;
-    }
-
-    .case.is-open .case-toggle-icon {
-      border-color: #3d9aff;
-      background: rgba(61,154,255,0.08);
-    }
-
-    .case-toggle-icon svg {
-      width: 12px;
-      height: 12px;
-      stroke: rgba(232,230,223,0.4);
-      transition: stroke 0.2s, transform 0.4s cubic-bezier(0.16,1,0.3,1);
-    }
-
-    .case.is-open .case-toggle-icon svg {
-      stroke: #3d9aff;
-      transform: rotate(45deg);
-    }
-
-    .case-drawer {
-      overflow: hidden;
-      height: 0;
-      will-change: height;
-    }
-
-    .case-drawer-inner {
-      padding: 0 0 60px;
-      opacity: 0;
-    }
-
-    .drawer-hero {
-      width: 100%;
-      height: 420px;
-      background: #1a1a1a;
-      overflow: hidden;
-      position: relative;
-      margin-bottom: 48px;
-    }
-
-    .drawer-hero img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.85;
-    }
-
-    .drawer-hero-placeholder {
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, #151515 0%, #1e1e1e 50%, #131313 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .drawer-hero-placeholder span {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: rgba(232,230,223,0.15);
-    }
-
-    .drawer-body {
-      display: grid;
-      grid-template-columns: 260px 1fr;
-      gap: 60px;
-      margin-bottom: 56px;
-    }
-
-    .drawer-meta {
-      display: flex;
-      flex-direction: column;
-      gap: 28px;
-    }
-
-    .drawer-meta-item label {
-      display: block;
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: rgba(232,230,223,0.25);
-      margin-bottom: 6px;
-    }
-
-    .drawer-meta-item p {
-      font-size: 13px;
-      font-weight: 500;
-      color: rgba(232,230,223,0.7);
-      line-height: 1.5;
-    }
-
-    .drawer-copy h3 {
-      font-size: 22px;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: #e8e6df;
-      line-height: 1.2;
-      margin-bottom: 16px;
-    }
-
-    .drawer-copy p {
-      font-size: 15px;
-      font-weight: 400;
-      line-height: 1.75;
-      color: rgba(232,230,223,0.55);
-      margin-bottom: 12px;
-    }
-
-    .drawer-copy-cols {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
-      margin-top: 24px;
-    }
-
-    .drawer-copy-cols p {
-      font-size: 14px;
-      line-height: 1.7;
-      color: rgba(232,230,223,0.4);
-    }
-
-    .drawer-strip-label {
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: rgba(232,230,223,0.2);
-      margin-bottom: 16px;
-    }
-
-    .drawer-strip {
-      display: flex;
-      gap: 12px;
-      overflow-x: auto;
-      cursor: grab;
-      user-select: none;
-      padding-bottom: 12px;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-    }
-
-    .drawer-strip::-webkit-scrollbar { display: none; }
-    .drawer-strip.is-dragging { cursor: grabbing; }
-
-    .drawer-strip-img {
-      flex-shrink: 0;
-      width: 320px;
-      height: 200px;
-      background: #1a1a1a;
-      overflow: hidden;
-      border-radius: 4px;
-    }
-
-    .drawer-strip-placeholder {
-      width: 100%;
-      height: 100%;
-      background: #181818;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .drawer-strip-placeholder span {
-      font-size: 10px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: rgba(232,230,223,0.1);
-    }
-
-    @media (max-width: 720px) {
-      .drawer-body { grid-template-columns: 1fr; gap: 32px; }
-      .drawer-copy-cols { grid-template-columns: 1fr; }
-      .drawer-hero { height: 260px; }
-    }
-
     /* AI GRID */
     .ai-grid {
       display: grid;
@@ -583,140 +537,6 @@
       font-size: 12px;
       color: rgba(232,230,223,0.35);
       line-height: 1.5;
-    }
-
-    /* CREATIVE PRODUCTION GRID */
-    .creative-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 1px;
-      background: rgba(255,255,255,0.06);
-    }
-
-    .creative-card-wrapper {
-      background: #0d0d0d;
-    }
-
-    .creative-card {
-      padding: 28px 0;
-      cursor: pointer;
-      transition: background 0.2s cubic-bezier(0.16,1,0.3,1);
-    }
-
-    .creative-card:hover {
-      background: #111;
-    }
-
-    .creative-card.is-open {
-      background: #111;
-    }
-
-    .creative-card.is-open .case-toggle-icon {
-      border-color: #3d9aff;
-      background: rgba(61,154,255,0.08);
-    }
-
-    .creative-card.is-open .case-toggle-icon svg {
-      stroke: #3d9aff;
-      transform: rotate(45deg);
-    }
-
-    .creative-card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .creative-card-type {
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #3d9aff;
-      opacity: 0.7;
-      margin-bottom: 8px;
-    }
-
-    .creative-card-title {
-      font-size: clamp(16px, 2vw, 22px);
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      color: #e8e6df;
-      line-height: 1.2;
-    }
-
-    .creative-drawer {
-      overflow: hidden;
-      height: 0;
-      will-change: height;
-    }
-
-    .creative-drawer-inner {
-      padding: 0 0 48px;
-      opacity: 0;
-    }
-
-    .creative-image-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 20px;
-      margin-top: 8px;
-    }
-
-    .creative-img-col {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .creative-img-frame {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      background: #1a1a1a;
-      overflow: hidden;
-      border-radius: 4px;
-    }
-
-    .creative-img-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.85;
-    }
-
-    .creative-img-placeholder {
-      width: 100%;
-      height: 100%;
-      background: #181818;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .creative-img-placeholder span {
-      font-size: 10px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: rgba(232,230,223,0.1);
-    }
-
-    .creative-img-label {
-      font-size: 13px;
-      font-weight: 600;
-      color: #e8e6df;
-      letter-spacing: -0.01em;
-    }
-
-    .creative-img-desc {
-      font-size: 12px;
-      font-weight: 400;
-      line-height: 1.6;
-      color: rgba(232,230,223,0.4);
-    }
-
-    @media (max-width: 720px) {
-      .creative-image-row { grid-template-columns: 1fr; }
     }
 
     /* RECOGNITION */
@@ -842,10 +662,8 @@
       <a href="#design-systems" class="nav-pill active">Design Systems</a>
       <a href="#ux-research" class="nav-pill">UX Research</a>
       <a href="#enterprise" class="nav-pill">Enterprise</a>
-      <a href="#data-viz" class="nav-pill">Data Viz</a>
       <a href="#arxr" class="nav-pill">AR / XR</a>
-      <a href="#mobile" class="nav-pill">Mobile</a>
-      <a href="#creative-production" class="nav-pill">Creative Production</a>
+      <a href="#creative" class="nav-pill">Creative</a>
       <a href="#recognition" class="nav-pill">Recognition</a>
     </div>
   </nav>
@@ -895,8 +713,7 @@
     </div>
 
     <div class="cases">
-            <div class="case-wrapper">
-    <div class="case">
+      <a href="#arxr" class="case">
         <div class="case-meta">
           <div class="case-tags">
             <span class="case-tag primary">Design System</span>
@@ -907,64 +724,11 @@
           <div class="case-desc">Design system maintenance alongside the immersive 360° Portal experience. See full case study in AR/XR.</div>
         </div>
         <div class="case-right">
-          <span class="case-client">Verizon</span>
-          <div class="case-toggle-icon"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
+          <span class="case-client"><span class="case-client-arrow">↓</span>Verizon</span>
         </div>
-      </div>
-      <div class="case-drawer">
-        <div class="case-drawer-inner">
-          <div class="drawer-hero">
-            <div class="drawer-hero-placeholder"><span>Hero image — Verizon</span></div>
-          </div>
-          <div class="drawer-body">
-            <div class="drawer-meta">
-              <div class="drawer-meta-item">
-                <label>Role</label>
-                <p>UX Designer · Design Systems</p>
-              </div>
-              <div class="drawer-meta-item">
-                <label>Year</label>
-                <p>2022–2023</p>
-              </div>
-              <div class="drawer-meta-item">
-                <label>Client</label>
-                <p>Verizon</p>
-              </div>
-              <div class="drawer-meta-item">
-                <label>Scope</label>
-                <p>Design System · AR · UX Research</p>
-              </div>
-            </div>
-            <div class="drawer-copy">
-              <h3>A living design system built for immersive scale</h3>
-              <p>The Verizon Portal required a design system that could flex across mobile web, native app, and AR overlays simultaneously. Component architecture, token structure, and motion specs were authored end-to-end.</p>
-              <div class="drawer-copy-cols">
-                <p>Maintained and evolved a multi-platform component library using Figma and Zeplin, coordinating with engineering across multiple sprint cycles.</p>
-                <p>Established motion guidelines and interaction patterns for 360° environments, geofenced AR states, and live-event broadcast contexts.</p>
-              </div>
-            </div>
-          </div>
-          <div class="drawer-strip-label">Process & Work</div>
-          <div class="drawer-strip">
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>Design system documentation</span></div>
-          </div>
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>Component library overview</span></div>
-          </div>
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>AR state mapping</span></div>
-          </div>
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>Token architecture</span></div>
-          </div>
-          </div>
-        </div>
-      </div>
-      </div>
+      </a>
 
-            <div class="case-wrapper">
-    <div class="case">
+      <a href="#enterprise" class="case">
         <div class="case-meta">
           <div class="case-tags">
             <span class="case-tag primary">Design System</span>
@@ -975,61 +739,9 @@
           <div class="case-desc">Enterprise design system work across multiple B2B insurance products. See full case study in Enterprise.</div>
         </div>
         <div class="case-right">
-          <span class="case-client">Guidewire</span>
-          <div class="case-toggle-icon"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
+          <span class="case-client"><span class="case-client-arrow">↓</span>Guidewire</span>
         </div>
-      </div>
-      <div class="case-drawer">
-        <div class="case-drawer-inner">
-          <div class="drawer-hero">
-            <div class="drawer-hero-placeholder"><span>Hero image — Guidewire</span></div>
-          </div>
-          <div class="drawer-body">
-            <div class="drawer-meta">
-              <div class="drawer-meta-item">
-                <label>Role</label>
-                <p>UX Designer · Product Manager</p>
-              </div>
-              <div class="drawer-meta-item">
-                <label>Year</label>
-                <p>2021–2022</p>
-              </div>
-              <div class="drawer-meta-item">
-                <label>Client</label>
-                <p>Guidewire</p>
-              </div>
-              <div class="drawer-meta-item">
-                <label>Scope</label>
-                <p>Design System · B2B · Enterprise</p>
-              </div>
-            </div>
-            <div class="drawer-copy">
-              <h3>Enterprise component library for insurance carriers</h3>
-              <p>Built and maintained a scalable component library for Guidewire's InsuranceNow platform, serving commercial and personal insurance carriers, agents, and customers.</p>
-              <div class="drawer-copy-cols">
-                <p>Led UX research, wireframing, and UI design across multiple B2B products, with a focus on accessibility compliance and agent workflow efficiency.</p>
-                <p>Collaborated cross-functionally with product managers and engineers in an Agile environment to ship iterative improvements at scale.</p>
-              </div>
-            </div>
-          </div>
-          <div class="drawer-strip-label">Process & Work</div>
-          <div class="drawer-strip">
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>Admin portal dashboard</span></div>
-          </div>
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>Agent workflow screens</span></div>
-          </div>
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>Component documentation</span></div>
-          </div>
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>Accessibility audit</span></div>
-          </div>
-          </div>
-        </div>
-      </div>
-      </div>
+      </a>
     </div>
   </section>
 
@@ -1042,8 +754,7 @@
     </div>
 
     <div class="cases">
-            <div class="case-wrapper">
-    <div class="case">
+      <a href="#" class="case">
         <div class="case-meta">
           <div class="case-tags">
             <span class="case-tag primary">Research</span>
@@ -1056,61 +767,9 @@
           <div class="case-desc">Placeholder content for discovery, user interviews, usability testing, competitive analysis, and product strategy.</div>
         </div>
         <div class="case-right">
-          <span class="case-client">Client</span>
-          <div class="case-toggle-icon"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
+          <span class="case-client"><span class="case-client-arrow">↓</span>Client</span>
         </div>
-      </div>
-      <div class="case-drawer">
-        <div class="case-drawer-inner">
-          <div class="drawer-hero">
-            <div class="drawer-hero-placeholder"><span>Hero image — Client</span></div>
-          </div>
-          <div class="drawer-body">
-            <div class="drawer-meta">
-              <div class="drawer-meta-item">
-                <label>Role</label>
-                <p>UX Researcher</p>
-              </div>
-              <div class="drawer-meta-item">
-                <label>Year</label>
-                <p>Placeholder</p>
-              </div>
-              <div class="drawer-meta-item">
-                <label>Client</label>
-                <p>Client</p>
-              </div>
-              <div class="drawer-meta-item">
-                <label>Scope</label>
-                <p>Research · Testing · Strategy</p>
-              </div>
-            </div>
-            <div class="drawer-copy">
-              <h3>Discovery, testing, and strategic synthesis</h3>
-              <p>Placeholder — add your UX research case study content here including discovery, user interviews, usability testing, competitive analysis, and product strategy work.</p>
-              <div class="drawer-copy-cols">
-                <p>Describe your research methodology, participant recruitment, and synthesis process.</p>
-                <p>Outline the strategic recommendations and how they influenced product direction.</p>
-              </div>
-            </div>
-          </div>
-          <div class="drawer-strip-label">Process & Work</div>
-          <div class="drawer-strip">
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>Research synthesis</span></div>
-          </div>
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>Affinity mapping</span></div>
-          </div>
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>Usability testing</span></div>
-          </div>
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>Strategic report</span></div>
-          </div>
-          </div>
-        </div>
-      </div>
-      </div>
+      </a>
     </div>
   </section>
 
@@ -1123,8 +782,7 @@
     </div>
 
     <div class="cases">
-            <div class="case-wrapper">
-    <div class="case">
+      <a href="#" class="case">
         <div class="case-meta">
           <div class="case-tags">
             <span class="case-tag primary">B2B · SaaS</span>
@@ -1137,61 +795,9 @@
           <div class="case-desc">Full lifecycle UX, research through delivery, for several enterprise products serving commercial and personal insurance carriers on the Guidewire InsuranceNow platform.</div>
         </div>
         <div class="case-right">
-          <span class="case-client">Guidewire</span>
-          <div class="case-toggle-icon"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
+          <span class="case-client"><span class="case-client-arrow">↓</span>Guidewire</span>
         </div>
-      </div>
-      <div class="case-drawer">
-        <div class="case-drawer-inner">
-          <div class="drawer-hero">
-            <div class="drawer-hero-placeholder"><span>Hero image — Guidewire</span></div>
-          </div>
-          <div class="drawer-body">
-            <div class="drawer-meta">
-              <div class="drawer-meta-item">
-                <label>Role</label>
-                <p>UX Designer · Product Manager</p>
-              </div>
-              <div class="drawer-meta-item">
-                <label>Year</label>
-                <p>2021–2022</p>
-              </div>
-              <div class="drawer-meta-item">
-                <label>Client</label>
-                <p>Guidewire</p>
-              </div>
-              <div class="drawer-meta-item">
-                <label>Scope</label>
-                <p>B2B SaaS · End-to-End UX · Product Management</p>
-              </div>
-            </div>
-            <div class="drawer-copy">
-              <h3>Full-lifecycle UX for enterprise insurance products</h3>
-              <p>From discovery to delivery — UX research, ideation, wireframing, UI design, and product management across several B2B products serving commercial and personal insurance carriers on the Guidewire InsuranceNow platform.</p>
-              <div class="drawer-copy-cols">
-                <p>Coordinated user research sessions with insurance agents and carriers to identify friction points in claims processing and policy management workflows.</p>
-                <p>Delivered high-fidelity UI designs, interaction specs, and accessibility documentation across multiple parallel product tracks.</p>
-              </div>
-            </div>
-          </div>
-          <div class="drawer-strip-label">Process & Work</div>
-          <div class="drawer-strip">
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>Admin portal</span></div>
-          </div>
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>Claims workflow</span></div>
-          </div>
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>Policy management UI</span></div>
-          </div>
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>Accessibility audit</span></div>
-          </div>
-          </div>
-        </div>
-      </div>
-      </div>
+      </a>
     </div>
   </section>
 
@@ -1201,72 +807,92 @@
     <div class="section-header">
       <span class="section-number">04</span>
       <span class="section-title">Data Visualization</span>
-      <span class="section-count">Placeholder</span>
+      <span class="section-count">Live demo</span>
     </div>
-    <div class="cases">
-      <div class="case-wrapper">
-        <div class="case">
-          <div class="case-meta">
-            <div class="case-tags">
-              <span class="case-tag primary">Data Viz</span>
-              <span class="case-tag-sep">·</span>
-              <span class="case-tag">Dashboard</span>
-              <span class="case-tag-sep">·</span>
-              <span class="case-tag">Analytics</span>
-            </div>
-            <div class="case-title">Data Visualization Case Study Placeholder</div>
-            <div class="case-desc">Placeholder for data visualization, dashboard design, and analytics interface work.</div>
+
+    <div class="dataviz-intro">
+      <p>Interactive fintech dashboard — illustrative data built with D3.js. Hover, click, and explore.</p>
+    </div>
+
+    <div class="dataviz-grid" id="dataviz-grid">
+
+      <!-- AREA CHART -->
+      <div class="dv-card dv-wide">
+        <div class="dv-card-header">
+          <div>
+            <div class="dv-label">Portfolio Value</div>
+            <div class="dv-value">$284,392<span class="dv-delta dv-up">+12.4%</span></div>
           </div>
-          <div class="case-right">
-            <span class="case-client">Client</span>
-            <div class="case-toggle-icon"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
-          </div>
-        </div>
-        <div class="case-drawer">
-          <div class="case-drawer-inner">
-            <div class="drawer-hero">
-              <div class="drawer-hero-placeholder"><span>Hero image — Data Visualization</span></div>
-            </div>
-            <div class="drawer-body">
-              <div class="drawer-meta">
-                <div class="drawer-meta-item"><label>Role</label><p>UX Designer · Data Visualization</p></div>
-                <div class="drawer-meta-item"><label>Year</label><p>Placeholder</p></div>
-                <div class="drawer-meta-item"><label>Client</label><p>Client</p></div>
-                <div class="drawer-meta-item"><label>Scope</label><p>Dashboard · Analytics · Data Viz</p></div>
-              </div>
-              <div class="drawer-copy">
-                <h3>Turning complex data into clear decisions</h3>
-                <p>Placeholder — add your data visualization case study content here, covering dashboard design, analytics interfaces, and data-driven product work.</p>
-                <div class="drawer-copy-cols">
-                  <p>Describe your approach to information architecture and visual hierarchy in data-dense interfaces.</p>
-                  <p>Outline the impact on user decision-making and business outcomes.</p>
-                </div>
-              </div>
-            </div>
-            <div class="drawer-strip-label">Process & Work</div>
-            <div class="drawer-strip">
-              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Dashboard overview</span></div></div>
-              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Chart systems</span></div></div>
-              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Analytics UI</span></div></div>
-              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Data flows</span></div></div>
-            </div>
+          <div class="dv-timerange">
+            <button class="dv-btn active" data-range="1M">1M</button>
+            <button class="dv-btn" data-range="3M">3M</button>
+            <button class="dv-btn" data-range="1Y">1Y</button>
           </div>
         </div>
+        <svg id="area-chart"></svg>
       </div>
+
+      <!-- DONUT CHART -->
+      <div class="dv-card">
+        <div class="dv-card-header">
+          <div class="dv-label">Asset Allocation</div>
+        </div>
+        <svg id="donut-chart"></svg>
+        <div class="donut-legend" id="donut-legend"></div>
+      </div>
+
+      <!-- BAR CHART -->
+      <div class="dv-card">
+        <div class="dv-card-header">
+          <div class="dv-label">Monthly Volume</div>
+          <div class="dv-value-sm">$1.2M avg</div>
+        </div>
+        <svg id="bar-chart"></svg>
+      </div>
+
+      <!-- CANDLESTICK -->
+      <div class="dv-card dv-wide">
+        <div class="dv-card-header">
+          <div>
+            <div class="dv-label">AAPL · 30 Day OHLC</div>
+            <div class="dv-value">$192.40<span class="dv-delta dv-up">+2.1%</span></div>
+          </div>
+        </div>
+        <svg id="candle-chart"></svg>
+      </div>
+
+      <!-- SCATTER -->
+      <div class="dv-card">
+        <div class="dv-card-header">
+          <div class="dv-label">Risk vs Return</div>
+        </div>
+        <svg id="scatter-chart"></svg>
+        <div class="dv-tooltip" id="scatter-tip"></div>
+      </div>
+
+      <!-- GAUGE -->
+      <div class="dv-card dv-center">
+        <div class="dv-card-header" style="justify-content:center">
+          <div class="dv-label" style="text-align:center">Portfolio Health</div>
+        </div>
+        <svg id="gauge-chart"></svg>
+        <div class="gauge-label" id="gauge-label">82 <span>/ 100</span></div>
+        <div class="gauge-sub">Excellent</div>
+      </div>
+
     </div>
   </section>
 
   <!-- AR/XR -->
   <section class="section" id="arxr">
     <div class="section-header">
-      <span class="section-number">05</span>
+      <span class="section-number">04</span>
       <span class="section-title">AR / XR</span>
       <span class="section-count">5 projects</span>
     </div>
 
     <div class="cases">
-            <div class="case-wrapper">
-    <div class="case">
+      <a href="#" class="case">
         <div class="case-meta">
           <div class="case-tags">
             <span class="case-tag primary">AR</span>
@@ -1279,64 +905,11 @@
           <div class="case-desc">Two AR apps featuring activity-based rewards and gamified retail mechanics for Walmart's innovation team.</div>
         </div>
         <div class="case-right">
-          <span class="case-client">Walmart</span>
-          <div class="case-toggle-icon"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
+          <span class="case-client"><span class="case-client-arrow">↓</span>Walmart</span>
         </div>
-      </div>
-      <div class="case-drawer">
-        <div class="case-drawer-inner">
-          <div class="drawer-hero">
-            <div class="drawer-hero-placeholder"><span>Hero image — Walmart</span></div>
-          </div>
-          <div class="drawer-body">
-            <div class="drawer-meta">
-              <div class="drawer-meta-item">
-                <label>Role</label>
-                <p>UX Designer · Interaction Designer</p>
-              </div>
-              <div class="drawer-meta-item">
-                <label>Year</label>
-                <p>2022</p>
-              </div>
-              <div class="drawer-meta-item">
-                <label>Client</label>
-                <p>Walmart</p>
-              </div>
-              <div class="drawer-meta-item">
-                <label>Scope</label>
-                <p>AR · UX Research · Gamification</p>
-              </div>
-            </div>
-            <div class="drawer-copy">
-              <h3>Two AR apps that turned shopping into play</h3>
-              <p>Ideation, UX research, and design for two separate augmented reality apps for Walmart's innovation team — Pet Walkies and Walmart Winners — featuring gamified retail experiences where users earn products and discounts through activity milestones.</p>
-              <div class="drawer-copy-cols">
-                <p>Led competitive analysis of gamified retail and fitness apps, identifying mechanic patterns that could drive engagement in a retail AR context.</p>
-                <p>Designed end-to-end user flows for milestone tracking, reward redemption, and AR product discovery — prototyped and presented to Walmart's innovation leadership.</p>
-              </div>
-            </div>
-          </div>
-          <div class="drawer-strip-label">Process & Work</div>
-          <div class="drawer-strip">
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>Pet Walkies app flow</span></div>
-          </div>
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>Walmart Winners flow</span></div>
-          </div>
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>AR prototype screens</span></div>
-          </div>
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>Elevator deck</span></div>
-          </div>
-          </div>
-        </div>
-      </div>
-      </div>
+      </a>
 
-            <div class="case-wrapper">
-    <div class="case">
+      <a href="#" class="case">
         <div class="case-meta">
           <div class="case-tags">
             <span class="case-tag primary">AR · 360°</span>
@@ -1349,64 +922,11 @@
           <div class="case-desc">UX design and design system maintenance for live sponsored events including Indy 500 and Super Bowl LVI.</div>
         </div>
         <div class="case-right">
-          <span class="case-client">Verizon</span>
-          <div class="case-toggle-icon"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
+          <span class="case-client"><span class="case-client-arrow">↓</span>Verizon</span>
         </div>
-      </div>
-      <div class="case-drawer">
-        <div class="case-drawer-inner">
-          <div class="drawer-hero">
-            <div class="drawer-hero-placeholder"><span>Hero image — Verizon</span></div>
-          </div>
-          <div class="drawer-body">
-            <div class="drawer-meta">
-              <div class="drawer-meta-item">
-                <label>Role</label>
-                <p>UX Designer · Design Systems</p>
-              </div>
-              <div class="drawer-meta-item">
-                <label>Year</label>
-                <p>2022–2023</p>
-              </div>
-              <div class="drawer-meta-item">
-                <label>Client</label>
-                <p>Verizon</p>
-              </div>
-              <div class="drawer-meta-item">
-                <label>Scope</label>
-                <p>AR · 360° · Design Systems · User Testing</p>
-              </div>
-            </div>
-            <div class="drawer-copy">
-              <h3>360° multi-camera immersion for live sponsored events</h3>
-              <p>UX design, design system maintenance, user testing, and more for Verizon's Portal — a mobile web and app experience allowing immersive 360° multi-camera views for sponsored events including Indy 500, Latin Grammys, Super Bowl LVI, and Phoenix Suns games.</p>
-              <div class="drawer-copy-cols">
-                <p>Designed AR and geofencing interaction patterns for live event contexts, coordinating with broadcast and engineering teams on real-time switching behavior.</p>
-                <p>Ran moderated usability testing sessions to validate 360° navigation patterns and AR overlay interactions across iOS and Android.</p>
-              </div>
-            </div>
-          </div>
-          <div class="drawer-strip-label">Process & Work</div>
-          <div class="drawer-strip">
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>Indy 500 portal</span></div>
-          </div>
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>Latin Grammys experience</span></div>
-          </div>
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>AR overlay states</span></div>
-          </div>
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>Design system components</span></div>
-          </div>
-          </div>
-        </div>
-      </div>
-      </div>
+      </a>
 
-            <div class="case-wrapper">
-    <div class="case">
+      <a href="#" class="case">
         <div class="case-meta">
           <div class="case-tags">
             <span class="case-tag primary">AR · Education</span>
@@ -1419,64 +939,11 @@
           <div class="case-desc">Competitive research and UX strategy for a Niantic-partnered education experience at the Teddy Roosevelt Presidential Library.</div>
         </div>
         <div class="case-right">
-          <span class="case-client">TRPL × Niantic</span>
-          <div class="case-toggle-icon"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
+          <span class="case-client"><span class="case-client-arrow">↓</span>TRPL × Niantic</span>
         </div>
-      </div>
-      <div class="case-drawer">
-        <div class="case-drawer-inner">
-          <div class="drawer-hero">
-            <div class="drawer-hero-placeholder"><span>Hero image — TRPL × Niantic</span></div>
-          </div>
-          <div class="drawer-body">
-            <div class="drawer-meta">
-              <div class="drawer-meta-item">
-                <label>Role</label>
-                <p>UX Designer · Researcher</p>
-              </div>
-              <div class="drawer-meta-item">
-                <label>Year</label>
-                <p>2022</p>
-              </div>
-              <div class="drawer-meta-item">
-                <label>Client</label>
-                <p>TRPL × Niantic</p>
-              </div>
-              <div class="drawer-meta-item">
-                <label>Scope</label>
-                <p>AR · Education · COPPA · Game Mechanics</p>
-              </div>
-            </div>
-            <div class="drawer-copy">
-              <h3>AR education for the next generation of Rangers</h3>
-              <p>Competitive analysis, UX research, and ideation for an augmented reality education app developed in partnership between Trigger, Niantic, and the Teddy Roosevelt Presidential Library. Ensured COPPA compliance and strategized game mechanics for young audiences.</p>
-              <div class="drawer-copy-cols">
-                <p>Conducted competitive analysis of educational AR apps and location-based games, mapping mechanic frameworks applicable to the library's educational goals.</p>
-                <p>Led privacy and safety strategy for the under-13 audience, working with legal and product teams to ensure full COPPA compliance within the game loop.</p>
-              </div>
-            </div>
-          </div>
-          <div class="drawer-strip-label">Process & Work</div>
-          <div class="drawer-strip">
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>Game mechanic map</span></div>
-          </div>
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>COPPA compliance audit</span></div>
-          </div>
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>UX research synthesis</span></div>
-          </div>
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>Prototype screens</span></div>
-          </div>
-          </div>
-        </div>
-      </div>
-      </div>
+      </a>
 
-            <div class="case-wrapper">
-    <div class="case">
+      <a href="#" class="case">
         <div class="case-meta">
           <div class="case-tags">
             <span class="case-tag primary">HMD · Spatial UI</span>
@@ -1487,64 +954,11 @@
           <div class="case-desc">VR wireframing and spatial UX for a cooking utility on the ThinkReality A24 HMD.</div>
         </div>
         <div class="case-right">
-          <span class="case-client">Qualcomm</span>
-          <div class="case-toggle-icon"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
+          <span class="case-client"><span class="case-client-arrow">↓</span>Qualcomm</span>
         </div>
-      </div>
-      <div class="case-drawer">
-        <div class="case-drawer-inner">
-          <div class="drawer-hero">
-            <div class="drawer-hero-placeholder"><span>Hero image — Qualcomm</span></div>
-          </div>
-          <div class="drawer-body">
-            <div class="drawer-meta">
-              <div class="drawer-meta-item">
-                <label>Role</label>
-                <p>UX Designer · Product Manager</p>
-              </div>
-              <div class="drawer-meta-item">
-                <label>Year</label>
-                <p>2022</p>
-              </div>
-              <div class="drawer-meta-item">
-                <label>Client</label>
-                <p>Qualcomm</p>
-              </div>
-              <div class="drawer-meta-item">
-                <label>Scope</label>
-                <p>HMD · Spatial UI · Prototyping</p>
-              </div>
-            </div>
-            <div class="drawer-copy">
-              <h3>Spatial UX for cooking in augmented reality</h3>
-              <p>Creative ideation, VR wireframing, testing, and product management for an AR cooking utility developed on the Qualcomm ThinkReality A24 head-mounted device. This project provided critical insight into UI/UX design for spatial and hands-free environments.</p>
-              <div class="drawer-copy-cols">
-                <p>Designed spatial UI patterns for glanceable recipe steps, hands-free navigation, and timer interactions — all optimized for HMD field of view constraints.</p>
-                <p>Wireframed and prototyped interactions for voice command integration and gesture-based scrolling within the ThinkReality platform SDK.</p>
-              </div>
-            </div>
-          </div>
-          <div class="drawer-strip-label">Process & Work</div>
-          <div class="drawer-strip">
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>HMD wireframes</span></div>
-          </div>
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>Spatial UI patterns</span></div>
-          </div>
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>Gesture interaction map</span></div>
-          </div>
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>Prototype testing</span></div>
-          </div>
-          </div>
-        </div>
-      </div>
-      </div>
+      </a>
 
-            <div class="case-wrapper">
-    <div class="case">
+      <a href="#" class="case">
         <div class="case-meta">
           <div class="case-tags">
             <span class="case-tag primary">AR · Training</span>
@@ -1557,240 +971,51 @@
           <div class="case-desc">User acceptance testing and UX design for a Verizon POC with the University of Hawaii football team on Snapdragon AR glasses.</div>
         </div>
         <div class="case-right">
-          <span class="case-client">Verizon</span>
-          <div class="case-toggle-icon"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
+          <span class="case-client"><span class="case-client-arrow">↓</span>Verizon</span>
         </div>
-      </div>
-      <div class="case-drawer">
-        <div class="case-drawer-inner">
-          <div class="drawer-hero">
-            <div class="drawer-hero-placeholder"><span>Hero image — Verizon</span></div>
-          </div>
-          <div class="drawer-body">
-            <div class="drawer-meta">
-              <div class="drawer-meta-item">
-                <label>Role</label>
-                <p>UX Designer · Product Manager</p>
-              </div>
-              <div class="drawer-meta-item">
-                <label>Year</label>
-                <p>2022</p>
-              </div>
-              <div class="drawer-meta-item">
-                <label>Client</label>
-                <p>Verizon</p>
-              </div>
-              <div class="drawer-meta-item">
-                <label>Scope</label>
-                <p>AR · Training · UAT · Product Management</p>
-              </div>
-            </div>
-            <div class="drawer-copy">
-              <h3>AR training at the edge of sports performance</h3>
-              <p>User acceptance testing, UX design, and product management for a Verizon proof-of-concept developed with subject matter experts from the University of Hawaii football team, prototyped on Snapdragon and the Lenovo ThinkReality A3 glasses.</p>
-              <div class="drawer-copy-cols">
-                <p>Coordinated UAT sessions with coaches and athletes on the field, capturing real-world feedback on AR overlay legibility and interaction speed under physical exertion.</p>
-                <p>Produced UX documentation and product specs for the Snapdragon platform, including interaction timing, error states, and field-of-view optimization.</p>
-              </div>
-            </div>
-          </div>
-          <div class="drawer-strip-label">Process & Work</div>
-          <div class="drawer-strip">
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>Field testing setup</span></div>
-          </div>
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>AR overlay designs</span></div>
-          </div>
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>UAT documentation</span></div>
-          </div>
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>ThinkReality A3 specs</span></div>
-          </div>
-          </div>
-        </div>
-      </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- MOBILE -->
-  <section class="section" id="mobile">
-    <div class="section-header">
-      <span class="section-number">06</span>
-      <span class="section-title">Mobile</span>
-      <span class="section-count">Placeholder</span>
-    </div>
-    <div class="cases">
-      <div class="case-wrapper">
-        <div class="case">
-          <div class="case-meta">
-            <div class="case-tags">
-              <span class="case-tag primary">iOS · Android</span>
-              <span class="case-tag-sep">·</span>
-              <span class="case-tag">UX Design</span>
-              <span class="case-tag-sep">·</span>
-              <span class="case-tag">Interaction Design</span>
-            </div>
-            <div class="case-title">Mobile Case Study Placeholder</div>
-            <div class="case-desc">Placeholder for native mobile UX, iOS and Android product design, and cross-platform interaction work.</div>
-          </div>
-          <div class="case-right">
-            <span class="case-client">Client</span>
-            <div class="case-toggle-icon"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
-          </div>
-        </div>
-        <div class="case-drawer">
-          <div class="case-drawer-inner">
-            <div class="drawer-hero">
-              <div class="drawer-hero-placeholder"><span>Hero image — Mobile</span></div>
-            </div>
-            <div class="drawer-body">
-              <div class="drawer-meta">
-                <div class="drawer-meta-item"><label>Role</label><p>UX Designer · Interaction Designer</p></div>
-                <div class="drawer-meta-item"><label>Year</label><p>Placeholder</p></div>
-                <div class="drawer-meta-item"><label>Client</label><p>Client</p></div>
-                <div class="drawer-meta-item"><label>Scope</label><p>iOS · Android · UX Design</p></div>
-              </div>
-              <div class="drawer-copy">
-                <h3>Native mobile experiences built for real use</h3>
-                <p>Placeholder — add your mobile design case study content here, covering native iOS and Android design, cross-platform patterns, and interaction design.</p>
-                <div class="drawer-copy-cols">
-                  <p>Describe your approach to platform conventions, gesture design, and mobile-first information architecture.</p>
-                  <p>Outline the user research and testing process that shaped the final interaction model.</p>
-                </div>
-              </div>
-            </div>
-            <div class="drawer-strip-label">Process & Work</div>
-            <div class="drawer-strip">
-              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>App screens</span></div></div>
-              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Interaction flows</span></div></div>
-              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Prototype</span></div></div>
-              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Testing results</span></div></div>
-            </div>
-          </div>
-        </div>
-      </div>
+      </a>
     </div>
   </section>
 
   <!-- CREATIVE -->
-  <section class="section" id="creative-production">
+  <section class="section" id="creative">
     <div class="section-header">
-      <span class="section-number">07</span>
-      <span class="section-title">Creative Production</span>
+      <span class="section-number">05</span>
+      <span class="section-title">Creative</span>
       <span class="section-count">Placeholder</span>
     </div>
 
-    <div class="creative-grid">
-
-      <div class="creative-card-wrapper">
-        <div class="creative-card">
-          <div class="creative-card-header">
-            <div>
-              <div class="creative-card-type">Generative Video</div>
-              <div class="creative-card-title">Motion & Visual Studies</div>
-            </div>
-            <div class="case-toggle-icon"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
-          </div>
-        </div>
-        <div class="creative-drawer">
-          <div class="creative-drawer-inner">
-            <div class="creative-image-row">
-              <div class="creative-img-col">
-                <div class="creative-img-frame"><div class="creative-img-placeholder"><span>Visual 01</span></div></div>
-                <div class="creative-img-label">Study title</div>
-                <div class="creative-img-desc">Generative motion study using Runway and Veo. Exploring temporal coherence in AI video generation.</div>
-              </div>
-              <div class="creative-img-col">
-                <div class="creative-img-frame"><div class="creative-img-placeholder"><span>Visual 02</span></div></div>
-                <div class="creative-img-label">Study title</div>
-                <div class="creative-img-desc">Abstract visual systems generated with MidJourney and composited in After Effects for motion exploration.</div>
-              </div>
-              <div class="creative-img-col">
-                <div class="creative-img-frame"><div class="creative-img-placeholder"><span>Visual 03</span></div></div>
-                <div class="creative-img-label">Study title</div>
-                <div class="creative-img-desc">Seedance-generated sequences exploring form, texture, and rhythm as design language.</div>
-              </div>
-            </div>
-          </div>
-        </div>
+    <div class="ai-grid">
+      <div class="ai-card">
+        <div class="ai-card-type">Creative Systems</div>
+        <div class="ai-card-title">Creative Direction Placeholder</div>
+        <div class="ai-card-desc">Placeholder content for creative direction, visual systems, motion, and campaign work.</div>
       </div>
 
-      <div class="creative-card-wrapper">
-        <div class="creative-card">
-          <div class="creative-card-header">
-            <div>
-              <div class="creative-card-type">Agentic Tooling</div>
-              <div class="creative-card-title">Agentic Pipelines & Custom Tools</div>
-            </div>
-            <div class="case-toggle-icon"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
-          </div>
-        </div>
-        <div class="creative-drawer">
-          <div class="creative-drawer-inner">
-            <div class="creative-image-row">
-              <div class="creative-img-col">
-                <div class="creative-img-frame"><div class="creative-img-placeholder"><span>Tool 01</span></div></div>
-                <div class="creative-img-label">Prompt Machine 1.0</div>
-                <div class="creative-img-desc">Custom single-file HTML tool for managing AI image and video generation prompts across Gemini and other models.</div>
-              </div>
-              <div class="creative-img-col">
-                <div class="creative-img-frame"><div class="creative-img-placeholder"><span>Tool 02</span></div></div>
-                <div class="creative-img-label">Automation Workflow</div>
-                <div class="creative-img-desc">Multi-model agentic pipeline connecting Claude, Gemini, and generative tools for high-volume creative production.</div>
-              </div>
-              <div class="creative-img-col">
-                <div class="creative-img-frame"><div class="creative-img-placeholder"><span>Tool 03</span></div></div>
-                <div class="creative-img-label">Vibecoded Interface</div>
-                <div class="creative-img-desc">Functional UI built in collaboration with LLMs — designed and shipped without traditional development tooling.</div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="ai-card">
+        <div class="ai-card-type">Generative Video</div>
+        <div class="ai-card-title">Motion & Visual Studies</div>
+        <div class="ai-card-desc">Generative art and video work using Runway, Veo, Seedance, and MidJourney.</div>
       </div>
 
-      <div class="creative-card-wrapper">
-        <div class="creative-card">
-          <div class="creative-card-header">
-            <div>
-              <div class="creative-card-type">Creative Direction</div>
-              <div class="creative-card-title">Creative Direction & Visual Systems</div>
-            </div>
-            <div class="case-toggle-icon"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
-          </div>
-        </div>
-        <div class="creative-drawer">
-          <div class="creative-drawer-inner">
-            <div class="creative-image-row">
-              <div class="creative-img-col">
-                <div class="creative-img-frame"><div class="creative-img-placeholder"><span>Work 01</span></div></div>
-                <div class="creative-img-label">Visual System</div>
-                <div class="creative-img-desc">Placeholder for creative direction and visual systems work — add your images and copy here.</div>
-              </div>
-              <div class="creative-img-col">
-                <div class="creative-img-frame"><div class="creative-img-placeholder"><span>Work 02</span></div></div>
-                <div class="creative-img-label">Campaign Work</div>
-                <div class="creative-img-desc">Placeholder for campaign design, brand identity, or motion work — add your images and copy here.</div>
-              </div>
-              <div class="creative-img-col">
-                <div class="creative-img-frame"><div class="creative-img-placeholder"><span>Work 03</span></div></div>
-                <div class="creative-img-label">Art Direction</div>
-                <div class="creative-img-desc">Placeholder for art direction, photography direction, or editorial work — add your images and copy here.</div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="ai-card">
+        <div class="ai-card-type">Workflow Design</div>
+        <div class="ai-card-title">Agentic Pipelines</div>
+        <div class="ai-card-desc">Custom automation and multi-model workflows built for creative production.</div>
       </div>
 
+      <div class="ai-card">
+        <div class="ai-card-type">Tooling</div>
+        <div class="ai-card-title">Custom Creative Tools</div>
+        <div class="ai-card-desc">Functional AI-integrated interfaces built in collaboration with LLMs.</div>
+      </div>
     </div>
   </section>
 
   <!-- RECOGNITION -->
   <section class="section" id="recognition">
     <div class="section-header">
-      <span class="section-number">08</span>
+      <span class="section-number">06</span>
       <span class="section-title">Recognition</span>
     </div>
 
@@ -1829,6 +1054,9 @@
       <a href="#" class="footer-link">Resume</a>
     </div>
   </footer>
+
+  <!-- D3 -->
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
 
   <!-- GSAP -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
@@ -1978,247 +1206,6 @@
       ease: "power3.out"
     });
 
-
-    /* CASE DRAWERS */
-    let activeDrawer = null;
-    let activeCase = null;
-
-    function openDrawer(wrapper) {
-      const caseEl = wrapper.querySelector('.case');
-      const drawer = wrapper.querySelector('.case-drawer');
-      const inner = wrapper.querySelector('.case-drawer-inner');
-      const strip = wrapper.querySelector('.drawer-strip');
-
-      // Close any open drawer first
-      if (activeDrawer && activeDrawer !== drawer) {
-        closeDrawer(activeDrawer.closest('.case-wrapper'), false);
-      }
-
-      caseEl.classList.add('is-open');
-      activeDrawer = drawer;
-      activeCase = caseEl;
-
-      // Measure full height
-      gsap.set(drawer, { height: 'auto', overflow: 'hidden' });
-      const fullH = drawer.offsetHeight;
-      gsap.set(drawer, { height: 0 });
-
-      const tl = gsap.timeline();
-
-      tl.to(drawer, {
-        height: fullH,
-        duration: 0.7,
-        ease: 'power3.inOut'
-      });
-
-      tl.to(inner, {
-        opacity: 1,
-        duration: 0.4,
-        ease: 'power2.out'
-      }, '-=0.3');
-
-      tl.from(inner.querySelector('.drawer-hero'), {
-        y: 24,
-        opacity: 0,
-        duration: 0.6,
-        ease: 'power3.out'
-      }, '-=0.3');
-
-      tl.from(inner.querySelectorAll('.drawer-meta-item'), {
-        y: 16,
-        opacity: 0,
-        duration: 0.5,
-        stagger: 0.07,
-        ease: 'power3.out'
-      }, '-=0.4');
-
-      tl.from(inner.querySelectorAll('.drawer-copy > *'), {
-        y: 16,
-        opacity: 0,
-        duration: 0.5,
-        stagger: 0.08,
-        ease: 'power3.out'
-      }, '-=0.5');
-
-      tl.from(inner.querySelectorAll('.drawer-strip-img'), {
-        x: 32,
-        opacity: 0,
-        duration: 0.5,
-        stagger: 0.06,
-        ease: 'power3.out'
-      }, '-=0.3');
-
-      // Scroll into view smoothly
-      setTimeout(() => {
-        wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 100);
-
-      // Wire up drag scroll on strip
-      if (strip) initDragStrip(strip);
-    }
-
-    function closeDrawer(wrapper, animate = true) {
-      const caseEl = wrapper.querySelector('.case');
-      const drawer = wrapper.querySelector('.case-drawer');
-      const inner = wrapper.querySelector('.case-drawer-inner');
-
-      caseEl.classList.remove('is-open');
-
-      if (animate) {
-        gsap.to(inner, { opacity: 0, duration: 0.2, ease: 'power2.in' });
-        gsap.to(drawer, { height: 0, duration: 0.5, ease: 'power3.inOut', delay: 0.1 });
-      } else {
-        gsap.set(inner, { opacity: 0 });
-        gsap.set(drawer, { height: 0 });
-      }
-
-      if (activeDrawer === drawer) {
-        activeDrawer = null;
-        activeCase = null;
-      }
-    }
-
-    document.querySelectorAll('.case-wrapper').forEach(wrapper => {
-      const caseEl = wrapper.querySelector('.case');
-
-      caseEl.addEventListener('click', (e) => {
-        e.preventDefault();
-        const isOpen = caseEl.classList.contains('is-open');
-        if (isOpen) {
-          closeDrawer(wrapper);
-        } else {
-          openDrawer(wrapper);
-        }
-      });
-    });
-
-    /* DRAG SCROLL ON STRIP */
-    function initDragStrip(strip) {
-      if (strip._dragInit) return;
-      strip._dragInit = true;
-
-      let isDragging = false;
-      let startX, scrollLeft;
-
-      strip.addEventListener('mousedown', e => {
-        isDragging = true;
-        strip.classList.add('is-dragging');
-        startX = e.pageX - strip.offsetLeft;
-        scrollLeft = strip.scrollLeft;
-      });
-
-      strip.addEventListener('mouseleave', () => {
-        isDragging = false;
-        strip.classList.remove('is-dragging');
-      });
-
-      strip.addEventListener('mouseup', () => {
-        isDragging = false;
-        strip.classList.remove('is-dragging');
-      });
-
-      strip.addEventListener('mousemove', e => {
-        if (!isDragging) return;
-        e.preventDefault();
-        const x = e.pageX - strip.offsetLeft;
-        const walk = (x - startX) * 1.4;
-        strip.scrollLeft = scrollLeft - walk;
-      });
-
-      // Touch support
-      strip.addEventListener('touchstart', e => {
-        startX = e.touches[0].pageX - strip.offsetLeft;
-        scrollLeft = strip.scrollLeft;
-      }, { passive: true });
-
-      strip.addEventListener('touchmove', e => {
-        const x = e.touches[0].pageX - strip.offsetLeft;
-        strip.scrollLeft = scrollLeft - (x - startX) * 1.2;
-      }, { passive: true });
-    }
-
-
-    /* CREATIVE CARD DRAWERS */
-    let activeCreativeDrawer = null;
-    let activeCreativeCard = null;
-
-    function openCreativeDrawer(wrapper) {
-      const card = wrapper.querySelector('.creative-card');
-      const drawer = wrapper.querySelector('.creative-drawer');
-      const inner = wrapper.querySelector('.creative-drawer-inner');
-
-      if (activeCreativeDrawer && activeCreativeDrawer !== drawer) {
-        closeCreativeDrawer(activeCreativeDrawer.closest('.creative-card-wrapper'), false);
-      }
-
-      card.classList.add('is-open');
-      activeCreativeDrawer = drawer;
-      activeCreativeCard = card;
-
-      gsap.set(drawer, { height: 'auto' });
-      const fullH = drawer.offsetHeight;
-      gsap.set(drawer, { height: 0 });
-
-      const tl = gsap.timeline();
-
-      tl.to(drawer, {
-        height: fullH,
-        duration: 0.65,
-        ease: 'power3.inOut'
-      });
-
-      tl.to(inner, {
-        opacity: 1,
-        duration: 0.35,
-        ease: 'power2.out'
-      }, '-=0.25');
-
-      tl.from(inner.querySelectorAll('.creative-img-col'), {
-        y: 20,
-        opacity: 0,
-        duration: 0.5,
-        stagger: 0.1,
-        ease: 'power3.out'
-      }, '-=0.25');
-
-      setTimeout(() => {
-        wrapper.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }, 80);
-    }
-
-    function closeCreativeDrawer(wrapper, animate = true) {
-      const card = wrapper.querySelector('.creative-card');
-      const drawer = wrapper.querySelector('.creative-drawer');
-      const inner = wrapper.querySelector('.creative-drawer-inner');
-
-      card.classList.remove('is-open');
-
-      if (animate) {
-        gsap.to(inner, { opacity: 0, duration: 0.2, ease: 'power2.in' });
-        gsap.to(drawer, { height: 0, duration: 0.5, ease: 'power3.inOut', delay: 0.1 });
-      } else {
-        gsap.set(inner, { opacity: 0 });
-        gsap.set(drawer, { height: 0 });
-      }
-
-      if (activeCreativeDrawer === drawer) {
-        activeCreativeDrawer = null;
-        activeCreativeCard = null;
-      }
-    }
-
-    document.querySelectorAll('.creative-card-wrapper').forEach(wrapper => {
-      const card = wrapper.querySelector('.creative-card');
-      card.addEventListener('click', () => {
-        const isOpen = card.classList.contains('is-open');
-        if (isOpen) {
-          closeCreativeDrawer(wrapper);
-        } else {
-          openCreativeDrawer(wrapper);
-        }
-      });
-    });
-
     /* TICKER HIGHLIGHT */
     const track = document.getElementById("ticker");
     const wrap = track.parentElement;
@@ -2268,6 +1255,424 @@
     }, { threshold: 0.3 });
 
     sections.forEach(s => observer.observe(s));
+
+    /* ── D3 FINTECH DASHBOARD ───────────────────────────────────────── */
+    (function() {
+      const BLUE   = '#3d9aff';
+      const GREEN  = '#4ade80';
+      const RED    = '#f87171';
+      const AMBER  = '#fbbf24';
+      const PURPLE = '#a78bfa';
+      const TEAL   = '#2dd4bf';
+      const TEXT   = 'rgba(232,230,223,0.35)';
+      const GRID   = 'rgba(255,255,255,0.04)';
+
+      /* ── 1. AREA CHART ── */
+      function buildArea(selector, data) {
+        const el = document.querySelector(selector);
+        if (!el) return;
+        const W = el.parentElement.clientWidth - 40;
+        const H = 140;
+        const m = { t: 8, r: 8, b: 28, l: 36 };
+        const w = W - m.l - m.r;
+        const h = H - m.t - m.b;
+
+        const svg = d3.select(selector)
+          .attr('width', W).attr('height', H);
+
+        const g = svg.append('g').attr('transform', `translate(${m.l},${m.t})`);
+
+        const x = d3.scaleTime().domain(d3.extent(data, d => d.date)).range([0, w]);
+        const y = d3.scaleLinear().domain([d3.min(data, d=>d.v)*0.92, d3.max(data, d=>d.v)*1.02]).range([h, 0]);
+
+        // grid lines
+        g.selectAll('.gl').data(y.ticks(4)).enter().append('line')
+          .attr('class','gl').attr('x1',0).attr('x2',w)
+          .attr('y1', d=>y(d)).attr('y2', d=>y(d))
+          .attr('stroke', GRID).attr('stroke-width', 1);
+
+        // y axis labels
+        g.selectAll('.yl').data(y.ticks(4)).enter().append('text')
+          .attr('class','yl').attr('x',-6).attr('y', d=>y(d))
+          .attr('text-anchor','end').attr('dominant-baseline','middle')
+          .attr('fill', TEXT).attr('font-size', 9).attr('font-family','Syne,sans-serif')
+          .text(d => '$' + d3.format(',.0f')(d));
+
+        // x axis
+        g.selectAll('.xl').data(x.ticks(5)).enter().append('text')
+          .attr('class','xl').attr('x', d=>x(d)).attr('y', h+18)
+          .attr('text-anchor','middle').attr('fill', TEXT)
+          .attr('font-size', 9).attr('font-family','Syne,sans-serif')
+          .text(d => d3.timeFormat('%b %d')(d));
+
+        // gradient
+        const defs = svg.append('defs');
+        const grad = defs.append('linearGradient').attr('id','areaGrad').attr('x1',0).attr('y1',0).attr('x2',0).attr('y2',1);
+        grad.append('stop').attr('offset','0%').attr('stop-color', BLUE).attr('stop-opacity', 0.25);
+        grad.append('stop').attr('offset','100%').attr('stop-color', BLUE).attr('stop-opacity', 0);
+
+        const area = d3.area().x(d=>x(d.date)).y0(h).y1(d=>y(d.v)).curve(d3.curveCatmullRom.alpha(0.5));
+        const line = d3.line().x(d=>x(d.date)).y(d=>y(d.v)).curve(d3.curveCatmullRom.alpha(0.5));
+
+        g.append('path').datum(data).attr('fill','url(#areaGrad)').attr('d', area);
+
+        const path = g.append('path').datum(data)
+          .attr('fill','none').attr('stroke', BLUE).attr('stroke-width', 2)
+          .attr('d', line);
+
+        // animate draw
+        const len = path.node().getTotalLength();
+        path.attr('stroke-dasharray', len).attr('stroke-dashoffset', len)
+          .transition().duration(1800).ease(d3.easeCubicOut).attr('stroke-dashoffset', 0);
+
+        // hover dot
+        const dot = g.append('circle').attr('r', 4).attr('fill', BLUE)
+          .attr('stroke','#0d0d0d').attr('stroke-width', 2).style('opacity', 0);
+
+        const overlay = g.append('rect').attr('width', w).attr('height', h)
+          .attr('fill','transparent').style('cursor','crosshair');
+
+        const bisect = d3.bisector(d=>d.date).left;
+
+        overlay.on('mousemove', function(event) {
+          const [mx] = d3.pointer(event);
+          const x0 = x.invert(mx);
+          const i = bisect(data, x0, 1);
+          const d = data[Math.min(i, data.length-1)];
+          dot.attr('cx', x(d.date)).attr('cy', y(d.v)).style('opacity', 1);
+        }).on('mouseleave', () => dot.style('opacity', 0));
+      }
+
+      /* ── 2. DONUT CHART ── */
+      function buildDonut() {
+        const el = document.getElementById('donut-chart');
+        if (!el) return;
+        const W = el.parentElement.clientWidth - 40;
+        const H = 180;
+        const R = Math.min(W, H) / 2 - 10;
+
+        const data = [
+          { label: 'Equities',    value: 42, color: BLUE   },
+          { label: 'Fixed Income',value: 28, color: TEAL   },
+          { label: 'Crypto',      value: 15, color: PURPLE },
+          { label: 'Cash',        value: 10, color: AMBER  },
+          { label: 'Alts',        value: 5,  color: RED    },
+        ];
+
+        const svg = d3.select('#donut-chart').attr('width', W).attr('height', H);
+        const g = svg.append('g').attr('transform', `translate(${W/2},${H/2})`);
+
+        const pie = d3.pie().value(d=>d.value).sort(null).padAngle(0.025);
+        const arc = d3.arc().innerRadius(R*0.55).outerRadius(R);
+        const arcHover = d3.arc().innerRadius(R*0.52).outerRadius(R+6);
+
+        const arcs = g.selectAll('.arc').data(pie(data)).enter().append('g');
+
+        arcs.append('path').attr('fill', d=>d.data.color).attr('opacity', 0.85)
+          .attr('d', arc)
+          .style('cursor','pointer')
+          .style('transition','opacity 0.15s')
+          .on('mouseover', function(e, d) {
+            d3.select(this).attr('d', arcHover).attr('opacity', 1);
+            centerText.text(d.data.value + '%');
+            centerSub.text(d.data.label);
+          })
+          .on('mouseout', function() {
+            d3.select(this).attr('d', arc).attr('opacity', 0.85);
+            centerText.text('100%');
+            centerSub.text('Allocated');
+          })
+          .transition().duration(900).ease(d3.easeCubicOut)
+          .attrTween('d', function(d) {
+            const i = d3.interpolate({ startAngle: 0, endAngle: 0 }, d);
+            return t => arc(i(t));
+          });
+
+        const centerText = g.append('text').attr('text-anchor','middle')
+          .attr('dominant-baseline','middle').attr('y', -8)
+          .attr('fill','#e8e6df').attr('font-size', 18).attr('font-weight', 700)
+          .attr('font-family','Syne,sans-serif').text('100%');
+
+        const centerSub = g.append('text').attr('text-anchor','middle')
+          .attr('dominant-baseline','middle').attr('y', 12)
+          .attr('fill', TEXT).attr('font-size', 10).attr('font-family','Syne,sans-serif')
+          .text('Allocated');
+
+        // legend
+        const legend = document.getElementById('donut-legend');
+        data.forEach(d => {
+          const item = document.createElement('div');
+          item.className = 'donut-legend-item';
+          item.innerHTML = `<div class="donut-legend-dot" style="background:${d.color}"></div>${d.label} ${d.value}%`;
+          legend.appendChild(item);
+        });
+      }
+
+      /* ── 3. BAR CHART ── */
+      function buildBar() {
+        const el = document.getElementById('bar-chart');
+        if (!el) return;
+        const W = el.parentElement.clientWidth - 40;
+        const H = 160;
+        const m = { t: 8, r: 8, b: 28, l: 40 };
+        const w = W - m.l - m.r;
+        const h = H - m.t - m.b;
+
+        const months = ['Jul','Aug','Sep','Oct','Nov','Dec','Jan','Feb','Mar','Apr'];
+        const vals = [820,1050,940,1380,1120,1560,890,1240,1420,1180];
+        const data = months.map((m,i) => ({ m, v: vals[i] }));
+
+        const svg = d3.select('#bar-chart').attr('width', W).attr('height', H);
+        const g = svg.append('g').attr('transform', `translate(${m.l},${m.t})`);
+
+        const x = d3.scaleBand().domain(data.map(d=>d.m)).range([0,w]).padding(0.28);
+        const y = d3.scaleLinear().domain([0, d3.max(data,d=>d.v)*1.1]).range([h,0]);
+
+        g.selectAll('.gl').data(y.ticks(4)).enter().append('line')
+          .attr('x1',0).attr('x2',w).attr('y1',d=>y(d)).attr('y2',d=>y(d))
+          .attr('stroke', GRID);
+
+        g.selectAll('.yl').data(y.ticks(4)).enter().append('text')
+          .attr('x',-6).attr('y',d=>y(d)).attr('text-anchor','end')
+          .attr('dominant-baseline','middle').attr('fill', TEXT)
+          .attr('font-size', 9).attr('font-family','Syne,sans-serif')
+          .text(d => '$' + d + 'K');
+
+        g.selectAll('.xl').data(data).enter().append('text')
+          .attr('x', d=>x(d.m)+x.bandwidth()/2).attr('y', h+16)
+          .attr('text-anchor','middle').attr('fill', TEXT)
+          .attr('font-size', 9).attr('font-family','Syne,sans-serif')
+          .text(d=>d.m);
+
+        const bars = g.selectAll('.bar').data(data).enter().append('rect')
+          .attr('x', d=>x(d.m)).attr('width', x.bandwidth())
+          .attr('y', h).attr('height', 0).attr('rx', 3)
+          .attr('fill', (d,i) => i === data.length-1 ? BLUE : 'rgba(61,154,255,0.25)')
+          .style('cursor','pointer')
+          .on('mouseover', function() { d3.select(this).attr('opacity', 0.7); })
+          .on('mouseout', function() { d3.select(this).attr('opacity', 1); });
+
+        bars.transition().duration(900).ease(d3.easeCubicOut).delay((d,i)=>i*60)
+          .attr('y', d=>y(d.v)).attr('height', d=>h-y(d.v));
+      }
+
+      /* ── 4. CANDLESTICK ── */
+      function buildCandle() {
+        const el = document.getElementById('candle-chart');
+        if (!el) return;
+        const W = el.parentElement.clientWidth - 40;
+        const H = 160;
+        const m = { t: 8, r: 8, b: 28, l: 44 };
+        const w = W - m.l - m.r;
+        const h = H - m.t - m.b;
+
+        // generate fake OHLC
+        let price = 178;
+        const data = d3.range(30).map((i) => {
+          const open = price + (Math.random()-0.48)*3;
+          const close = open + (Math.random()-0.47)*4;
+          const high = Math.max(open,close) + Math.random()*2;
+          const low  = Math.min(open,close) - Math.random()*2;
+          price = close;
+          return { i, open, close, high, low };
+        });
+
+        const svg = d3.select('#candle-chart').attr('width', W).attr('height', H);
+        const g = svg.append('g').attr('transform', `translate(${m.l},${m.t})`);
+
+        const x = d3.scaleBand().domain(data.map(d=>d.i)).range([0,w]).padding(0.2);
+        const allVals = data.flatMap(d=>[d.high,d.low]);
+        const y = d3.scaleLinear().domain([d3.min(allVals)*0.995, d3.max(allVals)*1.005]).range([h,0]);
+
+        g.selectAll('.gl').data(y.ticks(4)).enter().append('line')
+          .attr('x1',0).attr('x2',w).attr('y1',d=>y(d)).attr('y2',d=>y(d))
+          .attr('stroke', GRID);
+
+        g.selectAll('.yl').data(y.ticks(4)).enter().append('text')
+          .attr('x',-6).attr('y',d=>y(d)).attr('text-anchor','end')
+          .attr('dominant-baseline','middle').attr('fill', TEXT)
+          .attr('font-size', 9).attr('font-family','Syne,sans-serif')
+          .text(d => '$' + d.toFixed(0));
+
+        const cg = g.selectAll('.candle').data(data).enter().append('g');
+
+        // wicks
+        cg.append('line')
+          .attr('x1', d=>x(d.i)+x.bandwidth()/2).attr('x2', d=>x(d.i)+x.bandwidth()/2)
+          .attr('y1', d=>y(d.high)).attr('y2', d=>y(d.low))
+          .attr('stroke', d=>d.close >= d.open ? GREEN : RED).attr('stroke-width', 1);
+
+        // bodies
+        cg.append('rect')
+          .attr('x', d=>x(d.i)).attr('width', x.bandwidth())
+          .attr('y', d=>y(Math.max(d.open,d.close)))
+          .attr('height', d=>Math.max(1, Math.abs(y(d.open)-y(d.close))))
+          .attr('rx', 1)
+          .attr('fill', d=>d.close >= d.open ? GREEN : RED)
+          .attr('opacity', 0)
+          .transition().duration(600).delay((d,i)=>i*30).attr('opacity', 0.85);
+      }
+
+      /* ── 5. SCATTER ── */
+      function buildScatter() {
+        const el = document.getElementById('scatter-chart');
+        if (!el) return;
+        const W = el.parentElement.clientWidth - 40;
+        const H = 180;
+        const m = { t: 8, r: 8, b: 32, l: 36 };
+        const w = W - m.l - m.r;
+        const h = H - m.t - m.b;
+
+        const assets = [
+          { label:'US Equities',   risk:12, ret:14.2, color: BLUE,   r:8  },
+          { label:'Intl Equities', risk:16, ret:11.8, color: TEAL,   r:7  },
+          { label:'Corp Bonds',    risk:6,  ret:5.4,  color: AMBER,  r:6  },
+          { label:'Gov Bonds',     risk:3,  ret:3.1,  color: PURPLE, r:5  },
+          { label:'Bitcoin',       risk:48, ret:38.5, color: RED,    r:9  },
+          { label:'REITs',         risk:18, ret:9.2,  color: GREEN,  r:6  },
+          { label:'Commodities',   risk:22, ret:7.8,  color: AMBER,  r:5  },
+          { label:'Hedge Funds',   risk:14, ret:8.4,  color: TEAL,   r:6  },
+        ];
+
+        const svg = d3.select('#scatter-chart').attr('width', W).attr('height', H);
+        const g = svg.append('g').attr('transform', `translate(${m.l},${m.t})`);
+
+        const x = d3.scaleLinear().domain([0, 55]).range([0, w]);
+        const y = d3.scaleLinear().domain([0, 45]).range([h, 0]);
+
+        g.selectAll('.gl-x').data(x.ticks(5)).enter().append('line')
+          .attr('x1',d=>x(d)).attr('x2',d=>x(d)).attr('y1',0).attr('y2',h)
+          .attr('stroke', GRID);
+        g.selectAll('.gl-y').data(y.ticks(5)).enter().append('line')
+          .attr('x1',0).attr('x2',w).attr('y1',d=>y(d)).attr('y2',d=>y(d))
+          .attr('stroke', GRID);
+
+        g.selectAll('.xl').data(x.ticks(5)).enter().append('text')
+          .attr('x',d=>x(d)).attr('y',h+20).attr('text-anchor','middle')
+          .attr('fill', TEXT).attr('font-size',9).attr('font-family','Syne,sans-serif')
+          .text(d=>d+'%');
+        g.selectAll('.yl').data(y.ticks(5)).enter().append('text')
+          .attr('x',-6).attr('y',d=>y(d)).attr('text-anchor','end')
+          .attr('dominant-baseline','middle').attr('fill', TEXT)
+          .attr('font-size',9).attr('font-family','Syne,sans-serif')
+          .text(d=>d+'%');
+
+        const tip = document.getElementById('scatter-tip');
+
+        g.selectAll('.dot').data(assets).enter().append('circle')
+          .attr('cx', d=>x(d.risk)).attr('cy', d=>y(d.ret))
+          .attr('r', 0).attr('fill', d=>d.color).attr('opacity', 0.8)
+          .style('cursor','pointer')
+          .on('mousemove', function(event, d) {
+            tip.innerHTML = `<strong>${d.label}</strong><br>Risk: ${d.risk}% · Return: ${d.ret}%`;
+            tip.classList.add('visible');
+            tip.style.left = (event.clientX + 12) + 'px';
+            tip.style.top  = (event.clientY - 28) + 'px';
+          })
+          .on('mouseleave', () => tip.classList.remove('visible'))
+          .transition().duration(700).ease(d3.easeBackOut).delay((d,i)=>i*80)
+          .attr('r', d=>d.r);
+
+        // axis labels
+        g.append('text').attr('x',w/2).attr('y',h+30).attr('text-anchor','middle')
+          .attr('fill', TEXT).attr('font-size',9).attr('font-family','Syne,sans-serif').text('Risk (Volatility %)');
+        g.append('text').attr('transform','rotate(-90)').attr('x',-h/2).attr('y',-28)
+          .attr('text-anchor','middle').attr('fill', TEXT)
+          .attr('font-size',9).attr('font-family','Syne,sans-serif').text('Return %');
+      }
+
+      /* ── 6. GAUGE ── */
+      function buildGauge() {
+        const el = document.getElementById('gauge-chart');
+        if (!el) return;
+        const W = Math.min(el.parentElement.clientWidth - 40, 200);
+        const H = 110;
+        const R = W * 0.42;
+        const score = 82;
+
+        const svg = d3.select('#gauge-chart').attr('width', W).attr('height', H);
+        const g = svg.append('g').attr('transform', `translate(${W/2},${H-8})`);
+
+        const arcBg = d3.arc().innerRadius(R*0.7).outerRadius(R)
+          .startAngle(-Math.PI/1.15).endAngle(Math.PI/1.15);
+        const arcFg = d3.arc().innerRadius(R*0.7).outerRadius(R)
+          .startAngle(-Math.PI/1.15).cornerRadius(3);
+
+        g.append('path').attr('d', arcBg).attr('fill','rgba(255,255,255,0.06)');
+
+        const targetAngle = -Math.PI/1.15 + (Math.PI*2/1.15) * (score/100);
+        const fgPath = g.append('path').attr('fill', BLUE).attr('opacity', 0.9);
+
+        const interp = d3.interpolate(-Math.PI/1.15, targetAngle);
+        fgPath.transition().duration(1400).ease(d3.easeCubicOut)
+          .tween('arc', () => t => {
+            fgPath.attr('d', arcFg.endAngle(interp(t))());
+          });
+
+        // tick marks
+        d3.range(0, 101, 10).forEach(v => {
+          const angle = -Math.PI/1.15 + (Math.PI*2/1.15) * (v/100) - Math.PI/2;
+          const x1 = Math.cos(angle) * (R+4);
+          const y1 = Math.sin(angle) * (R+4);
+          const x2 = Math.cos(angle) * (R+10);
+          const y2 = Math.sin(angle) * (R+10);
+          g.append('line').attr('x1',x1).attr('y1',y1).attr('x2',x2).attr('y2',y2)
+            .attr('stroke', v <= score ? BLUE : 'rgba(255,255,255,0.1)')
+            .attr('stroke-width', 1.5).attr('stroke-linecap','round');
+        });
+      }
+
+      /* ── DATA GENERATION ── */
+      function genAreaData(days) {
+        let v = 248000;
+        const now = new Date();
+        return d3.range(days).map(i => {
+          v += (Math.random()-0.46) * 3200;
+          v = Math.max(v, 200000);
+          return { date: new Date(now - (days-1-i)*86400000), v };
+        });
+      }
+
+      const areaData1M = genAreaData(30);
+      const areaData3M = genAreaData(90);
+      const areaData1Y = genAreaData(365);
+
+      /* ── INIT on scroll into view ── */
+      let dvBuilt = false;
+
+      function buildAll() {
+        if (dvBuilt) return;
+        dvBuilt = true;
+        buildArea('#area-chart', areaData1M);
+        buildDonut();
+        buildBar();
+        buildCandle();
+        buildScatter();
+        buildGauge();
+
+        // timerange buttons
+        document.querySelectorAll('.dv-btn').forEach(btn => {
+          btn.addEventListener('click', function() {
+            document.querySelectorAll('.dv-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            const range = this.dataset.range;
+            const data = range === '1M' ? areaData1M : range === '3M' ? areaData3M : areaData1Y;
+            d3.select('#area-chart').selectAll('*').remove();
+            buildArea('#area-chart', data);
+          });
+        });
+      }
+
+      const dvObserver = new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting) { buildAll(); dvObserver.disconnect(); }
+      }, { threshold: 0.2 });
+
+      const dvSection = document.getElementById('dataviz-grid');
+      if (dvSection) dvObserver.observe(dvSection);
+
+    })();
+    /* ── END D3 DASHBOARD ── */
+
   </script>
 
 </body>
