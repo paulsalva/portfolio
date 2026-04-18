@@ -73,7 +73,84 @@
     /* HERO */
     .hero {
       padding: 80px 48px 120px;
-      max-width: 900px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 60px;
+      align-items: start;
+      max-width: 1100px;
+    }
+
+    .hero-left { display: flex; flex-direction: column; }
+
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      padding-top: 8px;
+    }
+
+    .ticker-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(232,230,223,0.2);
+      margin-bottom: 20px;
+    }
+
+    .ticker-wrap {
+      height: 220px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .ticker-wrap::before,
+    .ticker-wrap::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0;
+      height: 48px;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .ticker-wrap::before {
+      top: 0;
+      background: linear-gradient(to bottom, #0d0d0d, transparent);
+    }
+
+    .ticker-wrap::after {
+      bottom: 0;
+      background: linear-gradient(to top, #0d0d0d, transparent);
+    }
+
+    .ticker-track {
+      display: flex;
+      flex-direction: column;
+      animation: ticker-scroll 14s linear infinite;
+    }
+
+    .ticker-item {
+      font-size: clamp(18px, 2.2vw, 26px);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: rgba(232,230,223,0.12);
+      line-height: 1.2;
+      padding: 10px 0;
+      white-space: nowrap;
+    }
+
+    .ticker-item.lit {
+      color: #e8e6df;
+    }
+
+    @keyframes ticker-scroll {
+      0%   { transform: translateY(0); }
+      100% { transform: translateY(-50%); }
+    }
+
+    @media (max-width: 720px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-right { padding-top: 40px; }
     }
 
     .hero-name {
@@ -112,23 +189,6 @@
       color: rgba(232,230,223,0.55);
       max-width: 480px;
       margin-bottom: 40px;
-    }
-
-    .hero-tags {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .hero-tag {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: rgba(232,230,223,0.4);
-      border: 0.5px solid rgba(255,255,255,0.12);
-      border-radius: 100px;
-      padding: 5px 12px;
     }
 
     /* SECTION */
@@ -408,17 +468,36 @@
 
   <!-- HERO -->
   <header class="hero">
-    <div class="hero-name reveal">PAUL<br>SAL<span class="kern-tight">V</span><span class="kern-tighter">A</span></div>
-    <div class="hero-tagline reveal">Senior Product Designer &amp; AI-Integrated Design Consultant</div>
-    <p class="hero-desc reveal">
-      Multidisciplinary designer working across AR/XR interfaces, enterprise product design, generative AI tooling, and creative systems. Based in Los Angeles.
-    </p>
-    <div class="hero-tags reveal">
-      <span class="hero-tag">Spatial UX</span>
-      <span class="hero-tag">Generative AI</span>
-      <span class="hero-tag">Design Systems</span>
-      <span class="hero-tag">Creative Production</span>
-      <span class="hero-tag">Agentic Workflows</span>
+    <div class="hero-left">
+      <div class="hero-name reveal">PAUL<br>SAL<span class="kern-tight">V</span><span class="kern-tighter">A</span></div>
+      <div class="hero-tagline reveal">Senior Product Designer &amp; AI-Integrated Design Consultant</div>
+      <p class="hero-desc reveal">
+        Multidisciplinary designer working across AR/XR interfaces, enterprise product design, generative AI tooling, and creative systems. Based in Los Angeles.
+      </p>
+    </div>
+    <div class="hero-right reveal">
+      <div class="ticker-label">Disciplines</div>
+      <div class="ticker-wrap">
+        <div class="ticker-track" id="ticker">
+          <div class="ticker-item">Spatial UX</div>
+          <div class="ticker-item">Generative AI</div>
+          <div class="ticker-item">Design Systems</div>
+          <div class="ticker-item">Creative Production</div>
+          <div class="ticker-item">Agentic Workflows</div>
+          <div class="ticker-item">AR / XR</div>
+          <div class="ticker-item">Sound Design</div>
+          <div class="ticker-item">Motion</div>
+          <!-- duplicated for seamless loop -->
+          <div class="ticker-item">Spatial UX</div>
+          <div class="ticker-item">Generative AI</div>
+          <div class="ticker-item">Design Systems</div>
+          <div class="ticker-item">Creative Production</div>
+          <div class="ticker-item">Agentic Workflows</div>
+          <div class="ticker-item">AR / XR</div>
+          <div class="ticker-item">Sound Design</div>
+          <div class="ticker-item">Motion</div>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -655,7 +734,26 @@
   </footer>
 
   <script>
-    // NAV ACTIVE STATE ON SCROLL
+    // TICKER HIGHLIGHT — lights up whichever item is nearest center
+    const track = document.getElementById('ticker');
+    const wrap = track.parentElement;
+
+    function updateLit() {
+      const wrapMid = wrap.getBoundingClientRect().top + wrap.offsetHeight / 2;
+      const items = track.querySelectorAll('.ticker-item');
+      let closest = null, closestDist = Infinity;
+      items.forEach(item => {
+        const rect = item.getBoundingClientRect();
+        const mid = rect.top + rect.height / 2;
+        const dist = Math.abs(mid - wrapMid);
+        if (dist < closestDist) { closestDist = dist; closest = item; }
+      });
+      items.forEach(i => i.classList.remove('lit'));
+      if (closest) closest.classList.add('lit');
+    }
+
+    setInterval(updateLit, 60);
+    updateLit();
     const sections = document.querySelectorAll('section[id]');
     const pills = document.querySelectorAll('.nav-pill');
 
