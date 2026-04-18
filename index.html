@@ -217,6 +217,147 @@
     }
 
 
+
+    /* MULTIMODAL AI VERTICAL CARDS */
+    .ai-card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      align-items: start;
+    }
+
+    .ai-vert-wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ai-vert-card {
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px;
+      cursor: pointer;
+      position: relative;
+      transition: border-color 0.3s ease;
+      background: transparent;
+      overflow: hidden;
+    }
+
+    .ai-vert-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 10px;
+      padding: 1px;
+      background: linear-gradient(135deg, #3d9aff, #7ec8ff, #1a6fcc, #3d9aff);
+      background-size: 300% auto;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      animation: gradientShift 4s linear infinite;
+    }
+
+    .ai-vert-card:hover::before,
+    .ai-vert-card.is-open::before {
+      opacity: 1;
+    }
+
+    .ai-vert-card:hover .ai-vert-title,
+    .ai-vert-card.is-open .ai-vert-title {
+      -webkit-text-fill-color: transparent;
+      -webkit-text-stroke: 1px transparent;
+      background: linear-gradient(90deg, #3d9aff, #7ec8ff, #1a6fcc, #3d9aff);
+      background-size: 300% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      animation: gradientShift 4s linear infinite;
+    }
+
+    .ai-vert-card:hover .ai-vert-toggle svg,
+    .ai-vert-card.is-open .ai-vert-toggle svg {
+      stroke: #3d9aff;
+    }
+
+    .ai-vert-card.is-open .ai-vert-toggle svg {
+      transform: rotate(45deg);
+    }
+
+    .ai-vert-card-inner {
+      padding: 36px 28px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      min-height: 320px;
+    }
+
+    .ai-vert-number {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      color: rgba(232,230,223,0.2);
+      margin-bottom: 28px;
+    }
+
+    .ai-vert-title {
+      font-size: clamp(20px, 2vw, 26px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #3d9aff;
+      line-height: 1.1;
+      margin-bottom: 14px;
+      transition: none;
+    }
+
+    .ai-vert-sub {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(232,230,223,0.3);
+      margin-bottom: 20px;
+    }
+
+    .ai-vert-copy {
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 1.7;
+      color: rgba(232,230,223,0.45);
+      flex: 1;
+    }
+
+    .ai-vert-toggle {
+      margin-top: 28px;
+      width: 28px;
+      height: 28px;
+      border: 0.5px solid rgba(255,255,255,0.12);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ai-vert-toggle svg {
+      width: 12px;
+      height: 12px;
+      stroke: rgba(232,230,223,0.3);
+      transition: stroke 0.2s, transform 0.4s cubic-bezier(0.16,1,0.3,1);
+    }
+
+    .ai-vert-drawer {
+      overflow: hidden;
+      height: 0;
+      will-change: height;
+    }
+
+    .ai-vert-drawer-inner {
+      padding: 0 0 48px;
+      opacity: 0;
+    }
+
+    @media (max-width: 900px) {
+      .ai-card-grid { grid-template-columns: 1fr; }
+    }
+
     /* SUBSECTIONS */
     .subsection {
       margin-bottom: 56px;
@@ -1338,56 +1479,133 @@
     <div class="section-header">
       <span class="section-number">02</span>
       <span class="section-title">Multimodal AI</span>
-      <span class="section-count">Placeholder</span>
     </div>
-    <div class="cases">
-      <div class="case-wrapper">
-        <div class="case">
-          <div class="case-meta">
-            <div class="case-tags">
-              <span class="case-tag primary">Multimodal AI</span>
-              <span class="case-tag-sep">·</span>
-              <span class="case-tag">Prompt Engineering</span>
-              <span class="case-tag-sep">·</span>
-              <span class="case-tag">UX Strategy</span>
+
+    <div class="ai-card-grid">
+
+      <div class="ai-vert-wrapper">
+        <div class="ai-vert-card" data-index="0">
+          <div class="ai-vert-card-inner">
+            <div class="ai-vert-number">01</div>
+            <div class="ai-vert-title">Generative AI</div>
+            <div class="ai-vert-sub">From prompt to production</div>
+            <div class="ai-vert-copy">Designing generative AI experiences across image, video, audio, and text — from interface strategy to workflow integration. Building the product layer on top of foundation models.</div>
+            <div class="ai-vert-toggle">
+              <svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg>
             </div>
-            <div class="case-title">Multimodal AI Experience Design</div>
-            <div class="case-desc">Placeholder for multimodal AI product design — vision, language, audio, and generative interfaces across consumer and enterprise contexts.</div>
-          </div>
-          <div class="case-right">
-            <span class="case-client">Placeholder</span>
-            <div class="case-toggle-icon"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
           </div>
         </div>
-        <div class="case-drawer">
-          <div class="case-drawer-inner">
-            <div class="drawer-hero"><div class="drawer-hero-placeholder"><span>Hero image — Multimodal AI</span></div></div>
+        <div class="ai-vert-drawer">
+          <div class="ai-vert-drawer-inner">
+            <div class="drawer-hero"><div class="drawer-hero-placeholder"><span>Hero image — Generative AI</span></div></div>
             <div class="drawer-body">
               <div class="drawer-meta">
-                <div class="drawer-meta-item"><label>Role</label><p>AI Design Strategist · UX Designer</p></div>
-                <div class="drawer-meta-item"><label>Year</label><p>Placeholder</p></div>
-                <div class="drawer-meta-item"><label>Client</label><p>Placeholder</p></div>
-                <div class="drawer-meta-item"><label>Scope</label><p>Multimodal AI · Prompt Engineering · UX Strategy</p></div>
+                <div class="drawer-meta-item"><label>Role</label><p>AI Design Strategist</p></div>
+                <div class="drawer-meta-item"><label>Scope</label><p>Generative AI · Interface Design · Workflow</p></div>
+                <div class="drawer-meta-item"><label>Tools</label><p>Runway · Veo · MidJourney · Suno · ElevenLabs</p></div>
               </div>
               <div class="drawer-copy">
-                <h3>Designing at the frontier of multimodal AI</h3>
-                <p>Placeholder — add your multimodal AI design work here.</p>
+                <h3>Designing on top of foundation models</h3>
+                <p>Placeholder — add your generative AI design work here. This could include AI-powered interfaces, generative media workflows, or product strategy for AI-native features.</p>
                 <div class="drawer-copy-cols">
-                  <p>Describe your approach to prompt engineering, model evaluation, and translating AI capabilities into coherent user experiences.</p>
-                  <p>Outline the strategic framing — how you positioned AI features within a broader product narrative.</p>
+                  <p>Describe your approach to designing interfaces that expose generative AI capabilities without overwhelming users.</p>
+                  <p>Outline specific workflows or pipelines you designed and the creative or business outcomes they enabled.</p>
                 </div>
               </div>
             </div>
-            <div class="drawer-strip-label">Process & Work</div>
+            <div class="drawer-strip-label">Work & Process</div>
             <div class="drawer-strip">
-              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Interface design</span></div></div>
+              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Generative video</span></div></div>
+              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>AI interface design</span></div></div>
               <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Prompt systems</span></div></div>
-              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Model evaluation</span></div></div>
-              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>UX strategy</span></div></div>
+              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Output samples</span></div></div>
             </div>
           </div>
         </div>
       </div>
+
+      <div class="ai-vert-wrapper">
+        <div class="ai-vert-card" data-index="1">
+          <div class="ai-vert-card-inner">
+            <div class="ai-vert-number">02</div>
+            <div class="ai-vert-title">Multimodal Pipelines</div>
+            <div class="ai-vert-sub">Connecting models across modalities</div>
+            <div class="ai-vert-copy">Architecting and designing multi-step AI pipelines that chain vision, language, audio, and generative models together — purpose-built for creative production and product workflows.</div>
+            <div class="ai-vert-toggle">
+              <svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="ai-vert-drawer">
+          <div class="ai-vert-drawer-inner">
+            <div class="drawer-hero"><div class="drawer-hero-placeholder"><span>Hero image — Multimodal Pipelines</span></div></div>
+            <div class="drawer-body">
+              <div class="drawer-meta">
+                <div class="drawer-meta-item"><label>Role</label><p>AI Design Strategist · Pipeline Architect</p></div>
+                <div class="drawer-meta-item"><label>Scope</label><p>Multimodal · Pipeline Design · Integration</p></div>
+                <div class="drawer-meta-item"><label>Tools</label><p>Claude · Gemini · MCP Servers · Automation</p></div>
+              </div>
+              <div class="drawer-copy">
+                <h3>Chaining models to build something new</h3>
+                <p>Placeholder — add your multimodal pipeline work here. This could include multi-model chains, API integrations, or production workflows that combine vision, language, and generative AI.</p>
+                <div class="drawer-copy-cols">
+                  <p>Describe the pipeline architecture — which models, how they connect, and what design decisions governed the flow.</p>
+                  <p>Outline the output: what the pipeline produces, how fast, and how it changed the production process.</p>
+                </div>
+              </div>
+            </div>
+            <div class="drawer-strip-label">Work & Process</div>
+            <div class="drawer-strip">
+              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Pipeline diagram</span></div></div>
+              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Model integration</span></div></div>
+              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Output examples</span></div></div>
+              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Workflow UI</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ai-vert-wrapper">
+        <div class="ai-vert-card" data-index="2">
+          <div class="ai-vert-card-inner">
+            <div class="ai-vert-number">03</div>
+            <div class="ai-vert-title">Agentic Automation</div>
+            <div class="ai-vert-sub">AI that does the work</div>
+            <div class="ai-vert-copy">Designing and building agentic systems that execute multi-step tasks autonomously — from vibecoded tools to MCP server integrations and browser automation workflows.</div>
+            <div class="ai-vert-toggle">
+              <svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="ai-vert-drawer">
+          <div class="ai-vert-drawer-inner">
+            <div class="drawer-hero"><div class="drawer-hero-placeholder"><span>Hero image — Agentic Automation</span></div></div>
+            <div class="drawer-body">
+              <div class="drawer-meta">
+                <div class="drawer-meta-item"><label>Role</label><p>AI Design Strategist · Builder</p></div>
+                <div class="drawer-meta-item"><label>Scope</label><p>Agentic AI · Automation · Vibecoding</p></div>
+                <div class="drawer-meta-item"><label>Tools</label><p>Claude · MCP · Prompt Machine · Browser Automation</p></div>
+              </div>
+              <div class="drawer-copy">
+                <h3>Building AI that acts, not just responds</h3>
+                <p>Placeholder — add your agentic automation work here. This could include custom tools, MCP server integrations, vibecoded interfaces, or autonomous workflow systems.</p>
+                <div class="drawer-copy-cols">
+                  <p>Describe the agentic system — what it does autonomously, how it was designed, and what guardrails and UX decisions shaped its behavior.</p>
+                  <p>Outline the time or effort saved, and what it unlocked for creative or product workflows.</p>
+                </div>
+              </div>
+            </div>
+            <div class="drawer-strip-label">Work & Process</div>
+            <div class="drawer-strip">
+              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Prompt Machine UI</span></div></div>
+              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Agentic flow</span></div></div>
+              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>MCP integration</span></div></div>
+              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Automation output</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -2344,6 +2562,71 @@
       }, { passive: true });
     }
 
+
+
+    /* MULTIMODAL AI VERTICAL CARD DRAWERS */
+    let activeAiDrawer = null;
+    let activeAiCard = null;
+
+    function openAiDrawer(wrapper) {
+      const card = wrapper.querySelector('.ai-vert-card');
+      const drawer = wrapper.querySelector('.ai-vert-drawer');
+      const inner = wrapper.querySelector('.ai-vert-drawer-inner');
+
+      if (activeAiDrawer && activeAiDrawer !== drawer) {
+        closeAiDrawer(activeAiDrawer.closest('.ai-vert-wrapper'), false);
+      }
+
+      card.classList.add('is-open');
+      activeAiDrawer = drawer;
+      activeAiCard = card;
+
+      gsap.set(drawer, { height: 'auto' });
+      const fullH = drawer.offsetHeight;
+      gsap.set(drawer, { height: 0 });
+
+      const tl = gsap.timeline();
+
+      tl.to(drawer, { height: fullH, duration: 0.7, ease: 'power3.inOut' });
+      tl.to(inner, { opacity: 1, duration: 0.35, ease: 'power2.out' }, '-=0.25');
+      tl.from(inner.querySelector('.drawer-hero'), { y: 20, opacity: 0, duration: 0.5, ease: 'power3.out' }, '-=0.2');
+      tl.from(inner.querySelectorAll('.drawer-meta-item'), { y: 14, opacity: 0, duration: 0.45, stagger: 0.07, ease: 'power3.out' }, '-=0.35');
+      tl.from(inner.querySelectorAll('.drawer-copy > *'), { y: 14, opacity: 0, duration: 0.45, stagger: 0.07, ease: 'power3.out' }, '-=0.4');
+      tl.from(inner.querySelectorAll('.drawer-strip-img'), { x: 24, opacity: 0, duration: 0.4, stagger: 0.06, ease: 'power3.out' }, '-=0.25');
+
+      setTimeout(() => wrapper.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 80);
+
+      const strip = inner.querySelector('.drawer-strip');
+      if (strip) initDragStrip(strip);
+    }
+
+    function closeAiDrawer(wrapper, animate = true) {
+      const card = wrapper.querySelector('.ai-vert-card');
+      const drawer = wrapper.querySelector('.ai-vert-drawer');
+      const inner = wrapper.querySelector('.ai-vert-drawer-inner');
+
+      card.classList.remove('is-open');
+
+      if (animate) {
+        gsap.to(inner, { opacity: 0, duration: 0.2, ease: 'power2.in' });
+        gsap.to(drawer, { height: 0, duration: 0.5, ease: 'power3.inOut', delay: 0.1 });
+      } else {
+        gsap.set(inner, { opacity: 0 });
+        gsap.set(drawer, { height: 0 });
+      }
+
+      if (activeAiDrawer === drawer) {
+        activeAiDrawer = null;
+        activeAiCard = null;
+      }
+    }
+
+    document.querySelectorAll('.ai-vert-wrapper').forEach(wrapper => {
+      const card = wrapper.querySelector('.ai-vert-card');
+      card.addEventListener('click', () => {
+        card.classList.contains('is-open') ? closeAiDrawer(wrapper) : openAiDrawer(wrapper);
+      });
+    });
 
     /* CREATIVE CARD DRAWERS */
     let activeCreativeDrawer = null;
