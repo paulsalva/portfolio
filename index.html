@@ -389,11 +389,33 @@
     }
 
     .ai-drawer-content {
-      display: none;
+      display: none !important;
     }
 
     .ai-drawer-content.active {
-      display: block;
+      display: block !important;
+    }
+
+    .ai-full-drawer-inner {
+      padding: 0;
+    }
+
+    .ai-full-drawer-inner .drawer-hero {
+      border-radius: 0;
+      margin-bottom: 0;
+    }
+
+    .ai-full-drawer-inner .drawer-body {
+      padding: 40px 40px 0;
+    }
+
+    .ai-full-drawer-inner .drawer-strip-label {
+      padding: 0 40px;
+      margin-top: 40px;
+    }
+
+    .ai-full-drawer-inner .drawer-strip {
+      padding: 0 40px 40px;
     }
 
     /* SUBSECTIONS */
@@ -2652,8 +2674,9 @@
       tl.add(() => animateDrawerContent(panel), '-=0.2');
 
       setTimeout(() => {
-        aiFullDrawer.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 200);
+        const section = document.getElementById('multimodal-ai');
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 400);
 
       const strip = panel.querySelector('.drawer-strip');
       if (strip) initDragStrip(strip);
