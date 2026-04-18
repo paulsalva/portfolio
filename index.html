@@ -247,13 +247,14 @@
 
     .case {
       display: grid;
-      grid-template-columns: 1fr 280px;
+      grid-template-columns: 1fr minmax(280px, 38vw);
       background: #0d0d0d;
       padding: 36px 0;
       cursor: pointer;
       transition: background 0.2s cubic-bezier(0.16,1,0.3,1);
       align-items: center;
       text-decoration: none;
+      overflow: hidden;
     }
 
     .case:hover {
@@ -269,6 +270,8 @@
       display: flex;
       flex-direction: column;
       gap: 10px;
+      position: relative;
+      z-index: 2;
     }
 
     .case-tags {
@@ -317,14 +320,22 @@
       justify-content: flex-end;
       align-items: center;
       gap: 16px;
+      min-height: 76px;
+      position: relative;
+      z-index: 1;
     }
 
     .case-client {
       font-size: 11px;
-      font-weight: 500;
+      font-weight: 700;
       letter-spacing: 0.06em;
       text-transform: uppercase;
       color: rgba(232,230,223,0.25);
+      text-align: right;
+      line-height: 0.9;
+      white-space: nowrap;
+      will-change: transform, color, opacity, font-size;
+      transform-origin: right center;
     }
 
     .case-arrow {
@@ -332,6 +343,9 @@
       color: rgba(232,230,223,0.2);
       transition: all 0.2s cubic-bezier(0.16,1,0.3,1);
       display: inline-block;
+      position: relative;
+      z-index: 3;
+      flex: 0 0 auto;
     }
 
     /* AI GRID */
@@ -465,6 +479,20 @@
       .ticker-track {
         align-items: flex-start;
       }
+
+      .case {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .case-right {
+        justify-content: flex-start;
+      }
+
+      .case-client {
+        text-align: left;
+        transform-origin: left center;
+      }
     }
 
     @media (max-width: 640px) {
@@ -472,8 +500,6 @@
       .section { padding: 60px 24px; }
       .footer { padding: 48px 24px; flex-direction: column; gap: 40px; align-items: flex-start; }
       .nav-pill { font-size: 10px; padding: 5px 10px; }
-      .case { grid-template-columns: 1fr; gap: 16px; }
-      .case-right { justify-content: flex-start; }
     }
   </style>
 </head>
@@ -840,6 +866,49 @@
         ease: "power3.out"
       });
     });
+
+    /* SCROLL-REACTIVE CLIENT NAMES */
+    const clientNames = gsap.utils.toArray(".case-client");
+
+    function getMaxClientSize() {
+      if (window.innerWidth <= 640) return 28;
+      if (window.innerWidth <= 900) return 38;
+      return Math.min(76, window.innerWidth * 0.045);
+    }
+
+    function updateClientNames() {
+      const viewportCenter = window.innerHeight * 0.5;
+      const activationRange = window.innerHeight * 0.38;
+      const maxSize = getMaxClientSize();
+
+      clientNames.forEach((client) => {
+        const caseRow = client.closest(".case");
+        const rect = caseRow.getBoundingClientRect();
+        const rowCenter = rect.top + rect.height * 0.5;
+        const distance = Math.abs(rowCenter - viewportCenter);
+        const rawStrength = 1 - Math.min(distance / activationRange, 1);
+        const strength = rawStrength * rawStrength * (3 - 2 * rawStrength);
+
+        const fontSize = 11 + (maxSize - 11) * strength;
+        const y = 28 * strength;
+        const inactiveOpacity = 0.25;
+        const activeOpacity = 1;
+        const opacity = inactiveOpacity + (activeOpacity - inactiveOpacity) * strength;
+        const colorValue = Math.round(64 + (232 - 64) * strength);
+
+        gsap.set(client, {
+          fontSize: fontSize + "px",
+          y: y,
+          opacity: opacity,
+          color: `rgba(${colorValue}, ${colorValue}, ${colorValue}, ${opacity})`
+        });
+      });
+    }
+
+    gsap.ticker.add(updateClientNames);
+    ScrollTrigger.addEventListener("refresh", updateClientNames);
+    window.addEventListener("resize", updateClientNames);
+    updateClientNames();
 
     /* AI CARDS */
     gsap.from(".ai-card", {
