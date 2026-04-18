@@ -73,76 +73,75 @@
 
     /* HERO */
     .hero {
-      padding: 80px 48px;
+      padding: 80px 48px 100px;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 0 60px;
-      align-items: start;
+      gap: 0 80px;
+      align-items: center;
       max-width: none;
       width: 100%;
+      min-height: 52vh;
     }
 
     .hero-left {
       display: flex;
       flex-direction: column;
-      max-width: 520px;
+      justify-content: center;
     }
 
     .hero-right {
       display: flex;
       flex-direction: column;
-      align-items: flex-end;
-      justify-self: end;
-      text-align: right;
-      padding-top: 8px;
-      width: 100%;
-      max-width: 360px;
+      align-items: flex-start;
+      justify-content: center;
+      text-align: left;
+      padding-top: 0;
     }
 
     .hero-statement {
       display: flex;
       flex-direction: column;
-      gap: 2px;
-      padding-top: 4px;
+      gap: 0;
     }
 
     .hs-line {
       opacity: 0;
-      transform: translateY(18px);
+      transform: translateY(20px);
       display: block;
-      line-height: 1.15;
     }
 
     .hs-large {
-      font-size: clamp(22px, 3vw, 34px);
-      font-weight: 700;
-      letter-spacing: -0.02em;
+      font-size: clamp(28px, 3.8vw, 52px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
       color: #e8e6df;
-      padding: 2px 0;
+      line-height: 1.05;
+    }
+
+    .hs-medium {
+      font-size: clamp(14px, 1.6vw, 20px);
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      color: rgba(232,230,223,0.4);
+      line-height: 1.4;
+      margin-top: 20px;
+    }
+
+    .hs-medium + .hs-medium {
+      margin-top: 0;
     }
 
     .hs-small {
-      font-size: clamp(13px, 1.4vw, 16px);
+      font-size: clamp(12px, 1.1vw, 14px);
       font-weight: 400;
-      color: rgba(232,230,223,0.45);
-      line-height: 1.6;
+      color: rgba(232,230,223,0.28);
+      line-height: 1.7;
       letter-spacing: 0;
-      margin-top: 16px;
+      margin-top: 18px;
     }
 
     .hs-small + .hs-small {
       margin-top: 0;
-    }
-
-    .hs-location {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #3d9aff;
-      opacity: 0;
-      transform: translateY(18px);
-      margin-top: 20px;
     }
 
     .hero-name {
@@ -840,12 +839,12 @@
 
     <div class="hero-right">
       <div class="hero-statement">
-        <div class="hs-line hs-large" data-delay="0">Spatial interfaces.</div>
-        <div class="hs-line hs-large" data-delay="80">Generative systems.</div>
-        <div class="hs-line hs-large" data-delay="160">Enterprise products.</div>
-        <div class="hs-line hs-small" data-delay="280">I design at the intersection of emerging</div>
-        <div class="hs-line hs-small" data-delay="340">technology and human experience.</div>
-        <div class="hs-line hs-location" data-delay="460">Based in Los Angeles.</div>
+        <div class="hs-line hs-large" data-delay="0">Product design</div>
+        <div class="hs-line hs-large" data-delay="120">without borders.</div>
+        <div class="hs-line hs-medium" data-delay="260">AR/XR, enterprise, mobile,</div>
+        <div class="hs-line hs-medium" data-delay="340">data, creative.</div>
+        <div class="hs-line hs-small" data-delay="500">Building the AI pipelines and workflows</div>
+        <div class="hs-line hs-small" data-delay="580">that make it all move faster.</div>
       </div>
     </div>
   </header>
@@ -1874,17 +1873,9 @@
     gsap.from(".hero-left > *", {
       opacity: 0,
       y: 28,
-      duration: 0.9,
-      stagger: 0.12,
-      ease: "power3.out"
-    });
-
-    gsap.from(".hero-right", {
-      opacity: 0,
-      x: 28,
-      duration: 0.9,
-      delay: 0.2,
-      ease: "power3.out"
+      duration: 1.1,
+      stagger: 0.15,
+      ease: "power4.out"
     });
 
     /* SECTION HEADERS */
@@ -2252,9 +2243,9 @@
       gsap.to(line, {
         opacity: 1,
         y: 0,
-        duration: 0.75,
-        delay: 0.4 + delay,
-        ease: "power3.out"
+        duration: 1.1,
+        delay: 0.6 + delay,
+        ease: "power4.out"
       });
     });
 
