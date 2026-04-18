@@ -373,10 +373,6 @@
     }
 
 
-    .ai-full-drawer {
-      margin-top: 16px;
-    }
-
     .ai-full-drawer-inner {
       padding: 32px 0 40px;
       overflow: hidden;
@@ -2748,29 +2744,21 @@
 
     /* UNIVERSAL DRAWER OPEN HELPER */
     function openDrawerPanel(drawer, inner, panel, onOpen) {
-      drawer.classList.add('drawer-visible');
-      inner.style.opacity = '1';
-      inner.style.transform = 'none';
-      if (onOpen) setTimeout(onOpen, 50);
+      drawer.style.display = 'block';
+      if (onOpen) onOpen();
     }
 
     function swapDrawerPanel(inner, onSwap) {
-      inner.style.opacity = '0.3';
-      setTimeout(() => {
-        if (onSwap) onSwap();
-        inner.style.opacity = '1';
-      }, 80);
+      if (onSwap) onSwap();
     }
 
     function closeDrawerEl(drawer, inner, onComplete) {
-      drawer.classList.remove('drawer-visible');
-      if (onComplete) setTimeout(onComplete, 550);
+      drawer.style.display = 'none';
+      if (onComplete) onComplete();
     }
 
     function instantCloseDrawer(drawer, inner) {
-      drawer.classList.remove('drawer-visible');
-      drawer.style.transition = 'none';
-      setTimeout(() => { drawer.style.transition = ''; }, 50);
+      drawer.style.display = 'none';
     }
 
     /* MULTIMODAL AI VERTICAL CARD DRAWERS */
