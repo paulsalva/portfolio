@@ -2666,10 +2666,11 @@
         return;
       }
 
-      // Open drawer
-      gsap.set(aiFullDrawer, { height: 'auto' });
+      // Open drawer — force reflow before measuring so grid renders first
+      gsap.set(aiFullDrawer, { height: 'auto', visibility: 'hidden' });
+      void aiFullDrawer.offsetHeight; // force reflow
       const fullH = aiFullDrawer.offsetHeight;
-      gsap.set(aiFullDrawer, { height: 0 });
+      gsap.set(aiFullDrawer, { height: 0, visibility: 'visible' });
 
       const tl = gsap.timeline();
       tl.to(aiFullDrawer, { height: fullH, duration: 0.7, ease: 'power3.inOut' });
