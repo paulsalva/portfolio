@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paul Salva — Senior Product Designer & AI-Integrated Design Consultant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: #0d0d0d;
+      color: #e8e6df;
+      font-family: 'Syne', sans-serif;
+      min-height: 100vh;
+    }
+
+    /* FLOATING NAV */
+    .nav {
+      position: sticky;
+      top: 16px;
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      padding: 16px 0 0;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      background: rgba(255,255,255,0.05);
+      border: 0.5px solid rgba(255,255,255,0.1);
+      border-radius: 100px;
+      padding: 5px;
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-pill {
+      font-family: 'Syne', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(232,230,223,0.5);
+      padding: 6px 14px;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16,1,0.3,1);
+      border: none;
+      background: transparent;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .nav-pill:hover {
+      color: #e8e6df;
+      background: rgba(255,255,255,0.07);
+    }
+
+    .nav-pill.active {
+      color: #0d0d0d;
+      background: #3d9aff;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 80px 48px 120px;
+      max-width: 900px;
+    }
+
+    .hero-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #3d9aff;
+      margin-bottom: 28px;
+    }
+
+    .hero-name {
+      font-size: clamp(52px, 8vw, 88px);
+      font-weight: 800;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      color: #e8e6df;
+      margin-bottom: 32px;
+    }
+
+    .hero-name span {
+      color: #3d9aff;
+    }
+
+    .hero-desc {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.65;
+      color: rgba(232,230,223,0.55);
+      max-width: 480px;
+      margin-bottom: 40px;
+    }
+
+    .hero-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .hero-tag {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(232,230,223,0.4);
+      border: 0.5px solid rgba(255,255,255,0.12);
+      border-radius: 100px;
+      padding: 5px 12px;
+    }
+
+    /* SECTION */
+    .section {
+      padding: 80px 48px;
+      border-top: 0.5px solid rgba(255,255,255,0.07);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 20px;
+      margin-bottom: 56px;
+    }
+
+    .section-number {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: #3d9aff;
+      opacity: 0.7;
+    }
+
+    .section-title {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #e8e6df;
+    }
+
+    .section-count {
+      font-size: 12px;
+      font-weight: 400;
+      color: rgba(232,230,223,0.3);
+      margin-left: auto;
+    }
+
+    /* CASE STUDY ROWS */
+    .cases {
+      display: grid;
+      gap: 1px;
+      background: rgba(255,255,255,0.06);
+    }
+
+    .case {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      background: #0d0d0d;
+      padding: 36px 0;
+      cursor: pointer;
+      transition: background 0.2s cubic-bezier(0.16,1,0.3,1);
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .case:hover {
+      background: #111;
+    }
+
+    .case:hover .case-arrow {
+      transform: translate(4px, -4px);
+      color: #3d9aff;
+    }
+
+    .case-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .case-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .case-tag {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(232,230,223,0.35);
+    }
+
+    .case-tag.primary {
+      color: #3d9aff;
+      opacity: 0.8;
+    }
+
+    .case-tag-sep {
+      color: rgba(232,230,223,0.15);
+      font-size: 10px;
+    }
+
+    .case-title {
+      font-size: clamp(18px, 2.5vw, 24px);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: #e8e6df;
+      line-height: 1.2;
+    }
+
+    .case-desc {
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 1.6;
+      color: rgba(232,230,223,0.4);
+      max-width: 420px;
+    }
+
+    .case-right {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .case-client {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(232,230,223,0.25);
+    }
+
+    .case-arrow {
+      font-size: 18px;
+      color: rgba(232,230,223,0.2);
+      transition: all 0.2s cubic-bezier(0.16,1,0.3,1);
+      display: inline-block;
+    }
+
+    /* AI GRID */
+    .ai-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1px;
+      background: rgba(255,255,255,0.06);
+    }
+
+    .ai-card {
+      background: #0d0d0d;
+      padding: 28px 24px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .ai-card:hover { background: #111; }
+
+    .ai-card-type {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #3d9aff;
+      opacity: 0.7;
+      margin-bottom: 12px;
+    }
+
+    .ai-card-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #e8e6df;
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+
+    .ai-card-desc {
+      font-size: 12px;
+      color: rgba(232,230,223,0.35);
+      line-height: 1.5;
+    }
+
+    /* RECOGNITION */
+    .rec-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+      border-bottom: 0.5px solid rgba(255,255,255,0.06);
+    }
+
+    .rec-award {
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(232,230,223,0.6);
+    }
+
+    .rec-project {
+      font-size: 13px;
+      color: rgba(232,230,223,0.3);
+    }
+
+    .rec-badge {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #3d9aff;
+      opacity: 0.6;
+    }
+
+    /* FOOTER */
+    .footer {
+      padding: 60px 48px;
+      border-top: 0.5px solid rgba(255,255,255,0.07);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .footer-cta {
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #e8e6df;
+      line-height: 1.1;
+    }
+
+    .footer-cta span { color: #3d9aff; }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: flex-end;
+    }
+
+    .footer-link {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(232,230,223,0.3);
+      cursor: pointer;
+      transition: color 0.15s;
+      text-decoration: none;
+    }
+
+    .footer-link:hover { color: #3d9aff; }
+
+    /* SCROLL REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 640px) {
+      .hero { padding: 48px 24px 80px; }
+      .section { padding: 60px 24px; }
+      .footer { padding: 48px 24px; flex-direction: column; gap: 40px; align-items: flex-start; }
+      .nav-pill { font-size: 10px; padding: 5px 10px; }
+      .case { grid-template-columns: 1fr; gap: 16px; }
+      .case-right { justify-content: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- FLOATING NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#arxr" class="nav-pill active">AR / XR</a>
+      <a href="#enterprise" class="nav-pill">Enterprise</a>
+      <a href="#ai" class="nav-pill">AI & Tooling</a>
+      <a href="#ds" class="nav-pill">Design Systems</a>
+      <a href="#recognition" class="nav-pill">Recognition</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-label reveal">Senior Product Designer & AI-Integrated Design Consultant</div>
+    <div class="hero-name reveal">Paul<br>Sal<span>v</span>a</div>
+    <p class="hero-desc reveal">
+      Multidisciplinary designer working across AR/XR interfaces, enterprise product design, generative AI tooling, and creative systems. Based in Los Angeles.
+    </p>
+    <div class="hero-tags reveal">
+      <span class="hero-tag">Spatial UX</span>
+      <span class="hero-tag">Generative AI</span>
+      <span class="hero-tag">Design Systems</span>
+      <span class="hero-tag">Creative Production</span>
+      <span class="hero-tag">Agentic Workflows</span>
+    </div>
+  </header>
+
+  <!-- AR/XR -->
+  <section class="section" id="arxr">
+    <div class="section-header reveal">
+      <span class="section-number">01</span>
+      <span class="section-title">AR / XR</span>
+      <span class="section-count">5 projects</span>
+    </div>
+    <div class="cases">
+      <a href="#" class="case reveal">
+        <div class="case-meta">
+          <div class="case-tags">
+            <span class="case-tag primary">AR</span>
+            <span class="case-tag-sep">·</span>
+            <span class="case-tag">UX Research</span>
+            <span class="case-tag-sep">·</span>
+            <span class="case-tag">Gamification</span>
+          </div>
+          <div class="case-title">Gamified Shopping Experiences</div>
+          <div class="case-desc">Two AR apps featuring activity-based rewards and gamified retail mechanics for Walmart's innovation team.</div>
+        </div>
+        <div class="case-right">
+          <span class="case-client">Walmart</span>
+          <span class="case-arrow">↗</span>
+        </div>
+      </a>
+      <a href="#" class="case reveal">
+        <div class="case-meta">
+          <div class="case-tags">
+            <span class="case-tag primary">AR · 360°</span>
+            <span class="case-tag-sep">·</span>
+            <span class="case-tag">Design Systems</span>
+            <span class="case-tag-sep">·</span>
+            <span class="case-tag">User Testing</span>
+          </div>
+          <div class="case-title">Immersive 360° Multi-View Portal</div>
+          <div class="case-desc">UX design and design system maintenance for live sponsored events including Indy 500 and Super Bowl LVI.</div>
+        </div>
+        <div class="case-right">
+          <span class="case-client">Verizon</span>
+          <span class="case-arrow">↗</span>
+        </div>
+      </a>
+      <a href="#" class="case reveal">
+        <div class="case-meta">
+          <div class="case-tags">
+            <span class="case-tag primary">AR · Education</span>
+            <span class="case-tag-sep">·</span>
+            <span class="case-tag">COPPA</span>
+            <span class="case-tag-sep">·</span>
+            <span class="case-tag">Game Mechanics</span>
+          </div>
+          <div class="case-title">Rangers Wanted — Educational AR App</div>
+          <div class="case-desc">Competitive research and UX strategy for a Niantic-partnered education experience at the Teddy Roosevelt Presidential Library.</div>
+        </div>
+        <div class="case-right">
+          <span class="case-client">TRPL × Niantic</span>
+          <span class="case-arrow">↗</span>
+        </div>
+      </a>
+      <a href="#" class="case reveal">
+        <div class="case-meta">
+          <div class="case-tags">
+            <span class="case-tag primary">HMD · Spatial UI</span>
+            <span class="case-tag-sep">·</span>
+            <span class="case-tag">Prototyping</span>
+          </div>
+          <div class="case-title">AR Cooking Utility — Head-Mounted Device</div>
+          <div class="case-desc">VR wireframing and spatial UX for a cooking utility on the ThinkReality A24 HMD.</div>
+        </div>
+        <div class="case-right">
+          <span class="case-client">Qualcomm</span>
+          <span class="case-arrow">↗</span>
+        </div>
+      </a>
+      <a href="#" class="case reveal">
+        <div class="case-meta">
+          <div class="case-tags">
+            <span class="case-tag primary">AR · Training</span>
+            <span class="case-tag-sep">·</span>
+            <span class="case-tag">UAT</span>
+            <span class="case-tag-sep">·</span>
+            <span class="case-tag">Product Management</span>
+          </div>
+          <div class="case-title">The Future of Training — Proof of Concept</div>
+          <div class="case-desc">User acceptance testing and UX design for a Verizon POC with the University of Hawaii football team on Snapdragon AR glasses.</div>
+        </div>
+        <div class="case-right">
+          <span class="case-client">Verizon</span>
+          <span class="case-arrow">↗</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ENTERPRISE -->
+  <section class="section" id="enterprise">
+    <div class="section-header reveal">
+      <span class="section-number">02</span>
+      <span class="section-title">Enterprise / B2B</span>
+      <span class="section-count">1 project</span>
+    </div>
+    <div class="cases">
+      <a href="#" class="case reveal">
+        <div class="case-meta">
+          <div class="case-tags">
+            <span class="case-tag primary">B2B · SaaS</span>
+            <span class="case-tag-sep">·</span>
+            <span class="case-tag">End-to-End UX</span>
+            <span class="case-tag-sep">·</span>
+            <span class="case-tag">Product Management</span>
+          </div>
+          <div class="case-title">B2B Solutions for Insurance Carriers</div>
+          <div class="case-desc">Full lifecycle UX — research through delivery — for several enterprise products serving commercial and personal insurance carriers on the Guidewire InsuranceNow platform.</div>
+        </div>
+        <div class="case-right">
+          <span class="case-client">Guidewire</span>
+          <span class="case-arrow">↗</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- AI & TOOLING -->
+  <section class="section" id="ai">
+    <div class="section-header reveal">
+      <span class="section-number">03</span>
+      <span class="section-title">AI & Creative Tooling</span>
+      <span class="section-count">Coming soon</span>
+    </div>
+    <div class="ai-grid">
+      <div class="ai-card reveal">
+        <div class="ai-card-type">Agentic Tool</div>
+        <div class="ai-card-title">Prompt Machine 1.0</div>
+        <div class="ai-card-desc">Custom prompt management interface for AI image & video generation workflows.</div>
+      </div>
+      <div class="ai-card reveal">
+        <div class="ai-card-type">Generative Video</div>
+        <div class="ai-card-title">Motion & Visual Studies</div>
+        <div class="ai-card-desc">Generative art and video work using Runway, Veo, Seedance, and MidJourney.</div>
+      </div>
+      <div class="ai-card reveal">
+        <div class="ai-card-type">Workflow Design</div>
+        <div class="ai-card-title">Agentic Pipelines</div>
+        <div class="ai-card-desc">Custom automation and multi-model workflows built for creative production.</div>
+      </div>
+      <div class="ai-card reveal">
+        <div class="ai-card-type">Vibecoded</div>
+        <div class="ai-card-title">Custom Tools</div>
+        <div class="ai-card-desc">Functional AI-integrated interfaces built in collaboration with LLMs.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DESIGN SYSTEMS -->
+  <section class="section" id="ds">
+    <div class="section-header reveal">
+      <span class="section-number">04</span>
+      <span class="section-title">Design Systems</span>
+      <span class="section-count">See also</span>
+    </div>
+    <div class="cases">
+      <a href="#arxr" class="case reveal">
+        <div class="case-meta">
+          <div class="case-tags">
+            <span class="case-tag primary">Design System</span>
+            <span class="case-tag-sep">·</span>
+            <span class="case-tag">AR · UX Research</span>
+          </div>
+          <div class="case-title">Verizon Portal — System & Experience</div>
+          <div class="case-desc">Design system maintenance alongside the immersive 360° Portal experience. See full case study in AR/XR.</div>
+        </div>
+        <div class="case-right">
+          <span class="case-client">Verizon</span>
+          <span class="case-arrow">↗</span>
+        </div>
+      </a>
+      <a href="#enterprise" class="case reveal">
+        <div class="case-meta">
+          <div class="case-tags">
+            <span class="case-tag primary">Design System</span>
+            <span class="case-tag-sep">·</span>
+            <span class="case-tag">B2B · Enterprise</span>
+          </div>
+          <div class="case-title">Guidewire InsuranceNow — Component Library</div>
+          <div class="case-desc">Enterprise design system work across multiple B2B insurance products. See full case study in Enterprise.</div>
+        </div>
+        <div class="case-right">
+          <span class="case-client">Guidewire</span>
+          <span class="case-arrow">↗</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- RECOGNITION -->
+  <section class="section" id="recognition">
+    <div class="section-header reveal">
+      <span class="section-number">05</span>
+      <span class="section-title">Recognition</span>
+    </div>
+    <div class="rec-row reveal">
+      <span class="rec-award">FWA Award</span>
+      <span class="rec-project">Hulu — The Screamlands</span>
+      <span class="rec-badge">FWA of the Day</span>
+    </div>
+    <div class="rec-row reveal">
+      <span class="rec-award">Webby Award</span>
+      <span class="rec-project">—</span>
+      <span class="rec-badge">Honoree</span>
+    </div>
+    <div class="rec-row reveal">
+      <span class="rec-award">Awwwards</span>
+      <span class="rec-project">—</span>
+      <span class="rec-badge">Nominee</span>
+    </div>
+    <div class="rec-row reveal">
+      <span class="rec-award">Promax</span>
+      <span class="rec-project">—</span>
+      <span class="rec-badge">Winner</span>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-cta reveal">Let's build<br>something<br><span>precise.</span></div>
+    <div class="footer-links reveal">
+      <a href="mailto:hello@paulsalva.work" class="footer-link">Contact</a>
+      <a href="#" class="footer-link">LinkedIn</a>
+      <a href="#" class="footer-link">Resume</a>
+    </div>
+  </footer>
+
+  <script>
+    // NAV ACTIVE STATE ON SCROLL
+    const sections = document.querySelectorAll('section[id]');
+    const pills = document.querySelectorAll('.nav-pill');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          pills.forEach(p => p.classList.remove('active'));
+          const active = document.querySelector(`.nav-pill[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { threshold: 0.3 });
+
+    sections.forEach(s => observer.observe(s));
+
+    // SCROLL REVEAL
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, 60);
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+  </script>
+
+</body>
+</html>
