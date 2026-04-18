@@ -261,11 +261,6 @@
       background: #111;
     }
 
-    .case:hover .case-arrow {
-      transform: translate(4px, -4px);
-      color: #3d9aff;
-    }
-
     .case-meta {
       display: flex;
       flex-direction: column;
@@ -336,16 +331,17 @@
       white-space: nowrap;
       will-change: transform, color, opacity, font-size;
       transform-origin: right center;
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 0.45em;
     }
 
-    .case-arrow {
-      font-size: 18px;
-      color: rgba(232,230,223,0.2);
-      transition: all 0.2s cubic-bezier(0.16,1,0.3,1);
+    .case-client-arrow {
+      color: #3d9aff;
+      line-height: 1;
       display: inline-block;
-      position: relative;
-      z-index: 3;
-      flex: 0 0 auto;
+      transform: translateY(-0.02em);
     }
 
     /* AI GRID */
@@ -492,6 +488,7 @@
       .case-client {
         text-align: left;
         transform-origin: left center;
+        justify-content: flex-start;
       }
     }
 
@@ -508,10 +505,11 @@
   <!-- FLOATING NAV -->
   <nav class="nav">
     <div class="nav-inner">
-      <a href="#arxr" class="nav-pill active">AR / XR</a>
+      <a href="#design-systems" class="nav-pill active">Design Systems</a>
+      <a href="#ux-research" class="nav-pill">UX Research</a>
       <a href="#enterprise" class="nav-pill">Enterprise</a>
-      <a href="#ai" class="nav-pill">AI & Tooling</a>
-      <a href="#ds" class="nav-pill">Design Systems</a>
+      <a href="#arxr" class="nav-pill">AR / XR</a>
+      <a href="#creative" class="nav-pill">Creative</a>
       <a href="#recognition" class="nav-pill">Recognition</a>
     </div>
   </nav>
@@ -539,7 +537,6 @@
           <div class="ticker-item">Sound Design</div>
           <div class="ticker-item">Motion</div>
 
-          <!-- duplicated for seamless loop -->
           <div class="ticker-item">Spatial UX</div>
           <div class="ticker-item">Generative AI</div>
           <div class="ticker-item">Design Systems</div>
@@ -553,10 +550,107 @@
     </div>
   </header>
 
+  <!-- DESIGN SYSTEMS -->
+  <section class="section" id="design-systems">
+    <div class="section-header">
+      <span class="section-number">01</span>
+      <span class="section-title">Design Systems</span>
+      <span class="section-count">2 projects</span>
+    </div>
+
+    <div class="cases">
+      <a href="#arxr" class="case">
+        <div class="case-meta">
+          <div class="case-tags">
+            <span class="case-tag primary">Design System</span>
+            <span class="case-tag-sep">·</span>
+            <span class="case-tag">AR · UX Research</span>
+          </div>
+          <div class="case-title">Verizon Portal | System & Experience</div>
+          <div class="case-desc">Design system maintenance alongside the immersive 360° Portal experience. See full case study in AR/XR.</div>
+        </div>
+        <div class="case-right">
+          <span class="case-client"><span class="case-client-arrow">↓</span>Verizon</span>
+        </div>
+      </a>
+
+      <a href="#enterprise" class="case">
+        <div class="case-meta">
+          <div class="case-tags">
+            <span class="case-tag primary">Design System</span>
+            <span class="case-tag-sep">·</span>
+            <span class="case-tag">B2B · Enterprise</span>
+          </div>
+          <div class="case-title">Guidewire InsuranceNow | Component Library</div>
+          <div class="case-desc">Enterprise design system work across multiple B2B insurance products. See full case study in Enterprise.</div>
+        </div>
+        <div class="case-right">
+          <span class="case-client"><span class="case-client-arrow">↓</span>Guidewire</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- UX RESEARCH -->
+  <section class="section" id="ux-research">
+    <div class="section-header">
+      <span class="section-number">02</span>
+      <span class="section-title">UX Research</span>
+      <span class="section-count">Placeholder</span>
+    </div>
+
+    <div class="cases">
+      <a href="#" class="case">
+        <div class="case-meta">
+          <div class="case-tags">
+            <span class="case-tag primary">Research</span>
+            <span class="case-tag-sep">·</span>
+            <span class="case-tag">Testing</span>
+            <span class="case-tag-sep">·</span>
+            <span class="case-tag">Strategy</span>
+          </div>
+          <div class="case-title">Research Case Study Placeholder</div>
+          <div class="case-desc">Placeholder content for discovery, user interviews, usability testing, competitive analysis, and product strategy.</div>
+        </div>
+        <div class="case-right">
+          <span class="case-client"><span class="case-client-arrow">↓</span>Client</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ENTERPRISE -->
+  <section class="section" id="enterprise">
+    <div class="section-header">
+      <span class="section-number">03</span>
+      <span class="section-title">Enterprise</span>
+      <span class="section-count">1 project</span>
+    </div>
+
+    <div class="cases">
+      <a href="#" class="case">
+        <div class="case-meta">
+          <div class="case-tags">
+            <span class="case-tag primary">B2B · SaaS</span>
+            <span class="case-tag-sep">·</span>
+            <span class="case-tag">End-to-End UX</span>
+            <span class="case-tag-sep">·</span>
+            <span class="case-tag">Product Management</span>
+          </div>
+          <div class="case-title">B2B Solutions for Insurance Carriers</div>
+          <div class="case-desc">Full lifecycle UX, research through delivery, for several enterprise products serving commercial and personal insurance carriers on the Guidewire InsuranceNow platform.</div>
+        </div>
+        <div class="case-right">
+          <span class="case-client"><span class="case-client-arrow">↓</span>Guidewire</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
   <!-- AR/XR -->
   <section class="section" id="arxr">
     <div class="section-header">
-      <span class="section-number">01</span>
+      <span class="section-number">04</span>
       <span class="section-title">AR / XR</span>
       <span class="section-count">5 projects</span>
     </div>
@@ -575,8 +669,7 @@
           <div class="case-desc">Two AR apps featuring activity-based rewards and gamified retail mechanics for Walmart's innovation team.</div>
         </div>
         <div class="case-right">
-          <span class="case-client">Walmart</span>
-          <span class="case-arrow">↗</span>
+          <span class="case-client"><span class="case-client-arrow">↓</span>Walmart</span>
         </div>
       </a>
 
@@ -593,8 +686,7 @@
           <div class="case-desc">UX design and design system maintenance for live sponsored events including Indy 500 and Super Bowl LVI.</div>
         </div>
         <div class="case-right">
-          <span class="case-client">Verizon</span>
-          <span class="case-arrow">↗</span>
+          <span class="case-client"><span class="case-client-arrow">↓</span>Verizon</span>
         </div>
       </a>
 
@@ -611,8 +703,7 @@
           <div class="case-desc">Competitive research and UX strategy for a Niantic-partnered education experience at the Teddy Roosevelt Presidential Library.</div>
         </div>
         <div class="case-right">
-          <span class="case-client">TRPL × Niantic</span>
-          <span class="case-arrow">↗</span>
+          <span class="case-client"><span class="case-client-arrow">↓</span>TRPL × Niantic</span>
         </div>
       </a>
 
@@ -627,8 +718,7 @@
           <div class="case-desc">VR wireframing and spatial UX for a cooking utility on the ThinkReality A24 HMD.</div>
         </div>
         <div class="case-right">
-          <span class="case-client">Qualcomm</span>
-          <span class="case-arrow">↗</span>
+          <span class="case-client"><span class="case-client-arrow">↓</span>Qualcomm</span>
         </div>
       </a>
 
@@ -645,55 +735,25 @@
           <div class="case-desc">User acceptance testing and UX design for a Verizon POC with the University of Hawaii football team on Snapdragon AR glasses.</div>
         </div>
         <div class="case-right">
-          <span class="case-client">Verizon</span>
-          <span class="case-arrow">↗</span>
+          <span class="case-client"><span class="case-client-arrow">↓</span>Verizon</span>
         </div>
       </a>
     </div>
   </section>
 
-  <!-- ENTERPRISE -->
-  <section class="section" id="enterprise">
+  <!-- CREATIVE -->
+  <section class="section" id="creative">
     <div class="section-header">
-      <span class="section-number">02</span>
-      <span class="section-title">Enterprise / B2B</span>
-      <span class="section-count">1 project</span>
-    </div>
-
-    <div class="cases">
-      <a href="#" class="case">
-        <div class="case-meta">
-          <div class="case-tags">
-            <span class="case-tag primary">B2B · SaaS</span>
-            <span class="case-tag-sep">·</span>
-            <span class="case-tag">End-to-End UX</span>
-            <span class="case-tag-sep">·</span>
-            <span class="case-tag">Product Management</span>
-          </div>
-          <div class="case-title">B2B Solutions for Insurance Carriers</div>
-          <div class="case-desc">Full lifecycle UX, research through delivery, for several enterprise products serving commercial and personal insurance carriers on the Guidewire InsuranceNow platform.</div>
-        </div>
-        <div class="case-right">
-          <span class="case-client">Guidewire</span>
-          <span class="case-arrow">↗</span>
-        </div>
-      </a>
-    </div>
-  </section>
-
-  <!-- AI & TOOLING -->
-  <section class="section" id="ai">
-    <div class="section-header">
-      <span class="section-number">03</span>
-      <span class="section-title">AI & Creative Tooling</span>
-      <span class="section-count">Coming soon</span>
+      <span class="section-number">05</span>
+      <span class="section-title">Creative</span>
+      <span class="section-count">Placeholder</span>
     </div>
 
     <div class="ai-grid">
       <div class="ai-card">
-        <div class="ai-card-type">Agentic Tool</div>
-        <div class="ai-card-title">Prompt Machine 1.0</div>
-        <div class="ai-card-desc">Custom prompt management interface for AI image & video generation workflows.</div>
+        <div class="ai-card-type">Creative Systems</div>
+        <div class="ai-card-title">Creative Direction Placeholder</div>
+        <div class="ai-card-desc">Placeholder content for creative direction, visual systems, motion, and campaign work.</div>
       </div>
 
       <div class="ai-card">
@@ -709,60 +769,17 @@
       </div>
 
       <div class="ai-card">
-        <div class="ai-card-type">Vibecoded</div>
-        <div class="ai-card-title">Custom Tools</div>
+        <div class="ai-card-type">Tooling</div>
+        <div class="ai-card-title">Custom Creative Tools</div>
         <div class="ai-card-desc">Functional AI-integrated interfaces built in collaboration with LLMs.</div>
       </div>
-    </div>
-  </section>
-
-  <!-- DESIGN SYSTEMS -->
-  <section class="section" id="ds">
-    <div class="section-header">
-      <span class="section-number">04</span>
-      <span class="section-title">Design Systems</span>
-      <span class="section-count">See also</span>
-    </div>
-
-    <div class="cases">
-      <a href="#arxr" class="case">
-        <div class="case-meta">
-          <div class="case-tags">
-            <span class="case-tag primary">Design System</span>
-            <span class="case-tag-sep">·</span>
-            <span class="case-tag">AR · UX Research</span>
-          </div>
-          <div class="case-title">Verizon Portal | System & Experience</div>
-          <div class="case-desc">Design system maintenance alongside the immersive 360° Portal experience. See full case study in AR/XR.</div>
-        </div>
-        <div class="case-right">
-          <span class="case-client">Verizon</span>
-          <span class="case-arrow">↗</span>
-        </div>
-      </a>
-
-      <a href="#enterprise" class="case">
-        <div class="case-meta">
-          <div class="case-tags">
-            <span class="case-tag primary">Design System</span>
-            <span class="case-tag-sep">·</span>
-            <span class="case-tag">B2B · Enterprise</span>
-          </div>
-          <div class="case-title">Guidewire InsuranceNow | Component Library</div>
-          <div class="case-desc">Enterprise design system work across multiple B2B insurance products. See full case study in Enterprise.</div>
-        </div>
-        <div class="case-right">
-          <span class="case-client">Guidewire</span>
-          <span class="case-arrow">↗</span>
-        </div>
-      </a>
     </div>
   </section>
 
   <!-- RECOGNITION -->
   <section class="section" id="recognition">
     <div class="section-header">
-      <span class="section-number">05</span>
+      <span class="section-number">06</span>
       <span class="section-title">Recognition</span>
     </div>
 
