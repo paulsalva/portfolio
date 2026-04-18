@@ -241,8 +241,7 @@
     /* CASE STUDY ROWS */
     .cases {
       display: grid;
-      gap: 1px;
-      background: rgba(255,255,255,0.06);
+      gap: 0;
     }
 
     .case {
@@ -342,6 +341,207 @@
       line-height: 1;
       display: inline-block;
       transform: translateY(-0.02em);
+    }
+
+    /* CASE DRAWER */
+    .case-wrapper {
+      position: relative;
+      background: #0d0d0d;
+    }
+
+    .case-wrapper + .case-wrapper {
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .case.is-open {
+      background: #111;
+    }
+
+    .case-toggle-icon {
+      width: 28px;
+      height: 28px;
+      border: 0.5px solid rgba(255,255,255,0.12);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .case.is-open .case-toggle-icon {
+      border-color: #3d9aff;
+      background: rgba(61,154,255,0.08);
+    }
+
+    .case-toggle-icon svg {
+      width: 12px;
+      height: 12px;
+      stroke: rgba(232,230,223,0.4);
+      transition: stroke 0.2s, transform 0.4s cubic-bezier(0.16,1,0.3,1);
+    }
+
+    .case.is-open .case-toggle-icon svg {
+      stroke: #3d9aff;
+      transform: rotate(45deg);
+    }
+
+    .case-drawer {
+      overflow: hidden;
+      height: 0;
+      will-change: height;
+    }
+
+    .case-drawer-inner {
+      padding: 0 0 60px;
+      opacity: 0;
+    }
+
+    .drawer-hero {
+      width: 100%;
+      height: 420px;
+      background: #1a1a1a;
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 48px;
+    }
+
+    .drawer-hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+    }
+
+    .drawer-hero-placeholder {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #151515 0%, #1e1e1e 50%, #131313 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .drawer-hero-placeholder span {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(232,230,223,0.15);
+    }
+
+    .drawer-body {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 60px;
+      margin-bottom: 56px;
+    }
+
+    .drawer-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .drawer-meta-item label {
+      display: block;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(232,230,223,0.25);
+      margin-bottom: 6px;
+    }
+
+    .drawer-meta-item p {
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(232,230,223,0.7);
+      line-height: 1.5;
+    }
+
+    .drawer-copy h3 {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #e8e6df;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .drawer-copy p {
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.75;
+      color: rgba(232,230,223,0.55);
+      margin-bottom: 12px;
+    }
+
+    .drawer-copy-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 24px;
+    }
+
+    .drawer-copy-cols p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: rgba(232,230,223,0.4);
+    }
+
+    .drawer-strip-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(232,230,223,0.2);
+      margin-bottom: 16px;
+    }
+
+    .drawer-strip {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      cursor: grab;
+      user-select: none;
+      padding-bottom: 12px;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .drawer-strip::-webkit-scrollbar { display: none; }
+    .drawer-strip.is-dragging { cursor: grabbing; }
+
+    .drawer-strip-img {
+      flex-shrink: 0;
+      width: 320px;
+      height: 200px;
+      background: #1a1a1a;
+      overflow: hidden;
+      border-radius: 4px;
+    }
+
+    .drawer-strip-placeholder {
+      width: 100%;
+      height: 100%;
+      background: #181818;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .drawer-strip-placeholder span {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(232,230,223,0.1);
+    }
+
+    @media (max-width: 720px) {
+      .drawer-body { grid-template-columns: 1fr; gap: 32px; }
+      .drawer-copy-cols { grid-template-columns: 1fr; }
+      .drawer-hero { height: 260px; }
     }
 
     /* AI GRID */
@@ -559,7 +759,8 @@
     </div>
 
     <div class="cases">
-      <a href="#arxr" class="case">
+            <div class="case-wrapper">
+    <div class="case">
         <div class="case-meta">
           <div class="case-tags">
             <span class="case-tag primary">Design System</span>
@@ -570,11 +771,64 @@
           <div class="case-desc">Design system maintenance alongside the immersive 360° Portal experience. See full case study in AR/XR.</div>
         </div>
         <div class="case-right">
-          <span class="case-client"><span class="case-client-arrow">↓</span>Verizon</span>
+          <div class="case-toggle-icon"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
+          <span class="case-client">Verizon</span>
         </div>
-      </a>
+      </div>
+      <div class="case-drawer">
+        <div class="case-drawer-inner">
+          <div class="drawer-hero">
+            <div class="drawer-hero-placeholder"><span>Hero image — Verizon</span></div>
+          </div>
+          <div class="drawer-body">
+            <div class="drawer-meta">
+              <div class="drawer-meta-item">
+                <label>Role</label>
+                <p>UX Designer · Design Systems</p>
+              </div>
+              <div class="drawer-meta-item">
+                <label>Year</label>
+                <p>2022–2023</p>
+              </div>
+              <div class="drawer-meta-item">
+                <label>Client</label>
+                <p>Verizon</p>
+              </div>
+              <div class="drawer-meta-item">
+                <label>Scope</label>
+                <p>Design System · AR · UX Research</p>
+              </div>
+            </div>
+            <div class="drawer-copy">
+              <h3>A living design system built for immersive scale</h3>
+              <p>The Verizon Portal required a design system that could flex across mobile web, native app, and AR overlays simultaneously. Component architecture, token structure, and motion specs were authored end-to-end.</p>
+              <div class="drawer-copy-cols">
+                <p>Maintained and evolved a multi-platform component library using Figma and Zeplin, coordinating with engineering across multiple sprint cycles.</p>
+                <p>Established motion guidelines and interaction patterns for 360° environments, geofenced AR states, and live-event broadcast contexts.</p>
+              </div>
+            </div>
+          </div>
+          <div class="drawer-strip-label">Process & Work</div>
+          <div class="drawer-strip">
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>Design system documentation</span></div>
+          </div>
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>Component library overview</span></div>
+          </div>
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>AR state mapping</span></div>
+          </div>
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>Token architecture</span></div>
+          </div>
+          </div>
+        </div>
+      </div>
+      </div>
 
-      <a href="#enterprise" class="case">
+            <div class="case-wrapper">
+    <div class="case">
         <div class="case-meta">
           <div class="case-tags">
             <span class="case-tag primary">Design System</span>
@@ -585,9 +839,61 @@
           <div class="case-desc">Enterprise design system work across multiple B2B insurance products. See full case study in Enterprise.</div>
         </div>
         <div class="case-right">
-          <span class="case-client"><span class="case-client-arrow">↓</span>Guidewire</span>
+          <div class="case-toggle-icon"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
+          <span class="case-client">Guidewire</span>
         </div>
-      </a>
+      </div>
+      <div class="case-drawer">
+        <div class="case-drawer-inner">
+          <div class="drawer-hero">
+            <div class="drawer-hero-placeholder"><span>Hero image — Guidewire</span></div>
+          </div>
+          <div class="drawer-body">
+            <div class="drawer-meta">
+              <div class="drawer-meta-item">
+                <label>Role</label>
+                <p>UX Designer · Product Manager</p>
+              </div>
+              <div class="drawer-meta-item">
+                <label>Year</label>
+                <p>2021–2022</p>
+              </div>
+              <div class="drawer-meta-item">
+                <label>Client</label>
+                <p>Guidewire</p>
+              </div>
+              <div class="drawer-meta-item">
+                <label>Scope</label>
+                <p>Design System · B2B · Enterprise</p>
+              </div>
+            </div>
+            <div class="drawer-copy">
+              <h3>Enterprise component library for insurance carriers</h3>
+              <p>Built and maintained a scalable component library for Guidewire's InsuranceNow platform, serving commercial and personal insurance carriers, agents, and customers.</p>
+              <div class="drawer-copy-cols">
+                <p>Led UX research, wireframing, and UI design across multiple B2B products, with a focus on accessibility compliance and agent workflow efficiency.</p>
+                <p>Collaborated cross-functionally with product managers and engineers in an Agile environment to ship iterative improvements at scale.</p>
+              </div>
+            </div>
+          </div>
+          <div class="drawer-strip-label">Process & Work</div>
+          <div class="drawer-strip">
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>Admin portal dashboard</span></div>
+          </div>
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>Agent workflow screens</span></div>
+          </div>
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>Component documentation</span></div>
+          </div>
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>Accessibility audit</span></div>
+          </div>
+          </div>
+        </div>
+      </div>
+      </div>
     </div>
   </section>
 
@@ -600,7 +906,8 @@
     </div>
 
     <div class="cases">
-      <a href="#" class="case">
+            <div class="case-wrapper">
+    <div class="case">
         <div class="case-meta">
           <div class="case-tags">
             <span class="case-tag primary">Research</span>
@@ -613,9 +920,61 @@
           <div class="case-desc">Placeholder content for discovery, user interviews, usability testing, competitive analysis, and product strategy.</div>
         </div>
         <div class="case-right">
-          <span class="case-client"><span class="case-client-arrow">↓</span>Client</span>
+          <div class="case-toggle-icon"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
+          <span class="case-client">Client</span>
         </div>
-      </a>
+      </div>
+      <div class="case-drawer">
+        <div class="case-drawer-inner">
+          <div class="drawer-hero">
+            <div class="drawer-hero-placeholder"><span>Hero image — Client</span></div>
+          </div>
+          <div class="drawer-body">
+            <div class="drawer-meta">
+              <div class="drawer-meta-item">
+                <label>Role</label>
+                <p>UX Researcher</p>
+              </div>
+              <div class="drawer-meta-item">
+                <label>Year</label>
+                <p>Placeholder</p>
+              </div>
+              <div class="drawer-meta-item">
+                <label>Client</label>
+                <p>Client</p>
+              </div>
+              <div class="drawer-meta-item">
+                <label>Scope</label>
+                <p>Research · Testing · Strategy</p>
+              </div>
+            </div>
+            <div class="drawer-copy">
+              <h3>Discovery, testing, and strategic synthesis</h3>
+              <p>Placeholder — add your UX research case study content here including discovery, user interviews, usability testing, competitive analysis, and product strategy work.</p>
+              <div class="drawer-copy-cols">
+                <p>Describe your research methodology, participant recruitment, and synthesis process.</p>
+                <p>Outline the strategic recommendations and how they influenced product direction.</p>
+              </div>
+            </div>
+          </div>
+          <div class="drawer-strip-label">Process & Work</div>
+          <div class="drawer-strip">
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>Research synthesis</span></div>
+          </div>
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>Affinity mapping</span></div>
+          </div>
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>Usability testing</span></div>
+          </div>
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>Strategic report</span></div>
+          </div>
+          </div>
+        </div>
+      </div>
+      </div>
     </div>
   </section>
 
@@ -628,7 +987,8 @@
     </div>
 
     <div class="cases">
-      <a href="#" class="case">
+            <div class="case-wrapper">
+    <div class="case">
         <div class="case-meta">
           <div class="case-tags">
             <span class="case-tag primary">B2B · SaaS</span>
@@ -641,9 +1001,61 @@
           <div class="case-desc">Full lifecycle UX, research through delivery, for several enterprise products serving commercial and personal insurance carriers on the Guidewire InsuranceNow platform.</div>
         </div>
         <div class="case-right">
-          <span class="case-client"><span class="case-client-arrow">↓</span>Guidewire</span>
+          <div class="case-toggle-icon"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
+          <span class="case-client">Guidewire</span>
         </div>
-      </a>
+      </div>
+      <div class="case-drawer">
+        <div class="case-drawer-inner">
+          <div class="drawer-hero">
+            <div class="drawer-hero-placeholder"><span>Hero image — Guidewire</span></div>
+          </div>
+          <div class="drawer-body">
+            <div class="drawer-meta">
+              <div class="drawer-meta-item">
+                <label>Role</label>
+                <p>UX Designer · Product Manager</p>
+              </div>
+              <div class="drawer-meta-item">
+                <label>Year</label>
+                <p>2021–2022</p>
+              </div>
+              <div class="drawer-meta-item">
+                <label>Client</label>
+                <p>Guidewire</p>
+              </div>
+              <div class="drawer-meta-item">
+                <label>Scope</label>
+                <p>B2B SaaS · End-to-End UX · Product Management</p>
+              </div>
+            </div>
+            <div class="drawer-copy">
+              <h3>Full-lifecycle UX for enterprise insurance products</h3>
+              <p>From discovery to delivery — UX research, ideation, wireframing, UI design, and product management across several B2B products serving commercial and personal insurance carriers on the Guidewire InsuranceNow platform.</p>
+              <div class="drawer-copy-cols">
+                <p>Coordinated user research sessions with insurance agents and carriers to identify friction points in claims processing and policy management workflows.</p>
+                <p>Delivered high-fidelity UI designs, interaction specs, and accessibility documentation across multiple parallel product tracks.</p>
+              </div>
+            </div>
+          </div>
+          <div class="drawer-strip-label">Process & Work</div>
+          <div class="drawer-strip">
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>Admin portal</span></div>
+          </div>
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>Claims workflow</span></div>
+          </div>
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>Policy management UI</span></div>
+          </div>
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>Accessibility audit</span></div>
+          </div>
+          </div>
+        </div>
+      </div>
+      </div>
     </div>
   </section>
 
@@ -656,7 +1068,8 @@
     </div>
 
     <div class="cases">
-      <a href="#" class="case">
+            <div class="case-wrapper">
+    <div class="case">
         <div class="case-meta">
           <div class="case-tags">
             <span class="case-tag primary">AR</span>
@@ -669,11 +1082,64 @@
           <div class="case-desc">Two AR apps featuring activity-based rewards and gamified retail mechanics for Walmart's innovation team.</div>
         </div>
         <div class="case-right">
-          <span class="case-client"><span class="case-client-arrow">↓</span>Walmart</span>
+          <div class="case-toggle-icon"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
+          <span class="case-client">Walmart</span>
         </div>
-      </a>
+      </div>
+      <div class="case-drawer">
+        <div class="case-drawer-inner">
+          <div class="drawer-hero">
+            <div class="drawer-hero-placeholder"><span>Hero image — Walmart</span></div>
+          </div>
+          <div class="drawer-body">
+            <div class="drawer-meta">
+              <div class="drawer-meta-item">
+                <label>Role</label>
+                <p>UX Designer · Interaction Designer</p>
+              </div>
+              <div class="drawer-meta-item">
+                <label>Year</label>
+                <p>2022</p>
+              </div>
+              <div class="drawer-meta-item">
+                <label>Client</label>
+                <p>Walmart</p>
+              </div>
+              <div class="drawer-meta-item">
+                <label>Scope</label>
+                <p>AR · UX Research · Gamification</p>
+              </div>
+            </div>
+            <div class="drawer-copy">
+              <h3>Two AR apps that turned shopping into play</h3>
+              <p>Ideation, UX research, and design for two separate augmented reality apps for Walmart's innovation team — Pet Walkies and Walmart Winners — featuring gamified retail experiences where users earn products and discounts through activity milestones.</p>
+              <div class="drawer-copy-cols">
+                <p>Led competitive analysis of gamified retail and fitness apps, identifying mechanic patterns that could drive engagement in a retail AR context.</p>
+                <p>Designed end-to-end user flows for milestone tracking, reward redemption, and AR product discovery — prototyped and presented to Walmart's innovation leadership.</p>
+              </div>
+            </div>
+          </div>
+          <div class="drawer-strip-label">Process & Work</div>
+          <div class="drawer-strip">
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>Pet Walkies app flow</span></div>
+          </div>
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>Walmart Winners flow</span></div>
+          </div>
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>AR prototype screens</span></div>
+          </div>
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>Elevator deck</span></div>
+          </div>
+          </div>
+        </div>
+      </div>
+      </div>
 
-      <a href="#" class="case">
+            <div class="case-wrapper">
+    <div class="case">
         <div class="case-meta">
           <div class="case-tags">
             <span class="case-tag primary">AR · 360°</span>
@@ -686,11 +1152,64 @@
           <div class="case-desc">UX design and design system maintenance for live sponsored events including Indy 500 and Super Bowl LVI.</div>
         </div>
         <div class="case-right">
-          <span class="case-client"><span class="case-client-arrow">↓</span>Verizon</span>
+          <div class="case-toggle-icon"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
+          <span class="case-client">Verizon</span>
         </div>
-      </a>
+      </div>
+      <div class="case-drawer">
+        <div class="case-drawer-inner">
+          <div class="drawer-hero">
+            <div class="drawer-hero-placeholder"><span>Hero image — Verizon</span></div>
+          </div>
+          <div class="drawer-body">
+            <div class="drawer-meta">
+              <div class="drawer-meta-item">
+                <label>Role</label>
+                <p>UX Designer · Design Systems</p>
+              </div>
+              <div class="drawer-meta-item">
+                <label>Year</label>
+                <p>2022–2023</p>
+              </div>
+              <div class="drawer-meta-item">
+                <label>Client</label>
+                <p>Verizon</p>
+              </div>
+              <div class="drawer-meta-item">
+                <label>Scope</label>
+                <p>AR · 360° · Design Systems · User Testing</p>
+              </div>
+            </div>
+            <div class="drawer-copy">
+              <h3>360° multi-camera immersion for live sponsored events</h3>
+              <p>UX design, design system maintenance, user testing, and more for Verizon's Portal — a mobile web and app experience allowing immersive 360° multi-camera views for sponsored events including Indy 500, Latin Grammys, Super Bowl LVI, and Phoenix Suns games.</p>
+              <div class="drawer-copy-cols">
+                <p>Designed AR and geofencing interaction patterns for live event contexts, coordinating with broadcast and engineering teams on real-time switching behavior.</p>
+                <p>Ran moderated usability testing sessions to validate 360° navigation patterns and AR overlay interactions across iOS and Android.</p>
+              </div>
+            </div>
+          </div>
+          <div class="drawer-strip-label">Process & Work</div>
+          <div class="drawer-strip">
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>Indy 500 portal</span></div>
+          </div>
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>Latin Grammys experience</span></div>
+          </div>
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>AR overlay states</span></div>
+          </div>
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>Design system components</span></div>
+          </div>
+          </div>
+        </div>
+      </div>
+      </div>
 
-      <a href="#" class="case">
+            <div class="case-wrapper">
+    <div class="case">
         <div class="case-meta">
           <div class="case-tags">
             <span class="case-tag primary">AR · Education</span>
@@ -703,11 +1222,64 @@
           <div class="case-desc">Competitive research and UX strategy for a Niantic-partnered education experience at the Teddy Roosevelt Presidential Library.</div>
         </div>
         <div class="case-right">
-          <span class="case-client"><span class="case-client-arrow">↓</span>TRPL × Niantic</span>
+          <div class="case-toggle-icon"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
+          <span class="case-client">TRPL × Niantic</span>
         </div>
-      </a>
+      </div>
+      <div class="case-drawer">
+        <div class="case-drawer-inner">
+          <div class="drawer-hero">
+            <div class="drawer-hero-placeholder"><span>Hero image — TRPL × Niantic</span></div>
+          </div>
+          <div class="drawer-body">
+            <div class="drawer-meta">
+              <div class="drawer-meta-item">
+                <label>Role</label>
+                <p>UX Designer · Researcher</p>
+              </div>
+              <div class="drawer-meta-item">
+                <label>Year</label>
+                <p>2022</p>
+              </div>
+              <div class="drawer-meta-item">
+                <label>Client</label>
+                <p>TRPL × Niantic</p>
+              </div>
+              <div class="drawer-meta-item">
+                <label>Scope</label>
+                <p>AR · Education · COPPA · Game Mechanics</p>
+              </div>
+            </div>
+            <div class="drawer-copy">
+              <h3>AR education for the next generation of Rangers</h3>
+              <p>Competitive analysis, UX research, and ideation for an augmented reality education app developed in partnership between Trigger, Niantic, and the Teddy Roosevelt Presidential Library. Ensured COPPA compliance and strategized game mechanics for young audiences.</p>
+              <div class="drawer-copy-cols">
+                <p>Conducted competitive analysis of educational AR apps and location-based games, mapping mechanic frameworks applicable to the library's educational goals.</p>
+                <p>Led privacy and safety strategy for the under-13 audience, working with legal and product teams to ensure full COPPA compliance within the game loop.</p>
+              </div>
+            </div>
+          </div>
+          <div class="drawer-strip-label">Process & Work</div>
+          <div class="drawer-strip">
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>Game mechanic map</span></div>
+          </div>
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>COPPA compliance audit</span></div>
+          </div>
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>UX research synthesis</span></div>
+          </div>
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>Prototype screens</span></div>
+          </div>
+          </div>
+        </div>
+      </div>
+      </div>
 
-      <a href="#" class="case">
+            <div class="case-wrapper">
+    <div class="case">
         <div class="case-meta">
           <div class="case-tags">
             <span class="case-tag primary">HMD · Spatial UI</span>
@@ -718,11 +1290,64 @@
           <div class="case-desc">VR wireframing and spatial UX for a cooking utility on the ThinkReality A24 HMD.</div>
         </div>
         <div class="case-right">
-          <span class="case-client"><span class="case-client-arrow">↓</span>Qualcomm</span>
+          <div class="case-toggle-icon"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
+          <span class="case-client">Qualcomm</span>
         </div>
-      </a>
+      </div>
+      <div class="case-drawer">
+        <div class="case-drawer-inner">
+          <div class="drawer-hero">
+            <div class="drawer-hero-placeholder"><span>Hero image — Qualcomm</span></div>
+          </div>
+          <div class="drawer-body">
+            <div class="drawer-meta">
+              <div class="drawer-meta-item">
+                <label>Role</label>
+                <p>UX Designer · Product Manager</p>
+              </div>
+              <div class="drawer-meta-item">
+                <label>Year</label>
+                <p>2022</p>
+              </div>
+              <div class="drawer-meta-item">
+                <label>Client</label>
+                <p>Qualcomm</p>
+              </div>
+              <div class="drawer-meta-item">
+                <label>Scope</label>
+                <p>HMD · Spatial UI · Prototyping</p>
+              </div>
+            </div>
+            <div class="drawer-copy">
+              <h3>Spatial UX for cooking in augmented reality</h3>
+              <p>Creative ideation, VR wireframing, testing, and product management for an AR cooking utility developed on the Qualcomm ThinkReality A24 head-mounted device. This project provided critical insight into UI/UX design for spatial and hands-free environments.</p>
+              <div class="drawer-copy-cols">
+                <p>Designed spatial UI patterns for glanceable recipe steps, hands-free navigation, and timer interactions — all optimized for HMD field of view constraints.</p>
+                <p>Wireframed and prototyped interactions for voice command integration and gesture-based scrolling within the ThinkReality platform SDK.</p>
+              </div>
+            </div>
+          </div>
+          <div class="drawer-strip-label">Process & Work</div>
+          <div class="drawer-strip">
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>HMD wireframes</span></div>
+          </div>
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>Spatial UI patterns</span></div>
+          </div>
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>Gesture interaction map</span></div>
+          </div>
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>Prototype testing</span></div>
+          </div>
+          </div>
+        </div>
+      </div>
+      </div>
 
-      <a href="#" class="case">
+            <div class="case-wrapper">
+    <div class="case">
         <div class="case-meta">
           <div class="case-tags">
             <span class="case-tag primary">AR · Training</span>
@@ -735,9 +1360,61 @@
           <div class="case-desc">User acceptance testing and UX design for a Verizon POC with the University of Hawaii football team on Snapdragon AR glasses.</div>
         </div>
         <div class="case-right">
-          <span class="case-client"><span class="case-client-arrow">↓</span>Verizon</span>
+          <div class="case-toggle-icon"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
+          <span class="case-client">Verizon</span>
         </div>
-      </a>
+      </div>
+      <div class="case-drawer">
+        <div class="case-drawer-inner">
+          <div class="drawer-hero">
+            <div class="drawer-hero-placeholder"><span>Hero image — Verizon</span></div>
+          </div>
+          <div class="drawer-body">
+            <div class="drawer-meta">
+              <div class="drawer-meta-item">
+                <label>Role</label>
+                <p>UX Designer · Product Manager</p>
+              </div>
+              <div class="drawer-meta-item">
+                <label>Year</label>
+                <p>2022</p>
+              </div>
+              <div class="drawer-meta-item">
+                <label>Client</label>
+                <p>Verizon</p>
+              </div>
+              <div class="drawer-meta-item">
+                <label>Scope</label>
+                <p>AR · Training · UAT · Product Management</p>
+              </div>
+            </div>
+            <div class="drawer-copy">
+              <h3>AR training at the edge of sports performance</h3>
+              <p>User acceptance testing, UX design, and product management for a Verizon proof-of-concept developed with subject matter experts from the University of Hawaii football team, prototyped on Snapdragon and the Lenovo ThinkReality A3 glasses.</p>
+              <div class="drawer-copy-cols">
+                <p>Coordinated UAT sessions with coaches and athletes on the field, capturing real-world feedback on AR overlay legibility and interaction speed under physical exertion.</p>
+                <p>Produced UX documentation and product specs for the Snapdragon platform, including interaction timing, error states, and field-of-view optimization.</p>
+              </div>
+            </div>
+          </div>
+          <div class="drawer-strip-label">Process & Work</div>
+          <div class="drawer-strip">
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>Field testing setup</span></div>
+          </div>
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>AR overlay designs</span></div>
+          </div>
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>UAT documentation</span></div>
+          </div>
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>ThinkReality A3 specs</span></div>
+          </div>
+          </div>
+        </div>
+      </div>
+      </div>
     </div>
   </section>
 
@@ -966,6 +1643,165 @@
       stagger: 0.12,
       ease: "power3.out"
     });
+
+
+    /* CASE DRAWERS */
+    let activeDrawer = null;
+    let activeCase = null;
+
+    function openDrawer(wrapper) {
+      const caseEl = wrapper.querySelector('.case');
+      const drawer = wrapper.querySelector('.case-drawer');
+      const inner = wrapper.querySelector('.case-drawer-inner');
+      const strip = wrapper.querySelector('.drawer-strip');
+
+      // Close any open drawer first
+      if (activeDrawer && activeDrawer !== drawer) {
+        closeDrawer(activeDrawer.closest('.case-wrapper'), false);
+      }
+
+      caseEl.classList.add('is-open');
+      activeDrawer = drawer;
+      activeCase = caseEl;
+
+      // Measure full height
+      gsap.set(drawer, { height: 'auto', overflow: 'hidden' });
+      const fullH = drawer.offsetHeight;
+      gsap.set(drawer, { height: 0 });
+
+      const tl = gsap.timeline();
+
+      tl.to(drawer, {
+        height: fullH,
+        duration: 0.7,
+        ease: 'power3.inOut'
+      });
+
+      tl.to(inner, {
+        opacity: 1,
+        duration: 0.4,
+        ease: 'power2.out'
+      }, '-=0.3');
+
+      tl.from(inner.querySelector('.drawer-hero'), {
+        y: 24,
+        opacity: 0,
+        duration: 0.6,
+        ease: 'power3.out'
+      }, '-=0.3');
+
+      tl.from(inner.querySelectorAll('.drawer-meta-item'), {
+        y: 16,
+        opacity: 0,
+        duration: 0.5,
+        stagger: 0.07,
+        ease: 'power3.out'
+      }, '-=0.4');
+
+      tl.from(inner.querySelectorAll('.drawer-copy > *'), {
+        y: 16,
+        opacity: 0,
+        duration: 0.5,
+        stagger: 0.08,
+        ease: 'power3.out'
+      }, '-=0.5');
+
+      tl.from(inner.querySelectorAll('.drawer-strip-img'), {
+        x: 32,
+        opacity: 0,
+        duration: 0.5,
+        stagger: 0.06,
+        ease: 'power3.out'
+      }, '-=0.3');
+
+      // Scroll into view smoothly
+      setTimeout(() => {
+        wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+
+      // Wire up drag scroll on strip
+      if (strip) initDragStrip(strip);
+    }
+
+    function closeDrawer(wrapper, animate = true) {
+      const caseEl = wrapper.querySelector('.case');
+      const drawer = wrapper.querySelector('.case-drawer');
+      const inner = wrapper.querySelector('.case-drawer-inner');
+
+      caseEl.classList.remove('is-open');
+
+      if (animate) {
+        gsap.to(inner, { opacity: 0, duration: 0.2, ease: 'power2.in' });
+        gsap.to(drawer, { height: 0, duration: 0.5, ease: 'power3.inOut', delay: 0.1 });
+      } else {
+        gsap.set(inner, { opacity: 0 });
+        gsap.set(drawer, { height: 0 });
+      }
+
+      if (activeDrawer === drawer) {
+        activeDrawer = null;
+        activeCase = null;
+      }
+    }
+
+    document.querySelectorAll('.case-wrapper').forEach(wrapper => {
+      const caseEl = wrapper.querySelector('.case');
+
+      caseEl.addEventListener('click', (e) => {
+        e.preventDefault();
+        const isOpen = caseEl.classList.contains('is-open');
+        if (isOpen) {
+          closeDrawer(wrapper);
+        } else {
+          openDrawer(wrapper);
+        }
+      });
+    });
+
+    /* DRAG SCROLL ON STRIP */
+    function initDragStrip(strip) {
+      if (strip._dragInit) return;
+      strip._dragInit = true;
+
+      let isDragging = false;
+      let startX, scrollLeft;
+
+      strip.addEventListener('mousedown', e => {
+        isDragging = true;
+        strip.classList.add('is-dragging');
+        startX = e.pageX - strip.offsetLeft;
+        scrollLeft = strip.scrollLeft;
+      });
+
+      strip.addEventListener('mouseleave', () => {
+        isDragging = false;
+        strip.classList.remove('is-dragging');
+      });
+
+      strip.addEventListener('mouseup', () => {
+        isDragging = false;
+        strip.classList.remove('is-dragging');
+      });
+
+      strip.addEventListener('mousemove', e => {
+        if (!isDragging) return;
+        e.preventDefault();
+        const x = e.pageX - strip.offsetLeft;
+        const walk = (x - startX) * 1.4;
+        strip.scrollLeft = scrollLeft - walk;
+      });
+
+      // Touch support
+      strip.addEventListener('touchstart', e => {
+        startX = e.touches[0].pageX - strip.offsetLeft;
+        scrollLeft = strip.scrollLeft;
+      }, { passive: true });
+
+      strip.addEventListener('touchmove', e => {
+        const x = e.touches[0].pageX - strip.offsetLeft;
+        strip.scrollLeft = scrollLeft - (x - startX) * 1.2;
+      }, { passive: true });
+    }
 
     /* TICKER HIGHLIGHT */
     const track = document.getElementById("ticker");
