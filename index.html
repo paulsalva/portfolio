@@ -384,10 +384,6 @@
       opacity: 0;
       padding: 32px 0 40px;
       overflow: hidden;
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 32px;
-      align-items: start;
     }
 
     .ai-drawer-content {
@@ -395,7 +391,10 @@
     }
 
     .ai-drawer-content.active {
-      display: contents !important;
+      display: grid !important;
+      grid-template-columns: 1fr 2fr;
+      gap: 32px;
+      align-items: start;
     }
 
     .ai-full-drawer-inner .drawer-hero {
