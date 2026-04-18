@@ -1099,22 +1099,23 @@
       margin-bottom: 1px;
     }
     .rec-row {
-      display: flex;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: 200px 1fr auto;
       align-items: center;
+      gap: 24px;
       padding: 18px 0;
       border-bottom: 0.5px solid rgba(255,255,255,0.06);
     }
 
     .rec-award {
-      font-size: 14px;
-      font-weight: 500;
-      color: rgba(232,230,223,0.6);
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(232,230,223,0.7);
     }
 
     .rec-project {
       font-size: 13px;
-      color: rgba(232,230,223,0.3);
+      color: rgba(232,230,223,0.35);
     }
 
     .rec-badge {
@@ -1124,6 +1125,8 @@
       text-transform: uppercase;
       color: #3d9aff;
       opacity: 0.6;
+      text-align: right;
+      white-space: nowrap;
     }
 
     /* FOOTER */
