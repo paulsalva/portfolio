@@ -4,15 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Paul Salva | Senior Product Designer & AI Design Strategist</title>
-  <style>
-    @font-face { font-family: 'Syne'; src: url('fonts/Syne-Regular.ttf') format('truetype'); font-weight: 400; font-style: normal; font-display: block; }
-    @font-face { font-family: 'Syne'; src: url('fonts/Syne-Medium.ttf') format('truetype'); font-weight: 500; font-style: normal; font-display: block; }
-    @font-face { font-family: 'Syne'; src: url('fonts/Syne-SemiBold.ttf') format('truetype'); font-weight: 600; font-style: normal; font-display: block; }
-    @font-face { font-family: 'Syne'; src: url('fonts/Syne-Bold.ttf') format('truetype'); font-weight: 700; font-style: normal; font-display: block; }
-    @font-face { font-family: 'Syne'; src: url('fonts/Syne-ExtraBold.ttf') format('truetype'); font-weight: 800; font-style: normal; font-display: block; }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap');
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     html { scroll-behavior: smooth; }
@@ -422,201 +420,6 @@
 
     .ai-full-drawer-inner .drawer-strip {
       padding-bottom: 0;
-    }
-
-
-    /* TAB SYSTEM */
-    .tab-nav {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-bottom: 32px;
-    }
-
-    .tab-btn {
-      font-family: 'Syne', sans-serif;
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: rgba(232,230,223,0.4);
-      background: transparent;
-      border: 0.5px solid rgba(255,255,255,0.1);
-      border-radius: 100px;
-      padding: 7px 16px;
-      cursor: pointer;
-      transition: all 0.15s ease;
-    }
-
-    .tab-btn:hover {
-      color: #e8e6df;
-      border-color: rgba(255,255,255,0.25);
-    }
-
-    .tab-btn.active {
-      color: #0d0d0d;
-      background: #3d9aff;
-      border-color: #3d9aff;
-    }
-
-    .tab-panel {
-      display: none;
-    }
-
-    .tab-panel.active {
-      display: block;
-    }
-
-    .tab-hero {
-      width: 100%;
-      height: 360px;
-      background: #1a1a1a;
-      overflow: hidden;
-      border-radius: 8px;
-      margin-bottom: 40px;
-    }
-
-    .tab-hero-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.85;
-      display: block;
-    }
-
-    .tab-body {
-      display: grid;
-      grid-template-columns: 260px 1fr;
-      gap: 60px;
-      align-items: start;
-    }
-
-    .tab-meta {
-      display: flex;
-      flex-direction: column;
-      gap: 28px;
-    }
-
-    .tab-copy h3 {
-      font-size: 22px;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: #e8e6df;
-      line-height: 1.2;
-      margin-bottom: 16px;
-    }
-
-    .tab-copy p {
-      font-size: 15px;
-      font-weight: 400;
-      line-height: 1.75;
-      color: rgba(232,230,223,0.55);
-      margin-bottom: 12px;
-    }
-
-    @media (max-width: 720px) {
-      .tab-body { grid-template-columns: 1fr; gap: 32px; }
-      .tab-hero { height: 220px; }
-    }
-
-
-    /* LIGHTBOX */
-    .lightbox-trigger {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: 'Syne', sans-serif;
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #3d9aff;
-      background: transparent;
-      border: none;
-      padding: 0;
-      cursor: pointer;
-      position: relative;
-      margin-bottom: 40px;
-    }
-
-    .lightbox-trigger-inner {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 9px 20px;
-      border-radius: 100px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .lightbox-trigger::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 100px;
-      padding: 1.5px;
-      background: linear-gradient(90deg, #3d9aff, #7ec8ff, #1a6fcc, #3d9aff);
-      background-size: 300% auto;
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      animation: gradientShift 4s linear infinite;
-    }
-
-    .lightbox-trigger:hover .lightbox-trigger-inner {
-      background: rgba(61,154,255,0.06);
-    }
-
-    .lightbox-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0);
-      z-index: 1000;
-      overflow-y: auto;
-      overflow-x: hidden;
-      pointer-events: none;
-      opacity: 0;
-      padding: 60px 40px 80px;
-    }
-
-    .lightbox-overlay.is-open {
-      pointer-events: all;
-    }
-
-    .lightbox-img {
-      display: block;
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      transform: scale(0.97);
-      opacity: 0;
-      box-shadow: 0 32px 80px rgba(0,0,0,0.7);
-    }
-
-    .lightbox-close {
-      position: fixed;
-      top: 24px;
-      right: 28px;
-      width: 36px;
-      height: 36px;
-      border: 0.5px solid rgba(255,255,255,0.2);
-      border-radius: 50%;
-      background: rgba(13,13,13,0.8);
-      color: rgba(232,230,223,0.6);
-      font-size: 18px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      z-index: 1001;
-      backdrop-filter: blur(8px);
-      line-height: 1;
-    }
-
-    .lightbox-close:hover {
-      color: #e8e6df;
-      border-color: rgba(255,255,255,0.4);
     }
 
     /* SUBSECTIONS */
@@ -1180,51 +983,23 @@
     }
 
     /* RECOGNITION */
-    a.rec-row.rec-link {
-      text-decoration: none;
-      cursor: pointer;
-      transition: background 0.15s ease;
-    }
-
-    a.rec-row.rec-link:hover {
-      background: rgba(61,154,255,0.04);
-    }
-
-    a.rec-row.rec-link:hover .rec-award {
-      color: rgba(232,230,223,0.85);
-    }
-
-    a.rec-row.rec-link:hover .rec-badge {
-      opacity: 1;
-    }
-
-    .rec-arrow {
-      width: 10px;
-      height: 10px;
-      display: inline-block;
-      vertical-align: middle;
-      margin-left: 4px;
-      margin-bottom: 1px;
-    }
     .rec-row {
-      display: grid;
-      grid-template-columns: 200px 1fr auto;
+      display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 24px;
       padding: 18px 0;
       border-bottom: 0.5px solid rgba(255,255,255,0.06);
     }
 
     .rec-award {
-      font-size: 13px;
-      font-weight: 600;
-      color: rgba(232,230,223,0.7);
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(232,230,223,0.6);
     }
 
     .rec-project {
       font-size: 13px;
-      color: rgba(232,230,223,0.35);
-      text-align: left;
+      color: rgba(232,230,223,0.3);
     }
 
     .rec-badge {
@@ -1234,8 +1009,6 @@
       text-transform: uppercase;
       color: #3d9aff;
       opacity: 0.6;
-      text-align: right;
-      white-space: nowrap;
     }
 
     /* FOOTER */
@@ -1380,192 +1153,531 @@
       <span class="section-title">UX Design</span>
     </div>
 
-    <div class="tab-nav" id="ux-tabs">
-      <button class="tab-btn active" data-tab="ux-0">UX Research</button>
-      <button class="tab-btn" data-tab="ux-1">Information Architecture</button>
-      <button class="tab-btn" data-tab="ux-2">Prototyping</button>
-      <button class="tab-btn" data-tab="ux-3">UX Strategy</button>
-      <button class="tab-btn" data-tab="ux-4">Design Systems</button>
+    <!-- UX RESEARCH -->
+    <div class="subsection">
+      <div class="subsection-header">
+        <span class="subsection-title">UX Research</span>
+        <span class="subsection-count">Placeholder</span>
+      </div>
+      <div class="cases">
+            <div class="case-wrapper">
+    <div class="case">
+        <div class="case-meta">
+          <div class="case-tags">
+            <span class="case-tag primary">Research</span>
+            <span class="case-tag-sep">·</span>
+            <span class="case-tag">Testing</span>
+            <span class="case-tag-sep">·</span>
+            <span class="case-tag">Strategy</span>
+          </div>
+          <div class="case-title">Research Case Study Placeholder</div>
+          <div class="case-desc">Placeholder content for discovery, user interviews, usability testing, competitive analysis, and product strategy.</div>
+        </div>
+        <div class="case-right">
+          <span class="case-client">Client</span>
+          <div class="case-toggle-icon"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
+        </div>
+      </div>
+      <div class="case-drawer">
+        <div class="case-drawer-inner">
+          <div class="drawer-hero">
+            <div class="drawer-hero-placeholder"><span>Hero image — Client</span></div>
+          </div>
+          <div class="drawer-body">
+            <div class="drawer-meta">
+              <div class="drawer-meta-item">
+                <label>Role</label>
+                <p>UX Researcher</p>
+              </div>
+              <div class="drawer-meta-item">
+                <label>Year</label>
+                <p>Placeholder</p>
+              </div>
+              <div class="drawer-meta-item">
+                <label>Client</label>
+                <p>Client</p>
+              </div>
+              <div class="drawer-meta-item">
+                <label>Scope</label>
+                <p>Research · Testing · Strategy</p>
+              </div>
+            </div>
+            <div class="drawer-copy">
+              <h3>Discovery, testing, and strategic synthesis</h3>
+              <p>Placeholder — add your UX research case study content here including discovery, user interviews, usability testing, competitive analysis, and product strategy work.</p>
+              <div class="drawer-copy-cols">
+                <p>Describe your research methodology, participant recruitment, and synthesis process.</p>
+                <p>Outline the strategic recommendations and how they influenced product direction.</p>
+              </div>
+            </div>
+          </div>
+          <div class="drawer-strip-label">Process & Work</div>
+          <div class="drawer-strip">
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>Research synthesis</span></div>
+          </div>
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>Affinity mapping</span></div>
+          </div>
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>Usability testing</span></div>
+          </div>
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>Strategic report</span></div>
+          </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
     </div>
 
-    <div class="tab-panel active" id="ux-0">
-      <div class="tab-hero"><div class="drawer-hero-placeholder"><span>Hero image — UX Research</span></div></div>
-      <div class="tab-body">
-        <div class="tab-meta">
-          <div class="drawer-meta-item"><label>Discipline</label><p>UX Research</p></div>
-          <div class="drawer-meta-item"><label>Methods</label><p>Discovery · User Interviews · Usability Testing · Competitive Analysis</p></div>
-          <div class="drawer-meta-item"><label>Tools</label><p>Dovetail · Maze · UserTesting · Figma</p></div>
-        </div>
-        <div class="tab-copy">
-          <h3>Discovery, testing, and strategic synthesis</h3>
-          <p>Placeholder — add your UX research case study content here including discovery, user interviews, usability testing, competitive analysis, and product strategy work.</p>
-          <div class="drawer-copy-cols">
-            <p>Describe your research methodology, participant recruitment, and synthesis process.</p>
-            <p>Outline the strategic recommendations and how they influenced product direction.</p>
+    <!-- INFORMATION ARCHITECTURE -->
+    <div class="subsection">
+      <div class="subsection-header">
+        <span class="subsection-title">Information Architecture</span>
+        <span class="subsection-count">Placeholder</span>
+      </div>
+      <div class="cases">
+        <div class="case-wrapper">
+          <div class="case">
+            <div class="case-meta">
+              <div class="case-tags">
+                <span class="case-tag primary">IA</span>
+                <span class="case-tag-sep">·</span>
+                <span class="case-tag">Navigation</span>
+                <span class="case-tag-sep">·</span>
+                <span class="case-tag">Content Strategy</span>
+              </div>
+              <div class="case-title">Information Architecture Placeholder</div>
+              <div class="case-desc">Placeholder for IA work — sitemaps, navigation systems, content hierarchy, and taxonomy design.</div>
+            </div>
+            <div class="case-right">
+              <span class="case-client">Client</span>
+              <div class="case-toggle-icon"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
+            </div>
+          </div>
+          <div class="case-drawer">
+            <div class="case-drawer-inner">
+              <div class="drawer-hero"><div class="drawer-hero-placeholder"><span>Hero image — IA</span></div></div>
+              <div class="drawer-body">
+                <div class="drawer-meta">
+                  <div class="drawer-meta-item"><label>Role</label><p>UX Designer · IA</p></div>
+                  <div class="drawer-meta-item"><label>Year</label><p>Placeholder</p></div>
+                  <div class="drawer-meta-item"><label>Client</label><p>Client</p></div>
+                  <div class="drawer-meta-item"><label>Scope</label><p>IA · Navigation · Content Strategy</p></div>
+                </div>
+                <div class="drawer-copy">
+                  <h3>Structuring complexity into clarity</h3>
+                  <p>Placeholder — add your IA case study content here.</p>
+                  <div class="drawer-copy-cols">
+                    <p>Describe your approach to sitemap design, navigation hierarchy, and content modeling.</p>
+                    <p>Outline how the IA decisions improved findability and reduced user friction.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="drawer-strip-label">Process & Work</div>
+              <div class="drawer-strip">
+                <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Sitemap</span></div></div>
+                <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Navigation audit</span></div></div>
+                <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Card sorting</span></div></div>
+                <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Tree testing</span></div></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="tab-panel" id="ux-1">
-      <div class="tab-hero"><div class="drawer-hero-placeholder"><span>Hero image — Information Architecture</span></div></div>
-      <div class="tab-body">
-        <div class="tab-meta">
-          <div class="drawer-meta-item"><label>Discipline</label><p>Information Architecture</p></div>
-          <div class="drawer-meta-item"><label>Methods</label><p>Sitemaps · Navigation Systems · Content Hierarchy · Taxonomy</p></div>
-          <div class="drawer-meta-item"><label>Tools</label><p>Figma · Miro · Optimal Workshop</p></div>
-        </div>
-        <div class="tab-copy">
-          <h3>Structuring complexity into clarity</h3>
-          <p>Placeholder — add your IA case study content here.</p>
-          <div class="drawer-copy-cols">
-            <p>Describe your approach to sitemap design, navigation hierarchy, and content modeling.</p>
-            <p>Outline how the IA decisions improved findability and reduced user friction.</p>
+    <!-- PROTOTYPING -->
+    <div class="subsection">
+      <div class="subsection-header">
+        <span class="subsection-title">Prototyping</span>
+        <span class="subsection-count">Placeholder</span>
+      </div>
+      <div class="cases">
+        <div class="case-wrapper">
+          <div class="case">
+            <div class="case-meta">
+              <div class="case-tags">
+                <span class="case-tag primary">Prototyping</span>
+                <span class="case-tag-sep">·</span>
+                <span class="case-tag">Interaction Design</span>
+                <span class="case-tag-sep">·</span>
+                <span class="case-tag">Figma</span>
+              </div>
+              <div class="case-title">Prototyping Case Study Placeholder</div>
+              <div class="case-desc">Placeholder for prototyping work — high-fidelity Figma prototypes, interaction models, and usability validation.</div>
+            </div>
+            <div class="case-right">
+              <span class="case-client">Client</span>
+              <div class="case-toggle-icon"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
+            </div>
+          </div>
+          <div class="case-drawer">
+            <div class="case-drawer-inner">
+              <div class="drawer-hero"><div class="drawer-hero-placeholder"><span>Hero image — Prototyping</span></div></div>
+              <div class="drawer-body">
+                <div class="drawer-meta">
+                  <div class="drawer-meta-item"><label>Role</label><p>Interaction Designer</p></div>
+                  <div class="drawer-meta-item"><label>Year</label><p>Placeholder</p></div>
+                  <div class="drawer-meta-item"><label>Client</label><p>Client</p></div>
+                  <div class="drawer-meta-item"><label>Scope</label><p>Prototyping · Interaction Design</p></div>
+                </div>
+                <div class="drawer-copy">
+                  <h3>From wireframe to validated interaction</h3>
+                  <p>Placeholder — add your prototyping case study content here.</p>
+                  <div class="drawer-copy-cols">
+                    <p>Describe your prototyping process, fidelity decisions, and how prototypes were used in testing.</p>
+                    <p>Outline how prototype feedback directly shaped the final shipped product.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="drawer-strip-label">Process & Work</div>
+              <div class="drawer-strip">
+                <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Wireframes</span></div></div>
+                <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Hi-fi prototype</span></div></div>
+                <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Interaction flows</span></div></div>
+                <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Test results</span></div></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="tab-panel" id="ux-2">
-      <div class="tab-hero"><div class="drawer-hero-placeholder"><span>Hero image — Prototyping</span></div></div>
-      <div class="tab-body">
-        <div class="tab-meta">
-          <div class="drawer-meta-item"><label>Discipline</label><p>Prototyping</p></div>
-          <div class="drawer-meta-item"><label>Methods</label><p>Wireframing · Hi-Fi Prototypes · Interaction Design · Usability Validation</p></div>
-          <div class="drawer-meta-item"><label>Tools</label><p>Figma · Principle · Framer</p></div>
-        </div>
-        <div class="tab-copy">
-          <h3>From wireframe to validated interaction</h3>
-          <p>Placeholder — add your prototyping case study content here.</p>
-          <div class="drawer-copy-cols">
-            <p>Describe your prototyping process, fidelity decisions, and how prototypes were used in testing.</p>
-            <p>Outline how prototype feedback directly shaped the final shipped product.</p>
+    <!-- UX STRATEGY -->
+    <div class="subsection">
+      <div class="subsection-header">
+        <span class="subsection-title">UX Strategy</span>
+        <span class="subsection-count">Placeholder</span>
+      </div>
+      <div class="cases">
+        <div class="case-wrapper">
+          <div class="case">
+            <div class="case-meta">
+              <div class="case-tags">
+                <span class="case-tag primary">UX Strategy</span>
+                <span class="case-tag-sep">·</span>
+                <span class="case-tag">Product Vision</span>
+                <span class="case-tag-sep">·</span>
+                <span class="case-tag">Roadmapping</span>
+              </div>
+              <div class="case-title">UX Strategy Placeholder</div>
+              <div class="case-desc">Placeholder for UX strategy work — product vision, experience principles, roadmapping, and cross-functional alignment.</div>
+            </div>
+            <div class="case-right">
+              <span class="case-client">Client</span>
+              <div class="case-toggle-icon"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
+            </div>
+          </div>
+          <div class="case-drawer">
+            <div class="case-drawer-inner">
+              <div class="drawer-hero"><div class="drawer-hero-placeholder"><span>Hero image — UX Strategy</span></div></div>
+              <div class="drawer-body">
+                <div class="drawer-meta">
+                  <div class="drawer-meta-item"><label>Role</label><p>UX Strategist</p></div>
+                  <div class="drawer-meta-item"><label>Year</label><p>Placeholder</p></div>
+                  <div class="drawer-meta-item"><label>Client</label><p>Client</p></div>
+                  <div class="drawer-meta-item"><label>Scope</label><p>UX Strategy · Product Vision</p></div>
+                </div>
+                <div class="drawer-copy">
+                  <h3>Aligning design with business outcomes</h3>
+                  <p>Placeholder — add your UX strategy case study content here.</p>
+                  <div class="drawer-copy-cols">
+                    <p>Describe how you developed experience principles and aligned stakeholders around a product vision.</p>
+                    <p>Outline the measurable outcomes that resulted from the strategic design decisions.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="drawer-strip-label">Process & Work</div>
+              <div class="drawer-strip">
+                <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Experience principles</span></div></div>
+                <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Product roadmap</span></div></div>
+                <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Stakeholder alignment</span></div></div>
+                <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Outcomes</span></div></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="tab-panel" id="ux-3">
-      <div class="tab-hero"><div class="drawer-hero-placeholder"><span>Hero image — UX Strategy</span></div></div>
-      <div class="tab-body">
-        <div class="tab-meta">
-          <div class="drawer-meta-item"><label>Discipline</label><p>UX Strategy</p></div>
-          <div class="drawer-meta-item"><label>Methods</label><p>Product Vision · Experience Principles · Roadmapping · Stakeholder Alignment</p></div>
-          <div class="drawer-meta-item"><label>Tools</label><p>Miro · Notion · Figma · Confluence</p></div>
+    <!-- DESIGN SYSTEMS -->
+    <div class="subsection">
+      <div class="subsection-header">
+        <span class="subsection-title">Design Systems</span>
+        <span class="subsection-count">2 projects</span>
+      </div>
+      <div class="cases">
+            <div class="case-wrapper">
+    <div class="case">
+        <div class="case-meta">
+          <div class="case-tags">
+            <span class="case-tag primary">Design System</span>
+            <span class="case-tag-sep">·</span>
+            <span class="case-tag">AR · UX Research</span>
+          </div>
+          <div class="case-title">Verizon Portal | System & Experience</div>
+          <div class="case-desc">Design system maintenance alongside the immersive 360° Portal experience. See full case study in XR / Spatial.</div>
         </div>
-        <div class="tab-copy">
-          <h3>Aligning design with business outcomes</h3>
-          <p>Placeholder — add your UX strategy case study content here.</p>
-          <div class="drawer-copy-cols">
-            <p>Describe how you developed experience principles and aligned stakeholders around a product vision.</p>
-            <p>Outline the measurable outcomes that resulted from the strategic design decisions.</p>
+        <div class="case-right">
+          <span class="case-client">Verizon</span>
+          <div class="case-toggle-icon"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
+        </div>
+      </div>
+      <div class="case-drawer">
+        <div class="case-drawer-inner">
+          <div class="drawer-hero">
+            <div class="drawer-hero-placeholder"><span>Hero image — Verizon</span></div>
+          </div>
+          <div class="drawer-body">
+            <div class="drawer-meta">
+              <div class="drawer-meta-item">
+                <label>Role</label>
+                <p>UX Designer · Design Systems</p>
+              </div>
+              <div class="drawer-meta-item">
+                <label>Year</label>
+                <p>2022–2023</p>
+              </div>
+              <div class="drawer-meta-item">
+                <label>Client</label>
+                <p>Verizon</p>
+              </div>
+              <div class="drawer-meta-item">
+                <label>Scope</label>
+                <p>Design System · AR · UX Research</p>
+              </div>
+            </div>
+            <div class="drawer-copy">
+              <h3>A living design system built for immersive scale</h3>
+              <p>The Verizon Portal required a design system that could flex across mobile web, native app, and AR overlays simultaneously. Component architecture, token structure, and motion specs were authored end-to-end.</p>
+              <div class="drawer-copy-cols">
+                <p>Maintained and evolved a multi-platform component library using Figma and Zeplin, coordinating with engineering across multiple sprint cycles.</p>
+                <p>Established motion guidelines and interaction patterns for 360° environments, geofenced AR states, and live-event broadcast contexts.</p>
+              </div>
+            </div>
+          </div>
+          <div class="drawer-strip-label">Process & Work</div>
+          <div class="drawer-strip">
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>Design system documentation</span></div>
+          </div>
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>Component library overview</span></div>
+          </div>
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>AR state mapping</span></div>
+          </div>
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>Token architecture</span></div>
+          </div>
           </div>
         </div>
       </div>
-    </div>
+      </div>
 
-    <div class="tab-panel" id="ux-4">
-      <div class="tab-hero"><img src="images/verizon-superbowl-header.webp" alt="Verizon Portal Design System" class="tab-hero-img"></div>
-      <button class="lightbox-trigger" id="lightbox-btn">
-        <span class="lightbox-trigger-inner">View Style Guide ↗</span>
-      </button>
-      <div class="tab-body">
-        <div class="tab-meta">
-          <div class="drawer-meta-item"><label>Discipline</label><p>Design Systems</p></div>
-          <div class="drawer-meta-item"><label>Methods</label><p>Component Libraries · Tokens · Motion Guidelines · Accessibility</p></div>
-          <div class="drawer-meta-item"><label>Tools</label><p>Figma · Storybook · Zeplin · Chromatic</p></div>
+            <div class="case-wrapper">
+    <div class="case">
+        <div class="case-meta">
+          <div class="case-tags">
+            <span class="case-tag primary">Design System</span>
+            <span class="case-tag-sep">·</span>
+            <span class="case-tag">B2B · Enterprise</span>
+          </div>
+          <div class="case-title">Guidewire InsuranceNow | Component Library</div>
+          <div class="case-desc">Enterprise design system work across multiple B2B insurance products. See full case study in Enterprise.</div>
         </div>
-        <div class="tab-copy">
-          <h3>Verizon "Portal" Immersive Multi-channel Video/h3>
-          <p>Built and maintained design systems across AR/XR, enterprise SaaS, and consumer products — from token architecture to component documentation to motion specs.</p>
-          <div class="drawer-copy-cols">
-            <p>Maintained multi-platform component libraries for Verizon Portal and Guidewire InsuranceNow, coordinating with engineering across multiple sprint cycles.</p>
-            <p>Established motion guidelines, accessibility standards, and interaction patterns across platforms including mobile web, native app, and AR overlays.</p>
+        <div class="case-right">
+          <span class="case-client">Guidewire</span>
+          <div class="case-toggle-icon"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
+        </div>
+      </div>
+      <div class="case-drawer">
+        <div class="case-drawer-inner">
+          <div class="drawer-hero">
+            <div class="drawer-hero-placeholder"><span>Hero image — Guidewire</span></div>
+          </div>
+          <div class="drawer-body">
+            <div class="drawer-meta">
+              <div class="drawer-meta-item">
+                <label>Role</label>
+                <p>UX Designer · Product Manager</p>
+              </div>
+              <div class="drawer-meta-item">
+                <label>Year</label>
+                <p>2021–2022</p>
+              </div>
+              <div class="drawer-meta-item">
+                <label>Client</label>
+                <p>Guidewire</p>
+              </div>
+              <div class="drawer-meta-item">
+                <label>Scope</label>
+                <p>Design System · B2B · Enterprise</p>
+              </div>
+            </div>
+            <div class="drawer-copy">
+              <h3>Enterprise component library for insurance carriers</h3>
+              <p>Built and maintained a scalable component library for Guidewire's InsuranceNow platform, serving commercial and personal insurance carriers, agents, and customers.</p>
+              <div class="drawer-copy-cols">
+                <p>Led UX research, wireframing, and UI design across multiple B2B products, with a focus on accessibility compliance and agent workflow efficiency.</p>
+                <p>Collaborated cross-functionally with product managers and engineers in an Agile environment to ship iterative improvements at scale.</p>
+              </div>
+            </div>
+          </div>
+          <div class="drawer-strip-label">Process & Work</div>
+          <div class="drawer-strip">
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>Admin portal dashboard</span></div>
+          </div>
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>Agent workflow screens</span></div>
+          </div>
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>Component documentation</span></div>
+          </div>
+          <div class="drawer-strip-img">
+            <div class="drawer-strip-placeholder"><span>Accessibility audit</span></div>
+          </div>
           </div>
         </div>
       </div>
+      </div>
     </div>
-
-
-    <!-- LIGHTBOX -->
-    <div class="lightbox-overlay" id="lightbox">
-      <img src="images/verizon-style-guide.webp" alt="Verizon Style Guide" class="lightbox-img" id="lightbox-img">
-      <button class="lightbox-close" id="lightbox-close">✕</button>
     </div>
 
   </section>
 
+  <!-- MULTIMODAL AI -->
   <section class="section" id="multimodal-ai">
     <div class="section-header">
       <span class="section-number">02</span>
       <span class="section-title">Multimodal AI</span>
     </div>
 
-    <!-- TAB BUTTONS -->
-    <div class="tab-nav" id="mm-tabs">
-      <button class="tab-btn active" data-tab="mm-0">Generative AI</button>
-      <button class="tab-btn" data-tab="mm-1">Multimodal Pipelines</button>
-      <button class="tab-btn" data-tab="mm-2">Agentic Automation</button>
-    </div>
+    <div class="ai-card-grid" id="ai-card-grid">
 
-    <!-- TAB PANELS -->
-    <div class="tab-panel active" id="mm-0">
-      <div class="tab-hero"><div class="drawer-hero-placeholder"><span>Hero image — Generative AI</span></div></div>
-      <div class="tab-body">
-        <div class="tab-meta">
-          <div class="drawer-meta-item"><label>Role</label><p>AI Design Strategist</p></div>
-          <div class="drawer-meta-item"><label>Scope</label><p>Generative AI · Interface Design · Workflow</p></div>
-          <div class="drawer-meta-item"><label>Tools</label><p>Runway · Veo · MidJourney · Suno · ElevenLabs</p></div>
-        </div>
-        <div class="tab-copy">
-          <h3>Designing on top of foundation models</h3>
-          <p>Placeholder — add your generative AI design work here.</p>
-          <div class="drawer-copy-cols">
-            <p>Describe your approach to designing interfaces that expose generative AI capabilities without overwhelming users.</p>
-            <p>Outline specific workflows or pipelines you designed and the creative or business outcomes they enabled.</p>
+      <div class="ai-vert-wrapper">
+        <div class="ai-vert-card" data-index="0" data-title="Generative AI">
+          <div class="ai-vert-card-inner">
+            <div class="ai-vert-number">01</div>
+            <div class="ai-vert-title">Generative AI</div>
+            <div class="ai-vert-sub">From prompt to production</div>
+            <div class="ai-vert-copy">Designing generative AI experiences across image, video, audio, and text — from interface strategy to workflow integration. Building the product layer on top of foundation models.</div>
+            <div class="ai-vert-toggle">
+              <svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="tab-panel" id="mm-1">
-      <div class="tab-hero"><div class="drawer-hero-placeholder"><span>Hero image — Multimodal Pipelines</span></div></div>
-      <div class="tab-body">
-        <div class="tab-meta">
-          <div class="drawer-meta-item"><label>Role</label><p>AI Design Strategist · Pipeline Architect</p></div>
-          <div class="drawer-meta-item"><label>Scope</label><p>Multimodal · Pipeline Design · Integration</p></div>
-          <div class="drawer-meta-item"><label>Tools</label><p>Claude · Gemini · MCP Servers · Automation</p></div>
-        </div>
-        <div class="tab-copy">
-          <h3>Chaining models to build something new</h3>
-          <p>Placeholder — add your multimodal pipeline work here.</p>
-          <div class="drawer-copy-cols">
-            <p>Describe the pipeline architecture — which models, how they connect, and what design decisions governed the flow.</p>
-            <p>Outline the output: what the pipeline produces, how fast, and how it changed the production process.</p>
+      <div class="ai-vert-wrapper">
+        <div class="ai-vert-card" data-index="1" data-title="Multimodal Pipelines">
+          <div class="ai-vert-card-inner">
+            <div class="ai-vert-number">02</div>
+            <div class="ai-vert-title">Multimodal Pipelines</div>
+            <div class="ai-vert-sub">Connecting models across modalities</div>
+            <div class="ai-vert-copy">Architecting and designing multi-step AI pipelines that chain vision, language, audio, and generative models together — purpose-built for creative production and product workflows.</div>
+            <div class="ai-vert-toggle">
+              <svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="tab-panel" id="mm-2">
-      <div class="tab-hero"><div class="drawer-hero-placeholder"><span>Hero image — Agentic Automation</span></div></div>
-      <div class="tab-body">
-        <div class="tab-meta">
-          <div class="drawer-meta-item"><label>Role</label><p>AI Design Strategist · Builder</p></div>
-          <div class="drawer-meta-item"><label>Scope</label><p>Agentic AI · Automation · Vibecoding</p></div>
-          <div class="drawer-meta-item"><label>Tools</label><p>Claude · MCP · Prompt Machine · Browser Automation</p></div>
-        </div>
-        <div class="tab-copy">
-          <h3>Building AI that acts, not just responds</h3>
-          <p>Placeholder — add your agentic automation work here.</p>
-          <div class="drawer-copy-cols">
-            <p>Describe the agentic system — what it does autonomously, how it was designed, and what guardrails shaped its behavior.</p>
-            <p>Outline the time or effort saved, and what it unlocked for creative or product workflows.</p>
+      <div class="ai-vert-wrapper">
+        <div class="ai-vert-card" data-index="2" data-title="Agentic Automation">
+          <div class="ai-vert-card-inner">
+            <div class="ai-vert-number">03</div>
+            <div class="ai-vert-title">Agentic Automation</div>
+            <div class="ai-vert-sub">AI that does the work</div>
+            <div class="ai-vert-copy">Designing and building agentic systems that execute multi-step tasks autonomously — from vibecoded tools to MCP server integrations and browser automation workflows.</div>
+            <div class="ai-vert-toggle">
+              <svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg>
+            </div>
           </div>
         </div>
       </div>
+
     </div>
 
+    <!-- SHARED FULL-WIDTH DRAWER -->
+    <div class="ai-full-drawer" id="ai-full-drawer">
+      <div class="ai-full-drawer-inner" id="ai-full-drawer-inner">
+
+        <div class="ai-drawer-content" id="ai-drawer-0" style="display:none">
+          <div class="drawer-hero"><div class="drawer-hero-placeholder"><span>Hero image — Generative AI</span></div></div>
+          <div class="ai-drawer-right">
+          <div class="drawer-body">
+            <div class="drawer-meta">
+              <div class="drawer-meta-item"><label>Role</label><p>AI Design Strategist</p></div>
+              <div class="drawer-meta-item"><label>Scope</label><p>Generative AI · Interface Design · Workflow</p></div>
+              <div class="drawer-meta-item"><label>Tools</label><p>Runway · Veo · MidJourney · Suno · ElevenLabs</p></div>
+            </div>
+            <div class="drawer-copy">
+              <h3>Designing on top of foundation models</h3>
+              <p>Placeholder — add your generative AI design work here.</p>
+              <div class="drawer-copy-cols">
+                <p>Describe your approach to designing interfaces that expose generative AI capabilities without overwhelming users.</p>
+                <p>Outline specific workflows or pipelines you designed and the creative or business outcomes they enabled.</p>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div></div></div></div>
+          </div>
+        </div>
+
+        <div class="ai-drawer-content" id="ai-drawer-1" style="display:none">
+          <div class="drawer-hero"><div class="drawer-hero-placeholder"><span>Hero image — Multimodal Pipelines</span></div></div>
+          <div class="ai-drawer-right">
+          <div class="drawer-body">
+            <div class="drawer-meta">
+              <div class="drawer-meta-item"><label>Role</label><p>AI Design Strategist · Pipeline Architect</p></div>
+              <div class="drawer-meta-item"><label>Scope</label><p>Multimodal · Pipeline Design · Integration</p></div>
+              <div class="drawer-meta-item"><label>Tools</label><p>Claude · Gemini · MCP Servers · Automation</p></div>
+            </div>
+            <div class="drawer-copy">
+              <h3>Chaining models to build something new</h3>
+              <p>Placeholder — add your multimodal pipeline work here.</p>
+              <div class="drawer-copy-cols">
+                <p>Describe the pipeline architecture — which models, how they connect, and what design decisions governed the flow.</p>
+                <p>Outline the output: what the pipeline produces, how fast, and how it changed the production process.</p>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div></div></div></div>
+          </div>
+        </div>
+
+        <div class="ai-drawer-content" id="ai-drawer-2" style="display:none">
+          <div class="drawer-hero"><div class="drawer-hero-placeholder"><span>Hero image — Agentic Automation</span></div></div>
+          <div class="ai-drawer-right">
+          <div class="drawer-body">
+            <div class="drawer-meta">
+              <div class="drawer-meta-item"><label>Role</label><p>AI Design Strategist · Builder</p></div>
+              <div class="drawer-meta-item"><label>Scope</label><p>Agentic AI · Automation · Vibecoding</p></div>
+              <div class="drawer-meta-item"><label>Tools</label><p>Claude · MCP · Prompt Machine · Browser Automation</p></div>
+            </div>
+            <div class="drawer-copy">
+              <h3>Building AI that acts, not just responds</h3>
+              <p>Placeholder — add your agentic automation work here.</p>
+              <div class="drawer-copy-cols">
+                <p>Describe the agentic system — what it does autonomously, how it was designed, and what guardrails shaped its behavior.</p>
+                <p>Outline the time or effort saved, and what it unlocked for creative or product workflows.</p>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div></div></div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </section>
 
   <!-- XR / Spatial -->
@@ -2075,120 +2187,209 @@
       <span class="section-count">6 disciplines</span>
     </div>
 
-    <!-- TAB BUTTONS -->
-    <div class="tab-nav" id="cd-tabs">
-      <button class="tab-btn active" data-tab="cd-0">Creative Design</button>
-      <button class="tab-btn" data-tab="cd-1">Graphic Design</button>
-      <button class="tab-btn" data-tab="cd-2">Animation</button>
-      <button class="tab-btn" data-tab="cd-3">VFX & Compositing</button>
-      <button class="tab-btn" data-tab="cd-4">Video Editing</button>
-      <button class="tab-btn" data-tab="cd-5">Art Direction</button>
-    </div>
-
-    <!-- TAB PANELS -->
-    <div class="tab-panel active" id="cd-0">
-      <div class="tab-hero"><div class="drawer-hero-placeholder"><span>Hero image — Creative Design</span></div></div>
-      <div class="tab-body">
-        <div class="tab-meta">
-          <div class="drawer-meta-item"><label>Discipline</label><p>Creative Design</p></div>
-          <div class="drawer-meta-item"><label>Scope</label><p>From prompt to production</p></div>
+    <div class="ai-card-grid" id="cd-row-a">
+      <div class="ai-vert-wrapper">
+        <div class="ai-vert-card" data-index="0" data-row="a">
+          <div class="ai-vert-card-inner">
+            <div class="ai-vert-number">01</div>
+            <div class="ai-vert-title">Creative Design</div>
+            <div class="ai-vert-sub">From prompt to production</div>
+            <div class="ai-vert-copy">Building cohesive visual systems, brand identities, and design languages across digital and print contexts.</div>
+            <div class="ai-vert-toggle"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
+          </div>
         </div>
-        <div class="tab-copy">
-          <h3>From prompt to production</h3>
-          <p>Building cohesive visual systems, brand identities, and design languages across digital and print contexts.</p>
-          <div class="drawer-copy-cols">
-            <p>Describe your creative approach, tools, and process.</p>
-            <p>Outline the deliverables and outcomes.</p>
+      </div>
+      <div class="ai-vert-wrapper">
+        <div class="ai-vert-card" data-index="1" data-row="a">
+          <div class="ai-vert-card-inner">
+            <div class="ai-vert-number">02</div>
+            <div class="ai-vert-title">Graphic Design</div>
+            <div class="ai-vert-sub">Visual communication at every scale</div>
+            <div class="ai-vert-copy">Designing for clarity and impact — from editorial layouts and typography systems to digital campaigns and print collateral.</div>
+            <div class="ai-vert-toggle"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
+          </div>
+        </div>
+      </div>
+      <div class="ai-vert-wrapper">
+        <div class="ai-vert-card" data-index="2" data-row="a">
+          <div class="ai-vert-card-inner">
+            <div class="ai-vert-number">03</div>
+            <div class="ai-vert-title">Animation</div>
+            <div class="ai-vert-sub">Motion as a design language</div>
+            <div class="ai-vert-copy">Crafting animated experiences that communicate complex ideas through timing, rhythm, and visual storytelling.</div>
+            <div class="ai-vert-toggle"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="tab-panel" id="cd-1">
-      <div class="tab-hero"><div class="drawer-hero-placeholder"><span>Hero image — Graphic Design</span></div></div>
-      <div class="tab-body">
-        <div class="tab-meta">
-          <div class="drawer-meta-item"><label>Discipline</label><p>Graphic Design</p></div>
-          <div class="drawer-meta-item"><label>Scope</label><p>Visual communication at every scale</p></div>
+    <div class="ai-full-drawer" id="cd-drawer-row-a">
+      <div class="ai-full-drawer-inner" id="cd-inner-row-a">
+        <div class="ai-drawer-content" id="cd-drawer-0" style="display:none">
+          <div class="drawer-hero"><div class="drawer-hero-placeholder"><span>Hero image — Creative Design</span></div></div>
+          <div class="ai-drawer-right">
+            <div class="drawer-body">
+              <div class="drawer-meta">
+                <div class="drawer-meta-item"><label>Role</label><p>Creative Design</p></div>
+                <div class="drawer-meta-item"><label>Year</label><p>Placeholder</p></div>
+                <div class="drawer-meta-item"><label>Client</label><p>Client</p></div>
+                <div class="drawer-meta-item"><label>Scope</label><p>Creative Design · Creative</p></div>
+              </div>
+              <div class="drawer-copy">
+                <h3>From prompt to production</h3>
+                <p>Placeholder — add your creative design case study content here.</p>
+                <div class="drawer-copy-cols">
+                  <p>Describe your creative approach, tools, and process.</p>
+                  <p>Outline the deliverables and outcomes.</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="tab-copy">
-          <h3>Visual communication at every scale</h3>
-          <p>Designing for clarity and impact — from editorial layouts and typography systems to digital campaigns and print collateral.</p>
-          <div class="drawer-copy-cols">
-            <p>Describe your creative approach, tools, and process.</p>
-            <p>Outline the deliverables and outcomes.</p>
+        <div class="ai-drawer-content" id="cd-drawer-1" style="display:none">
+          <div class="drawer-hero"><div class="drawer-hero-placeholder"><span>Hero image — Graphic Design</span></div></div>
+          <div class="ai-drawer-right">
+            <div class="drawer-body">
+              <div class="drawer-meta">
+                <div class="drawer-meta-item"><label>Role</label><p>Graphic Design</p></div>
+                <div class="drawer-meta-item"><label>Year</label><p>Placeholder</p></div>
+                <div class="drawer-meta-item"><label>Client</label><p>Client</p></div>
+                <div class="drawer-meta-item"><label>Scope</label><p>Graphic Design · Creative</p></div>
+              </div>
+              <div class="drawer-copy">
+                <h3>Visual communication at every scale</h3>
+                <p>Placeholder — add your graphic design case study content here.</p>
+                <div class="drawer-copy-cols">
+                  <p>Describe your creative approach, tools, and process.</p>
+                  <p>Outline the deliverables and outcomes.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ai-drawer-content" id="cd-drawer-2" style="display:none">
+          <div class="drawer-hero"><div class="drawer-hero-placeholder"><span>Hero image — Animation</span></div></div>
+          <div class="ai-drawer-right">
+            <div class="drawer-body">
+              <div class="drawer-meta">
+                <div class="drawer-meta-item"><label>Role</label><p>Animation</p></div>
+                <div class="drawer-meta-item"><label>Year</label><p>Placeholder</p></div>
+                <div class="drawer-meta-item"><label>Client</label><p>Client</p></div>
+                <div class="drawer-meta-item"><label>Scope</label><p>Animation · Creative</p></div>
+              </div>
+              <div class="drawer-copy">
+                <h3>Motion as a design language</h3>
+                <p>Placeholder — add your animation case study content here.</p>
+                <div class="drawer-copy-cols">
+                  <p>Describe your creative approach, tools, and process.</p>
+                  <p>Outline the deliverables and outcomes.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="tab-panel" id="cd-2">
-      <div class="tab-hero"><div class="drawer-hero-placeholder"><span>Hero image — Animation</span></div></div>
-      <div class="tab-body">
-        <div class="tab-meta">
-          <div class="drawer-meta-item"><label>Discipline</label><p>Animation</p></div>
-          <div class="drawer-meta-item"><label>Scope</label><p>Motion as a design language</p></div>
+    <div class="ai-card-grid" id="cd-row-b" style="margin-top:16px;">
+      <div class="ai-vert-wrapper">
+        <div class="ai-vert-card" data-index="3" data-row="b">
+          <div class="ai-vert-card-inner">
+            <div class="ai-vert-number">04</div>
+            <div class="ai-vert-title">VFX & Compositing</div>
+            <div class="ai-vert-sub">Building impossible images</div>
+            <div class="ai-vert-copy">Combining live action, CGI, and digital effects into seamless visual compositions for broadcast, film, and interactive media.</div>
+            <div class="ai-vert-toggle"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
+          </div>
         </div>
-        <div class="tab-copy">
-          <h3>Motion as a design language</h3>
-          <p>Crafting animated experiences that communicate complex ideas through timing, rhythm, and visual storytelling.</p>
-          <div class="drawer-copy-cols">
-            <p>Describe your creative approach, tools, and process.</p>
-            <p>Outline the deliverables and outcomes.</p>
+      </div>
+      <div class="ai-vert-wrapper">
+        <div class="ai-vert-card" data-index="4" data-row="b">
+          <div class="ai-vert-card-inner">
+            <div class="ai-vert-number">05</div>
+            <div class="ai-vert-title">Video Editing</div>
+            <div class="ai-vert-sub">Narrative through the cut</div>
+            <div class="ai-vert-copy">Assembling footage into compelling stories — from short-form social content to long-form documentary and commercial work.</div>
+            <div class="ai-vert-toggle"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
+          </div>
+        </div>
+      </div>
+      <div class="ai-vert-wrapper">
+        <div class="ai-vert-card" data-index="5" data-row="b">
+          <div class="ai-vert-card-inner">
+            <div class="ai-vert-number">06</div>
+            <div class="ai-vert-title">Art Direction</div>
+            <div class="ai-vert-sub">The vision behind the work</div>
+            <div class="ai-vert-copy">Leading creative vision across campaigns, shoots, and productions — translating strategy into a cohesive aesthetic language.</div>
+            <div class="ai-vert-toggle"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="tab-panel" id="cd-3">
-      <div class="tab-hero"><div class="drawer-hero-placeholder"><span>Hero image — VFX & Compositing</span></div></div>
-      <div class="tab-body">
-        <div class="tab-meta">
-          <div class="drawer-meta-item"><label>Discipline</label><p>VFX & Compositing</p></div>
-          <div class="drawer-meta-item"><label>Scope</label><p>Building impossible images</p></div>
-        </div>
-        <div class="tab-copy">
-          <h3>Building impossible images</h3>
-          <p>Combining live action, CGI, and digital effects into seamless visual compositions for broadcast, film, and interactive media.</p>
-          <div class="drawer-copy-cols">
-            <p>Describe your creative approach, tools, and process.</p>
-            <p>Outline the deliverables and outcomes.</p>
+    <div class="ai-full-drawer" id="cd-drawer-row-b">
+      <div class="ai-full-drawer-inner" id="cd-inner-row-b">
+        <div class="ai-drawer-content" id="cd-drawer-3" style="display:none">
+          <div class="drawer-hero"><div class="drawer-hero-placeholder"><span>Hero image — VFX & Compositing</span></div></div>
+          <div class="ai-drawer-right">
+            <div class="drawer-body">
+              <div class="drawer-meta">
+                <div class="drawer-meta-item"><label>Role</label><p>VFX & Compositing</p></div>
+                <div class="drawer-meta-item"><label>Year</label><p>Placeholder</p></div>
+                <div class="drawer-meta-item"><label>Client</label><p>Client</p></div>
+                <div class="drawer-meta-item"><label>Scope</label><p>VFX & Compositing · Creative</p></div>
+              </div>
+              <div class="drawer-copy">
+                <h3>Building impossible images</h3>
+                <p>Placeholder — add your vfx & compositing case study content here.</p>
+                <div class="drawer-copy-cols">
+                  <p>Describe your creative approach, tools, and process.</p>
+                  <p>Outline the deliverables and outcomes.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-
-    <div class="tab-panel" id="cd-4">
-      <div class="tab-hero"><div class="drawer-hero-placeholder"><span>Hero image — Video Editing</span></div></div>
-      <div class="tab-body">
-        <div class="tab-meta">
-          <div class="drawer-meta-item"><label>Discipline</label><p>Video Editing</p></div>
-          <div class="drawer-meta-item"><label>Scope</label><p>Narrative through the cut</p></div>
-        </div>
-        <div class="tab-copy">
-          <h3>Narrative through the cut</h3>
-          <p>Assembling footage into compelling stories — from short-form social content to long-form documentary and commercial work.</p>
-          <div class="drawer-copy-cols">
-            <p>Describe your creative approach, tools, and process.</p>
-            <p>Outline the deliverables and outcomes.</p>
+        <div class="ai-drawer-content" id="cd-drawer-4" style="display:none">
+          <div class="drawer-hero"><div class="drawer-hero-placeholder"><span>Hero image — Video Editing</span></div></div>
+          <div class="ai-drawer-right">
+            <div class="drawer-body">
+              <div class="drawer-meta">
+                <div class="drawer-meta-item"><label>Role</label><p>Video Editing</p></div>
+                <div class="drawer-meta-item"><label>Year</label><p>Placeholder</p></div>
+                <div class="drawer-meta-item"><label>Client</label><p>Client</p></div>
+                <div class="drawer-meta-item"><label>Scope</label><p>Video Editing · Creative</p></div>
+              </div>
+              <div class="drawer-copy">
+                <h3>Narrative through the cut</h3>
+                <p>Placeholder — add your video editing case study content here.</p>
+                <div class="drawer-copy-cols">
+                  <p>Describe your creative approach, tools, and process.</p>
+                  <p>Outline the deliverables and outcomes.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-
-    <div class="tab-panel" id="cd-5">
-      <div class="tab-hero"><div class="drawer-hero-placeholder"><span>Hero image — Art Direction</span></div></div>
-      <div class="tab-body">
-        <div class="tab-meta">
-          <div class="drawer-meta-item"><label>Discipline</label><p>Art Direction</p></div>
-          <div class="drawer-meta-item"><label>Scope</label><p>The vision behind the work</p></div>
-        </div>
-        <div class="tab-copy">
-          <h3>The vision behind the work</h3>
-          <p>Leading creative vision across campaigns, shoots, and productions — translating strategy into a cohesive aesthetic language.</p>
-          <div class="drawer-copy-cols">
-            <p>Describe your creative approach, tools, and process.</p>
-            <p>Outline the deliverables and outcomes.</p>
+        <div class="ai-drawer-content" id="cd-drawer-5" style="display:none">
+          <div class="drawer-hero"><div class="drawer-hero-placeholder"><span>Hero image — Art Direction</span></div></div>
+          <div class="ai-drawer-right">
+            <div class="drawer-body">
+              <div class="drawer-meta">
+                <div class="drawer-meta-item"><label>Role</label><p>Art Direction</p></div>
+                <div class="drawer-meta-item"><label>Year</label><p>Placeholder</p></div>
+                <div class="drawer-meta-item"><label>Client</label><p>Client</p></div>
+                <div class="drawer-meta-item"><label>Scope</label><p>Art Direction · Creative</p></div>
+              </div>
+              <div class="drawer-copy">
+                <h3>The vision behind the work</h3>
+                <p>Placeholder — add your art direction case study content here.</p>
+                <div class="drawer-copy-cols">
+                  <p>Describe your creative approach, tools, and process.</p>
+                  <p>Outline the deliverables and outcomes.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -2204,40 +2405,33 @@
     </div>
 
     <div class="rec-row">
-      <span class="rec-award">Pragmatic Institute</span>
-      <span class="rec-project">Product Management Certification · PMC-1</span>
-      <span class="rec-badge">Certified</span>
-    </div>
-
-    <a class="rec-row rec-link" href="https://thefwa.com/cases/huluween-the-screamlands" target="_blank" rel="noopener">
       <span class="rec-award">FWA Award</span>
       <span class="rec-project">Hulu | The Screamlands</span>
-      <span class="rec-badge">FWA of the Day <svg class="rec-arrow" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="2" y1="8" x2="8" y2="2"/><polyline points="4,2 8,2 8,6"/></svg></span>
-    </a>
-
-    <a class="rec-row rec-link" href="https://winners.webbyawards.com/2021/websites-and-mobile-sites/general-websites-and-mobile-sites/television-film/183254/huluween--the-screamlands" target="_blank" rel="noopener">
-      <span class="rec-award">Webby Award</span>
-      <span class="rec-project">Hulu | The Screamlands</span>
-      <span class="rec-badge">Nominee <svg class="rec-arrow" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="2" y1="8" x2="8" y2="2"/><polyline points="4,2 8,2 8,6"/></svg></span>
-    </a>
-
-    <a class="rec-row rec-link" href="https://www.awwwards.com/sites/huluween-the-screamlands" target="_blank" rel="noopener">
-      <span class="rec-award">Awwwards</span>
-      <span class="rec-project">Hulu | The Screamlands</span>
-      <span class="rec-badge">Site of the Day <svg class="rec-arrow" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="2" y1="8" x2="8" y2="2"/><polyline points="4,2 8,2 8,6"/></svg></span>
-    </a>
-
+      <span class="rec-badge">FWA of the Day</span>
+    </div>
 
     <div class="rec-row">
-      <span class="rec-award">Promax Awards</span>
-      <span class="rec-project">Hulu | The Screamlands · 360 Campaign: Seasonal/Special Event</span>
-      <span class="rec-badge">2021 Finalist</span>
+      <span class="rec-award">Webby Award</span>
+      <span class="rec-project">Coming soon</span>
+      <span class="rec-badge">Honoree</span>
+    </div>
+
+    <div class="rec-row">
+      <span class="rec-award">Awwwards</span>
+      <span class="rec-project">Coming soon</span>
+      <span class="rec-badge">Nominee</span>
+    </div>
+
+    <div class="rec-row">
+      <span class="rec-award">Promax</span>
+      <span class="rec-project">Coming soon</span>
+      <span class="rec-badge">Winner</span>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer class="footer">
-    <div class="footer-cta">Let's build something <span class="footer-rare">rare.</span></div>
+    <div class="footer-cta">Let's build<br>something<br><span class="footer-rare">rare.</span></div>
 
     <div class="footer-links">
       <a href="mailto:hello@paulsalva.work" class="footer-link">Contact</a>
@@ -2820,74 +3014,6 @@
     }, { threshold: 0.3 });
 
     sections.forEach(s => observer.observe(s));
-
-    /* TAB SYSTEM */
-    document.querySelectorAll('.tab-nav').forEach(nav => {
-      nav.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const target = btn.dataset.tab;
-          const section = nav.closest('.section');
-
-          nav.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-
-          section.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-          const panel = document.getElementById(target);
-          panel.classList.add('active');
-
-          // Animate hero image on tab switch
-          const img = panel.querySelector('.tab-hero-img');
-          if (img) {
-            gsap.fromTo(img, 
-              { opacity: 0, y: 16 },
-              { opacity: 0.85, y: 0, duration: 0.6, ease: 'power3.out' }
-            );
-          }
-        });
-      });
-    });
-
-
-    /* LIGHTBOX */
-    const lightboxOverlay = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const lightboxClose = document.getElementById('lightbox-close');
-    const lightboxBtn = document.getElementById('lightbox-btn');
-
-    function openLightbox() {
-      lightboxOverlay.classList.add('is-open');
-      gsap.to(lightboxOverlay, { background: 'rgba(0,0,0,0.88)', opacity: 1, duration: 0.3, ease: 'power2.out' });
-      gsap.to(lightboxImg, { opacity: 1, scale: 1, duration: 0.45, ease: 'power3.out', delay: 0.05 });
-      gsap.to(lightboxClose, { opacity: 1, duration: 0.3, delay: 0.2 });
-    }
-
-    function closeLightbox() {
-      gsap.to(lightboxImg, { opacity: 0, scale: 0.95, duration: 0.3, ease: 'power2.in' });
-      gsap.to(lightboxClose, { opacity: 0, duration: 0.2 });
-      gsap.to(lightboxOverlay, { opacity: 0, duration: 0.35, delay: 0.1, ease: 'power2.in', onComplete: () => {
-        lightboxOverlay.classList.remove('is-open');
-        gsap.set(lightboxOverlay, { background: 'rgba(0,0,0,0)' });
-        gsap.set(lightboxImg, { scale: 0.95 });
-      }});
-    }
-
-    if (lightboxBtn) lightboxBtn.addEventListener('click', openLightbox);
-    if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
-    if (lightboxOverlay) lightboxOverlay.addEventListener('click', (e) => {
-      if (e.target === lightboxOverlay) closeLightbox();
-    });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeLightbox();
-    });
-
-    /* ANIMATE ALL VISIBLE TAB HERO IMAGES ON SCROLL */
-    gsap.utils.toArray('.tab-panel.active .tab-hero-img').forEach(img => {
-      gsap.from(img, {
-        scrollTrigger: { trigger: img, start: 'top 90%', toggleActions: 'play none none none' },
-        opacity: 0, y: 16, duration: 0.7, ease: 'power3.out'
-      });
-    });
-
   </script>
 
 </body>
