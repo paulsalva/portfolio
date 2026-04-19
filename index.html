@@ -1283,6 +1283,54 @@
       transform-origin: center;
     }
 
+    .revenue-point {
+      cursor: pointer;
+    }
+
+    .revenue-hit {
+      fill: transparent;
+      pointer-events: all;
+    }
+
+    .revenue-tooltip {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(8px);
+      transition: opacity 0.18s ease, transform 0.18s ease;
+    }
+
+    .revenue-point:hover .revenue-tooltip,
+    .revenue-point:focus .revenue-tooltip,
+    .revenue-point:focus-within .revenue-tooltip {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .revenue-tooltip-box {
+      fill: rgba(13,13,13,0.88);
+      stroke: rgba(61,154,255,0.38);
+      stroke-width: 1;
+      rx: 11;
+      filter: url(#revenueGlowSoft);
+    }
+
+    .revenue-tooltip-value {
+      fill: #e8e6df;
+      font-family: "Syne", sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .revenue-tooltip-label {
+      fill: rgba(232,230,223,0.42);
+      font-family: "Syne", sans-serif;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
     .revenue-sample.is-visible .revenue-line {
       animation: revenueDraw 3s cubic-bezier(0.16,1,0.3,1) forwards;
     }
@@ -1318,7 +1366,7 @@
     }
 
     .revenue-chart-note {
-      top: -18px;
+      top: -42px;
     }
 
     .viz-card-note {
@@ -2326,6 +2374,10 @@
                 <feGaussianBlur stdDeviation="5" result="blur"/>
                 <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
               </filter>
+              <filter id="revenueGlowSoft" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="3" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
             </defs>
             <line class="revenue-grid" x1="80" y1="70" x2="1040" y2="70"/>
             <line class="revenue-grid" x1="80" y1="140" x2="1040" y2="140"/>
@@ -2344,11 +2396,51 @@
             <text class="revenue-label" x="24" y="284">$250K</text>
             <path class="revenue-fill" d="M80 292 C170 266, 225 250, 300 236 C395 218, 445 196, 525 174 C620 148, 690 134, 760 110 C850 80, 930 72, 1040 56 L1040 320 L80 320 Z" fill="url(#revenueAreaGradient)"/>
             <path class="revenue-line" pathLength="1" d="M80 292 C170 266, 225 250, 300 236 C395 218, 445 196, 525 174 C620 148, 690 134, 760 110 C850 80, 930 72, 1040 56"/>
-            <circle class="revenue-dot revenue-dot-1" cx="80" cy="292" r="5" fill="#3d9aff"/>
-            <circle class="revenue-dot revenue-dot-2" cx="300" cy="236" r="5" fill="#3d9aff"/>
-            <circle class="revenue-dot revenue-dot-3" cx="525" cy="174" r="5" fill="#7ec8ff"/>
-            <circle class="revenue-dot revenue-dot-4" cx="760" cy="110" r="5" fill="#7ec8ff"/>
-            <circle class="revenue-dot revenue-dot-5" cx="1040" cy="56" r="6" fill="#e8e6df"/>
+            <g class="revenue-point" tabindex="0">
+              <circle class="revenue-hit" cx="80" cy="292" r="24"/>
+              <circle class="revenue-dot revenue-dot-1" cx="80" cy="292" r="5" fill="#3d9aff"/>
+              <g class="revenue-tooltip" transform="translate(54 236)">
+                <rect class="revenue-tooltip-box" x="0" y="0" width="92" height="44"/>
+                <text class="revenue-tooltip-value" x="14" y="19">$250K</text>
+                <text class="revenue-tooltip-label" x="14" y="34">Q1 Actual</text>
+              </g>
+            </g>
+            <g class="revenue-point" tabindex="0">
+              <circle class="revenue-hit" cx="300" cy="236" r="24"/>
+              <circle class="revenue-dot revenue-dot-2" cx="300" cy="236" r="5" fill="#3d9aff"/>
+              <g class="revenue-tooltip" transform="translate(274 180)">
+                <rect class="revenue-tooltip-box" x="0" y="0" width="92" height="44"/>
+                <text class="revenue-tooltip-value" x="14" y="19">$420K</text>
+                <text class="revenue-tooltip-label" x="14" y="34">Q2 Actual</text>
+              </g>
+            </g>
+            <g class="revenue-point" tabindex="0">
+              <circle class="revenue-hit" cx="525" cy="174" r="24"/>
+              <circle class="revenue-dot revenue-dot-3" cx="525" cy="174" r="5" fill="#7ec8ff"/>
+              <g class="revenue-tooltip" transform="translate(499 118)">
+                <rect class="revenue-tooltip-box" x="0" y="0" width="92" height="44"/>
+                <text class="revenue-tooltip-value" x="14" y="19">$610K</text>
+                <text class="revenue-tooltip-label" x="14" y="34">Q3 Actual</text>
+              </g>
+            </g>
+            <g class="revenue-point" tabindex="0">
+              <circle class="revenue-hit" cx="760" cy="110" r="24"/>
+              <circle class="revenue-dot revenue-dot-4" cx="760" cy="110" r="5" fill="#7ec8ff"/>
+              <g class="revenue-tooltip" transform="translate(734 54)">
+                <rect class="revenue-tooltip-box" x="0" y="0" width="92" height="44"/>
+                <text class="revenue-tooltip-value" x="14" y="19">$840K</text>
+                <text class="revenue-tooltip-label" x="14" y="34">Q4 Actual</text>
+              </g>
+            </g>
+            <g class="revenue-point" tabindex="0">
+              <circle class="revenue-hit" cx="1040" cy="56" r="26"/>
+              <circle class="revenue-dot revenue-dot-5" cx="1040" cy="56" r="6" fill="#e8e6df"/>
+              <g class="revenue-tooltip" transform="translate(952 92)">
+                <rect class="revenue-tooltip-box" x="0" y="0" width="104" height="44"/>
+                <text class="revenue-tooltip-value" x="14" y="19">$1.2M</text>
+                <text class="revenue-tooltip-label" x="14" y="34">Forecast</text>
+              </g>
+            </g>
           </svg>
         </div>
       </div>
