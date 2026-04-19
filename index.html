@@ -1240,9 +1240,9 @@
     .revenue-chart-wrap {
       position: relative;
       z-index: 2;
-      height: 380px;
+      height: 410px;
       border-radius: 12px;
-      overflow: visible;
+      overflow: hidden;
       background: rgba(5,5,5,0.38);
       border: 0.5px solid rgba(255,255,255,0.07);
     }
@@ -1349,9 +1349,10 @@
     .revenue-sample.is-visible .revenue-dot.revenue-dot-4 { animation-delay: 1.35s; }
     .revenue-sample.is-visible .revenue-dot.revenue-dot-5 { animation-delay: 1.65s; }
 
-    .revenue-chart-note, .viz-card-note {
+    .viz-card-note {
       position: absolute;
       right: 18px;
+      top: 18px;
       padding: 8px 12px;
       border-radius: 100px;
       border: 0.5px solid rgba(61,154,255,0.28);
@@ -1363,14 +1364,6 @@
       text-transform: uppercase;
       backdrop-filter: blur(10px);
       z-index: 3;
-    }
-
-    .revenue-chart-note {
-      top: -42px;
-    }
-
-    .viz-card-note {
-      top: 18px;
     }
 
     @keyframes revenueDraw { to { stroke-dashoffset: 0; } }
@@ -1593,7 +1586,7 @@
     @media (max-width: 900px) {
       .revenue-sample-header { grid-template-columns: 1fr; }
       .revenue-metrics { flex-wrap: wrap; }
-      .revenue-chart-wrap { height: 300px; }
+      .revenue-chart-wrap { height: 330px; }
       .viz-sample-grid { grid-template-columns: 1fr; }
       .viz-sample-card {
         height: auto;
@@ -1607,7 +1600,7 @@
     @media (max-width: 640px) {
       .revenue-sample, .viz-sample-card { padding: 22px; }
       .revenue-metric { min-width: 100%; }
-      .revenue-chart-wrap { height: 260px; }
+      .revenue-chart-wrap { height: 280px; }
       .viz-sample-card { min-height: 320px; }
       .viz-visual { height: 180px; }
     }
@@ -2356,8 +2349,7 @@
           </div>
         </div>
         <div class="revenue-chart-wrap" style="flex:1;">
-          <div class="revenue-chart-note">Live Motion Study</div>
-          <svg class="revenue-chart" viewBox="0 0 1100 380" preserveAspectRatio="none" aria-label="Animated revenue line chart">
+          <svg class="revenue-chart" viewBox="0 0 1100 360" preserveAspectRatio="none" aria-label="Animated revenue line chart">
             <defs>
               <linearGradient id="revenueLineGradient" x1="0" y1="0" x2="1" y2="0">
                 <stop offset="0%" stop-color="#1a6fcc"/>
@@ -2399,7 +2391,7 @@
             <g class="revenue-point" tabindex="0">
               <circle class="revenue-hit" cx="80" cy="292" r="24"/>
               <circle class="revenue-dot revenue-dot-1" cx="80" cy="292" r="5" fill="#3d9aff"/>
-              <g class="revenue-tooltip" transform="translate(54 236)">
+              <g class="revenue-tooltip" transform="translate(34 236)">
                 <rect class="revenue-tooltip-box" x="0" y="0" width="92" height="44"/>
                 <text class="revenue-tooltip-value" x="14" y="19">$250K</text>
                 <text class="revenue-tooltip-label" x="14" y="34">Q1 Actual</text>
@@ -2408,7 +2400,7 @@
             <g class="revenue-point" tabindex="0">
               <circle class="revenue-hit" cx="300" cy="236" r="24"/>
               <circle class="revenue-dot revenue-dot-2" cx="300" cy="236" r="5" fill="#3d9aff"/>
-              <g class="revenue-tooltip" transform="translate(274 180)">
+              <g class="revenue-tooltip" transform="translate(254 180)">
                 <rect class="revenue-tooltip-box" x="0" y="0" width="92" height="44"/>
                 <text class="revenue-tooltip-value" x="14" y="19">$420K</text>
                 <text class="revenue-tooltip-label" x="14" y="34">Q2 Actual</text>
@@ -2417,7 +2409,7 @@
             <g class="revenue-point" tabindex="0">
               <circle class="revenue-hit" cx="525" cy="174" r="24"/>
               <circle class="revenue-dot revenue-dot-3" cx="525" cy="174" r="5" fill="#7ec8ff"/>
-              <g class="revenue-tooltip" transform="translate(499 118)">
+              <g class="revenue-tooltip" transform="translate(479 118)">
                 <rect class="revenue-tooltip-box" x="0" y="0" width="92" height="44"/>
                 <text class="revenue-tooltip-value" x="14" y="19">$610K</text>
                 <text class="revenue-tooltip-label" x="14" y="34">Q3 Actual</text>
@@ -2426,7 +2418,7 @@
             <g class="revenue-point" tabindex="0">
               <circle class="revenue-hit" cx="760" cy="110" r="24"/>
               <circle class="revenue-dot revenue-dot-4" cx="760" cy="110" r="5" fill="#7ec8ff"/>
-              <g class="revenue-tooltip" transform="translate(734 54)">
+              <g class="revenue-tooltip" transform="translate(714 54)">
                 <rect class="revenue-tooltip-box" x="0" y="0" width="92" height="44"/>
                 <text class="revenue-tooltip-value" x="14" y="19">$840K</text>
                 <text class="revenue-tooltip-label" x="14" y="34">Q4 Actual</text>
@@ -2435,7 +2427,7 @@
             <g class="revenue-point" tabindex="0">
               <circle class="revenue-hit" cx="1040" cy="56" r="26"/>
               <circle class="revenue-dot revenue-dot-5" cx="1040" cy="56" r="6" fill="#e8e6df"/>
-              <g class="revenue-tooltip" transform="translate(952 92)">
+              <g class="revenue-tooltip" transform="translate(988 0)">
                 <rect class="revenue-tooltip-box" x="0" y="0" width="104" height="44"/>
                 <text class="revenue-tooltip-value" x="14" y="19">$1.2M</text>
                 <text class="revenue-tooltip-label" x="14" y="34">Forecast</text>
