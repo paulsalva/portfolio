@@ -1517,7 +1517,7 @@
       stroke-width: 28;
       stroke-linecap: round;
       transform: rotate(-90deg);
-      transform-origin: 310px 110px;
+      transform-origin: 240px 96px;
       opacity: 0;
       stroke-dasharray: 0 999;
     }
@@ -2327,7 +2327,6 @@
     <div class="section-header">
       <span class="section-number">05</span>
       <span class="section-title">Data Visualization</span>
-      <span class="section-count">Placeholder</span>
     </div>
 
     <!-- ROW 1: Revenue chart + Funnel side by side -->
@@ -2519,6 +2518,17 @@
               <rect class="heat-cell" x="382" y="158" width="40" height="40" rx="8" fill="rgba(126,200,255,0.58)" style="animation-delay:1.73s"/>
               <rect class="heat-cell" x="434" y="158" width="40" height="40" rx="8" fill="rgba(61,154,255,0.20)" style="animation-delay:1.79s"/>
             </g>
+            <g class="viz-legend" aria-label="Usage intensity legend">
+              <line x1="508" y1="42" x2="508" y2="168" stroke="rgba(232,230,223,0.08)" stroke-width="1"/>
+              <circle cx="526" cy="60" r="5" fill="rgba(61,154,255,0.16)"/>
+              <text class="viz-label" x="542" y="64">Low</text>
+              <circle cx="526" cy="92" r="5" fill="rgba(61,154,255,0.34)"/>
+              <text class="viz-label" x="542" y="96">Medium</text>
+              <circle cx="526" cy="124" r="5" fill="rgba(126,200,255,0.58)"/>
+              <text class="viz-label" x="542" y="128">High</text>
+              <circle cx="526" cy="156" r="5" fill="rgba(126,200,255,0.78)"/>
+              <text class="viz-label" x="542" y="160">Peak</text>
+            </g>
           </svg>
         </div>
       </div>
@@ -2555,18 +2565,20 @@
         </div>
         <div class="viz-visual">
           <svg viewBox="0 0 620 210" preserveAspectRatio="xMidYMid meet">
-            <circle class="donut-track" cx="310" cy="96" r="76"/>
-            <circle class="donut-segment segment-a" cx="310" cy="96" r="76" stroke="#3d9aff" stroke-dasharray="292 478" stroke-dashoffset="0"/>
-            <circle class="donut-segment segment-b" cx="310" cy="96" r="76" stroke="#7ec8ff" stroke-dasharray="150 478" stroke-dashoffset="-292"/>
-            <circle class="donut-segment segment-c" cx="310" cy="96" r="76" stroke="#1a6fcc" stroke-dasharray="75 478" stroke-dashoffset="-455"/>
-            <text class="donut-center-value" x="310" y="92" text-anchor="middle">58%</text>
-            <text class="donut-center-label" x="310" y="114" text-anchor="middle">Enterprise</text>
-            <text class="viz-label" x="100" y="196">Enterprise 58%</text>
-            <text class="viz-label" x="262" y="196">Consumer 27%</text>
-            <text class="viz-label" x="424" y="196">Growth 15%</text>
-            <circle cx="84" cy="192" r="5" fill="#3d9aff"/>
-            <circle cx="246" cy="192" r="5" fill="#7ec8ff"/>
-            <circle cx="408" cy="192" r="5" fill="#1a6fcc"/>
+            <circle class="donut-track" cx="240" cy="96" r="76"/>
+            <circle class="donut-segment segment-a" cx="240" cy="96" r="76" stroke="#3d9aff" stroke-dasharray="292 478" stroke-dashoffset="0"/>
+            <circle class="donut-segment segment-b" cx="240" cy="96" r="76" stroke="#7ec8ff" stroke-dasharray="150 478" stroke-dashoffset="-292"/>
+            <circle class="donut-segment segment-c" cx="240" cy="96" r="76" stroke="#1a6fcc" stroke-dasharray="75 478" stroke-dashoffset="-455"/>
+            <text class="donut-center-value" x="240" y="92" text-anchor="middle">58%</text>
+            <text class="donut-center-label" x="240" y="114" text-anchor="middle">Enterprise</text>
+            <g class="viz-legend" aria-label="Customer mix legend">
+              <circle cx="410" cy="66" r="5" fill="#3d9aff"/>
+              <text class="viz-label" x="426" y="70">Enterprise 58%</text>
+              <circle cx="410" cy="100" r="5" fill="#7ec8ff"/>
+              <text class="viz-label" x="426" y="104">Consumer 27%</text>
+              <circle cx="410" cy="134" r="5" fill="#1a6fcc"/>
+              <text class="viz-label" x="426" y="138">Growth 15%</text>
+            </g>
           </svg>
         </div>
       </div>
