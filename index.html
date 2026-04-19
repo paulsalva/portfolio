@@ -145,8 +145,6 @@
       100% { background-position: 300% center; }
     }
 
-
-
     .hs-sub {
       font-size: clamp(18px, 2.5vw, 24px);
       font-weight: 600;
@@ -182,13 +180,8 @@
       font-feature-settings: "kern" 1, "liga" 1;
     }
 
-    .kern-tight {
-      margin-left: -0.12em;
-    }
-
-    .kern-tighter {
-      margin-left: -0.2em;
-    }
+    .kern-tight { margin-left: -0.12em; }
+    .kern-tighter { margin-left: -0.2em; }
 
     .hero-tagline {
       font-size: 11px;
@@ -218,7 +211,49 @@
       text-align: center;
     }
 
+    /* ============================================================
+       HERO TRIPLE — replaces all single ultrawide hero images
+       Three equal 16:9 slots stacked vertically, 8px gap
+       ============================================================ */
+    .hero-triple {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      width: 100%;
+      margin-bottom: 40px;
+    }
 
+    .hero-triple-img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #1a1a1a;
+      overflow: hidden;
+      border-radius: 8px;
+      position: relative;
+    }
+
+    .hero-triple-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+      display: block;
+    }
+
+    /* Make placeholder fill the 16:9 frame */
+    .hero-triple-img .drawer-hero-placeholder {
+      height: 100%;
+    }
+
+    /* Drawer context needs a bit more bottom clearance */
+    .case-drawer-inner .hero-triple,
+    .ai-full-drawer-inner .hero-triple {
+      margin-bottom: 48px;
+    }
+
+    @media (max-width: 720px) {
+      .hero-triple { gap: 6px; }
+    }
 
     /* MULTIMODAL AI VERTICAL CARDS */
     .ai-card-grid {
@@ -264,9 +299,7 @@
     }
 
     .ai-vert-card:hover::before,
-    .ai-vert-card.is-open::before {
-      opacity: 1;
-    }
+    .ai-vert-card.is-open::before { opacity: 1; }
 
     .ai-vert-card:hover .ai-vert-title,
     .ai-vert-card.is-open .ai-vert-title {
@@ -280,13 +313,9 @@
     }
 
     .ai-vert-card:hover .ai-vert-toggle svg,
-    .ai-vert-card.is-open .ai-vert-toggle svg {
-      stroke: #3d9aff;
-    }
+    .ai-vert-card.is-open .ai-vert-toggle svg { stroke: #3d9aff; }
 
-    .ai-vert-card.is-open .ai-vert-toggle svg {
-      transform: rotate(45deg);
-    }
+    .ai-vert-card.is-open .ai-vert-toggle svg { transform: rotate(45deg); }
 
     .ai-vert-card-inner {
       padding: 32px 24px 28px;
@@ -356,14 +385,8 @@
       max-width: 100%;
     }
 
-    .ai-vert-drawer .drawer-strip {
-      max-width: 100%;
-    }
-
-    .ai-vert-drawer .drawer-strip-img {
-      flex-shrink: 0;
-      width: 260px;
-    }
+    .ai-vert-drawer .drawer-strip { max-width: 100%; }
+    .ai-vert-drawer .drawer-strip-img { flex-shrink: 0; width: 260px; }
 
     .ai-vert-drawer-inner {
       padding: 0 0 48px;
@@ -374,16 +397,12 @@
       .ai-card-grid { grid-template-columns: 1fr; }
     }
 
-
     .ai-full-drawer-inner {
       padding: 32px 0 40px;
       overflow: hidden;
     }
 
-    .ai-drawer-content {
-      display: none !important;
-    }
-
+    .ai-drawer-content { display: none !important; }
     .ai-drawer-content.active {
       display: grid !important;
       grid-template-columns: 1fr 2fr;
@@ -420,10 +439,7 @@
       margin-bottom: 12px;
     }
 
-    .ai-full-drawer-inner .drawer-strip {
-      padding-bottom: 0;
-    }
-
+    .ai-full-drawer-inner .drawer-strip { padding-bottom: 0; }
 
     /* TAB SYSTEM */
     .tab-nav {
@@ -459,14 +475,10 @@
       border-color: #3d9aff;
     }
 
-    .tab-panel {
-      display: none;
-    }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
 
-    .tab-panel.active {
-      display: block;
-    }
-
+    /* Legacy .tab-hero — kept for safety, no longer used in markup */
     .tab-hero {
       width: 100%;
       height: 360px;
@@ -516,9 +528,7 @@
 
     @media (max-width: 720px) {
       .tab-body { grid-template-columns: 1fr; gap: 32px; }
-      .tab-hero { height: 220px; }
     }
-
 
     /* LIGHTBOX */
     .lightbox-trigger {
@@ -579,9 +589,7 @@
       padding: 60px 40px 80px;
     }
 
-    .lightbox-overlay.is-open {
-      pointer-events: all;
-    }
+    .lightbox-overlay.is-open { pointer-events: all; }
 
     .lightbox-img {
       display: block;
@@ -620,13 +628,8 @@
     }
 
     /* SUBSECTIONS */
-    .subsection {
-      margin-bottom: 56px;
-    }
-
-    .subsection:last-child {
-      margin-bottom: 0;
-    }
+    .subsection { margin-bottom: 56px; }
+    .subsection:last-child { margin-bottom: 0; }
 
     .subsection-header {
       display: flex;
@@ -687,10 +690,7 @@
     }
 
     /* CASE STUDY ROWS */
-    .cases {
-      display: grid;
-      gap: 0;
-    }
+    .cases { display: grid; gap: 0; }
 
     .case {
       display: grid;
@@ -704,9 +704,7 @@
       overflow: hidden;
     }
 
-    .case:hover {
-      background: #111;
-    }
+    .case:hover { background: #111; }
 
     .case-meta {
       display: flex;
@@ -731,15 +729,8 @@
       color: rgba(232,230,223,0.35);
     }
 
-    .case-tag.primary {
-      color: #3d9aff;
-      opacity: 0.8;
-    }
-
-    .case-tag-sep {
-      color: rgba(232,230,223,0.15);
-      font-size: 10px;
-    }
+    .case-tag.primary { color: #3d9aff; opacity: 0.8; }
+    .case-tag-sep { color: rgba(232,230,223,0.15); font-size: 10px; }
 
     .case-title {
       font-size: clamp(18px, 2.5vw, 24px);
@@ -791,7 +782,6 @@
       transform: translateY(-0.02em);
     }
 
-
     /* DRAWER ANIMATION */
     .ai-full-drawer {
       display: grid;
@@ -799,9 +789,7 @@
       transition: grid-template-rows 0.55s cubic-bezier(0.16,1,0.3,1);
     }
 
-    .ai-full-drawer.drawer-visible {
-      grid-template-rows: 1fr;
-    }
+    .ai-full-drawer.drawer-visible { grid-template-rows: 1fr; }
 
     /* CASE DRAWER */
     .case-wrapper {
@@ -813,9 +801,7 @@
       border-top: 1px solid rgba(255,255,255,0.06);
     }
 
-    .case.is-open {
-      background: #111;
-    }
+    .case.is-open { background: #111; }
 
     .case-toggle-icon {
       width: 28px;
@@ -857,6 +843,7 @@
       opacity: 0;
     }
 
+    /* Legacy .drawer-hero — kept for safety */
     .drawer-hero {
       width: 100%;
       height: 420px;
@@ -1001,7 +988,6 @@
     @media (max-width: 720px) {
       .drawer-body { grid-template-columns: 1fr; gap: 32px; }
       .drawer-copy-cols { grid-template-columns: 1fr; }
-      .drawer-hero { height: 260px; }
     }
 
     /* AI GRID */
@@ -1053,9 +1039,7 @@
       background: rgba(255,255,255,0.06);
     }
 
-    .creative-card-wrapper {
-      background: #0d0d0d;
-    }
+    .creative-card-wrapper { background: #0d0d0d; }
 
     .creative-card {
       padding: 28px 0;
@@ -1063,13 +1047,8 @@
       transition: background 0.2s cubic-bezier(0.16,1,0.3,1);
     }
 
-    .creative-card:hover {
-      background: #111;
-    }
-
-    .creative-card.is-open {
-      background: #111;
-    }
+    .creative-card:hover { background: #111; }
+    .creative-card.is-open { background: #111; }
 
     .creative-card.is-open .case-toggle-icon {
       border-color: #3d9aff;
@@ -1179,7 +1158,6 @@
       .creative-image-row { grid-template-columns: 1fr; }
     }
 
-
     /* REVENUE INTELLIGENCE SAMPLE */
     .revenue-sample {
       margin-bottom: 32px;
@@ -1216,8 +1194,7 @@
       margin-bottom: 32px;
     }
 
-    .revenue-eyebrow,
-    .viz-sample-eyebrow {
+    .revenue-eyebrow, .viz-sample-eyebrow {
       font-size: 10px;
       font-weight: 500;
       letter-spacing: 0.14em;
@@ -1285,24 +1262,11 @@
       border: 0.5px solid rgba(255,255,255,0.07);
     }
 
-    .revenue-chart {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
+    .revenue-chart { width: 100%; height: 100%; display: block; }
+    .revenue-axis { stroke: rgba(232,230,223,0.12); stroke-width: 1; }
+    .revenue-grid { stroke: rgba(232,230,223,0.055); stroke-width: 1; }
 
-    .revenue-axis {
-      stroke: rgba(232,230,223,0.12);
-      stroke-width: 1;
-    }
-
-    .revenue-grid {
-      stroke: rgba(232,230,223,0.055);
-      stroke-width: 1;
-    }
-
-    .revenue-label,
-    .viz-label {
+    .revenue-label, .viz-label {
       fill: rgba(232,230,223,0.28);
       font-family: "Syne", sans-serif;
       font-size: 11px;
@@ -1352,8 +1316,7 @@
     .revenue-sample.is-visible .revenue-dot.revenue-dot-4 { animation-delay: 1.35s; }
     .revenue-sample.is-visible .revenue-dot.revenue-dot-5 { animation-delay: 1.65s; }
 
-    .revenue-chart-note,
-    .viz-card-note {
+    .revenue-chart-note, .viz-card-note {
       position: absolute;
       right: 18px;
       top: 18px;
@@ -1454,16 +1417,8 @@
       transform: translateY(8px);
     }
 
-    .viz-visual svg {
-      width: 100%;
-      height: 100%;
-      display: block;
-      overflow: visible;
-    }
-
-    .viz-glow {
-      filter: url(#sharedVizGlow);
-    }
+    .viz-visual svg { width: 100%; height: 100%; display: block; overflow: visible; }
+    .viz-glow { filter: url(#sharedVizGlow); }
 
     .viz-stroke {
       fill: none;
@@ -1480,10 +1435,7 @@
       animation: revenueDraw 1.45s cubic-bezier(0.16,1,0.3,1) forwards;
     }
 
-    .funnel-step {
-      opacity: 0;
-      transform: translateY(18px);
-    }
+    .funnel-step { opacity: 0; transform: translateY(18px); }
 
     .viz-sample-card.is-visible .funnel-step {
       animation: vizRise 0.6s cubic-bezier(0.16,1,0.3,1) forwards;
@@ -1495,11 +1447,7 @@
     .viz-sample-card.is-visible .funnel-step:nth-of-type(4) { animation-delay: 0.46s; }
     .viz-sample-card.is-visible .funnel-step:nth-of-type(5) { animation-delay: 0.58s; }
 
-    .radar-ring {
-      fill: none;
-      stroke: rgba(232,230,223,0.07);
-      stroke-width: 1;
-    }
+    .radar-ring { fill: none; stroke: rgba(232,230,223,0.07); stroke-width: 1; }
 
     .radar-shape {
       fill: rgba(61,154,255,0.14);
@@ -1514,22 +1462,13 @@
       animation: radarIn 1s cubic-bezier(0.16,1,0.3,1) forwards 0.2s;
     }
 
-    .heat-cell {
-      opacity: 0;
-      transform: scale(0.78);
-      transform-origin: center;
-    }
+    .heat-cell { opacity: 0; transform: scale(0.78); transform-origin: center; }
 
     .viz-sample-card.is-visible .heat-cell {
       animation: heatIn 0.42s ease forwards;
     }
 
-
-    .donut-track {
-      fill: none;
-      stroke: rgba(232,230,223,0.07);
-      stroke-width: 28;
-    }
+    .donut-track { fill: none; stroke: rgba(232,230,223,0.07); stroke-width: 28; }
 
     .donut-segment {
       fill: none;
@@ -1580,13 +1519,8 @@
       stroke-dasharray: 6 8;
     }
 
-    .viz-sample-card.is-visible .network-node {
-      animation: heatIn 0.5s ease forwards;
-    }
-
-    .viz-sample-card.is-visible .network-line {
-      animation: networkLine 1.2s ease forwards;
-    }
+    .viz-sample-card.is-visible .network-node { animation: heatIn 0.5s ease forwards; }
+    .viz-sample-card.is-visible .network-line { animation: networkLine 1.2s ease forwards; }
 
     .viz-sample-card.is-visible .network-line:nth-of-type(1) { animation-delay: 0.1s; }
     .viz-sample-card.is-visible .network-line:nth-of-type(2) { animation-delay: 0.18s; }
@@ -1598,28 +1532,11 @@
     .viz-sample-card.is-visible .network-node:nth-of-type(8) { animation-delay: 0.42s; }
     .viz-sample-card.is-visible .network-node:nth-of-type(9) { animation-delay: 0.50s; }
 
-    @keyframes vizRise {
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes radarIn {
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    @keyframes heatIn {
-      to { opacity: 1; transform: scale(1); }
-    }
-
-
-    @keyframes donutIn {
-      to {
-        opacity: 1;
-      }
-    }
-
-    @keyframes networkLine {
-      to { opacity: 1; stroke-dashoffset: -28; }
-    }
+    @keyframes vizRise { to { opacity: 1; transform: translateY(0); } }
+    @keyframes radarIn { to { opacity: 1; transform: scale(1); } }
+    @keyframes heatIn { to { opacity: 1; transform: scale(1); } }
+    @keyframes donutIn { to { opacity: 1; } }
+    @keyframes networkLine { to { opacity: 1; stroke-dashoffset: -28; } }
 
     @media (max-width: 1100px) {
       .viz-sample-card {
@@ -1627,63 +1544,29 @@
         height: 270px;
         min-height: 270px;
       }
-
-      .viz-visual {
-        height: 205px;
-      }
+      .viz-visual { height: 205px; }
     }
 
     @media (max-width: 900px) {
-      .revenue-sample-header {
-        grid-template-columns: 1fr;
-      }
-
-      .revenue-metrics {
-        flex-wrap: wrap;
-      }
-
-      .revenue-chart-wrap {
-        height: 300px;
-      }
-
-      .viz-sample-grid {
-        grid-template-columns: 1fr;
-      }
-
+      .revenue-sample-header { grid-template-columns: 1fr; }
+      .revenue-metrics { flex-wrap: wrap; }
+      .revenue-chart-wrap { height: 300px; }
+      .viz-sample-grid { grid-template-columns: 1fr; }
       .viz-sample-card {
         height: auto;
         min-height: 330px;
         grid-template-columns: 1fr;
         align-items: start;
       }
-
-      .viz-visual {
-        height: 190px;
-        transform: translateY(0);
-      }
+      .viz-visual { height: 190px; transform: translateY(0); }
     }
 
     @media (max-width: 640px) {
-      .revenue-sample,
-      .viz-sample-card {
-        padding: 22px;
-      }
-
-      .revenue-metric {
-        min-width: 100%;
-      }
-
-      .revenue-chart-wrap {
-        height: 260px;
-      }
-
-      .viz-sample-card {
-        min-height: 320px;
-      }
-
-      .viz-visual {
-        height: 180px;
-      }
+      .revenue-sample, .viz-sample-card { padding: 22px; }
+      .revenue-metric { min-width: 100%; }
+      .revenue-chart-wrap { height: 260px; }
+      .viz-sample-card { min-height: 320px; }
+      .viz-visual { height: 180px; }
     }
 
     /* RECOGNITION */
@@ -1693,17 +1576,9 @@
       transition: background 0.15s ease;
     }
 
-    a.rec-row.rec-link:hover {
-      background: rgba(61,154,255,0.04);
-    }
-
-    a.rec-row.rec-link:hover .rec-award {
-      color: rgba(232,230,223,0.85);
-    }
-
-    a.rec-row.rec-link:hover .rec-badge {
-      opacity: 1;
-    }
+    a.rec-row.rec-link:hover { background: rgba(61,154,255,0.04); }
+    a.rec-row.rec-link:hover .rec-award { color: rgba(232,230,223,0.85); }
+    a.rec-row.rec-link:hover .rec-badge { opacity: 1; }
 
     .rec-arrow {
       width: 10px;
@@ -1713,6 +1588,7 @@
       margin-left: 4px;
       margin-bottom: 1px;
     }
+
     .rec-row {
       display: grid;
       grid-template-columns: 200px 1fr auto;
@@ -1796,10 +1672,7 @@
     .footer-link:hover { color: #3d9aff; }
 
     @media (max-width: 720px) {
-      .hero {
-        grid-template-columns: 1fr;
-      }
-
+      .hero { grid-template-columns: 1fr; }
       .hero-right {
         padding-top: 40px;
         align-items: flex-start;
@@ -1807,26 +1680,8 @@
         text-align: left;
         max-width: 100%;
       }
-
-      .ticker-label,
-      .ticker-wrap,
-      .ticker-item {
-        text-align: left;
-      }
-
-      .ticker-track {
-        align-items: flex-start;
-      }
-
-      .case {
-        grid-template-columns: 1fr;
-        gap: 16px;
-      }
-
-      .case-right {
-        justify-content: flex-start;
-      }
-
+      .case { grid-template-columns: 1fr; gap: 16px; }
+      .case-right { justify-content: flex-start; }
       .case-client {
         text-align: left;
         transform-origin: left center;
@@ -1865,20 +1720,7 @@
       <div class="hero-location">Los Angeles</div>
       <p class="hero-desc">From experiential to enterprise. Bridging product design, immersive media, creative production. Building AI workflows to make it all happen.</p>
     </div>
-
-
   </header>
-
-  <!-- DESIGN SYSTEMS -->
-
-
-
-
-
-
-  <!-- CREATIVE -->
-
-
 
   <!-- UX DESIGN -->
   <section class="section" id="ux-design">
@@ -1896,7 +1738,11 @@
     </div>
 
     <div class="tab-panel active" id="ux-0">
-      <div class="tab-hero"><div class="drawer-hero-placeholder"><span>Hero image — UX Research</span></div></div>
+      <div class="hero-triple">
+        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>UX Research — Image 01</span></div></div>
+        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>UX Research — Image 02</span></div></div>
+        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>UX Research — Image 03</span></div></div>
+      </div>
       <div class="tab-body">
         <div class="tab-meta">
           <div class="drawer-meta-item"><label>Discipline</label><p>UX Research</p></div>
@@ -1915,7 +1761,11 @@
     </div>
 
     <div class="tab-panel" id="ux-1">
-      <div class="tab-hero"><div class="drawer-hero-placeholder"><span>Hero image — Information Architecture</span></div></div>
+      <div class="hero-triple">
+        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Information Architecture — Image 01</span></div></div>
+        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Information Architecture — Image 02</span></div></div>
+        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Information Architecture — Image 03</span></div></div>
+      </div>
       <div class="tab-body">
         <div class="tab-meta">
           <div class="drawer-meta-item"><label>Discipline</label><p>Information Architecture</p></div>
@@ -1934,7 +1784,11 @@
     </div>
 
     <div class="tab-panel" id="ux-2">
-      <div class="tab-hero"><div class="drawer-hero-placeholder"><span>Hero image — Prototyping</span></div></div>
+      <div class="hero-triple">
+        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Prototyping — Image 01</span></div></div>
+        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Prototyping — Image 02</span></div></div>
+        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Prototyping — Image 03</span></div></div>
+      </div>
       <div class="tab-body">
         <div class="tab-meta">
           <div class="drawer-meta-item"><label>Discipline</label><p>Prototyping</p></div>
@@ -1953,7 +1807,11 @@
     </div>
 
     <div class="tab-panel" id="ux-3">
-      <div class="tab-hero"><div class="drawer-hero-placeholder"><span>Hero image — UX Strategy</span></div></div>
+      <div class="hero-triple">
+        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>UX Strategy — Image 01</span></div></div>
+        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>UX Strategy — Image 02</span></div></div>
+        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>UX Strategy — Image 03</span></div></div>
+      </div>
       <div class="tab-body">
         <div class="tab-meta">
           <div class="drawer-meta-item"><label>Discipline</label><p>UX Strategy</p></div>
@@ -1972,7 +1830,11 @@
     </div>
 
     <div class="tab-panel" id="ux-4">
-      <div class="tab-hero"><img src="images/verizon-superbowl-header.webp" alt="Verizon Portal Design System" class="tab-hero-img"></div>
+      <div class="hero-triple">
+        <div class="hero-triple-img"><img src="images/verizon-superbowl-header.webp" alt="Verizon Portal Design System"></div>
+        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Design Systems — Image 02</span></div></div>
+        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Design Systems — Image 03</span></div></div>
+      </div>
       <button class="lightbox-trigger" id="lightbox-btn">
         <span class="lightbox-trigger-inner">View Style Guide ↗</span>
       </button>
@@ -1983,7 +1845,7 @@
           <div class="drawer-meta-item"><label>Tools</label><p>Figma · Storybook · Zeplin · Chromatic</p></div>
         </div>
         <div class="tab-copy">
-          <h3>Verizon "Portal" Immersive Multi-channel Video/h3>
+          <h3>Verizon "Portal" Immersive Multi-channel Video</h3>
           <p>Built and maintained design systems across AR/XR, enterprise SaaS, and consumer products — from token architecture to component documentation to motion specs.</p>
           <div class="drawer-copy-cols">
             <p>Maintained multi-platform component libraries for Verizon Portal and Guidewire InsuranceNow, coordinating with engineering across multiple sprint cycles.</p>
@@ -1992,7 +1854,6 @@
         </div>
       </div>
     </div>
-
 
     <!-- LIGHTBOX -->
     <div class="lightbox-overlay" id="lightbox">
@@ -2008,16 +1869,18 @@
       <span class="section-title">Multimodal AI</span>
     </div>
 
-    <!-- TAB BUTTONS -->
     <div class="tab-nav" id="mm-tabs">
       <button class="tab-btn active" data-tab="mm-0">Generative AI</button>
       <button class="tab-btn" data-tab="mm-1">Multimodal Pipelines</button>
       <button class="tab-btn" data-tab="mm-2">Agentic Automation</button>
     </div>
 
-    <!-- TAB PANELS -->
     <div class="tab-panel active" id="mm-0">
-      <div class="tab-hero"><div class="drawer-hero-placeholder"><span>Hero image — Generative AI</span></div></div>
+      <div class="hero-triple">
+        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Generative AI — Image 01</span></div></div>
+        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Generative AI — Image 02</span></div></div>
+        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Generative AI — Image 03</span></div></div>
+      </div>
       <div class="tab-body">
         <div class="tab-meta">
           <div class="drawer-meta-item"><label>Role</label><p>AI Design Strategist</p></div>
@@ -2036,7 +1899,11 @@
     </div>
 
     <div class="tab-panel" id="mm-1">
-      <div class="tab-hero"><div class="drawer-hero-placeholder"><span>Hero image — Multimodal Pipelines</span></div></div>
+      <div class="hero-triple">
+        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Multimodal Pipelines — Image 01</span></div></div>
+        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Multimodal Pipelines — Image 02</span></div></div>
+        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Multimodal Pipelines — Image 03</span></div></div>
+      </div>
       <div class="tab-body">
         <div class="tab-meta">
           <div class="drawer-meta-item"><label>Role</label><p>AI Design Strategist · Pipeline Architect</p></div>
@@ -2055,7 +1922,11 @@
     </div>
 
     <div class="tab-panel" id="mm-2">
-      <div class="tab-hero"><div class="drawer-hero-placeholder"><span>Hero image — Agentic Automation</span></div></div>
+      <div class="hero-triple">
+        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Agentic Automation — Image 01</span></div></div>
+        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Agentic Automation — Image 02</span></div></div>
+        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Agentic Automation — Image 03</span></div></div>
+      </div>
       <div class="tab-body">
         <div class="tab-meta">
           <div class="drawer-meta-item"><label>Role</label><p>AI Design Strategist · Builder</p></div>
@@ -2084,353 +1955,265 @@
     </div>
 
     <div class="cases">
-            <div class="case-wrapper">
-    <div class="case">
-        <div class="case-meta">
-          <div class="case-tags">
-            <span class="case-tag primary">AR</span>
-            <span class="case-tag-sep">·</span>
-            <span class="case-tag">UX Research</span>
-            <span class="case-tag-sep">·</span>
-            <span class="case-tag">Gamification</span>
+
+      <div class="case-wrapper">
+        <div class="case">
+          <div class="case-meta">
+            <div class="case-tags">
+              <span class="case-tag primary">AR</span>
+              <span class="case-tag-sep">·</span>
+              <span class="case-tag">UX Research</span>
+              <span class="case-tag-sep">·</span>
+              <span class="case-tag">Gamification</span>
+            </div>
+            <div class="case-title">Gamified Shopping Experiences</div>
+            <div class="case-desc">Two AR apps featuring activity-based rewards and gamified retail mechanics for Walmart's innovation team.</div>
           </div>
-          <div class="case-title">Gamified Shopping Experiences</div>
-          <div class="case-desc">Two AR apps featuring activity-based rewards and gamified retail mechanics for Walmart's innovation team.</div>
-        </div>
-        <div class="case-right">
-          <span class="case-client">Walmart</span>
-          <div class="case-toggle-icon"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
-        </div>
-      </div>
-      <div class="case-drawer">
-        <div class="case-drawer-inner">
-          <div class="drawer-hero">
-            <div class="drawer-hero-placeholder"><span>Hero image — Walmart</span></div>
+          <div class="case-right">
+            <span class="case-client">Walmart</span>
+            <div class="case-toggle-icon"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
           </div>
-          <div class="drawer-body">
-            <div class="drawer-meta">
-              <div class="drawer-meta-item">
-                <label>Role</label>
-                <p>UX Designer · Interaction Designer</p>
+        </div>
+        <div class="case-drawer">
+          <div class="case-drawer-inner">
+            <div class="hero-triple">
+              <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Walmart — Image 01</span></div></div>
+              <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Walmart — Image 02</span></div></div>
+              <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Walmart — Image 03</span></div></div>
+            </div>
+            <div class="drawer-body">
+              <div class="drawer-meta">
+                <div class="drawer-meta-item"><label>Role</label><p>UX Designer · Interaction Designer</p></div>
+                <div class="drawer-meta-item"><label>Year</label><p>2022</p></div>
+                <div class="drawer-meta-item"><label>Client</label><p>Walmart</p></div>
+                <div class="drawer-meta-item"><label>Scope</label><p>AR · UX Research · Gamification</p></div>
               </div>
-              <div class="drawer-meta-item">
-                <label>Year</label>
-                <p>2022</p>
-              </div>
-              <div class="drawer-meta-item">
-                <label>Client</label>
-                <p>Walmart</p>
-              </div>
-              <div class="drawer-meta-item">
-                <label>Scope</label>
-                <p>AR · UX Research · Gamification</p>
+              <div class="drawer-copy">
+                <h3>Two AR apps that turned shopping into play</h3>
+                <p>Ideation, UX research, and design for two separate augmented reality apps for Walmart's innovation team — Pet Walkies and Walmart Winners — featuring gamified retail experiences where users earn products and discounts through activity milestones.</p>
+                <div class="drawer-copy-cols">
+                  <p>Led competitive analysis of gamified retail and fitness apps, identifying mechanic patterns that could drive engagement in a retail AR context.</p>
+                  <p>Designed end-to-end user flows for milestone tracking, reward redemption, and AR product discovery — prototyped and presented to Walmart's innovation leadership.</p>
+                </div>
               </div>
             </div>
-            <div class="drawer-copy">
-              <h3>Two AR apps that turned shopping into play</h3>
-              <p>Ideation, UX research, and design for two separate augmented reality apps for Walmart's innovation team — Pet Walkies and Walmart Winners — featuring gamified retail experiences where users earn products and discounts through activity milestones.</p>
-              <div class="drawer-copy-cols">
-                <p>Led competitive analysis of gamified retail and fitness apps, identifying mechanic patterns that could drive engagement in a retail AR context.</p>
-                <p>Designed end-to-end user flows for milestone tracking, reward redemption, and AR product discovery — prototyped and presented to Walmart's innovation leadership.</p>
-              </div>
+            <div class="drawer-strip-label">Process & Work</div>
+            <div class="drawer-strip">
+              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Pet Walkies app flow</span></div></div>
+              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Walmart Winners flow</span></div></div>
+              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>AR prototype screens</span></div></div>
+              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Elevator deck</span></div></div>
             </div>
           </div>
-          <div class="drawer-strip-label">Process & Work</div>
-          <div class="drawer-strip">
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>Pet Walkies app flow</span></div>
-          </div>
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>Walmart Winners flow</span></div>
-          </div>
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>AR prototype screens</span></div>
-          </div>
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>Elevator deck</span></div>
-          </div>
-          </div>
         </div>
-      </div>
       </div>
 
-            <div class="case-wrapper">
-    <div class="case">
-        <div class="case-meta">
-          <div class="case-tags">
-            <span class="case-tag primary">AR · 360°</span>
-            <span class="case-tag-sep">·</span>
-            <span class="case-tag">Design Systems</span>
-            <span class="case-tag-sep">·</span>
-            <span class="case-tag">User Testing</span>
+      <div class="case-wrapper">
+        <div class="case">
+          <div class="case-meta">
+            <div class="case-tags">
+              <span class="case-tag primary">AR · 360°</span>
+              <span class="case-tag-sep">·</span>
+              <span class="case-tag">Design Systems</span>
+              <span class="case-tag-sep">·</span>
+              <span class="case-tag">User Testing</span>
+            </div>
+            <div class="case-title">Immersive 360° Multi-View Portal</div>
+            <div class="case-desc">UX design and design system maintenance for live sponsored events including Indy 500 and Super Bowl LVI.</div>
           </div>
-          <div class="case-title">Immersive 360° Multi-View Portal</div>
-          <div class="case-desc">UX design and design system maintenance for live sponsored events including Indy 500 and Super Bowl LVI.</div>
-        </div>
-        <div class="case-right">
-          <span class="case-client">Verizon</span>
-          <div class="case-toggle-icon"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
-        </div>
-      </div>
-      <div class="case-drawer">
-        <div class="case-drawer-inner">
-          <div class="drawer-hero">
-            <div class="drawer-hero-placeholder"><span>Hero image — Verizon</span></div>
+          <div class="case-right">
+            <span class="case-client">Verizon</span>
+            <div class="case-toggle-icon"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
           </div>
-          <div class="drawer-body">
-            <div class="drawer-meta">
-              <div class="drawer-meta-item">
-                <label>Role</label>
-                <p>UX Designer · Design Systems</p>
+        </div>
+        <div class="case-drawer">
+          <div class="case-drawer-inner">
+            <div class="hero-triple">
+              <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Verizon Portal — Image 01</span></div></div>
+              <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Verizon Portal — Image 02</span></div></div>
+              <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Verizon Portal — Image 03</span></div></div>
+            </div>
+            <div class="drawer-body">
+              <div class="drawer-meta">
+                <div class="drawer-meta-item"><label>Role</label><p>UX Designer · Design Systems</p></div>
+                <div class="drawer-meta-item"><label>Year</label><p>2022–2023</p></div>
+                <div class="drawer-meta-item"><label>Client</label><p>Verizon</p></div>
+                <div class="drawer-meta-item"><label>Scope</label><p>AR · 360° · Design Systems · User Testing</p></div>
               </div>
-              <div class="drawer-meta-item">
-                <label>Year</label>
-                <p>2022–2023</p>
-              </div>
-              <div class="drawer-meta-item">
-                <label>Client</label>
-                <p>Verizon</p>
-              </div>
-              <div class="drawer-meta-item">
-                <label>Scope</label>
-                <p>AR · 360° · Design Systems · User Testing</p>
+              <div class="drawer-copy">
+                <h3>360° multi-camera immersion for live sponsored events</h3>
+                <p>UX design, design system maintenance, user testing, and more for Verizon's Portal — a mobile web and app experience allowing immersive 360° multi-camera views for sponsored events including Indy 500, Latin Grammys, Super Bowl LVI, and Phoenix Suns games.</p>
+                <div class="drawer-copy-cols">
+                  <p>Designed AR and geofencing interaction patterns for live event contexts, coordinating with broadcast and engineering teams on real-time switching behavior.</p>
+                  <p>Ran moderated usability testing sessions to validate 360° navigation patterns and AR overlay interactions across iOS and Android.</p>
+                </div>
               </div>
             </div>
-            <div class="drawer-copy">
-              <h3>360° multi-camera immersion for live sponsored events</h3>
-              <p>UX design, design system maintenance, user testing, and more for Verizon's Portal — a mobile web and app experience allowing immersive 360° multi-camera views for sponsored events including Indy 500, Latin Grammys, Super Bowl LVI, and Phoenix Suns games.</p>
-              <div class="drawer-copy-cols">
-                <p>Designed AR and geofencing interaction patterns for live event contexts, coordinating with broadcast and engineering teams on real-time switching behavior.</p>
-                <p>Ran moderated usability testing sessions to validate 360° navigation patterns and AR overlay interactions across iOS and Android.</p>
-              </div>
+            <div class="drawer-strip-label">Process & Work</div>
+            <div class="drawer-strip">
+              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Indy 500 portal</span></div></div>
+              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Latin Grammys experience</span></div></div>
+              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>AR overlay states</span></div></div>
+              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Design system components</span></div></div>
             </div>
           </div>
-          <div class="drawer-strip-label">Process & Work</div>
-          <div class="drawer-strip">
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>Indy 500 portal</span></div>
-          </div>
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>Latin Grammys experience</span></div>
-          </div>
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>AR overlay states</span></div>
-          </div>
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>Design system components</span></div>
-          </div>
-          </div>
         </div>
-      </div>
       </div>
 
-            <div class="case-wrapper">
-    <div class="case">
-        <div class="case-meta">
-          <div class="case-tags">
-            <span class="case-tag primary">AR · Education</span>
-            <span class="case-tag-sep">·</span>
-            <span class="case-tag">COPPA</span>
-            <span class="case-tag-sep">·</span>
-            <span class="case-tag">Game Mechanics</span>
+      <div class="case-wrapper">
+        <div class="case">
+          <div class="case-meta">
+            <div class="case-tags">
+              <span class="case-tag primary">AR · Education</span>
+              <span class="case-tag-sep">·</span>
+              <span class="case-tag">COPPA</span>
+              <span class="case-tag-sep">·</span>
+              <span class="case-tag">Game Mechanics</span>
+            </div>
+            <div class="case-title">Rangers Wanted | Educational AR App</div>
+            <div class="case-desc">Competitive research and UX strategy for a Niantic-partnered education experience at the Teddy Roosevelt Presidential Library.</div>
           </div>
-          <div class="case-title">Rangers Wanted | Educational AR App</div>
-          <div class="case-desc">Competitive research and UX strategy for a Niantic-partnered education experience at the Teddy Roosevelt Presidential Library.</div>
-        </div>
-        <div class="case-right">
-          <span class="case-client">TRPL × Niantic</span>
-          <div class="case-toggle-icon"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
-        </div>
-      </div>
-      <div class="case-drawer">
-        <div class="case-drawer-inner">
-          <div class="drawer-hero">
-            <div class="drawer-hero-placeholder"><span>Hero image — TRPL × Niantic</span></div>
+          <div class="case-right">
+            <span class="case-client">TRPL × Niantic</span>
+            <div class="case-toggle-icon"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
           </div>
-          <div class="drawer-body">
-            <div class="drawer-meta">
-              <div class="drawer-meta-item">
-                <label>Role</label>
-                <p>UX Designer · Researcher</p>
+        </div>
+        <div class="case-drawer">
+          <div class="case-drawer-inner">
+            <div class="hero-triple">
+              <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>TRPL × Niantic — Image 01</span></div></div>
+              <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>TRPL × Niantic — Image 02</span></div></div>
+              <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>TRPL × Niantic — Image 03</span></div></div>
+            </div>
+            <div class="drawer-body">
+              <div class="drawer-meta">
+                <div class="drawer-meta-item"><label>Role</label><p>UX Designer · Researcher</p></div>
+                <div class="drawer-meta-item"><label>Year</label><p>2022</p></div>
+                <div class="drawer-meta-item"><label>Client</label><p>TRPL × Niantic</p></div>
+                <div class="drawer-meta-item"><label>Scope</label><p>AR · Education · COPPA · Game Mechanics</p></div>
               </div>
-              <div class="drawer-meta-item">
-                <label>Year</label>
-                <p>2022</p>
-              </div>
-              <div class="drawer-meta-item">
-                <label>Client</label>
-                <p>TRPL × Niantic</p>
-              </div>
-              <div class="drawer-meta-item">
-                <label>Scope</label>
-                <p>AR · Education · COPPA · Game Mechanics</p>
+              <div class="drawer-copy">
+                <h3>AR education for the next generation of Rangers</h3>
+                <p>Competitive analysis, UX research, and ideation for an augmented reality education app developed in partnership between Trigger, Niantic, and the Teddy Roosevelt Presidential Library. Ensured COPPA compliance and strategized game mechanics for young audiences.</p>
+                <div class="drawer-copy-cols">
+                  <p>Conducted competitive analysis of educational AR apps and location-based games, mapping mechanic frameworks applicable to the library's educational goals.</p>
+                  <p>Led privacy and safety strategy for the under-13 audience, working with legal and product teams to ensure full COPPA compliance within the game loop.</p>
+                </div>
               </div>
             </div>
-            <div class="drawer-copy">
-              <h3>AR education for the next generation of Rangers</h3>
-              <p>Competitive analysis, UX research, and ideation for an augmented reality education app developed in partnership between Trigger, Niantic, and the Teddy Roosevelt Presidential Library. Ensured COPPA compliance and strategized game mechanics for young audiences.</p>
-              <div class="drawer-copy-cols">
-                <p>Conducted competitive analysis of educational AR apps and location-based games, mapping mechanic frameworks applicable to the library's educational goals.</p>
-                <p>Led privacy and safety strategy for the under-13 audience, working with legal and product teams to ensure full COPPA compliance within the game loop.</p>
-              </div>
+            <div class="drawer-strip-label">Process & Work</div>
+            <div class="drawer-strip">
+              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Game mechanic map</span></div></div>
+              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>COPPA compliance audit</span></div></div>
+              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>UX research synthesis</span></div></div>
+              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Prototype screens</span></div></div>
             </div>
           </div>
-          <div class="drawer-strip-label">Process & Work</div>
-          <div class="drawer-strip">
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>Game mechanic map</span></div>
-          </div>
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>COPPA compliance audit</span></div>
-          </div>
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>UX research synthesis</span></div>
-          </div>
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>Prototype screens</span></div>
-          </div>
-          </div>
         </div>
-      </div>
       </div>
 
-            <div class="case-wrapper">
-    <div class="case">
-        <div class="case-meta">
-          <div class="case-tags">
-            <span class="case-tag primary">HMD · Spatial UI</span>
-            <span class="case-tag-sep">·</span>
-            <span class="case-tag">Prototyping</span>
+      <div class="case-wrapper">
+        <div class="case">
+          <div class="case-meta">
+            <div class="case-tags">
+              <span class="case-tag primary">HMD · Spatial UI</span>
+              <span class="case-tag-sep">·</span>
+              <span class="case-tag">Prototyping</span>
+            </div>
+            <div class="case-title">AR Cooking Utility | Head-Mounted Device</div>
+            <div class="case-desc">VR wireframing and spatial UX for a cooking utility on the ThinkReality A24 HMD.</div>
           </div>
-          <div class="case-title">AR Cooking Utility | Head-Mounted Device</div>
-          <div class="case-desc">VR wireframing and spatial UX for a cooking utility on the ThinkReality A24 HMD.</div>
-        </div>
-        <div class="case-right">
-          <span class="case-client">Qualcomm</span>
-          <div class="case-toggle-icon"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
-        </div>
-      </div>
-      <div class="case-drawer">
-        <div class="case-drawer-inner">
-          <div class="drawer-hero">
-            <div class="drawer-hero-placeholder"><span>Hero image — Qualcomm</span></div>
+          <div class="case-right">
+            <span class="case-client">Qualcomm</span>
+            <div class="case-toggle-icon"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
           </div>
-          <div class="drawer-body">
-            <div class="drawer-meta">
-              <div class="drawer-meta-item">
-                <label>Role</label>
-                <p>UX Designer · Product Manager</p>
+        </div>
+        <div class="case-drawer">
+          <div class="case-drawer-inner">
+            <div class="hero-triple">
+              <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Qualcomm HMD — Image 01</span></div></div>
+              <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Qualcomm HMD — Image 02</span></div></div>
+              <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Qualcomm HMD — Image 03</span></div></div>
+            </div>
+            <div class="drawer-body">
+              <div class="drawer-meta">
+                <div class="drawer-meta-item"><label>Role</label><p>UX Designer · Product Manager</p></div>
+                <div class="drawer-meta-item"><label>Year</label><p>2022</p></div>
+                <div class="drawer-meta-item"><label>Client</label><p>Qualcomm</p></div>
+                <div class="drawer-meta-item"><label>Scope</label><p>HMD · Spatial UI · Prototyping</p></div>
               </div>
-              <div class="drawer-meta-item">
-                <label>Year</label>
-                <p>2022</p>
-              </div>
-              <div class="drawer-meta-item">
-                <label>Client</label>
-                <p>Qualcomm</p>
-              </div>
-              <div class="drawer-meta-item">
-                <label>Scope</label>
-                <p>HMD · Spatial UI · Prototyping</p>
+              <div class="drawer-copy">
+                <h3>Spatial UX for cooking in augmented reality</h3>
+                <p>Creative ideation, VR wireframing, testing, and product management for an AR cooking utility developed on the Qualcomm ThinkReality A24 head-mounted device. This project provided critical insight into UI/UX design for spatial and hands-free environments.</p>
+                <div class="drawer-copy-cols">
+                  <p>Designed spatial UI patterns for glanceable recipe steps, hands-free navigation, and timer interactions — all optimized for HMD field of view constraints.</p>
+                  <p>Wireframed and prototyped interactions for voice command integration and gesture-based scrolling within the ThinkReality platform SDK.</p>
+                </div>
               </div>
             </div>
-            <div class="drawer-copy">
-              <h3>Spatial UX for cooking in augmented reality</h3>
-              <p>Creative ideation, VR wireframing, testing, and product management for an AR cooking utility developed on the Qualcomm ThinkReality A24 head-mounted device. This project provided critical insight into UI/UX design for spatial and hands-free environments.</p>
-              <div class="drawer-copy-cols">
-                <p>Designed spatial UI patterns for glanceable recipe steps, hands-free navigation, and timer interactions — all optimized for HMD field of view constraints.</p>
-                <p>Wireframed and prototyped interactions for voice command integration and gesture-based scrolling within the ThinkReality platform SDK.</p>
-              </div>
+            <div class="drawer-strip-label">Process & Work</div>
+            <div class="drawer-strip">
+              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>HMD wireframes</span></div></div>
+              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Spatial UI patterns</span></div></div>
+              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Gesture interaction map</span></div></div>
+              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Prototype testing</span></div></div>
             </div>
           </div>
-          <div class="drawer-strip-label">Process & Work</div>
-          <div class="drawer-strip">
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>HMD wireframes</span></div>
-          </div>
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>Spatial UI patterns</span></div>
-          </div>
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>Gesture interaction map</span></div>
-          </div>
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>Prototype testing</span></div>
-          </div>
-          </div>
         </div>
-      </div>
       </div>
 
-            <div class="case-wrapper">
-    <div class="case">
-        <div class="case-meta">
-          <div class="case-tags">
-            <span class="case-tag primary">AR · Training</span>
-            <span class="case-tag-sep">·</span>
-            <span class="case-tag">UAT</span>
-            <span class="case-tag-sep">·</span>
-            <span class="case-tag">Product Management</span>
+      <div class="case-wrapper">
+        <div class="case">
+          <div class="case-meta">
+            <div class="case-tags">
+              <span class="case-tag primary">AR · Training</span>
+              <span class="case-tag-sep">·</span>
+              <span class="case-tag">UAT</span>
+              <span class="case-tag-sep">·</span>
+              <span class="case-tag">Product Management</span>
+            </div>
+            <div class="case-title">The Future of Training | Proof of Concept</div>
+            <div class="case-desc">User acceptance testing and UX design for a Verizon POC with the University of Hawaii football team on Snapdragon AR glasses.</div>
           </div>
-          <div class="case-title">The Future of Training | Proof of Concept</div>
-          <div class="case-desc">User acceptance testing and UX design for a Verizon POC with the University of Hawaii football team on Snapdragon AR glasses.</div>
-        </div>
-        <div class="case-right">
-          <span class="case-client">Verizon</span>
-          <div class="case-toggle-icon"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
-        </div>
-      </div>
-      <div class="case-drawer">
-        <div class="case-drawer-inner">
-          <div class="drawer-hero">
-            <div class="drawer-hero-placeholder"><span>Hero image — Verizon</span></div>
+          <div class="case-right">
+            <span class="case-client">Verizon</span>
+            <div class="case-toggle-icon"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
           </div>
-          <div class="drawer-body">
-            <div class="drawer-meta">
-              <div class="drawer-meta-item">
-                <label>Role</label>
-                <p>UX Designer · Product Manager</p>
+        </div>
+        <div class="case-drawer">
+          <div class="case-drawer-inner">
+            <div class="hero-triple">
+              <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Verizon Training — Image 01</span></div></div>
+              <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Verizon Training — Image 02</span></div></div>
+              <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Verizon Training — Image 03</span></div></div>
+            </div>
+            <div class="drawer-body">
+              <div class="drawer-meta">
+                <div class="drawer-meta-item"><label>Role</label><p>UX Designer · Product Manager</p></div>
+                <div class="drawer-meta-item"><label>Year</label><p>2022</p></div>
+                <div class="drawer-meta-item"><label>Client</label><p>Verizon</p></div>
+                <div class="drawer-meta-item"><label>Scope</label><p>AR · Training · UAT · Product Management</p></div>
               </div>
-              <div class="drawer-meta-item">
-                <label>Year</label>
-                <p>2022</p>
-              </div>
-              <div class="drawer-meta-item">
-                <label>Client</label>
-                <p>Verizon</p>
-              </div>
-              <div class="drawer-meta-item">
-                <label>Scope</label>
-                <p>AR · Training · UAT · Product Management</p>
+              <div class="drawer-copy">
+                <h3>AR training at the edge of sports performance</h3>
+                <p>User acceptance testing, UX design, and product management for a Verizon proof-of-concept developed with subject matter experts from the University of Hawaii football team, prototyped on Snapdragon and the Lenovo ThinkReality A3 glasses.</p>
+                <div class="drawer-copy-cols">
+                  <p>Coordinated UAT sessions with coaches and athletes on the field, capturing real-world feedback on AR overlay legibility and interaction speed under physical exertion.</p>
+                  <p>Produced UX documentation and product specs for the Snapdragon platform, including interaction timing, error states, and field-of-view optimization.</p>
+                </div>
               </div>
             </div>
-            <div class="drawer-copy">
-              <h3>AR training at the edge of sports performance</h3>
-              <p>User acceptance testing, UX design, and product management for a Verizon proof-of-concept developed with subject matter experts from the University of Hawaii football team, prototyped on Snapdragon and the Lenovo ThinkReality A3 glasses.</p>
-              <div class="drawer-copy-cols">
-                <p>Coordinated UAT sessions with coaches and athletes on the field, capturing real-world feedback on AR overlay legibility and interaction speed under physical exertion.</p>
-                <p>Produced UX documentation and product specs for the Snapdragon platform, including interaction timing, error states, and field-of-view optimization.</p>
-              </div>
+            <div class="drawer-strip-label">Process & Work</div>
+            <div class="drawer-strip">
+              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Field testing setup</span></div></div>
+              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>AR overlay designs</span></div></div>
+              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>UAT documentation</span></div></div>
+              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>ThinkReality A3 specs</span></div></div>
             </div>
-          </div>
-          <div class="drawer-strip-label">Process & Work</div>
-          <div class="drawer-strip">
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>Field testing setup</span></div>
-          </div>
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>AR overlay designs</span></div>
-          </div>
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>UAT documentation</span></div>
-          </div>
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>ThinkReality A3 specs</span></div>
-          </div>
           </div>
         </div>
       </div>
-      </div>
+
     </div>
   </section>
 
@@ -2443,74 +2226,56 @@
     </div>
 
     <div class="cases">
-            <div class="case-wrapper">
-    <div class="case">
-        <div class="case-meta">
-          <div class="case-tags">
-            <span class="case-tag primary">B2B · SaaS</span>
-            <span class="case-tag-sep">·</span>
-            <span class="case-tag">End-to-End UX</span>
-            <span class="case-tag-sep">·</span>
-            <span class="case-tag">Product Management</span>
+      <div class="case-wrapper">
+        <div class="case">
+          <div class="case-meta">
+            <div class="case-tags">
+              <span class="case-tag primary">B2B · SaaS</span>
+              <span class="case-tag-sep">·</span>
+              <span class="case-tag">End-to-End UX</span>
+              <span class="case-tag-sep">·</span>
+              <span class="case-tag">Product Management</span>
+            </div>
+            <div class="case-title">B2B Solutions for Insurance Carriers</div>
+            <div class="case-desc">Full lifecycle UX, research through delivery, for several enterprise products serving commercial and personal insurance carriers on the Guidewire InsuranceNow platform.</div>
           </div>
-          <div class="case-title">B2B Solutions for Insurance Carriers</div>
-          <div class="case-desc">Full lifecycle UX, research through delivery, for several enterprise products serving commercial and personal insurance carriers on the Guidewire InsuranceNow platform.</div>
-        </div>
-        <div class="case-right">
-          <span class="case-client">Guidewire</span>
-          <div class="case-toggle-icon"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
-        </div>
-      </div>
-      <div class="case-drawer">
-        <div class="case-drawer-inner">
-          <div class="drawer-hero">
-            <div class="drawer-hero-placeholder"><span>Hero image — Guidewire</span></div>
+          <div class="case-right">
+            <span class="case-client">Guidewire</span>
+            <div class="case-toggle-icon"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
           </div>
-          <div class="drawer-body">
-            <div class="drawer-meta">
-              <div class="drawer-meta-item">
-                <label>Role</label>
-                <p>UX Designer · Product Manager</p>
+        </div>
+        <div class="case-drawer">
+          <div class="case-drawer-inner">
+            <div class="hero-triple">
+              <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Guidewire — Image 01</span></div></div>
+              <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Guidewire — Image 02</span></div></div>
+              <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Guidewire — Image 03</span></div></div>
+            </div>
+            <div class="drawer-body">
+              <div class="drawer-meta">
+                <div class="drawer-meta-item"><label>Role</label><p>UX Designer · Product Manager</p></div>
+                <div class="drawer-meta-item"><label>Year</label><p>2021–2022</p></div>
+                <div class="drawer-meta-item"><label>Client</label><p>Guidewire</p></div>
+                <div class="drawer-meta-item"><label>Scope</label><p>B2B SaaS · End-to-End UX · Product Management</p></div>
               </div>
-              <div class="drawer-meta-item">
-                <label>Year</label>
-                <p>2021–2022</p>
-              </div>
-              <div class="drawer-meta-item">
-                <label>Client</label>
-                <p>Guidewire</p>
-              </div>
-              <div class="drawer-meta-item">
-                <label>Scope</label>
-                <p>B2B SaaS · End-to-End UX · Product Management</p>
+              <div class="drawer-copy">
+                <h3>Full-lifecycle UX for enterprise insurance products</h3>
+                <p>From discovery to delivery — UX research, ideation, wireframing, UI design, and product management across several B2B products serving commercial and personal insurance carriers on the Guidewire InsuranceNow platform.</p>
+                <div class="drawer-copy-cols">
+                  <p>Coordinated user research sessions with insurance agents and carriers to identify friction points in claims processing and policy management workflows.</p>
+                  <p>Delivered high-fidelity UI designs, interaction specs, and accessibility documentation across multiple parallel product tracks.</p>
+                </div>
               </div>
             </div>
-            <div class="drawer-copy">
-              <h3>Full-lifecycle UX for enterprise insurance products</h3>
-              <p>From discovery to delivery — UX research, ideation, wireframing, UI design, and product management across several B2B products serving commercial and personal insurance carriers on the Guidewire InsuranceNow platform.</p>
-              <div class="drawer-copy-cols">
-                <p>Coordinated user research sessions with insurance agents and carriers to identify friction points in claims processing and policy management workflows.</p>
-                <p>Delivered high-fidelity UI designs, interaction specs, and accessibility documentation across multiple parallel product tracks.</p>
-              </div>
+            <div class="drawer-strip-label">Process & Work</div>
+            <div class="drawer-strip">
+              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Admin portal</span></div></div>
+              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Claims workflow</span></div></div>
+              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Policy management UI</span></div></div>
+              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Accessibility audit</span></div></div>
             </div>
           </div>
-          <div class="drawer-strip-label">Process & Work</div>
-          <div class="drawer-strip">
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>Admin portal</span></div>
-          </div>
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>Claims workflow</span></div>
-          </div>
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>Policy management UI</span></div>
-          </div>
-          <div class="drawer-strip-img">
-            <div class="drawer-strip-placeholder"><span>Accessibility audit</span></div>
-          </div>
-          </div>
         </div>
-      </div>
       </div>
     </div>
   </section>
@@ -2522,17 +2287,14 @@
       <span class="section-title">Data Visualization</span>
       <span class="section-count">Placeholder</span>
     </div>
-    
+
     <div class="revenue-sample" id="revenue-sample">
       <div class="revenue-sample-header">
         <div>
           <div class="revenue-eyebrow">Sample Work</div>
           <h3 class="revenue-title">Revenue Intelligence Sample</h3>
-          <p class="revenue-desc">
-            Animated line chart concept for an executive analytics dashboard. The curve draws itself on scroll, using a glowing stroke, gradient area fill, and polished data-viz motion language.
-          </p>
+          <p class="revenue-desc">Animated line chart concept for an executive analytics dashboard. The curve draws itself on scroll, using a glowing stroke, gradient area fill, and polished data-viz motion language.</p>
         </div>
-
         <div class="revenue-metrics">
           <div class="revenue-metric">
             <div class="revenue-metric-label">Revenue</div>
@@ -2551,7 +2313,6 @@
 
       <div class="revenue-chart-wrap">
         <div class="revenue-chart-note">Live Motion Study</div>
-
         <svg class="revenue-chart" viewBox="0 0 1100 380" preserveAspectRatio="none" aria-label="Animated revenue line chart">
           <defs>
             <linearGradient id="revenueLineGradient" x1="0" y1="0" x2="1" y2="0">
@@ -2567,35 +2328,26 @@
             </linearGradient>
             <filter id="revenueGlow" x="-30%" y="-30%" width="160%" height="160%">
               <feGaussianBlur stdDeviation="5" result="blur"/>
-              <feMerge>
-                <feMergeNode in="blur"/>
-                <feMergeNode in="SourceGraphic"/>
-              </feMerge>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
             </filter>
           </defs>
-
           <line class="revenue-grid" x1="80" y1="70" x2="1040" y2="70"/>
           <line class="revenue-grid" x1="80" y1="140" x2="1040" y2="140"/>
           <line class="revenue-grid" x1="80" y1="210" x2="1040" y2="210"/>
           <line class="revenue-grid" x1="80" y1="280" x2="1040" y2="280"/>
-
           <line class="revenue-axis" x1="80" y1="320" x2="1040" y2="320"/>
           <line class="revenue-axis" x1="80" y1="50" x2="80" y2="320"/>
-
           <text class="revenue-label" x="80" y="350">Q1</text>
           <text class="revenue-label" x="315" y="350">Q2</text>
           <text class="revenue-label" x="550" y="350">Q3</text>
           <text class="revenue-label" x="785" y="350">Q4</text>
           <text class="revenue-label" x="995" y="350">Forecast</text>
-
           <text class="revenue-label" x="24" y="74">$1M</text>
           <text class="revenue-label" x="24" y="144">$750K</text>
           <text class="revenue-label" x="24" y="214">$500K</text>
           <text class="revenue-label" x="24" y="284">$250K</text>
-
           <path class="revenue-fill" d="M80 292 C170 266, 225 250, 300 236 C395 218, 445 196, 525 174 C620 148, 690 134, 760 110 C850 80, 930 72, 1040 56 L1040 320 L80 320 Z" fill="url(#revenueAreaGradient)"/>
           <path class="revenue-line" pathLength="1" d="M80 292 C170 266, 225 250, 300 236 C395 218, 445 196, 525 174 C620 148, 690 134, 760 110 C850 80, 930 72, 1040 56"/>
-
           <circle class="revenue-dot revenue-dot-1" cx="80" cy="292" r="5" fill="#3d9aff"/>
           <circle class="revenue-dot revenue-dot-2" cx="300" cy="236" r="5" fill="#3d9aff"/>
           <circle class="revenue-dot revenue-dot-3" cx="525" cy="174" r="5" fill="#7ec8ff"/>
@@ -2623,10 +2375,7 @@
               </linearGradient>
               <filter id="sharedVizGlow" x="-40%" y="-40%" width="180%" height="180%">
                 <feGaussianBlur stdDeviation="5" result="blur"/>
-                <feMerge>
-                  <feMergeNode in="blur"/>
-                  <feMergeNode in="SourceGraphic"/>
-                </feMerge>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
               </filter>
             </defs>
             <g class="funnel-step"><rect x="70" y="20" width="480" height="40" rx="20" fill="rgba(61,154,255,0.34)"/><text class="viz-label" x="98" y="45">VISIT</text><text class="viz-label" x="490" y="45">100%</text></g>
@@ -2738,7 +2487,7 @@
       </div>
     </div>
 
-<div class="cases">
+    <div class="cases">
       <div class="case-wrapper">
         <div class="case">
           <div class="case-meta">
@@ -2759,8 +2508,10 @@
         </div>
         <div class="case-drawer">
           <div class="case-drawer-inner">
-            <div class="drawer-hero">
-              <div class="drawer-hero-placeholder"><span>Hero image — Data Visualization</span></div>
+            <div class="hero-triple">
+              <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Data Viz — Image 01</span></div></div>
+              <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Data Viz — Image 02</span></div></div>
+              <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Data Viz — Image 03</span></div></div>
             </div>
             <div class="drawer-body">
               <div class="drawer-meta">
@@ -2798,7 +2549,6 @@
       <span class="section-count">6 disciplines</span>
     </div>
 
-    <!-- TAB BUTTONS -->
     <div class="tab-nav" id="cd-tabs">
       <button class="tab-btn active" data-tab="cd-0">Creative Design</button>
       <button class="tab-btn" data-tab="cd-1">Graphic Design</button>
@@ -2808,9 +2558,12 @@
       <button class="tab-btn" data-tab="cd-5">Art Direction</button>
     </div>
 
-    <!-- TAB PANELS -->
     <div class="tab-panel active" id="cd-0">
-      <div class="tab-hero"><div class="drawer-hero-placeholder"><span>Hero image — Creative Design</span></div></div>
+      <div class="hero-triple">
+        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Creative Design — Image 01</span></div></div>
+        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Creative Design — Image 02</span></div></div>
+        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Creative Design — Image 03</span></div></div>
+      </div>
       <div class="tab-body">
         <div class="tab-meta">
           <div class="drawer-meta-item"><label>Discipline</label><p>Creative Design</p></div>
@@ -2828,7 +2581,11 @@
     </div>
 
     <div class="tab-panel" id="cd-1">
-      <div class="tab-hero"><div class="drawer-hero-placeholder"><span>Hero image — Graphic Design</span></div></div>
+      <div class="hero-triple">
+        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Graphic Design — Image 01</span></div></div>
+        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Graphic Design — Image 02</span></div></div>
+        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Graphic Design — Image 03</span></div></div>
+      </div>
       <div class="tab-body">
         <div class="tab-meta">
           <div class="drawer-meta-item"><label>Discipline</label><p>Graphic Design</p></div>
@@ -2846,7 +2603,11 @@
     </div>
 
     <div class="tab-panel" id="cd-2">
-      <div class="tab-hero"><div class="drawer-hero-placeholder"><span>Hero image — Animation</span></div></div>
+      <div class="hero-triple">
+        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Animation — Image 01</span></div></div>
+        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Animation — Image 02</span></div></div>
+        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Animation — Image 03</span></div></div>
+      </div>
       <div class="tab-body">
         <div class="tab-meta">
           <div class="drawer-meta-item"><label>Discipline</label><p>Animation</p></div>
@@ -2864,7 +2625,11 @@
     </div>
 
     <div class="tab-panel" id="cd-3">
-      <div class="tab-hero"><div class="drawer-hero-placeholder"><span>Hero image — VFX & Compositing</span></div></div>
+      <div class="hero-triple">
+        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>VFX & Compositing — Image 01</span></div></div>
+        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>VFX & Compositing — Image 02</span></div></div>
+        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>VFX & Compositing — Image 03</span></div></div>
+      </div>
       <div class="tab-body">
         <div class="tab-meta">
           <div class="drawer-meta-item"><label>Discipline</label><p>VFX & Compositing</p></div>
@@ -2882,7 +2647,11 @@
     </div>
 
     <div class="tab-panel" id="cd-4">
-      <div class="tab-hero"><div class="drawer-hero-placeholder"><span>Hero image — Video Editing</span></div></div>
+      <div class="hero-triple">
+        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Video Editing — Image 01</span></div></div>
+        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Video Editing — Image 02</span></div></div>
+        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Video Editing — Image 03</span></div></div>
+      </div>
       <div class="tab-body">
         <div class="tab-meta">
           <div class="drawer-meta-item"><label>Discipline</label><p>Video Editing</p></div>
@@ -2900,7 +2669,11 @@
     </div>
 
     <div class="tab-panel" id="cd-5">
-      <div class="tab-hero"><div class="drawer-hero-placeholder"><span>Hero image — Art Direction</span></div></div>
+      <div class="hero-triple">
+        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Art Direction — Image 01</span></div></div>
+        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Art Direction — Image 02</span></div></div>
+        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Art Direction — Image 03</span></div></div>
+      </div>
       <div class="tab-body">
         <div class="tab-meta">
           <div class="drawer-meta-item"><label>Discipline</label><p>Art Direction</p></div>
@@ -2950,7 +2723,6 @@
       <span class="rec-badge">Site of the Day <svg class="rec-arrow" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="2" y1="8" x2="8" y2="2"/><polyline points="4,2 8,2 8,6"/></svg></span>
     </a>
 
-
     <div class="rec-row">
       <span class="rec-award">Promax Awards</span>
       <span class="rec-project">Hulu | The Screamlands · 360 Campaign: Seasonal/Special Event</span>
@@ -2961,7 +2733,6 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-cta">Let's build something <span class="footer-rare">rare.</span></div>
-
     <div class="footer-links">
       <a href="mailto:hello@paulsalva.work" class="footer-link">Contact</a>
       <a href="#" class="footer-link">LinkedIn</a>
@@ -2977,52 +2748,26 @@
     gsap.registerPlugin(ScrollTrigger);
 
     /* HERO ENTRANCE */
-    gsap.from(".nav", {
-      opacity: 0,
-      y: -16,
-      duration: 0.8,
-      ease: "power3.out"
-    });
+    gsap.from(".nav", { opacity: 0, y: -16, duration: 0.8, ease: "power3.out" });
 
     gsap.from(".hero-left > *", {
-      opacity: 0,
-      y: 28,
-      duration: 1.1,
-      stagger: 0.15,
-      ease: "power4.out"
+      opacity: 0, y: 28, duration: 1.1, stagger: 0.15, ease: "power4.out"
     });
 
     /* SECTION HEADERS */
     gsap.utils.toArray(".section-header").forEach((header) => {
       gsap.from(header.children, {
-        scrollTrigger: {
-          trigger: header,
-          start: "top 82%",
-          toggleActions: "play none none reverse"
-        },
-        opacity: 0,
-        y: 24,
-        duration: 0.7,
-        stagger: 0.08,
-        ease: "power3.out"
+        scrollTrigger: { trigger: header, start: "top 82%", toggleActions: "play none none reverse" },
+        opacity: 0, y: 24, duration: 0.7, stagger: 0.08, ease: "power3.out"
       });
     });
 
     /* CASE STUDY ROWS */
     gsap.utils.toArray(".cases").forEach((group) => {
       const rows = group.querySelectorAll(".case");
-
       gsap.from(rows, {
-        scrollTrigger: {
-          trigger: group,
-          start: "top 78%",
-          toggleActions: "play none none reverse"
-        },
-        opacity: 0,
-        y: 36,
-        duration: 0.75,
-        stagger: 0.08,
-        ease: "power3.out"
+        scrollTrigger: { trigger: group, start: "top 78%", toggleActions: "play none none reverse" },
+        opacity: 0, y: 36, duration: 0.75, stagger: 0.08, ease: "power3.out"
       });
     });
 
@@ -3045,10 +2790,8 @@
         const rect = caseRow.getBoundingClientRect();
         const rowCenter = rect.top + rect.height * 0.5;
         const distance = Math.abs(rowCenter - viewportCenter);
-
         const rawStrength = 1 - Math.min(distance / activationRange, 1);
         const strength = rawStrength * rawStrength * (3 - 2 * rawStrength);
-
         const fontSize = 11 + (maxSize - 11) * strength;
         const y = 10 * strength;
         const opacity = 0.25 + 0.75 * strength;
@@ -3069,46 +2812,21 @@
 
     /* AI CARDS */
     gsap.from(".ai-card", {
-      scrollTrigger: {
-        trigger: ".ai-grid",
-        start: "top 78%",
-        toggleActions: "play none none reverse"
-      },
-      opacity: 0,
-      y: 32,
-      duration: 0.75,
-      stagger: 0.08,
-      ease: "power3.out"
+      scrollTrigger: { trigger: ".ai-grid", start: "top 78%", toggleActions: "play none none reverse" },
+      opacity: 0, y: 32, duration: 0.75, stagger: 0.08, ease: "power3.out"
     });
 
     /* RECOGNITION ROWS */
     gsap.from(".rec-row", {
-      scrollTrigger: {
-        trigger: "#recognition",
-        start: "top 75%",
-        toggleActions: "play none none reverse"
-      },
-      opacity: 0,
-      y: 24,
-      duration: 0.7,
-      stagger: 0.08,
-      ease: "power3.out"
+      scrollTrigger: { trigger: "#recognition", start: "top 75%", toggleActions: "play none none reverse" },
+      opacity: 0, y: 24, duration: 0.7, stagger: 0.08, ease: "power3.out"
     });
 
     /* FOOTER */
     gsap.from(".footer > *", {
-      scrollTrigger: {
-        trigger: ".footer",
-        start: "top 85%",
-        toggleActions: "play none none reverse"
-      },
-      opacity: 0,
-      y: 28,
-      duration: 0.8,
-      stagger: 0.12,
-      ease: "power3.out"
+      scrollTrigger: { trigger: ".footer", start: "top 85%", toggleActions: "play none none reverse" },
+      opacity: 0, y: 28, duration: 0.8, stagger: 0.12, ease: "power3.out"
     });
-
 
     /* CASE DRAWERS */
     let activeDrawer = null;
@@ -3120,7 +2838,6 @@
       const inner = wrapper.querySelector('.case-drawer-inner');
       const strip = wrapper.querySelector('.drawer-strip');
 
-      // Close any open drawer first
       if (activeDrawer && activeDrawer !== drawer) {
         closeDrawer(activeDrawer.closest('.case-wrapper'), false);
       }
@@ -3129,62 +2846,20 @@
       activeDrawer = drawer;
       activeCase = caseEl;
 
-      // Measure full height
       gsap.set(drawer, { height: 'auto', overflow: 'hidden' });
       const fullH = drawer.offsetHeight;
       gsap.set(drawer, { height: 0 });
 
       const tl = gsap.timeline();
+      tl.to(drawer, { height: fullH, duration: 0.7, ease: 'power3.inOut' });
+      tl.to(inner, { opacity: 1, duration: 0.4, ease: 'power2.out' }, '-=0.3');
+      tl.from(inner.querySelector('.hero-triple'), { y: 24, opacity: 0, duration: 0.6, ease: 'power3.out' }, '-=0.3');
+      tl.from(inner.querySelectorAll('.drawer-meta-item'), { y: 16, opacity: 0, duration: 0.5, stagger: 0.07, ease: 'power3.out' }, '-=0.4');
+      tl.from(inner.querySelectorAll('.drawer-copy > *'), { y: 16, opacity: 0, duration: 0.5, stagger: 0.08, ease: 'power3.out' }, '-=0.5');
+      tl.from(inner.querySelectorAll('.drawer-strip-img'), { x: 32, opacity: 0, duration: 0.5, stagger: 0.06, ease: 'power3.out' }, '-=0.3');
 
-      tl.to(drawer, {
-        height: fullH,
-        duration: 0.7,
-        ease: 'power3.inOut'
-      });
+      setTimeout(() => { wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 100);
 
-      tl.to(inner, {
-        opacity: 1,
-        duration: 0.4,
-        ease: 'power2.out'
-      }, '-=0.3');
-
-      tl.from(inner.querySelector('.drawer-hero'), {
-        y: 24,
-        opacity: 0,
-        duration: 0.6,
-        ease: 'power3.out'
-      }, '-=0.3');
-
-      tl.from(inner.querySelectorAll('.drawer-meta-item'), {
-        y: 16,
-        opacity: 0,
-        duration: 0.5,
-        stagger: 0.07,
-        ease: 'power3.out'
-      }, '-=0.4');
-
-      tl.from(inner.querySelectorAll('.drawer-copy > *'), {
-        y: 16,
-        opacity: 0,
-        duration: 0.5,
-        stagger: 0.08,
-        ease: 'power3.out'
-      }, '-=0.5');
-
-      tl.from(inner.querySelectorAll('.drawer-strip-img'), {
-        x: 32,
-        opacity: 0,
-        duration: 0.5,
-        stagger: 0.06,
-        ease: 'power3.out'
-      }, '-=0.3');
-
-      // Scroll into view smoothly
-      setTimeout(() => {
-        wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 100);
-
-      // Wire up drag scroll on strip
       if (strip) initDragStrip(strip);
     }
 
@@ -3203,23 +2878,15 @@
         gsap.set(drawer, { height: 0 });
       }
 
-      if (activeDrawer === drawer) {
-        activeDrawer = null;
-        activeCase = null;
-      }
+      if (activeDrawer === drawer) { activeDrawer = null; activeCase = null; }
     }
 
     document.querySelectorAll('.case-wrapper').forEach(wrapper => {
       const caseEl = wrapper.querySelector('.case');
-
       caseEl.addEventListener('click', (e) => {
         e.preventDefault();
         const isOpen = caseEl.classList.contains('is-open');
-        if (isOpen) {
-          closeDrawer(wrapper);
-        } else {
-          openDrawer(wrapper);
-        }
+        if (isOpen) { closeDrawer(wrapper); } else { openDrawer(wrapper); }
       });
     });
 
@@ -3227,9 +2894,7 @@
     function initDragStrip(strip) {
       if (strip._dragInit) return;
       strip._dragInit = true;
-
-      let isDragging = false;
-      let startX, scrollLeft;
+      let isDragging = false, startX, scrollLeft;
 
       strip.addEventListener('mousedown', e => {
         isDragging = true;
@@ -3237,41 +2902,25 @@
         startX = e.pageX - strip.offsetLeft;
         scrollLeft = strip.scrollLeft;
       });
-
-      strip.addEventListener('mouseleave', () => {
-        isDragging = false;
-        strip.classList.remove('is-dragging');
-      });
-
-      strip.addEventListener('mouseup', () => {
-        isDragging = false;
-        strip.classList.remove('is-dragging');
-      });
-
+      strip.addEventListener('mouseleave', () => { isDragging = false; strip.classList.remove('is-dragging'); });
+      strip.addEventListener('mouseup', () => { isDragging = false; strip.classList.remove('is-dragging'); });
       strip.addEventListener('mousemove', e => {
         if (!isDragging) return;
         e.preventDefault();
         const x = e.pageX - strip.offsetLeft;
-        const walk = (x - startX) * 1.4;
-        strip.scrollLeft = scrollLeft - walk;
+        strip.scrollLeft = scrollLeft - (x - startX) * 1.4;
       });
-
-      // Touch support
       strip.addEventListener('touchstart', e => {
         startX = e.touches[0].pageX - strip.offsetLeft;
         scrollLeft = strip.scrollLeft;
       }, { passive: true });
-
       strip.addEventListener('touchmove', e => {
         const x = e.touches[0].pageX - strip.offsetLeft;
         strip.scrollLeft = scrollLeft - (x - startX) * 1.2;
       }, { passive: true });
     }
 
-
-
-
-    /* UNIVERSAL DRAWER OPEN HELPER */
+    /* UNIVERSAL DRAWER HELPERS */
     function openDrawerPanel(drawer, inner, panel, onOpen) {
       drawer.style.display = 'block';
       if (onOpen) onOpen();
@@ -3296,28 +2945,19 @@
     let activeAiIndex  = null;
 
     function openAiPanel(index) {
-      // Hide all content panels, show the right one
       document.querySelectorAll('.ai-drawer-content').forEach(el => el.classList.remove('active'));
       document.getElementById('ai-drawer-' + index).classList.add('active');
-
       const inner = aiFullInner;
       const panel = document.getElementById('ai-drawer-' + index);
 
-      if (activeAiIndex === index) {
-        // Same card — close
-        closeAiPanel();
-        return;
-      }
-
+      if (activeAiIndex === index) { closeAiPanel(); return; }
       activeAiIndex = index;
 
-      // Mark active card
       document.querySelectorAll('#ai-card-grid .ai-vert-card').forEach((c, i) => {
         c.classList.toggle('is-open', i === index);
       });
 
       if (parseFloat(getComputedStyle(aiFullDrawer).height) > 0) {
-        // Drawer already open — swap content and resize
         gsap.to(inner, { opacity: 0, duration: 0.15, onComplete: () => {
           gsap.to(aiFullDrawer, { height: 'auto', duration: 0.4, ease: 'power3.inOut' });
           gsap.to(inner, { opacity: 1, duration: 0.35, ease: 'power2.out', delay: 0.1 });
@@ -3326,7 +2966,6 @@
         return;
       }
 
-      // Open drawer
       gsap.set(aiFullDrawer, { height: 0, overflow: 'hidden' });
       gsap.set(inner, { opacity: 0 });
 
@@ -3345,12 +2984,12 @@
     }
 
     function animateDrawerContent(panel) {
-      const hero = panel.querySelector('.drawer-hero');
+      const heroTriple = panel.querySelector('.hero-triple');
       const metas = panel.querySelectorAll('.drawer-meta-item');
       const copies = panel.querySelectorAll('.drawer-copy > *');
       const strips = panel.querySelectorAll('.drawer-strip-img');
 
-      if (hero) gsap.from(hero, { y: 20, opacity: 0, duration: 0.5, ease: 'power3.out' });
+      if (heroTriple) gsap.from(heroTriple, { y: 20, opacity: 0, duration: 0.5, ease: 'power3.out' });
       if (metas.length) gsap.from(metas, { y: 14, opacity: 0, duration: 0.45, stagger: 0.07, ease: 'power3.out', delay: 0.1 });
       if (copies.length) gsap.from(copies, { y: 14, opacity: 0, duration: 0.45, stagger: 0.07, ease: 'power3.out', delay: 0.15 });
       if (strips.length) gsap.from(strips, { x: 24, opacity: 0, duration: 0.4, stagger: 0.06, ease: 'power3.out', delay: 0.25 });
@@ -3359,7 +2998,6 @@
     function closeAiPanel(animate = true) {
       document.querySelectorAll('.ai-vert-card').forEach(c => c.classList.remove('is-open'));
       activeAiIndex = null;
-
       if (animate) {
         closeDrawerEl(aiFullDrawer, aiFullInner, () => {
           document.querySelectorAll('.ai-drawer-content').forEach(el => el.classList.remove('active'));
@@ -3374,8 +3012,7 @@
       card.addEventListener('click', () => openAiPanel(index));
     });
 
-
-        /* CREATIVE DESIGN CARD DRAWERS */
+    /* CREATIVE DESIGN CARD DRAWERS */
     const cdRows = {
       a: { drawer: document.getElementById('cd-drawer-row-a'), inner: document.getElementById('cd-inner-row-a'), active: null },
       b: { drawer: document.getElementById('cd-drawer-row-b'), inner: document.getElementById('cd-inner-row-b'), active: null }
@@ -3387,18 +3024,15 @@
       const panel = document.getElementById('cd-drawer-' + index);
       if (!panel) return;
 
-      // Instantly close other row
       const otherRow = row === 'a' ? 'b' : 'a';
       const other = cdRows[otherRow];
       instantCloseDrawer(other.drawer, other.inner);
       other.active = null;
       document.querySelectorAll('#cd-row-' + otherRow + ' .ai-vert-card').forEach(c => c.classList.remove('is-open'));
 
-      // Toggle same card
       if (r.active === index) { closeCdRow(row); return; }
       r.active = index;
 
-      // Show panel
       document.querySelectorAll('#cd-row-' + row + ' .ai-vert-card').forEach((c, i) => {
         const globalI = row === 'a' ? i : i + 3;
         c.classList.toggle('is-open', globalI === index);
@@ -3420,11 +3054,7 @@
       const r = cdRows[row];
       r.active = null;
       document.querySelectorAll('#cd-row-' + row + ' .ai-vert-card').forEach(c => c.classList.remove('is-open'));
-      if (animate) {
-        closeDrawerEl(r.drawer, r.inner);
-      } else {
-        instantCloseDrawer(r.drawer, r.inner);
-      }
+      if (animate) { closeDrawerEl(r.drawer, r.inner); } else { instantCloseDrawer(r.drawer, r.inner); }
     }
 
     document.querySelectorAll('#cd-row-a .ai-vert-card, #cd-row-b .ai-vert-card').forEach((card) => {
@@ -3453,30 +3083,11 @@
       gsap.set(drawer, { height: 0 });
 
       const tl = gsap.timeline();
+      tl.to(drawer, { height: fullH, duration: 0.65, ease: 'power3.inOut' });
+      tl.to(inner, { opacity: 1, duration: 0.35, ease: 'power2.out' }, '-=0.25');
+      tl.from(inner.querySelectorAll('.creative-img-col'), { y: 20, opacity: 0, duration: 0.5, stagger: 0.1, ease: 'power3.out' }, '-=0.25');
 
-      tl.to(drawer, {
-        height: fullH,
-        duration: 0.65,
-        ease: 'power3.inOut'
-      });
-
-      tl.to(inner, {
-        opacity: 1,
-        duration: 0.35,
-        ease: 'power2.out'
-      }, '-=0.25');
-
-      tl.from(inner.querySelectorAll('.creative-img-col'), {
-        y: 20,
-        opacity: 0,
-        duration: 0.5,
-        stagger: 0.1,
-        ease: 'power3.out'
-      }, '-=0.25');
-
-      setTimeout(() => {
-        wrapper.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }, 80);
+      setTimeout(() => { wrapper.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, 80);
     }
 
     function closeCreativeDrawer(wrapper, animate = true) {
@@ -3494,21 +3105,14 @@
         gsap.set(drawer, { height: 0 });
       }
 
-      if (activeCreativeDrawer === drawer) {
-        activeCreativeDrawer = null;
-        activeCreativeCard = null;
-      }
+      if (activeCreativeDrawer === drawer) { activeCreativeDrawer = null; activeCreativeCard = null; }
     }
 
     document.querySelectorAll('.creative-card-wrapper').forEach(wrapper => {
       const card = wrapper.querySelector('.creative-card');
       card.addEventListener('click', () => {
         const isOpen = card.classList.contains('is-open');
-        if (isOpen) {
-          closeCreativeDrawer(wrapper);
-        } else {
-          openCreativeDrawer(wrapper);
-        }
+        if (isOpen) { closeCreativeDrawer(wrapper); } else { openCreativeDrawer(wrapper); }
       });
     });
 
@@ -3516,13 +3120,7 @@
     const hsLines = document.querySelectorAll(".hs-line");
     hsLines.forEach(line => {
       const delay = parseFloat(line.dataset.delay || 0) / 1000;
-      gsap.to(line, {
-        opacity: 1,
-        y: 0,
-        duration: 1.1,
-        delay: 0.6 + delay,
-        ease: "power4.out"
-      });
+      gsap.to(line, { opacity: 1, y: 0, duration: 1.1, delay: 0.6 + delay, ease: "power4.out" });
     });
 
     /* ACTIVE NAV */
@@ -3534,10 +3132,7 @@
         if (entry.isIntersecting) {
           pills.forEach(p => p.classList.remove("active"));
           const active = document.querySelector(`.nav-pill[href="#${entry.target.id}"]`);
-
-          if (active) {
-            active.classList.add("active");
-          }
+          if (active) active.classList.add("active");
         }
       });
     }, { threshold: 0.3 });
@@ -3558,18 +3153,17 @@
           const panel = document.getElementById(target);
           panel.classList.add('active');
 
-          // Animate hero image on tab switch
-          const img = panel.querySelector('.tab-hero-img');
-          if (img) {
-            gsap.fromTo(img, 
+          // Animate hero-triple images on tab switch
+          const tripleImgs = panel.querySelectorAll('.hero-triple-img');
+          if (tripleImgs.length) {
+            gsap.fromTo(tripleImgs,
               { opacity: 0, y: 16 },
-              { opacity: 0.85, y: 0, duration: 0.6, ease: 'power3.out' }
+              { opacity: 1, y: 0, duration: 0.5, stagger: 0.07, ease: 'power3.out' }
             );
           }
         });
       });
     });
-
 
     /* LIGHTBOX */
     const lightboxOverlay = document.getElementById('lightbox');
@@ -3596,23 +3190,18 @@
 
     if (lightboxBtn) lightboxBtn.addEventListener('click', openLightbox);
     if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
-    if (lightboxOverlay) lightboxOverlay.addEventListener('click', (e) => {
-      if (e.target === lightboxOverlay) closeLightbox();
-    });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeLightbox();
-    });
+    if (lightboxOverlay) lightboxOverlay.addEventListener('click', (e) => { if (e.target === lightboxOverlay) closeLightbox(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
 
-    /* ANIMATE ALL VISIBLE TAB HERO IMAGES ON SCROLL */
-    gsap.utils.toArray('.tab-panel.active .tab-hero-img').forEach(img => {
+    /* SCROLL-ANIMATE HERO-TRIPLE IMAGES IN ACTIVE TAB PANELS */
+    gsap.utils.toArray('.tab-panel.active .hero-triple-img').forEach(img => {
       gsap.from(img, {
         scrollTrigger: { trigger: img, start: 'top 90%', toggleActions: 'play none none none' },
-        opacity: 0, y: 16, duration: 0.7, ease: 'power3.out'
+        opacity: 0, y: 16, duration: 0.6, ease: 'power3.out'
       });
     });
 
   </script>
-
 
   <script>
     const revenueSample = document.getElementById("revenue-sample");
@@ -3620,9 +3209,7 @@
 
     const vizObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-        }
+        if (entry.isIntersecting) entry.target.classList.add("is-visible");
       });
     }, { threshold: 0.28 });
 
