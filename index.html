@@ -2711,21 +2711,6 @@
 
     sections.forEach(s => observer.observe(s));
 
-    /* TAB HERO IMAGE SCROLL ANIMATION */
-    gsap.utils.toArray('.tab-hero-img').forEach(img => {
-      gsap.from(img, {
-        scrollTrigger: {
-          trigger: img,
-          start: 'top 85%',
-          toggleActions: 'play none none reverse'
-        },
-        opacity: 0,
-        y: 20,
-        duration: 0.8,
-        ease: 'power3.out'
-      });
-    });
-
     /* TAB SYSTEM */
     document.querySelectorAll('.tab-nav').forEach(nav => {
       nav.querySelectorAll('.tab-btn').forEach(btn => {
@@ -2737,8 +2722,26 @@
           btn.classList.add('active');
 
           section.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-          document.getElementById(target).classList.add('active');
+          const panel = document.getElementById(target);
+          panel.classList.add('active');
+
+          // Animate hero image on tab switch
+          const img = panel.querySelector('.tab-hero-img');
+          if (img) {
+            gsap.fromTo(img, 
+              { opacity: 0, y: 16 },
+              { opacity: 0.85, y: 0, duration: 0.6, ease: 'power3.out' }
+            );
+          }
         });
+      });
+    });
+
+    /* ANIMATE ALL VISIBLE TAB HERO IMAGES ON SCROLL */
+    gsap.utils.toArray('.tab-panel.active .tab-hero-img').forEach(img => {
+      gsap.from(img, {
+        scrollTrigger: { trigger: img, start: 'top 90%', toggleActions: 'play none none none' },
+        opacity: 0, y: 16, duration: 0.7, ease: 'power3.out'
       });
     });
 
