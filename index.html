@@ -35,33 +35,6 @@
       padding: 16px 0 0;
     }
 
-    .nav::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 150px;
-      pointer-events: none;
-      background:
-        radial-gradient(circle at 8% 0%, rgba(61,154,255,0.11), transparent 34%),
-        radial-gradient(circle at 92% 0%, rgba(61,154,255,0.08), transparent 34%);
-      opacity: 0.55;
-      animation: headerGlowDrift 18s ease-in-out infinite alternate;
-      z-index: -1;
-    }
-
-    @keyframes headerGlowDrift {
-      0% {
-        opacity: 0.38;
-        transform: translate3d(-8px, 0, 0) scale(1);
-      }
-      100% {
-        opacity: 0.62;
-        transform: translate3d(8px, 0, 0) scale(1.04);
-      }
-    }
-
     .nav-inner {
       display: flex;
       align-items: center;
@@ -396,6 +369,106 @@
       background: rgba(13,13,13,0.34);
       border-radius: 100px;
       padding: 7px 12px;
+    }
+
+
+
+    /* CONNECTED TOOLCHAIN MAP */
+    .toolchain-map {
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+      border: 0.5px solid rgba(255,255,255,0.08);
+      background:
+        radial-gradient(circle at 16% 22%, rgba(61,154,255,0.13), transparent 34%),
+        radial-gradient(circle at 82% 70%, rgba(126,200,255,0.07), transparent 30%),
+        linear-gradient(135deg, rgba(255,255,255,0.035), rgba(255,255,255,0.012));
+      position: relative;
+      overflow: hidden;
+    }
+
+    .toolchain-map::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.024) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.024) 1px, transparent 1px);
+      background-size: 38px 38px;
+      opacity: 0.72;
+      pointer-events: none;
+    }
+
+    .toolchain-svg {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      display: block;
+      overflow: visible;
+    }
+
+    .toolchain-line {
+      fill: none;
+      stroke: rgba(61,154,255,0.26);
+      stroke-width: 1.2;
+      stroke-dasharray: 5 7;
+      animation: toolchainFlow 8s linear infinite;
+    }
+
+    .toolchain-line.soft {
+      stroke: rgba(126,200,255,0.16);
+      stroke-width: 1;
+    }
+
+    .toolchain-node rect {
+      fill: rgba(13,13,13,0.58);
+      stroke: rgba(255,255,255,0.11);
+      stroke-width: 0.75;
+    }
+
+    .toolchain-node text {
+      fill: rgba(232,230,223,0.56);
+      font-family: "Syne", sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .toolchain-hub circle {
+      fill: rgba(61,154,255,0.12);
+      stroke: rgba(61,154,255,0.55);
+      stroke-width: 1;
+      filter: url(#toolchainGlow);
+      animation: toolchainPulse 4.8s ease-in-out infinite;
+    }
+
+    .toolchain-hub text {
+      fill: #e8e6df;
+      font-family: "Syne", sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .toolchain-label {
+      fill: rgba(61,154,255,0.72);
+      font-family: "Syne", sans-serif;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    @keyframes toolchainFlow {
+      to { stroke-dashoffset: -96; }
+    }
+
+    @keyframes toolchainPulse {
+      0%, 100% { opacity: 0.82; transform: scale(1); transform-origin: center; }
+      50% { opacity: 1; transform: scale(1.035); transform-origin: center; }
     }
 
     @media (max-width: 980px) {
@@ -2134,33 +2207,110 @@
 
     <div class="tab-panel" id="mm-1">
       <div class="capability-feature">
-        <div class="hero-triple-img capability-feature-media">
-          <div class="drawer-hero-placeholder"><span>Multimodal Pipelines</span></div>
+        <div class="capability-feature-media">
+          <div class="toolchain-map" aria-label="Connected AI production toolchain map">
+            <svg class="toolchain-svg" viewBox="0 0 560 360" preserveAspectRatio="xMidYMid meet">
+              <defs>
+                <filter id="toolchainGlow" x="-50%" y="-50%" width="200%" height="200%">
+                  <feGaussianBlur stdDeviation="6" result="blur"/>
+                  <feMerge>
+                    <feMergeNode in="blur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
+              </defs>
+
+              <text class="toolchain-label" x="34" y="40">Inputs / Workspaces</text>
+              <text class="toolchain-label" x="222" y="40">Orchestration</text>
+              <text class="toolchain-label" x="400" y="40">Outputs / Actions</text>
+
+              <path class="toolchain-line" d="M142 82 C200 82 208 124 256 150"/>
+              <path class="toolchain-line soft" d="M142 126 C196 128 213 140 256 164"/>
+              <path class="toolchain-line" d="M142 170 C196 170 212 176 256 178"/>
+              <path class="toolchain-line soft" d="M142 214 C196 212 213 200 256 192"/>
+              <path class="toolchain-line" d="M142 258 C204 258 211 222 256 206"/>
+
+              <path class="toolchain-line" d="M304 150 C350 124 366 82 418 82"/>
+              <path class="toolchain-line soft" d="M304 164 C350 138 366 126 418 126"/>
+              <path class="toolchain-line" d="M304 178 C350 178 366 170 418 170"/>
+              <path class="toolchain-line soft" d="M304 192 C350 205 366 214 418 214"/>
+              <path class="toolchain-line" d="M304 206 C350 230 366 258 418 258"/>
+
+              <g class="toolchain-node">
+                <rect x="34" y="62" width="108" height="40" rx="20"/>
+                <text x="88" y="86" text-anchor="middle">Notion</text>
+              </g>
+              <g class="toolchain-node">
+                <rect x="34" y="106" width="108" height="40" rx="20"/>
+                <text x="88" y="130" text-anchor="middle">Figma</text>
+              </g>
+              <g class="toolchain-node">
+                <rect x="34" y="150" width="108" height="40" rx="20"/>
+                <text x="88" y="174" text-anchor="middle">Blender</text>
+              </g>
+              <g class="toolchain-node">
+                <rect x="34" y="194" width="108" height="40" rx="20"/>
+                <text x="88" y="218" text-anchor="middle">Browser</text>
+              </g>
+              <g class="toolchain-node">
+                <rect x="34" y="238" width="108" height="40" rx="20"/>
+                <text x="88" y="262" text-anchor="middle">Docs</text>
+              </g>
+
+              <g class="toolchain-hub">
+                <circle cx="280" cy="178" r="55"/>
+                <text x="280" y="170" text-anchor="middle">Claude</text>
+                <text x="280" y="188" text-anchor="middle">ChatGPT + MCP</text>
+              </g>
+
+              <g class="toolchain-node">
+                <rect x="418" y="62" width="108" height="40" rx="20"/>
+                <text x="472" y="86" text-anchor="middle">Prototype</text>
+              </g>
+              <g class="toolchain-node">
+                <rect x="418" y="106" width="108" height="40" rx="20"/>
+                <text x="472" y="130" text-anchor="middle">3D Scene</text>
+              </g>
+              <g class="toolchain-node">
+                <rect x="418" y="150" width="108" height="40" rx="20"/>
+                <text x="472" y="174" text-anchor="middle">Code</text>
+              </g>
+              <g class="toolchain-node">
+                <rect x="418" y="194" width="108" height="40" rx="20"/>
+                <text x="472" y="218" text-anchor="middle">API Call</text>
+              </g>
+              <g class="toolchain-node">
+                <rect x="418" y="238" width="108" height="40" rx="20"/>
+                <text x="472" y="262" text-anchor="middle">Deploy</text>
+              </g>
+            </svg>
+          </div>
         </div>
 
         <div class="capability-feature-copy">
           <div class="capability-feature-inner">
-            <div class="capability-kicker">Multimodal Pipeline Capabilities</div>
-            <h3 class="capability-title">Model chaining, asset generation, and production workflows</h3>
-            <p class="capability-desc">I design repeatable pipelines that connect image, video, voice, text, and production tools into one usable creative flow. The goal is to turn scattered model outputs into structured systems that can generate, refine, organize, and hand off assets for real production.</p>
+            <div class="capability-kicker">AI-Connected Production Systems</div>
+            <h3 class="capability-title">Connecting design tools, 3D software, docs, APIs, and coding agents into usable creative pipelines</h3>
+            <p class="capability-desc">I build workflows that connect tools like Claude, ChatGPT, Figma, Blender, Notion, browser automation, and production APIs into repeatable systems. The focus is not just generating assets, but creating connected pipelines where AI can help design, organize, prototype, code, document, and hand off work across real creative and product environments.</p>
 
             <div class="capability-meta-grid">
               <div class="capability-meta-card">
                 <label>Role</label>
-                <p>AI Design Strategist · Pipeline Architect · Creative Technologist</p>
+                <p>AI Workflow Architect · Creative Technologist · Vibecoding Builder</p>
               </div>
               <div class="capability-meta-card">
                 <label>Tools</label>
-                <div class="capability-pill-row" aria-label="Multimodal pipeline toolset">
+                <div class="capability-pill-row" aria-label="AI-connected production system toolset">
                   <span class="capability-pill">Claude</span>
                   <span class="capability-pill">ChatGPT</span>
-                  <span class="capability-pill">Gemini</span>
-                  <span class="capability-pill">MCP Servers</span>
-                  <span class="capability-pill">Browser Automation</span>
+                  <span class="capability-pill">MCP</span>
                   <span class="capability-pill">Figma</span>
-                  <span class="capability-pill">Runway</span>
-                  <span class="capability-pill">Veo</span>
-                  <span class="capability-pill">Midjourney</span>
+                  <span class="capability-pill">Blender</span>
+                  <span class="capability-pill">Notion</span>
+                  <span class="capability-pill">APIs</span>
+                  <span class="capability-pill">Browser Automation</span>
+                  <span class="capability-pill">GitHub</span>
+                  <span class="capability-pill">Vercel</span>
                 </div>
               </div>
             </div>
