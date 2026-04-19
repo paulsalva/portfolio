@@ -1240,14 +1240,14 @@
     .revenue-chart-wrap {
       position: relative;
       z-index: 2;
-      height: 410px;
+      height: 380px;
       border-radius: 12px;
-      overflow: hidden;
+      overflow: visible;
       background: rgba(5,5,5,0.38);
       border: 0.5px solid rgba(255,255,255,0.07);
     }
 
-    .revenue-chart { width: 100%; height: 100%; display: block; }
+    .revenue-chart { width: 100%; height: 100%; display: block; overflow: visible; }
     .revenue-axis { stroke: rgba(232,230,223,0.12); stroke-width: 1; }
     .revenue-grid { stroke: rgba(232,230,223,0.055); stroke-width: 1; }
 
@@ -1295,15 +1295,13 @@
     .revenue-tooltip {
       opacity: 0;
       pointer-events: none;
-      transform: translateY(8px);
-      transition: opacity 0.18s ease, transform 0.18s ease;
+      transition: opacity 0.18s ease;
     }
 
     .revenue-point:hover .revenue-tooltip,
     .revenue-point:focus .revenue-tooltip,
     .revenue-point:focus-within .revenue-tooltip {
       opacity: 1;
-      transform: translateY(0);
     }
 
     .revenue-tooltip-box {
@@ -1349,10 +1347,9 @@
     .revenue-sample.is-visible .revenue-dot.revenue-dot-4 { animation-delay: 1.35s; }
     .revenue-sample.is-visible .revenue-dot.revenue-dot-5 { animation-delay: 1.65s; }
 
-    .viz-card-note {
+    .revenue-chart-note, .viz-card-note {
       position: absolute;
       right: 18px;
-      top: 18px;
       padding: 8px 12px;
       border-radius: 100px;
       border: 0.5px solid rgba(61,154,255,0.28);
@@ -1364,6 +1361,14 @@
       text-transform: uppercase;
       backdrop-filter: blur(10px);
       z-index: 3;
+    }
+
+    .revenue-chart-note {
+      top: -28px;
+    }
+
+    .viz-card-note {
+      top: 18px;
     }
 
     @keyframes revenueDraw { to { stroke-dashoffset: 0; } }
@@ -1586,7 +1591,7 @@
     @media (max-width: 900px) {
       .revenue-sample-header { grid-template-columns: 1fr; }
       .revenue-metrics { flex-wrap: wrap; }
-      .revenue-chart-wrap { height: 330px; }
+      .revenue-chart-wrap { height: 300px; }
       .viz-sample-grid { grid-template-columns: 1fr; }
       .viz-sample-card {
         height: auto;
@@ -1600,7 +1605,7 @@
     @media (max-width: 640px) {
       .revenue-sample, .viz-sample-card { padding: 22px; }
       .revenue-metric { min-width: 100%; }
-      .revenue-chart-wrap { height: 280px; }
+      .revenue-chart-wrap { height: 260px; }
       .viz-sample-card { min-height: 320px; }
       .viz-visual { height: 180px; }
     }
@@ -2349,7 +2354,8 @@
           </div>
         </div>
         <div class="revenue-chart-wrap" style="flex:1;">
-          <svg class="revenue-chart" viewBox="0 0 1100 360" preserveAspectRatio="none" aria-label="Animated revenue line chart">
+          <div class="revenue-chart-note">Live Motion Study</div>
+          <svg class="revenue-chart" viewBox="0 0 1100 380" preserveAspectRatio="none" aria-label="Animated revenue line chart">
             <defs>
               <linearGradient id="revenueLineGradient" x1="0" y1="0" x2="1" y2="0">
                 <stop offset="0%" stop-color="#1a6fcc"/>
@@ -2366,7 +2372,7 @@
                 <feGaussianBlur stdDeviation="5" result="blur"/>
                 <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
               </filter>
-              <filter id="revenueGlowSoft" x="-30%" y="-30%" width="160%" height="160%">
+              <filter id="revenueGlowSoft" x="-40%" y="-40%" width="180%" height="180%">
                 <feGaussianBlur stdDeviation="3" result="blur"/>
                 <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
               </filter>
@@ -2388,6 +2394,7 @@
             <text class="revenue-label" x="24" y="284">$250K</text>
             <path class="revenue-fill" d="M80 292 C170 266, 225 250, 300 236 C395 218, 445 196, 525 174 C620 148, 690 134, 760 110 C850 80, 930 72, 1040 56 L1040 320 L80 320 Z" fill="url(#revenueAreaGradient)"/>
             <path class="revenue-line" pathLength="1" d="M80 292 C170 266, 225 250, 300 236 C395 218, 445 196, 525 174 C620 148, 690 134, 760 110 C850 80, 930 72, 1040 56"/>
+
             <g class="revenue-point" tabindex="0">
               <circle class="revenue-hit" cx="80" cy="292" r="24"/>
               <circle class="revenue-dot revenue-dot-1" cx="80" cy="292" r="5" fill="#3d9aff"/>
@@ -2397,6 +2404,7 @@
                 <text class="revenue-tooltip-label" x="14" y="34">Q1 Actual</text>
               </g>
             </g>
+
             <g class="revenue-point" tabindex="0">
               <circle class="revenue-hit" cx="300" cy="236" r="24"/>
               <circle class="revenue-dot revenue-dot-2" cx="300" cy="236" r="5" fill="#3d9aff"/>
@@ -2406,6 +2414,7 @@
                 <text class="revenue-tooltip-label" x="14" y="34">Q2 Actual</text>
               </g>
             </g>
+
             <g class="revenue-point" tabindex="0">
               <circle class="revenue-hit" cx="525" cy="174" r="24"/>
               <circle class="revenue-dot revenue-dot-3" cx="525" cy="174" r="5" fill="#7ec8ff"/>
@@ -2415,6 +2424,7 @@
                 <text class="revenue-tooltip-label" x="14" y="34">Q3 Actual</text>
               </g>
             </g>
+
             <g class="revenue-point" tabindex="0">
               <circle class="revenue-hit" cx="760" cy="110" r="24"/>
               <circle class="revenue-dot revenue-dot-4" cx="760" cy="110" r="5" fill="#7ec8ff"/>
@@ -2424,6 +2434,7 @@
                 <text class="revenue-tooltip-label" x="14" y="34">Q4 Actual</text>
               </g>
             </g>
+
             <g class="revenue-point" tabindex="0">
               <circle class="revenue-hit" cx="1040" cy="56" r="26"/>
               <circle class="revenue-dot revenue-dot-5" cx="1040" cy="56" r="6" fill="#e8e6df"/>
