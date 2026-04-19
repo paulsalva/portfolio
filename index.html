@@ -33,9 +33,43 @@
       display: flex;
       justify-content: center;
       padding: 16px 0 0;
+      isolation: isolate;
+      overflow: visible;
+    }
+
+    .nav::before,
+    .nav::after {
+      content: "";
+      position: absolute;
+      top: -34px;
+      width: 36vw;
+      height: 118px;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.22;
+      filter: blur(10px);
+      background: radial-gradient(ellipse at center, rgba(61,154,255,0.18), rgba(61,154,255,0.055) 40%, transparent 72%);
+      will-change: transform, opacity;
+      animation: headerBlueDrift 13s ease-in-out infinite alternate;
+    }
+
+    .nav::before {
+      left: -7vw;
+    }
+
+    .nav::after {
+      right: -7vw;
+      animation-delay: -5s;
+    }
+
+    @keyframes headerBlueDrift {
+      0% { transform: translateX(-10px) scaleX(0.96); opacity: 0.16; }
+      100% { transform: translateX(10px) scaleX(1.04); opacity: 0.26; }
     }
 
     .nav-inner {
+      position: relative;
+      z-index: 1;
       display: flex;
       align-items: center;
       gap: 2px;
@@ -237,156 +271,6 @@
       opacity: 0.85;
       display: block;
     }
-
-    .hero-triple-video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.8;
-      display: block;
-    }
-
-
-
-    /* CAPABILITY FEATURE LAYOUT */
-    .capability-feature {
-      display: grid;
-      grid-template-columns: minmax(320px, 0.85fr) minmax(420px, 1.15fr);
-      gap: 40px;
-      align-items: stretch;
-      margin-bottom: 40px;
-    }
-
-    .capability-feature-media {
-      height: 360px;
-      min-height: 360px;
-    }
-
-    .capability-feature-copy {
-      height: 360px;
-      min-height: 360px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 28px 32px;
-      border: 0.5px solid rgba(255,255,255,0.08);
-      border-radius: 8px;
-      background:
-        radial-gradient(circle at 12% 18%, rgba(61,154,255,0.10), transparent 34%),
-        linear-gradient(135deg, rgba(255,255,255,0.035), rgba(255,255,255,0.012));
-      position: relative;
-      overflow: hidden;
-    }
-
-    .capability-feature-copy::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-      background-size: 38px 38px;
-      opacity: 0.65;
-      pointer-events: none;
-    }
-
-    .capability-feature-inner {
-      position: relative;
-      z-index: 2;
-    }
-
-    .capability-kicker {
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: #3d9aff;
-      margin-bottom: 12px;
-    }
-
-    .capability-title {
-      font-size: clamp(21px, 2.55vw, 32px);
-      font-weight: 700;
-      letter-spacing: -0.035em;
-      color: #e8e6df;
-      line-height: 1.08;
-      max-width: 780px;
-      margin-bottom: 12px;
-    }
-
-    .capability-desc {
-      font-size: 13px;
-      font-weight: 400;
-      line-height: 1.65;
-      color: rgba(232,230,223,0.52);
-      max-width: 760px;
-      margin-bottom: 22px;
-    }
-
-    .capability-meta-grid {
-      display: grid;
-      grid-template-columns: minmax(180px, 0.75fr) minmax(280px, 1.25fr);
-      gap: 18px;
-      align-items: start;
-    }
-
-    .capability-meta-card {
-      border-top: 0.5px solid rgba(255,255,255,0.08);
-      padding-top: 14px;
-    }
-
-    .capability-meta-card label {
-      display: block;
-      font-size: 9px;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: rgba(232,230,223,0.24);
-      margin-bottom: 8px;
-    }
-
-    .capability-meta-card p {
-      font-size: 12px;
-      font-weight: 500;
-      color: rgba(232,230,223,0.68);
-      line-height: 1.55;
-    }
-
-    .capability-pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 0;
-    }
-
-    .capability-pill {
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: rgba(232,230,223,0.54);
-      border: 0.5px solid rgba(255,255,255,0.09);
-      background: rgba(13,13,13,0.34);
-      border-radius: 100px;
-      padding: 7px 12px;
-    }
-
-    @media (max-width: 980px) {
-      .capability-feature {
-        grid-template-columns: 1fr;
-      }
-
-      .capability-feature-media,
-      .capability-feature-copy {
-        min-height: 300px;
-        height: auto;
-      }
-
-      .capability-meta-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
 
     .hero-triple-img .drawer-hero-placeholder {
       height: 100%;
@@ -1326,7 +1210,7 @@
       grid-template-columns: 1fr auto;
       gap: 32px;
       align-items: start;
-      margin-bottom: 32px;
+      margin-bottom: 20px;
     }
 
     .revenue-eyebrow, .viz-sample-eyebrow {
@@ -1397,7 +1281,7 @@
       border: 0.5px solid rgba(255,255,255,0.07);
     }
 
-    .revenue-chart { width: 100%; height: 100%; display: block; }
+    .revenue-chart { width: 100%; height: 100%; display: block; overflow: visible; }
     .revenue-axis { stroke: rgba(232,230,223,0.12); stroke-width: 1; }
     .revenue-grid { stroke: rgba(232,230,223,0.055); stroke-width: 1; }
 
@@ -1445,15 +1329,13 @@
     .revenue-tooltip {
       opacity: 0;
       pointer-events: none;
-      transform: translateY(8px);
-      transition: opacity 0.18s ease, transform 0.18s ease;
+      transition: opacity 0.18s ease;
     }
 
     .revenue-point:hover .revenue-tooltip,
     .revenue-point:focus .revenue-tooltip,
     .revenue-point:focus-within .revenue-tooltip {
       opacity: 1;
-      transform: translateY(0);
     }
 
     .revenue-tooltip-box {
@@ -1516,7 +1398,7 @@
     }
 
     .revenue-chart-note {
-      top: -42px;
+      top: -28px;
     }
 
     .viz-card-note {
@@ -1567,6 +1449,7 @@
     }
 
     .viz-row-top .viz-sample-card { height: 100%; min-height: 360px; }
+    .viz-row-top .viz-sample-card .viz-visual { padding-bottom: 30px; }
     .viz-row-bottom .viz-sample-card { height: 260px; }
 
     .viz-sample-card::before {
@@ -2069,34 +1952,56 @@
     </div>
 
     <div class="tab-panel active" id="mm-0">
+      <div class="hero-triple">
+        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Generative AI — Image 01</span></div></div>
+        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Generative AI — Image 02</span></div></div>
+        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Generative AI — Image 03</span></div></div>
+      </div>
+      <div class="tab-body">
+        <div class="tab-meta">
+          <div class="drawer-meta-item"><label>Role</label><p>AI Design Strategist</p></div>
+          <div class="drawer-meta-item"><label>Scope</label><p>Generative AI · Interface Design · Workflow</p></div>
+          <div class="drawer-meta-item"><label>Tools</label><p>Runway · Veo · MidJourney · Suno · ElevenLabs</p></div>
+        </div>
+        <div class="tab-copy">
+          <h3>Designing on top of foundation models</h3>
+          <p>Placeholder — add your generative AI design work here.</p>
+          <div class="drawer-copy-cols">
+            <p>Describe your approach to designing interfaces that expose generative AI capabilities without overwhelming users.</p>
+            <p>Outline specific workflows or pipelines you designed and the creative or business outcomes they enabled.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="mm-1">
       <div class="capability-feature">
         <div class="hero-triple-img capability-feature-media">
-          <video class="hero-triple-video lazy-video" muted loop playsinline preload="none" poster="videos/blackhole3.webp" data-src="videos/blackhole3.mp4"></video>
+          <div class="drawer-hero-placeholder"><span>Multimodal Pipelines</span></div>
         </div>
 
         <div class="capability-feature-copy">
           <div class="capability-feature-inner">
-            <div class="capability-kicker">Generative AI Capabilities</div>
-            <h3 class="capability-title">Generative image, video, voice, music, and sound workflows</h3>
-            <p class="capability-desc">I build practical multimodal workflows that move from concept to usable creative output across image generation, video generation, voice, music, sound design, and production-ready iteration. The work is less about one tool and more about chaining the right models into a repeatable creative system.</p>
+            <div class="capability-kicker">Multimodal Pipeline Capabilities</div>
+            <h3 class="capability-title">Model chaining, asset generation, and production workflows</h3>
+            <p class="capability-desc">I design repeatable pipelines that connect image, video, voice, text, and production tools into one usable creative flow. The goal is to turn scattered model outputs into structured systems that can generate, refine, organize, and hand off assets for real production.</p>
 
             <div class="capability-meta-grid">
               <div class="capability-meta-card">
                 <label>Role</label>
-                <p>AI Design Strategist · Multimedia Designer · Generative Artist</p>
+                <p>AI Design Strategist · Pipeline Architect · Creative Technologist</p>
               </div>
               <div class="capability-meta-card">
                 <label>Tools</label>
-                <div class="capability-pill-row" aria-label="Generative AI toolset">
-                  <span class="capability-pill">Flow / Veo</span>
-                  <span class="capability-pill">Nano Banana</span>
-                  <span class="capability-pill">Seedance</span>
-                  <span class="capability-pill">Kling</span>
+                <div class="capability-pill-row" aria-label="Multimodal pipeline toolset">
+                  <span class="capability-pill">Claude</span>
+                  <span class="capability-pill">Gemini</span>
+                  <span class="capability-pill">MCP Servers</span>
+                  <span class="capability-pill">Browser Automation</span>
+                  <span class="capability-pill">Figma</span>
                   <span class="capability-pill">Runway</span>
+                  <span class="capability-pill">Veo</span>
                   <span class="capability-pill">Midjourney</span>
-                  <span class="capability-pill">ElevenLabs</span>
-                  <span class="capability-pill">Suno</span>
-                  <span class="capability-pill">Google FX Labs</span>
                 </div>
               </div>
             </div>
@@ -2105,47 +2010,37 @@
       </div>
     </div>
 
-    <div class="tab-panel" id="mm-1">
-      <div class="hero-triple">
-        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Multimodal Pipelines — Image 01</span></div></div>
-        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Multimodal Pipelines — Image 02</span></div></div>
-        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Multimodal Pipelines — Image 03</span></div></div>
-      </div>
-      <div class="tab-body">
-        <div class="tab-meta">
-          <div class="drawer-meta-item"><label>Role</label><p>AI Design Strategist · Pipeline Architect</p></div>
-          <div class="drawer-meta-item"><label>Scope</label><p>Multimodal · Pipeline Design · Integration</p></div>
-          <div class="drawer-meta-item"><label>Tools</label><p>Claude · Gemini · MCP Servers · Automation</p></div>
-        </div>
-        <div class="tab-copy">
-          <h3>Chaining models to build something new</h3>
-          <p>Placeholder — add your multimodal pipeline work here.</p>
-          <div class="drawer-copy-cols">
-            <p>Describe the pipeline architecture — which models, how they connect, and what design decisions governed the flow.</p>
-            <p>Outline the output: what the pipeline produces, how fast, and how it changed the production process.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="tab-panel" id="mm-2">
-      <div class="hero-triple">
-        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Agentic Automation — Image 01</span></div></div>
-        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Agentic Automation — Image 02</span></div></div>
-        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Agentic Automation — Image 03</span></div></div>
-      </div>
-      <div class="tab-body">
-        <div class="tab-meta">
-          <div class="drawer-meta-item"><label>Role</label><p>AI Design Strategist · Builder</p></div>
-          <div class="drawer-meta-item"><label>Scope</label><p>Agentic AI · Automation · Vibecoding</p></div>
-          <div class="drawer-meta-item"><label>Tools</label><p>Claude · MCP · Prompt Machine · Browser Automation</p></div>
+      <div class="capability-feature">
+        <div class="hero-triple-img capability-feature-media">
+          <div class="drawer-hero-placeholder"><span>Agentic Automation</span></div>
         </div>
-        <div class="tab-copy">
-          <h3>Building AI that acts, not just responds</h3>
-          <p>Placeholder — add your agentic automation work here.</p>
-          <div class="drawer-copy-cols">
-            <p>Describe the agentic system — what it does autonomously, how it was designed, and what guardrails shaped its behavior.</p>
-            <p>Outline the time or effort saved, and what it unlocked for creative or product workflows.</p>
+
+        <div class="capability-feature-copy">
+          <div class="capability-feature-inner">
+            <div class="capability-kicker">Agentic Automation Capabilities</div>
+            <h3 class="capability-title">AI agents, browser automation, and repeatable creative systems</h3>
+            <p class="capability-desc">I build agentic workflows that help automate repetitive creative and product tasks: prompt variation, asset organization, research capture, UI generation, and production handoffs. The focus is practical automation with clear guardrails, not novelty demos.</p>
+
+            <div class="capability-meta-grid">
+              <div class="capability-meta-card">
+                <label>Role</label>
+                <p>AI Design Strategist · Automation Builder · Workflow Designer</p>
+              </div>
+              <div class="capability-meta-card">
+                <label>Tools</label>
+                <div class="capability-pill-row" aria-label="Agentic automation toolset">
+                  <span class="capability-pill">Claude</span>
+                  <span class="capability-pill">ChatGPT</span>
+                  <span class="capability-pill">Gemini</span>
+                  <span class="capability-pill">MCP</span>
+                  <span class="capability-pill">Prompt Machine</span>
+                  <span class="capability-pill">Browser Automation</span>
+                  <span class="capability-pill">APIs</span>
+                  <span class="capability-pill">Vibecoding</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -2520,8 +2415,7 @@
           </div>
         </div>
         <div class="revenue-chart-wrap" style="flex:1;">
-          <div class="revenue-chart-note">Live Motion Study</div>
-          <svg class="revenue-chart" viewBox="0 0 1100 380" preserveAspectRatio="none" aria-label="Animated revenue line chart">
+          <svg class="revenue-chart" viewBox="0 0 1100 360" preserveAspectRatio="none" aria-label="Animated revenue line chart">
             <defs>
               <linearGradient id="revenueLineGradient" x1="0" y1="0" x2="1" y2="0">
                 <stop offset="0%" stop-color="#1a6fcc"/>
@@ -2538,7 +2432,7 @@
                 <feGaussianBlur stdDeviation="5" result="blur"/>
                 <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
               </filter>
-              <filter id="revenueGlowSoft" x="-30%" y="-30%" width="160%" height="160%">
+              <filter id="revenueGlowSoft" x="-40%" y="-40%" width="180%" height="180%">
                 <feGaussianBlur stdDeviation="3" result="blur"/>
                 <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
               </filter>
@@ -2560,46 +2454,51 @@
             <text class="revenue-label" x="24" y="284">$250K</text>
             <path class="revenue-fill" d="M80 292 C170 266, 225 250, 300 236 C395 218, 445 196, 525 174 C620 148, 690 134, 760 110 C850 80, 930 72, 1040 56 L1040 320 L80 320 Z" fill="url(#revenueAreaGradient)"/>
             <path class="revenue-line" pathLength="1" d="M80 292 C170 266, 225 250, 300 236 C395 218, 445 196, 525 174 C620 148, 690 134, 760 110 C850 80, 930 72, 1040 56"/>
+
             <g class="revenue-point" tabindex="0">
               <circle class="revenue-hit" cx="80" cy="292" r="24"/>
               <circle class="revenue-dot revenue-dot-1" cx="80" cy="292" r="5" fill="#3d9aff"/>
-              <g class="revenue-tooltip" transform="translate(54 236)">
+              <g class="revenue-tooltip" transform="translate(34 236)">
                 <rect class="revenue-tooltip-box" x="0" y="0" width="92" height="44"/>
                 <text class="revenue-tooltip-value" x="14" y="19">$250K</text>
                 <text class="revenue-tooltip-label" x="14" y="34">Q1 Actual</text>
               </g>
             </g>
+
             <g class="revenue-point" tabindex="0">
               <circle class="revenue-hit" cx="300" cy="236" r="24"/>
               <circle class="revenue-dot revenue-dot-2" cx="300" cy="236" r="5" fill="#3d9aff"/>
-              <g class="revenue-tooltip" transform="translate(274 180)">
+              <g class="revenue-tooltip" transform="translate(254 180)">
                 <rect class="revenue-tooltip-box" x="0" y="0" width="92" height="44"/>
                 <text class="revenue-tooltip-value" x="14" y="19">$420K</text>
                 <text class="revenue-tooltip-label" x="14" y="34">Q2 Actual</text>
               </g>
             </g>
+
             <g class="revenue-point" tabindex="0">
               <circle class="revenue-hit" cx="525" cy="174" r="24"/>
               <circle class="revenue-dot revenue-dot-3" cx="525" cy="174" r="5" fill="#7ec8ff"/>
-              <g class="revenue-tooltip" transform="translate(499 118)">
+              <g class="revenue-tooltip" transform="translate(479 118)">
                 <rect class="revenue-tooltip-box" x="0" y="0" width="92" height="44"/>
                 <text class="revenue-tooltip-value" x="14" y="19">$610K</text>
                 <text class="revenue-tooltip-label" x="14" y="34">Q3 Actual</text>
               </g>
             </g>
+
             <g class="revenue-point" tabindex="0">
               <circle class="revenue-hit" cx="760" cy="110" r="24"/>
               <circle class="revenue-dot revenue-dot-4" cx="760" cy="110" r="5" fill="#7ec8ff"/>
-              <g class="revenue-tooltip" transform="translate(734 54)">
+              <g class="revenue-tooltip" transform="translate(714 54)">
                 <rect class="revenue-tooltip-box" x="0" y="0" width="92" height="44"/>
                 <text class="revenue-tooltip-value" x="14" y="19">$840K</text>
                 <text class="revenue-tooltip-label" x="14" y="34">Q4 Actual</text>
               </g>
             </g>
+
             <g class="revenue-point" tabindex="0">
               <circle class="revenue-hit" cx="1040" cy="56" r="26"/>
               <circle class="revenue-dot revenue-dot-5" cx="1040" cy="56" r="6" fill="#e8e6df"/>
-              <g class="revenue-tooltip" transform="translate(952 92)">
+              <g class="revenue-tooltip" transform="translate(988 0)">
                 <rect class="revenue-tooltip-box" x="0" y="0" width="104" height="44"/>
                 <text class="revenue-tooltip-value" x="14" y="19">$1.2M</text>
                 <text class="revenue-tooltip-label" x="14" y="34">Forecast</text>
@@ -2615,7 +2514,7 @@
           <h3 class="viz-sample-title">Conversion Funnel</h3>
         </div>
         <div class="viz-visual">
-          <svg viewBox="0 0 620 260" preserveAspectRatio="xMidYMid meet">
+          <svg viewBox="0 0 620 300" preserveAspectRatio="xMidYMid meet">
             <defs>
               <linearGradient id="sharedVizGradient" x1="0" y1="0" x2="1" y2="1">
                 <stop offset="0%" stop-color="#1a6fcc"/>
@@ -3395,35 +3294,6 @@
     if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
     if (lightboxOverlay) lightboxOverlay.addEventListener('click', (e) => { if (e.target === lightboxOverlay) closeLightbox(); });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
-
-    /* LAZY LOOPING HERO VIDEOS */
-    const lazyVideos = document.querySelectorAll('.lazy-video');
-
-    const videoObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        const video = entry.target;
-
-        if (entry.isIntersecting) {
-          if (!video.dataset.loaded) {
-            const source = document.createElement('source');
-            source.src = video.dataset.src;
-            source.type = 'video/mp4';
-            video.appendChild(source);
-            video.dataset.loaded = 'true';
-            video.load();
-          }
-
-          video.play().catch(() => {});
-        } else {
-          video.pause();
-        }
-      });
-    }, {
-      rootMargin: '250px 0px',
-      threshold: 0.15
-    });
-
-    lazyVideos.forEach(video => videoObserver.observe(video));
 
 
 
