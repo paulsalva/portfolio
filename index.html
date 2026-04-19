@@ -1179,6 +1179,189 @@
       .creative-image-row { grid-template-columns: 1fr; }
     }
 
+
+    /* REVENUE INTELLIGENCE SAMPLE */
+    .revenue-sample {
+      margin-bottom: 56px;
+      padding: 32px;
+      border: 0.5px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(61,154,255,0.14), transparent 32%),
+        radial-gradient(circle at 85% 30%, rgba(126,200,255,0.08), transparent 28%),
+        linear-gradient(135deg, rgba(255,255,255,0.055), rgba(255,255,255,0.018));
+      position: relative;
+      overflow: hidden;
+    }
+    .revenue-sample::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent 90%);
+      pointer-events: none;
+    }
+    .revenue-sample-header {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 32px;
+      align-items: start;
+      margin-bottom: 32px;
+    }
+    .revenue-eyebrow {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #3d9aff;
+      margin-bottom: 10px;
+    }
+    .revenue-title {
+      font-size: clamp(22px, 3vw, 34px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: #e8e6df;
+      line-height: 1.05;
+      margin-bottom: 12px;
+    }
+    .revenue-desc {
+      font-size: 14px;
+      line-height: 1.65;
+      color: rgba(232,230,223,0.48);
+      max-width: 560px;
+    }
+    .revenue-metrics {
+      display: flex;
+      gap: 12px;
+      align-items: stretch;
+    }
+    .revenue-metric {
+      min-width: 130px;
+      padding: 16px 18px;
+      border-radius: 12px;
+      border: 0.5px solid rgba(255,255,255,0.09);
+      background: rgba(13,13,13,0.48);
+      backdrop-filter: blur(10px);
+    }
+    .revenue-metric-label {
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(232,230,223,0.28);
+      margin-bottom: 8px;
+    }
+    .revenue-metric-value {
+      font-size: 22px;
+      font-weight: 700;
+      color: #e8e6df;
+      letter-spacing: -0.03em;
+    }
+    .revenue-metric-value span { color: #3d9aff; }
+    .revenue-chart-wrap {
+      position: relative;
+      z-index: 2;
+      height: 380px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: rgba(5,5,5,0.38);
+      border: 0.5px solid rgba(255,255,255,0.07);
+    }
+    .revenue-chart {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    .revenue-axis {
+      stroke: rgba(232,230,223,0.12);
+      stroke-width: 1;
+    }
+    .revenue-grid {
+      stroke: rgba(232,230,223,0.055);
+      stroke-width: 1;
+    }
+    .revenue-label {
+      fill: rgba(232,230,223,0.28);
+      font-family: "Syne", sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+    .revenue-fill {
+      opacity: 0;
+      transform-origin: center bottom;
+    }
+    .revenue-line {
+      fill: none;
+      stroke: url(#revenueLineGradient);
+      stroke-width: 5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      filter: url(#revenueGlow);
+      path-length: 1;
+      stroke-dasharray: 1;
+      stroke-dashoffset: 1;
+    }
+    .revenue-dot {
+      opacity: 0;
+      filter: url(#revenueGlow);
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+    .revenue-sample.is-visible .revenue-line {
+      animation: revenueDraw 2.1s cubic-bezier(0.16,1,0.3,1) forwards;
+    }
+    .revenue-sample.is-visible .revenue-fill {
+      animation: revenueFill 1.4s ease forwards 0.55s;
+    }
+    .revenue-sample.is-visible .revenue-dot {
+      animation: revenueDot 0.55s ease forwards;
+    }
+    .revenue-sample.is-visible .revenue-dot.revenue-dot-1 { animation-delay: 0.45s; }
+    .revenue-sample.is-visible .revenue-dot.revenue-dot-2 { animation-delay: 0.75s; }
+    .revenue-sample.is-visible .revenue-dot.revenue-dot-3 { animation-delay: 1.05s; }
+    .revenue-sample.is-visible .revenue-dot.revenue-dot-4 { animation-delay: 1.35s; }
+    .revenue-sample.is-visible .revenue-dot.revenue-dot-5 { animation-delay: 1.65s; }
+    .revenue-chart-note {
+      position: absolute;
+      right: 24px;
+      top: 24px;
+      padding: 10px 14px;
+      border-radius: 100px;
+      border: 0.5px solid rgba(61,154,255,0.28);
+      background: rgba(61,154,255,0.08);
+      color: rgba(232,230,223,0.62);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      backdrop-filter: blur(10px);
+    }
+    @keyframes revenueDraw { to { stroke-dashoffset: 0; } }
+    @keyframes revenueFill {
+      from { opacity: 0; transform: scaleY(0.82); }
+      to { opacity: 1; transform: scaleY(1); }
+    }
+    @keyframes revenueDot {
+      from { opacity: 0; transform: scale(0.4); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @media (max-width: 900px) {
+      .revenue-sample-header { grid-template-columns: 1fr; }
+      .revenue-metrics { flex-wrap: wrap; }
+      .revenue-chart-wrap { height: 300px; }
+    }
+    @media (max-width: 640px) {
+      .revenue-sample { padding: 22px; }
+      .revenue-metric { min-width: 100%; }
+      .revenue-chart-wrap { height: 260px; }
+    }
+
     /* RECOGNITION */
     a.rec-row.rec-link {
       text-decoration: none;
@@ -2015,7 +2198,88 @@
       <span class="section-title">Data Visualization</span>
       <span class="section-count">Placeholder</span>
     </div>
-    <div class="cases">
+    
+    <div class="revenue-sample" id="revenue-sample">
+      <div class="revenue-sample-header">
+        <div>
+          <div class="revenue-eyebrow">Sample Work</div>
+          <h3 class="revenue-title">Revenue Intelligence Sample</h3>
+          <p class="revenue-desc">
+            Animated line chart concept for an executive analytics dashboard. The curve draws itself on scroll, using a glowing stroke, gradient area fill, and polished data-viz motion language.
+          </p>
+        </div>
+        <div class="revenue-metrics">
+          <div class="revenue-metric">
+            <div class="revenue-metric-label">Revenue</div>
+            <div class="revenue-metric-value">$980<span>K</span></div>
+          </div>
+          <div class="revenue-metric">
+            <div class="revenue-metric-label">Growth</div>
+            <div class="revenue-metric-value">+42<span>%</span></div>
+          </div>
+          <div class="revenue-metric">
+            <div class="revenue-metric-label">Forecast</div>
+            <div class="revenue-metric-value">$1.2<span>M</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="revenue-chart-wrap">
+        <div class="revenue-chart-note">Live Motion Study</div>
+        <svg class="revenue-chart" viewBox="0 0 1100 380" preserveAspectRatio="none" aria-label="Animated revenue line chart">
+          <defs>
+            <linearGradient id="revenueLineGradient" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#1a6fcc"/>
+              <stop offset="45%" stop-color="#3d9aff"/>
+              <stop offset="72%" stop-color="#7ec8ff"/>
+              <stop offset="100%" stop-color="#3d9aff"/>
+            </linearGradient>
+            <linearGradient id="revenueAreaGradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="rgba(61,154,255,0.34)"/>
+              <stop offset="45%" stop-color="rgba(61,154,255,0.12)"/>
+              <stop offset="100%" stop-color="rgba(61,154,255,0)"/>
+            </linearGradient>
+            <filter id="revenueGlow" x="-30%" y="-30%" width="160%" height="160%">
+              <feGaussianBlur stdDeviation="5" result="blur"/>
+              <feMerge>
+                <feMergeNode in="blur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </defs>
+
+          <line class="revenue-grid" x1="80" y1="70" x2="1040" y2="70"/>
+          <line class="revenue-grid" x1="80" y1="140" x2="1040" y2="140"/>
+          <line class="revenue-grid" x1="80" y1="210" x2="1040" y2="210"/>
+          <line class="revenue-grid" x1="80" y1="280" x2="1040" y2="280"/>
+
+          <line class="revenue-axis" x1="80" y1="320" x2="1040" y2="320"/>
+          <line class="revenue-axis" x1="80" y1="50" x2="80" y2="320"/>
+
+          <text class="revenue-label" x="80" y="350">Q1</text>
+          <text class="revenue-label" x="315" y="350">Q2</text>
+          <text class="revenue-label" x="550" y="350">Q3</text>
+          <text class="revenue-label" x="785" y="350">Q4</text>
+          <text class="revenue-label" x="995" y="350">Forecast</text>
+
+          <text class="revenue-label" x="24" y="74">$1M</text>
+          <text class="revenue-label" x="24" y="144">$750K</text>
+          <text class="revenue-label" x="24" y="214">$500K</text>
+          <text class="revenue-label" x="24" y="284">$250K</text>
+
+          <path class="revenue-fill" d="M80 292 C170 266, 225 250, 300 236 C395 218, 445 196, 525 174 C620 148, 690 134, 760 110 C850 80, 930 72, 1040 56 L1040 320 L80 320 Z" fill="url(#revenueAreaGradient)"/>
+          <path class="revenue-line" pathLength="1" d="M80 292 C170 266, 225 250, 300 236 C395 218, 445 196, 525 174 C620 148, 690 134, 760 110 C850 80, 930 72, 1040 56"/>
+
+          <circle class="revenue-dot revenue-dot-1" cx="80" cy="292" r="5" fill="#3d9aff"/>
+          <circle class="revenue-dot revenue-dot-2" cx="300" cy="236" r="5" fill="#3d9aff"/>
+          <circle class="revenue-dot revenue-dot-3" cx="525" cy="174" r="5" fill="#7ec8ff"/>
+          <circle class="revenue-dot revenue-dot-4" cx="760" cy="110" r="5" fill="#7ec8ff"/>
+          <circle class="revenue-dot revenue-dot-5" cx="1040" cy="56" r="6" fill="#e8e6df"/>
+        </svg>
+      </div>
+    </div>
+
+<div class="cases">
       <div class="case-wrapper">
         <div class="case">
           <div class="case-meta">
@@ -2888,6 +3152,23 @@
       });
     });
 
+  </script>
+
+
+  <script>
+    const revenueSample = document.getElementById("revenue-sample");
+
+    if (revenueSample) {
+      const revenueObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            revenueSample.classList.add("is-visible");
+          }
+        });
+      }, { threshold: 0.35 });
+
+      revenueObserver.observe(revenueSample);
+    }
   </script>
 
 </body>
