@@ -377,33 +377,25 @@
     .toolchain-map {
       width: 100%;
       height: 100%;
-      border-radius: 8px;
-      border: 0.5px solid rgba(255,255,255,0.08);
-      background:
-        radial-gradient(circle at 16% 22%, rgba(61,154,255,0.13), transparent 34%),
-        radial-gradient(circle at 82% 70%, rgba(126,200,255,0.07), transparent 30%),
-        linear-gradient(135deg, rgba(255,255,255,0.035), rgba(255,255,255,0.012));
+      border-radius: 0;
+      border: none;
+      background: transparent;
       position: relative;
-      overflow: hidden;
+      overflow: visible;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .toolchain-map::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.024) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.024) 1px, transparent 1px);
-      background-size: 38px 38px;
-      opacity: 0.72;
-      pointer-events: none;
+      display: none;
     }
 
     .toolchain-svg {
       position: relative;
       z-index: 2;
-      width: 100%;
-      height: 100%;
+      width: 112%;
+      height: 112%;
       display: block;
       overflow: visible;
     }
@@ -422,17 +414,17 @@
     }
 
     .toolchain-node rect {
-      fill: rgba(13,13,13,0.58);
-      stroke: rgba(255,255,255,0.11);
+      fill: rgba(13,13,13,0.62);
+      stroke: rgba(255,255,255,0.12);
       stroke-width: 0.75;
     }
 
     .toolchain-node text {
-      fill: rgba(232,230,223,0.56);
+      fill: rgba(232,230,223,0.58);
       font-family: "Syne", sans-serif;
       font-size: 10px;
       font-weight: 500;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.075em;
       text-transform: uppercase;
     }
 
@@ -447,16 +439,16 @@
     .toolchain-hub text {
       fill: #e8e6df;
       font-family: "Syne", sans-serif;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
+      font-size: 9.5px;
+      font-weight: 600;
+      letter-spacing: 0.055em;
       text-transform: uppercase;
     }
 
     .toolchain-label {
       fill: rgba(61,154,255,0.72);
       font-family: "Syne", sans-serif;
-      font-size: 9px;
+      font-size: 8.5px;
       font-weight: 500;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -2220,9 +2212,9 @@
                 </filter>
               </defs>
 
-              <text class="toolchain-label" x="34" y="40">Inputs / Workspaces</text>
-              <text class="toolchain-label" x="222" y="40">Orchestration</text>
-              <text class="toolchain-label" x="400" y="40">Outputs / Actions</text>
+              <text class="toolchain-label" x="88" y="40" text-anchor="middle">Inputs / Workspaces</text>
+              <text class="toolchain-label" x="280" y="40" text-anchor="middle">Orchestration</text>
+              <text class="toolchain-label" x="472" y="40" text-anchor="middle">Outputs / Actions</text>
 
               <path class="toolchain-line" d="M142 82 C200 82 208 124 256 150"/>
               <path class="toolchain-line soft" d="M142 126 C196 128 213 140 256 164"/>
@@ -2259,8 +2251,9 @@
 
               <g class="toolchain-hub">
                 <circle cx="280" cy="178" r="55"/>
-                <text x="280" y="170" text-anchor="middle">Claude</text>
-                <text x="280" y="188" text-anchor="middle">ChatGPT + MCP</text>
+                <text x="280" y="166" text-anchor="middle">Claude + ChatGPT</text>
+                <text x="280" y="184" text-anchor="middle">MCP</text>
+                <text x="280" y="202" text-anchor="middle">APIs</text>
               </g>
 
               <g class="toolchain-node">
