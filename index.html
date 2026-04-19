@@ -1182,7 +1182,7 @@
 
     /* REVENUE INTELLIGENCE SAMPLE */
     .revenue-sample {
-      margin-bottom: 56px;
+      margin-bottom: 32px;
       padding: 32px;
       border: 0.5px solid rgba(255,255,255,0.1);
       border-radius: 16px;
@@ -1193,6 +1193,7 @@
       position: relative;
       overflow: hidden;
     }
+
     .revenue-sample::before {
       content: "";
       position: absolute;
@@ -1204,6 +1205,7 @@
       mask-image: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent 90%);
       pointer-events: none;
     }
+
     .revenue-sample-header {
       position: relative;
       z-index: 2;
@@ -1213,7 +1215,9 @@
       align-items: start;
       margin-bottom: 32px;
     }
-    .revenue-eyebrow {
+
+    .revenue-eyebrow,
+    .viz-sample-eyebrow {
       font-size: 10px;
       font-weight: 500;
       letter-spacing: 0.14em;
@@ -1221,6 +1225,7 @@
       color: #3d9aff;
       margin-bottom: 10px;
     }
+
     .revenue-title {
       font-size: clamp(22px, 3vw, 34px);
       font-weight: 700;
@@ -1229,17 +1234,20 @@
       line-height: 1.05;
       margin-bottom: 12px;
     }
+
     .revenue-desc {
       font-size: 14px;
       line-height: 1.65;
       color: rgba(232,230,223,0.48);
       max-width: 560px;
     }
+
     .revenue-metrics {
       display: flex;
       gap: 12px;
       align-items: stretch;
     }
+
     .revenue-metric {
       min-width: 130px;
       padding: 16px 18px;
@@ -1248,6 +1256,7 @@
       background: rgba(13,13,13,0.48);
       backdrop-filter: blur(10px);
     }
+
     .revenue-metric-label {
       font-size: 9px;
       font-weight: 500;
@@ -1256,13 +1265,16 @@
       color: rgba(232,230,223,0.28);
       margin-bottom: 8px;
     }
+
     .revenue-metric-value {
       font-size: 22px;
       font-weight: 700;
       color: #e8e6df;
       letter-spacing: -0.03em;
     }
+
     .revenue-metric-value span { color: #3d9aff; }
+
     .revenue-chart-wrap {
       position: relative;
       z-index: 2;
@@ -1272,30 +1284,37 @@
       background: rgba(5,5,5,0.38);
       border: 0.5px solid rgba(255,255,255,0.07);
     }
+
     .revenue-chart {
       width: 100%;
       height: 100%;
       display: block;
     }
+
     .revenue-axis {
       stroke: rgba(232,230,223,0.12);
       stroke-width: 1;
     }
+
     .revenue-grid {
       stroke: rgba(232,230,223,0.055);
       stroke-width: 1;
     }
-    .revenue-label {
+
+    .revenue-label,
+    .viz-label {
       fill: rgba(232,230,223,0.28);
       font-family: "Syne", sans-serif;
       font-size: 11px;
       font-weight: 500;
       letter-spacing: 0.04em;
     }
+
     .revenue-fill {
       opacity: 0;
       transform-origin: center bottom;
     }
+
     .revenue-line {
       fill: none;
       stroke: url(#revenueLineGradient);
@@ -1307,59 +1326,296 @@
       stroke-dasharray: 1;
       stroke-dashoffset: 1;
     }
+
     .revenue-dot {
       opacity: 0;
       filter: url(#revenueGlow);
       transform-box: fill-box;
       transform-origin: center;
     }
+
     .revenue-sample.is-visible .revenue-line {
       animation: revenueDraw 2.1s cubic-bezier(0.16,1,0.3,1) forwards;
     }
+
     .revenue-sample.is-visible .revenue-fill {
       animation: revenueFill 1.4s ease forwards 0.55s;
     }
+
     .revenue-sample.is-visible .revenue-dot {
       animation: revenueDot 0.55s ease forwards;
     }
+
     .revenue-sample.is-visible .revenue-dot.revenue-dot-1 { animation-delay: 0.45s; }
     .revenue-sample.is-visible .revenue-dot.revenue-dot-2 { animation-delay: 0.75s; }
     .revenue-sample.is-visible .revenue-dot.revenue-dot-3 { animation-delay: 1.05s; }
     .revenue-sample.is-visible .revenue-dot.revenue-dot-4 { animation-delay: 1.35s; }
     .revenue-sample.is-visible .revenue-dot.revenue-dot-5 { animation-delay: 1.65s; }
-    .revenue-chart-note {
+
+    .revenue-chart-note,
+    .viz-card-note {
       position: absolute;
-      right: 24px;
-      top: 24px;
-      padding: 10px 14px;
+      right: 20px;
+      top: 20px;
+      padding: 9px 13px;
       border-radius: 100px;
       border: 0.5px solid rgba(61,154,255,0.28);
       background: rgba(61,154,255,0.08);
       color: rgba(232,230,223,0.62);
-      font-size: 10px;
+      font-size: 9px;
       font-weight: 500;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       backdrop-filter: blur(10px);
+      z-index: 3;
     }
+
     @keyframes revenueDraw { to { stroke-dashoffset: 0; } }
+
     @keyframes revenueFill {
       from { opacity: 0; transform: scaleY(0.82); }
       to { opacity: 1; transform: scaleY(1); }
     }
+
     @keyframes revenueDot {
       from { opacity: 0; transform: scale(0.4); }
       to { opacity: 1; transform: scale(1); }
     }
-    @media (max-width: 900px) {
-      .revenue-sample-header { grid-template-columns: 1fr; }
-      .revenue-metrics { flex-wrap: wrap; }
-      .revenue-chart-wrap { height: 300px; }
+
+    /* DATA VIZ SAMPLE GRID */
+    .viz-sample-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-bottom: 56px;
     }
+
+    .viz-sample-card {
+      aspect-ratio: 1 / 1;
+      min-height: 420px;
+      padding: 28px;
+      border: 0.5px solid rgba(255,255,255,0.09);
+      border-radius: 16px;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(61,154,255,0.12), transparent 35%),
+        radial-gradient(circle at 85% 75%, rgba(126,200,255,0.06), transparent 35%),
+        linear-gradient(135deg, rgba(255,255,255,0.045), rgba(255,255,255,0.015));
+      position: relative;
+      overflow: hidden;
+    }
+
+    .viz-sample-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.026) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.026) 1px, transparent 1px);
+      background-size: 38px 38px;
+      opacity: 0.85;
+      pointer-events: none;
+    }
+
+    .viz-sample-copy {
+      position: relative;
+      z-index: 2;
+      max-width: 420px;
+    }
+
+    .viz-sample-title {
+      font-size: clamp(18px, 2.2vw, 26px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: #e8e6df;
+      line-height: 1.08;
+      margin-bottom: 10px;
+    }
+
+    .viz-sample-desc {
+      font-size: 12px;
+      line-height: 1.6;
+      color: rgba(232,230,223,0.42);
+      max-width: 360px;
+    }
+
+    .viz-visual {
+      position: absolute;
+      left: 24px;
+      right: 24px;
+      bottom: 24px;
+      height: 58%;
+      z-index: 2;
+    }
+
+    .viz-visual svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      overflow: visible;
+    }
+
+    .viz-glow {
+      filter: url(#sharedVizGlow);
+    }
+
+    .viz-stroke {
+      fill: none;
+      stroke: url(#sharedVizGradient);
+      stroke-width: 3.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      path-length: 1;
+      stroke-dasharray: 1;
+      stroke-dashoffset: 1;
+    }
+
+    .viz-sample-card.is-visible .viz-stroke {
+      animation: revenueDraw 1.45s cubic-bezier(0.16,1,0.3,1) forwards;
+    }
+
+    .funnel-step {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+
+    .viz-sample-card.is-visible .funnel-step {
+      animation: vizRise 0.6s cubic-bezier(0.16,1,0.3,1) forwards;
+    }
+
+    .viz-sample-card.is-visible .funnel-step:nth-of-type(1) { animation-delay: 0.10s; }
+    .viz-sample-card.is-visible .funnel-step:nth-of-type(2) { animation-delay: 0.22s; }
+    .viz-sample-card.is-visible .funnel-step:nth-of-type(3) { animation-delay: 0.34s; }
+    .viz-sample-card.is-visible .funnel-step:nth-of-type(4) { animation-delay: 0.46s; }
+    .viz-sample-card.is-visible .funnel-step:nth-of-type(5) { animation-delay: 0.58s; }
+
+    .radar-ring {
+      fill: none;
+      stroke: rgba(232,230,223,0.07);
+      stroke-width: 1;
+    }
+
+    .radar-shape {
+      fill: rgba(61,154,255,0.14);
+      stroke: url(#sharedVizGradient);
+      stroke-width: 3;
+      opacity: 0;
+      transform: scale(0.76);
+      transform-origin: center;
+    }
+
+    .viz-sample-card.is-visible .radar-shape {
+      animation: radarIn 1s cubic-bezier(0.16,1,0.3,1) forwards 0.2s;
+    }
+
+    .heat-cell {
+      opacity: 0;
+      transform: scale(0.78);
+      transform-origin: center;
+    }
+
+    .viz-sample-card.is-visible .heat-cell {
+      animation: heatIn 0.42s ease forwards;
+    }
+
+    .network-node {
+      opacity: 0;
+      transform: scale(0.6);
+      transform-origin: center;
+      filter: url(#sharedVizGlow);
+    }
+
+    .network-line {
+      opacity: 0;
+      stroke: rgba(61,154,255,0.38);
+      stroke-width: 1.5;
+      stroke-dasharray: 6 8;
+    }
+
+    .viz-sample-card.is-visible .network-node {
+      animation: heatIn 0.5s ease forwards;
+    }
+
+    .viz-sample-card.is-visible .network-line {
+      animation: networkLine 1.2s ease forwards;
+    }
+
+    .viz-sample-card.is-visible .network-line:nth-of-type(1) { animation-delay: 0.1s; }
+    .viz-sample-card.is-visible .network-line:nth-of-type(2) { animation-delay: 0.18s; }
+    .viz-sample-card.is-visible .network-line:nth-of-type(3) { animation-delay: 0.26s; }
+    .viz-sample-card.is-visible .network-line:nth-of-type(4) { animation-delay: 0.34s; }
+    .viz-sample-card.is-visible .network-node:nth-of-type(5) { animation-delay: 0.18s; }
+    .viz-sample-card.is-visible .network-node:nth-of-type(6) { animation-delay: 0.26s; }
+    .viz-sample-card.is-visible .network-node:nth-of-type(7) { animation-delay: 0.34s; }
+    .viz-sample-card.is-visible .network-node:nth-of-type(8) { animation-delay: 0.42s; }
+    .viz-sample-card.is-visible .network-node:nth-of-type(9) { animation-delay: 0.50s; }
+
+    @keyframes vizRise {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes radarIn {
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes heatIn {
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes networkLine {
+      to { opacity: 1; stroke-dashoffset: -28; }
+    }
+
+    @media (max-width: 1100px) {
+      .viz-sample-card {
+        min-height: 360px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .revenue-sample-header {
+        grid-template-columns: 1fr;
+      }
+
+      .revenue-metrics {
+        flex-wrap: wrap;
+      }
+
+      .revenue-chart-wrap {
+        height: 300px;
+      }
+
+      .viz-sample-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .viz-sample-card {
+        min-height: 420px;
+      }
+    }
+
     @media (max-width: 640px) {
-      .revenue-sample { padding: 22px; }
-      .revenue-metric { min-width: 100%; }
-      .revenue-chart-wrap { height: 260px; }
+      .revenue-sample,
+      .viz-sample-card {
+        padding: 22px;
+      }
+
+      .revenue-metric {
+        min-width: 100%;
+      }
+
+      .revenue-chart-wrap {
+        height: 260px;
+      }
+
+      .viz-sample-card {
+        min-height: 360px;
+      }
+
+      .viz-visual {
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+      }
     }
 
     /* RECOGNITION */
@@ -2208,6 +2464,7 @@
             Animated line chart concept for an executive analytics dashboard. The curve draws itself on scroll, using a glowing stroke, gradient area fill, and polished data-viz motion language.
           </p>
         </div>
+
         <div class="revenue-metrics">
           <div class="revenue-metric">
             <div class="revenue-metric-label">Revenue</div>
@@ -2226,6 +2483,7 @@
 
       <div class="revenue-chart-wrap">
         <div class="revenue-chart-note">Live Motion Study</div>
+
         <svg class="revenue-chart" viewBox="0 0 1100 380" preserveAspectRatio="none" aria-label="Animated revenue line chart">
           <defs>
             <linearGradient id="revenueLineGradient" x1="0" y1="0" x2="1" y2="0">
@@ -2276,6 +2534,142 @@
           <circle class="revenue-dot revenue-dot-4" cx="760" cy="110" r="5" fill="#7ec8ff"/>
           <circle class="revenue-dot revenue-dot-5" cx="1040" cy="56" r="6" fill="#e8e6df"/>
         </svg>
+      </div>
+    </div>
+
+    <div class="viz-sample-grid">
+      <div class="viz-sample-card">
+        <div class="viz-card-note">Funnel</div>
+        <div class="viz-sample-copy">
+          <div class="viz-sample-eyebrow">Sample Work</div>
+          <h3 class="viz-sample-title">Conversion Funnel Sample</h3>
+          <p class="viz-sample-desc">Animated funnel flow for quote, application, approval, and purchase behavior.</p>
+        </div>
+        <div class="viz-visual">
+          <svg viewBox="0 0 520 320" preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <linearGradient id="sharedVizGradient" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#1a6fcc"/>
+                <stop offset="50%" stop-color="#3d9aff"/>
+                <stop offset="100%" stop-color="#7ec8ff"/>
+              </linearGradient>
+              <filter id="sharedVizGlow" x="-40%" y="-40%" width="180%" height="180%">
+                <feGaussianBlur stdDeviation="5" result="blur"/>
+                <feMerge>
+                  <feMergeNode in="blur"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+            </defs>
+            <g class="funnel-step"><rect x="60" y="34" width="400" height="38" rx="19" fill="rgba(61,154,255,0.34)"/><text class="viz-label" x="84" y="58">VISIT</text><text class="viz-label" x="410" y="58">100%</text></g>
+            <g class="funnel-step"><rect x="90" y="86" width="340" height="38" rx="19" fill="rgba(61,154,255,0.27)"/><text class="viz-label" x="114" y="110">QUOTE</text><text class="viz-label" x="368" y="110">74%</text></g>
+            <g class="funnel-step"><rect x="120" y="138" width="280" height="38" rx="19" fill="rgba(61,154,255,0.22)"/><text class="viz-label" x="144" y="162">APPLICATION</text><text class="viz-label" x="338" y="162">51%</text></g>
+            <g class="funnel-step"><rect x="150" y="190" width="220" height="38" rx="19" fill="rgba(61,154,255,0.18)"/><text class="viz-label" x="174" y="214">APPROVAL</text><text class="viz-label" x="310" y="214">36%</text></g>
+            <g class="funnel-step"><rect x="180" y="242" width="160" height="38" rx="19" fill="url(#sharedVizGradient)" filter="url(#sharedVizGlow)"/><text class="viz-label" x="204" y="266" fill="rgba(13,13,13,0.8)">PURCHASE</text></g>
+          </svg>
+        </div>
+      </div>
+
+      <div class="viz-sample-card">
+        <div class="viz-card-note">Radar</div>
+        <div class="viz-sample-copy">
+          <div class="viz-sample-eyebrow">Sample Work</div>
+          <h3 class="viz-sample-title">Customer Intelligence Radar</h3>
+          <p class="viz-sample-desc">Segment view across retention, spend, engagement, risk, and growth potential.</p>
+        </div>
+        <div class="viz-visual">
+          <svg viewBox="0 0 520 320" preserveAspectRatio="xMidYMid meet">
+            <polygon class="radar-ring" points="260,36 442,126 397,280 123,280 78,126"/>
+            <polygon class="radar-ring" points="260,82 392,148 360,250 160,250 128,148"/>
+            <polygon class="radar-ring" points="260,128 342,170 323,220 197,220 178,170"/>
+            <line class="revenue-grid" x1="260" y1="36" x2="260" y2="280"/>
+            <line class="revenue-grid" x1="78" y1="126" x2="397" y2="280"/>
+            <line class="revenue-grid" x1="442" y1="126" x2="123" y2="280"/>
+            <polygon class="radar-shape viz-glow" points="260,62 392,145 345,245 150,238 116,132"/>
+            <circle class="revenue-dot revenue-dot-1" cx="260" cy="62" r="5" fill="#7ec8ff"/>
+            <circle class="revenue-dot revenue-dot-2" cx="392" cy="145" r="5" fill="#3d9aff"/>
+            <circle class="revenue-dot revenue-dot-3" cx="345" cy="245" r="5" fill="#3d9aff"/>
+            <circle class="revenue-dot revenue-dot-4" cx="150" cy="238" r="5" fill="#3d9aff"/>
+            <circle class="revenue-dot revenue-dot-5" cx="116" cy="132" r="5" fill="#7ec8ff"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="viz-sample-card">
+        <div class="viz-card-note">Heatmap</div>
+        <div class="viz-sample-copy">
+          <div class="viz-sample-eyebrow">Sample Work</div>
+          <h3 class="viz-sample-title">Usage Heatmap Sample</h3>
+          <p class="viz-sample-desc">Activity density visualization for product engagement over time.</p>
+        </div>
+        <div class="viz-visual">
+          <svg viewBox="0 0 520 320" preserveAspectRatio="xMidYMid meet">
+            <g>
+              <rect class="heat-cell" x="72" y="54" width="36" height="36" rx="8" fill="rgba(61,154,255,0.16)" style="animation-delay:.08s"/>
+              <rect class="heat-cell" x="118" y="54" width="36" height="36" rx="8" fill="rgba(61,154,255,0.38)" style="animation-delay:.14s"/>
+              <rect class="heat-cell" x="164" y="54" width="36" height="36" rx="8" fill="rgba(61,154,255,0.20)" style="animation-delay:.20s"/>
+              <rect class="heat-cell" x="210" y="54" width="36" height="36" rx="8" fill="rgba(126,200,255,0.55)" style="animation-delay:.26s"/>
+              <rect class="heat-cell" x="256" y="54" width="36" height="36" rx="8" fill="rgba(61,154,255,0.26)" style="animation-delay:.32s"/>
+              <rect class="heat-cell" x="302" y="54" width="36" height="36" rx="8" fill="rgba(61,154,255,0.13)" style="animation-delay:.38s"/>
+              <rect class="heat-cell" x="348" y="54" width="36" height="36" rx="8" fill="rgba(61,154,255,0.34)" style="animation-delay:.44s"/>
+              <rect class="heat-cell" x="394" y="54" width="36" height="36" rx="8" fill="rgba(126,200,255,0.72)" style="animation-delay:.50s"/>
+
+              <rect class="heat-cell" x="72" y="102" width="36" height="36" rx="8" fill="rgba(61,154,255,0.22)" style="animation-delay:.56s"/>
+              <rect class="heat-cell" x="118" y="102" width="36" height="36" rx="8" fill="rgba(126,200,255,0.60)" style="animation-delay:.62s"/>
+              <rect class="heat-cell" x="164" y="102" width="36" height="36" rx="8" fill="rgba(61,154,255,0.30)" style="animation-delay:.68s"/>
+              <rect class="heat-cell" x="210" y="102" width="36" height="36" rx="8" fill="rgba(61,154,255,0.18)" style="animation-delay:.74s"/>
+              <rect class="heat-cell" x="256" y="102" width="36" height="36" rx="8" fill="rgba(126,200,255,0.78)" style="animation-delay:.80s"/>
+              <rect class="heat-cell" x="302" y="102" width="36" height="36" rx="8" fill="rgba(61,154,255,0.42)" style="animation-delay:.86s"/>
+              <rect class="heat-cell" x="348" y="102" width="36" height="36" rx="8" fill="rgba(61,154,255,0.24)" style="animation-delay:.92s"/>
+              <rect class="heat-cell" x="394" y="102" width="36" height="36" rx="8" fill="rgba(61,154,255,0.18)" style="animation-delay:.98s"/>
+
+              <rect class="heat-cell" x="72" y="150" width="36" height="36" rx="8" fill="rgba(126,200,255,0.52)" style="animation-delay:1.04s"/>
+              <rect class="heat-cell" x="118" y="150" width="36" height="36" rx="8" fill="rgba(61,154,255,0.28)" style="animation-delay:1.10s"/>
+              <rect class="heat-cell" x="164" y="150" width="36" height="36" rx="8" fill="rgba(61,154,255,0.16)" style="animation-delay:1.16s"/>
+              <rect class="heat-cell" x="210" y="150" width="36" height="36" rx="8" fill="rgba(61,154,255,0.44)" style="animation-delay:1.22s"/>
+              <rect class="heat-cell" x="256" y="150" width="36" height="36" rx="8" fill="rgba(61,154,255,0.30)" style="animation-delay:1.28s"/>
+              <rect class="heat-cell" x="302" y="150" width="36" height="36" rx="8" fill="rgba(126,200,255,0.66)" style="animation-delay:1.34s"/>
+              <rect class="heat-cell" x="348" y="150" width="36" height="36" rx="8" fill="rgba(61,154,255,0.22)" style="animation-delay:1.40s"/>
+              <rect class="heat-cell" x="394" y="150" width="36" height="36" rx="8" fill="rgba(61,154,255,0.36)" style="animation-delay:1.46s"/>
+
+              <rect class="heat-cell" x="72" y="198" width="36" height="36" rx="8" fill="rgba(61,154,255,0.18)" style="animation-delay:1.52s"/>
+              <rect class="heat-cell" x="118" y="198" width="36" height="36" rx="8" fill="rgba(61,154,255,0.24)" style="animation-delay:1.58s"/>
+              <rect class="heat-cell" x="164" y="198" width="36" height="36" rx="8" fill="rgba(126,200,255,0.72)" style="animation-delay:1.64s"/>
+              <rect class="heat-cell" x="210" y="198" width="36" height="36" rx="8" fill="rgba(61,154,255,0.38)" style="animation-delay:1.70s"/>
+              <rect class="heat-cell" x="256" y="198" width="36" height="36" rx="8" fill="rgba(61,154,255,0.18)" style="animation-delay:1.76s"/>
+              <rect class="heat-cell" x="302" y="198" width="36" height="36" rx="8" fill="rgba(61,154,255,0.30)" style="animation-delay:1.82s"/>
+              <rect class="heat-cell" x="348" y="198" width="36" height="36" rx="8" fill="rgba(126,200,255,0.58)" style="animation-delay:1.88s"/>
+              <rect class="heat-cell" x="394" y="198" width="36" height="36" rx="8" fill="rgba(61,154,255,0.20)" style="animation-delay:1.94s"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <div class="viz-sample-card">
+        <div class="viz-card-note">Network</div>
+        <div class="viz-sample-copy">
+          <div class="viz-sample-eyebrow">Sample Work</div>
+          <h3 class="viz-sample-title">Workflow Intelligence Map</h3>
+          <p class="viz-sample-desc">Node-based system map connecting users, data sources, insights, and actions.</p>
+        </div>
+        <div class="viz-visual">
+          <svg viewBox="0 0 520 320" preserveAspectRatio="xMidYMid meet">
+            <line class="network-line" x1="100" y1="170" x2="220" y2="104"/>
+            <line class="network-line" x1="100" y1="170" x2="230" y2="218"/>
+            <line class="network-line" x1="220" y1="104" x2="390" y2="138"/>
+            <line class="network-line" x1="230" y1="218" x2="390" y2="138"/>
+            <circle class="network-node" cx="100" cy="170" r="30" fill="rgba(61,154,255,0.42)"/>
+            <circle class="network-node" cx="220" cy="104" r="22" fill="rgba(126,200,255,0.44)"/>
+            <circle class="network-node" cx="230" cy="218" r="24" fill="rgba(61,154,255,0.28)"/>
+            <circle class="network-node" cx="390" cy="138" r="34" fill="url(#sharedVizGradient)"/>
+            <circle class="network-node" cx="416" cy="224" r="18" fill="rgba(126,200,255,0.38)"/>
+            <line class="network-line" x1="390" y1="138" x2="416" y2="224"/>
+            <text class="viz-label" x="73" y="176">USERS</text>
+            <text class="viz-label" x="190" y="108">DATA</text>
+            <text class="viz-label" x="198" y="222">SIGNALS</text>
+            <text class="viz-label" x="358" y="144">INSIGHT</text>
+          </svg>
+        </div>
       </div>
     </div>
 
@@ -3157,18 +3551,18 @@
 
   <script>
     const revenueSample = document.getElementById("revenue-sample");
+    const vizCards = document.querySelectorAll(".viz-sample-card");
 
-    if (revenueSample) {
-      const revenueObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            revenueSample.classList.add("is-visible");
-          }
-        });
-      }, { threshold: 0.35 });
+    const vizObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+        }
+      });
+    }, { threshold: 0.28 });
 
-      revenueObserver.observe(revenueSample);
-    }
+    if (revenueSample) vizObserver.observe(revenueSample);
+    vizCards.forEach(card => vizObserver.observe(card));
   </script>
 
 </body>
