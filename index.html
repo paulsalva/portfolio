@@ -1304,7 +1304,6 @@
     .revenue-chart-note, .viz-card-note {
       position: absolute;
       right: 18px;
-      top: -18px;
       padding: 8px 12px;
       border-radius: 100px;
       border: 0.5px solid rgba(61,154,255,0.28);
@@ -1316,6 +1315,14 @@
       text-transform: uppercase;
       backdrop-filter: blur(10px);
       z-index: 3;
+    }
+
+    .revenue-chart-note {
+      top: -18px;
+    }
+
+    .viz-card-note {
+      top: 18px;
     }
 
     @keyframes revenueDraw { to { stroke-dashoffset: 0; } }
