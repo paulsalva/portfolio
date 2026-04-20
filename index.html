@@ -1900,6 +1900,151 @@
       transform: scale(1.035);
     }
 
+
+    /* RANGERS WANTED UX CASE STUDY */
+    .rangers-content-section {
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 0.5px solid rgba(255,255,255,0.07);
+    }
+
+    .rangers-content-section:first-of-type {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: none;
+    }
+
+    .rangers-section-title {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #3d9aff;
+      margin-bottom: 18px;
+    }
+
+    .rangers-text-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 24px;
+    }
+
+    .rangers-text-card {
+      border-top: 0.5px solid rgba(255,255,255,0.08);
+      padding-top: 16px;
+    }
+
+    .rangers-text-card h4 {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: #e8e6df;
+      margin-bottom: 10px;
+      line-height: 1.25;
+    }
+
+    .rangers-text-card p,
+    .rangers-text-card li {
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 1.65;
+      color: rgba(232,230,223,0.48);
+    }
+
+    .rangers-two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.9fr);
+      gap: 32px;
+      align-items: start;
+    }
+
+    .rangers-core-list {
+      display: grid;
+      gap: 18px;
+    }
+
+    .rangers-core-item {
+      padding-top: 14px;
+      border-top: 0.5px solid rgba(255,255,255,0.08);
+    }
+
+    .rangers-core-item h4 {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: #e8e6df;
+      line-height: 1.25;
+      margin-bottom: 7px;
+    }
+
+    .rangers-core-item p {
+      font-size: 12.5px;
+      line-height: 1.6;
+      color: rgba(232,230,223,0.44);
+    }
+
+    .rangers-image-card {
+      appearance: none;
+      width: 100%;
+      border: 0.5px solid rgba(255,255,255,0.08);
+      background: #1a1a1a;
+      border-radius: 8px;
+      overflow: hidden;
+      aspect-ratio: 16 / 9;
+      cursor: pointer;
+      padding: 0;
+      position: relative;
+    }
+
+    .rangers-image-card img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.88;
+      transition: opacity 0.2s ease, transform 0.35s cubic-bezier(0.16,1,0.3,1);
+    }
+
+    .rangers-image-card:hover {
+      border-color: rgba(61,154,255,0.42);
+      box-shadow: 0 0 20px rgba(61,154,255,0.12);
+    }
+
+    .rangers-image-card:hover img {
+      opacity: 1;
+      transform: scale(1.035);
+    }
+
+    .rangers-image-caption {
+      position: absolute;
+      left: 14px;
+      bottom: 12px;
+      z-index: 2;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(232,230,223,0.78);
+      background: rgba(13,13,13,0.62);
+      border: 0.5px solid rgba(255,255,255,0.12);
+      border-radius: 100px;
+      padding: 7px 10px;
+      backdrop-filter: blur(8px);
+    }
+
+    .rangers-mockup-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .rangers-two-col,
+      .rangers-text-grid,
+      .rangers-mockup-grid { grid-template-columns: 1fr; }
+    }
+
     @media (max-width: 900px) {
       .walmart-process-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
@@ -3049,7 +3194,7 @@
             </div>
             <span class="case-client">TRPL × Niantic</span>
             <div class="case-title">Rangers Wanted | Educational AR App</div>
-            <div class="case-desc">Competitive research and UX strategy for a Niantic-partnered education experience at the Teddy Roosevelt Presidential Library.</div>
+            <div class="case-desc">An educational AR conservation game for young audiences, built around nature missions, habitat restoration, creature discovery, and repeat exploration.</div>
           </div>
           <div class="case-right">
             <div class="case-toggle-icon"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></div>
@@ -3060,32 +3205,92 @@
             <div class="drawer-hero walmart-hero">
               <img src="images/teddy-header.webp" alt="Rangers Wanted Educational AR App hero">
             </div>
+
             <div class="drawer-body">
               <div class="drawer-meta">
                 <div class="drawer-meta-item"><label>Role</label><p>UX Designer · Researcher</p></div>
                 <div class="drawer-meta-item"><label>Year</label><p>2022</p></div>
-                <div class="drawer-meta-item"><label>Client</label><p>TRPL × Niantic</p></div>
-                <div class="drawer-meta-item"><label>Scope</label><p>AR · Education · COPPA · Game Mechanics</p></div>
+                <div class="drawer-meta-item"><label>Client</label><p>Theodore Roosevelt Presidential Library · Niantic · Future of Storytelling</p></div>
+                <div class="drawer-meta-item"><label>Built By</label><p>Trigger XR</p></div>
+                <div class="drawer-meta-item"><label>Scope</label><p>AR · Education · Conservation · Gamification · Kid Safety</p></div>
               </div>
+
               <div class="drawer-copy">
-                <h3>AR education for the next generation of Rangers</h3>
-                <p>Competitive analysis, UX research, and ideation for an augmented reality education app developed in partnership between Trigger, Niantic, and the Teddy Roosevelt Presidential Library. Ensured COPPA compliance and strategized game mechanics for young audiences.</p>
-                <div class="drawer-copy-cols">
-                  <p>Conducted competitive analysis of educational AR apps and location-based games, mapping mechanic frameworks applicable to the library's educational goals.</p>
-                  <p>Led privacy and safety strategy for the under-13 audience, working with legal and product teams to ensure full COPPA compliance within the game loop.</p>
+                <h3>Project Background</h3>
+                <p>The Rangers Wanted app, made by the Theodore Roosevelt Presidential Library in collaboration with Niantic and the Future of Storytelling and built by Trigger XR, blends augmented reality technology and educational content for young audiences. Users discover animals like beavers, bumblebees, ocelots, foxes, and woodpeckers, learning fun facts through interactive gameplay.</p>
+                <p>Gamification elements, such as earning badges for learning achievements, foster a sense of responsibility toward conservation efforts. The Rangers Wanted app is kidSAFE certified.</p>
+
+                <div class="rangers-text-grid">
+                  <div class="rangers-text-card">
+                    <h4>Product Vision</h4>
+                    <p>Our goal was to create an experience with a compelling narrative and delightful gameplay to both bring attention to the grand opening of the Teddy Roosevelt Presidential Library and encourage conservatorship amongst the youth.</p>
+                  </div>
+                  <div class="rangers-text-card">
+                    <h4>Design Challenge</h4>
+                    <p>The challenge was to make this app both fun and educational while upholding the mission and values of the TRPL organization.</p>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="drawer-strip-label">Process & Work</div>
-            <div class="drawer-strip">
-              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Game mechanic map</span></div></div>
-              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>COPPA compliance audit</span></div></div>
-              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>UX research synthesis</span></div></div>
-              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Prototype screens</span></div></div>
+
+            <div class="rangers-content-section">
+              <div class="rangers-section-title">Core Elements</div>
+              <div class="rangers-two-col">
+                <div class="rangers-core-list">
+                  <div class="rangers-core-item">
+                    <h4>CTA to go out and connect with nature</h4>
+                    <p>Missions encourage players to locate resources in nature through semantic recognition of sky, natural ground, water, foliage, and grass.</p>
+                  </div>
+                  <div class="rangers-core-item">
+                    <h4>Virtual conservation play that fosters learning</h4>
+                    <p>Collected resources are transformed and used for habitat restoration through AR meshing, turning learning into active environmental care.</p>
+                  </div>
+                  <div class="rangers-core-item">
+                    <h4>AR creature rewards</h4>
+                    <p>Creatures emerge from healthy habitats and teach players about themselves through interactive educational moments.</p>
+                  </div>
+                  <div class="rangers-core-item">
+                    <h4>Build a collection</h4>
+                    <p>Players build their own AR natural history collection, a virtual cabinet of creature unlocks they can explore and interact with anytime.</p>
+                  </div>
+                  <div class="rangers-core-item">
+                    <h4>Educational content and TR values throughout</h4>
+                    <p>Conservation expertise and Theodore Roosevelt values are infused into the experience through content, missions, and rewards.</p>
+                  </div>
+                  <div class="rangers-core-item">
+                    <h4>A compelling game loop</h4>
+                    <p>Collection, variety, and habitat restoration create reasons for players to go back outside and continue exploring nature.</p>
+                  </div>
+                </div>
+
+                <button class="rangers-image-card" type="button" data-lightbox-src="images/teddy-core-elements.webp" data-lightbox-alt="Rangers Wanted core elements">
+                  <img src="images/teddy-core-elements.webp" alt="Rangers Wanted core elements">
+                  <span class="rangers-image-caption">Core Elements</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="rangers-content-section">
+              <div class="rangers-section-title">AR Experience Mockups</div>
+              <div class="rangers-mockup-grid">
+                <button class="rangers-image-card" type="button" data-lightbox-src="images/teddy-natural-history-museum.webp" data-lightbox-alt="Build your own natural history museum mockup">
+                  <img src="images/teddy-natural-history-museum.webp" alt="Build your own natural history museum mockup">
+                  <span class="rangers-image-caption">Build Your Own Natural History Museum</span>
+                </button>
+                <button class="rangers-image-card" type="button" data-lightbox-src="images/teddy-meshing.webp" data-lightbox-alt="AR meshing mockup">
+                  <img src="images/teddy-meshing.webp" alt="AR meshing mockup">
+                  <span class="rangers-image-caption">Meshing</span>
+                </button>
+                <button class="rangers-image-card" type="button" data-lightbox-src="images/teddy-discover-collect.webp" data-lightbox-alt="Discover and collect mockup">
+                  <img src="images/teddy-discover-collect.webp" alt="Discover and collect mockup">
+                  <span class="rangers-image-caption">Discover and Collect</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
+
 
     </div>
 
