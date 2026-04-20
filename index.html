@@ -1521,6 +1521,72 @@
       color: rgba(232,230,223,0.1);
     }
 
+
+
+    /* WALMART UX CASE STUDY */
+    .ux-case-studies {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      margin-top: 56px;
+    }
+
+    .walmart-hero {
+      border-radius: 8px;
+      margin-bottom: 48px;
+    }
+
+    .walmart-hero img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.9;
+    }
+
+    .walmart-process-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .walmart-process-thumb {
+      appearance: none;
+      border: 0.5px solid rgba(255,255,255,0.08);
+      background: #1a1a1a;
+      border-radius: 6px;
+      overflow: hidden;
+      aspect-ratio: 16 / 10;
+      cursor: pointer;
+      padding: 0;
+      position: relative;
+    }
+
+    .walmart-process-thumb img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.86;
+      transition: opacity 0.2s ease, transform 0.35s cubic-bezier(0.16,1,0.3,1);
+    }
+
+    .walmart-process-thumb:hover {
+      border-color: rgba(61,154,255,0.42);
+      box-shadow: 0 0 20px rgba(61,154,255,0.12);
+    }
+
+    .walmart-process-thumb:hover img {
+      opacity: 1;
+      transform: scale(1.035);
+    }
+
+    @media (max-width: 900px) {
+      .walmart-process-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 560px) {
+      .walmart-process-grid { grid-template-columns: 1fr; }
+    }
+
     @media (max-width: 720px) {
       .drawer-body { grid-template-columns: 1fr; gap: 32px; }
       .drawer-copy-cols { grid-template-columns: 1fr; }
@@ -2482,7 +2548,7 @@
     </div>
 
     <!-- UX CASE STUDY -->
-    <div class="cases">
+    <div class="cases ux-case-studies">
       <div class="case-wrapper">
         <div class="case">
           <div class="case-meta">
@@ -2503,10 +2569,8 @@
         </div>
         <div class="case-drawer">
           <div class="case-drawer-inner">
-            <div class="hero-triple">
-              <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Walmart — Image 01</span></div></div>
-              <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Walmart — Image 02</span></div></div>
-              <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Walmart — Image 03</span></div></div>
+            <div class="drawer-hero walmart-hero">
+              <img src="images/walmart1.webp" alt="Walmart Gamified Shopping Experiences hero">
             </div>
             <div class="drawer-body">
               <div class="drawer-meta">
@@ -2525,11 +2589,16 @@
               </div>
             </div>
             <div class="drawer-strip-label">Process & Work</div>
-            <div class="drawer-strip">
-              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Pet Walkies app flow</span></div></div>
-              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Walmart Winners flow</span></div></div>
-              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>AR prototype screens</span></div></div>
-              <div class="drawer-strip-img"><div class="drawer-strip-placeholder"><span>Elevator deck</span></div></div>
+            <div class="walmart-process-grid">
+              <button class="walmart-process-thumb" type="button" data-lightbox-src="images/walmart1.webp" data-lightbox-alt="Walmart process image 01"><img src="images/walmart1.webp" alt="Walmart process image 01"></button>
+              <button class="walmart-process-thumb" type="button" data-lightbox-src="images/walmart2.webp" data-lightbox-alt="Walmart process image 02"><img src="images/walmart2.webp" alt="Walmart process image 02"></button>
+              <button class="walmart-process-thumb" type="button" data-lightbox-src="images/walmart3.webp" data-lightbox-alt="Walmart process image 03"><img src="images/walmart3.webp" alt="Walmart process image 03"></button>
+              <button class="walmart-process-thumb" type="button" data-lightbox-src="images/walmart4.webp" data-lightbox-alt="Walmart process image 04"><img src="images/walmart4.webp" alt="Walmart process image 04"></button>
+              <button class="walmart-process-thumb" type="button" data-lightbox-src="images/walmart5.webp" data-lightbox-alt="Walmart process image 05"><img src="images/walmart5.webp" alt="Walmart process image 05"></button>
+              <button class="walmart-process-thumb" type="button" data-lightbox-src="images/walmart6.webp" data-lightbox-alt="Walmart process image 06"><img src="images/walmart6.webp" alt="Walmart process image 06"></button>
+              <button class="walmart-process-thumb" type="button" data-lightbox-src="images/walmart7.webp" data-lightbox-alt="Walmart process image 07"><img src="images/walmart7.webp" alt="Walmart process image 07"></button>
+              <button class="walmart-process-thumb" type="button" data-lightbox-src="images/walmart8.webp" data-lightbox-alt="Walmart process image 08"><img src="images/walmart8.webp" alt="Walmart process image 08"></button>
+              <button class="walmart-process-thumb" type="button" data-lightbox-src="images/walmart9.webp" data-lightbox-alt="Walmart process image 09"><img src="images/walmart9.webp" alt="Walmart process image 09"></button>
             </div>
           </div>
         </div>
@@ -4036,7 +4105,9 @@
     const lightboxClose = document.getElementById('lightbox-close');
     const lightboxBtn = document.getElementById('lightbox-btn');
 
-    function openLightbox() {
+    function openLightbox(src, alt) {
+      if (src) lightboxImg.setAttribute('src', src);
+      if (alt) lightboxImg.setAttribute('alt', alt);
       lightboxOverlay.classList.add('is-open');
       gsap.to(lightboxOverlay, { background: 'rgba(0,0,0,0.88)', opacity: 1, duration: 0.3, ease: 'power2.out' });
       gsap.to(lightboxImg, { opacity: 1, scale: 1, duration: 0.45, ease: 'power3.out', delay: 0.05 });
@@ -4053,7 +4124,12 @@
       }});
     }
 
-    if (lightboxBtn) lightboxBtn.addEventListener('click', openLightbox);
+    if (lightboxBtn) lightboxBtn.addEventListener('click', () => openLightbox('images/verizon-style-guide.webp', 'Verizon Style Guide'));
+    document.querySelectorAll('[data-lightbox-src]').forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        openLightbox(trigger.dataset.lightboxSrc, trigger.dataset.lightboxAlt || 'Portfolio image');
+      });
+    });
     if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
     if (lightboxOverlay) lightboxOverlay.addEventListener('click', (e) => { if (e.target === lightboxOverlay) closeLightbox(); });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
