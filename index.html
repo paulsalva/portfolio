@@ -480,6 +480,327 @@
       }
     }
 
+
+    /* UX DESIGN CAPABILITY VISUALS */
+    .ux-capability-feature .capability-feature-copy {
+      justify-content: center;
+      padding: 28px 32px;
+    }
+
+    .ux-visual-media {
+      position: relative;
+      border-radius: 8px;
+      overflow: visible;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ux-research-visual,
+    .ux-ia-visual,
+    .ux-prototype-visual,
+    .ux-strategy-visual {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: 360px;
+      border-radius: 8px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 45%, rgba(61,154,255,0.12), transparent 34%),
+        linear-gradient(135deg, rgba(255,255,255,0.025), rgba(255,255,255,0.006));
+    }
+
+    .ux-research-visual::before,
+    .ux-ia-visual::before,
+    .ux-prototype-visual::before,
+    .ux-strategy-visual::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 38px 38px;
+      opacity: 0.72;
+      pointer-events: none;
+    }
+
+    .ux-visual-label-row {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      top: 24px;
+      z-index: 3;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 8.5px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(61,154,255,0.74);
+    }
+
+    .ux-research-board {
+      position: absolute;
+      inset: 68px 28px 32px;
+      z-index: 2;
+    }
+
+    .ux-note {
+      position: absolute;
+      width: 150px;
+      min-height: 66px;
+      padding: 13px 14px;
+      border-radius: 12px;
+      border: 0.5px solid rgba(255,255,255,0.09);
+      background: rgba(13,13,13,0.54);
+      backdrop-filter: blur(10px);
+    }
+
+    .ux-note strong,
+    .strategy-card strong {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      color: rgba(232,230,223,0.78);
+      letter-spacing: -0.01em;
+      margin-bottom: 5px;
+    }
+
+    .ux-note span,
+    .strategy-card span {
+      display: block;
+      font-size: 9px;
+      color: rgba(232,230,223,0.36);
+      line-height: 1.3;
+    }
+
+    .ux-note-a { left: 0; top: 0; }
+    .ux-note-b { right: 0; top: 24px; }
+    .ux-note-c { left: 32px; bottom: 18px; }
+    .ux-note-d { right: 18px; bottom: 0; }
+
+    .ux-insight-core {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 176px;
+      height: 176px;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 24px;
+      background:
+        radial-gradient(circle at 34% 24%, rgba(126,200,255,0.24), transparent 30%),
+        linear-gradient(135deg, rgba(61,154,255,0.18), rgba(255,255,255,0.035));
+      border: 0.5px solid rgba(61,154,255,0.24);
+      box-shadow: 0 0 34px rgba(61,154,255,0.14), inset 0 0 24px rgba(61,154,255,0.08);
+    }
+
+    .ux-insight-core strong {
+      display: block;
+      font-size: 15px;
+      color: #e8e6df;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+
+    .ux-insight-core span {
+      display: block;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(232,230,223,0.42);
+      line-height: 1.4;
+    }
+
+    .ux-ia-svg {
+      position: relative;
+      z-index: 2;
+      width: 108%;
+      height: 108%;
+      display: block;
+      transform: translate(-4%, 8%);
+      overflow: visible;
+    }
+
+    .ux-ia-line {
+      fill: none;
+      stroke: rgba(61,154,255,0.28);
+      stroke-width: 1.15;
+      stroke-dasharray: 5 8;
+      animation: toolchainFlow 8s linear infinite;
+    }
+
+    .ux-ia-line.soft { stroke: rgba(126,200,255,0.16); }
+
+    .ux-ia-node rect {
+      fill: rgba(13,13,13,0.60);
+      stroke: rgba(255,255,255,0.12);
+      stroke-width: 0.75;
+    }
+
+    .ux-ia-node.hub rect {
+      fill: rgba(61,154,255,0.14);
+      stroke: rgba(61,154,255,0.5);
+      filter: url(#uxIaGlow);
+    }
+
+    .ux-ia-node text {
+      fill: rgba(232,230,223,0.66);
+      font-family: "Syne", sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .prototype-frame {
+      position: absolute;
+      z-index: 2;
+      width: 138px;
+      height: 210px;
+      border-radius: 18px;
+      border: 0.5px solid rgba(255,255,255,0.11);
+      background: rgba(13,13,13,0.58);
+      backdrop-filter: blur(10px);
+      padding: 16px 14px;
+      box-shadow: 0 0 22px rgba(61,154,255,0.08);
+    }
+
+    .frame-one { left: 34px; top: 78px; }
+    .frame-two { left: 50%; top: 56px; transform: translateX(-50%); }
+    .frame-three { right: 34px; top: 78px; }
+
+    .prototype-top,
+    .prototype-line,
+    .prototype-button,
+    .prototype-card {
+      border-radius: 100px;
+      background: rgba(232,230,223,0.16);
+    }
+
+    .prototype-top { width: 48px; height: 7px; margin: 0 auto 24px; }
+    .prototype-line { width: 72%; height: 7px; margin-bottom: 10px; }
+    .prototype-line.wide { width: 100%; }
+    .prototype-line.short { width: 54%; }
+    .prototype-button { width: 74px; height: 22px; margin-top: 28px; background: rgba(61,154,255,0.32); box-shadow: 0 0 16px rgba(61,154,255,0.18); }
+    .prototype-card { width: 100%; height: 70px; border-radius: 12px; margin-bottom: 18px; background: rgba(61,154,255,0.14); }
+    .prototype-card.glow { box-shadow: inset 0 0 22px rgba(61,154,255,0.12), 0 0 22px rgba(61,154,255,0.12); }
+
+    .prototype-flow {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .prototype-arrow {
+      fill: none;
+      stroke: rgba(61,154,255,0.34);
+      stroke-width: 1.2;
+      stroke-dasharray: 6 9;
+      animation: toolchainFlow 7s linear infinite;
+    }
+
+    .strategy-axis {
+      position: absolute;
+      left: 70px;
+      right: 70px;
+      top: 50%;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(61,154,255,0.08), rgba(61,154,255,0.52), rgba(126,200,255,0.08));
+      z-index: 1;
+    }
+
+    .strategy-card {
+      position: absolute;
+      z-index: 3;
+      width: 168px;
+      min-height: 92px;
+      padding: 14px 15px;
+      border-radius: 14px;
+      border: 0.5px solid rgba(255,255,255,0.09);
+      background: rgba(13,13,13,0.56);
+      backdrop-filter: blur(10px);
+    }
+
+    .strategy-card label {
+      display: block;
+      font-size: 8.5px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(61,154,255,0.76);
+      margin-bottom: 10px;
+    }
+
+    .strategy-card.card-a { left: 30px; top: 118px; }
+    .strategy-card.card-b { left: 50%; top: 72px; transform: translateX(-50%); }
+    .strategy-card.card-c { right: 30px; top: 158px; }
+
+    .strategy-orb {
+      position: absolute;
+      z-index: 2;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #3d9aff;
+      box-shadow: 0 0 18px rgba(61,154,255,0.55);
+    }
+
+    .orb-a { left: 192px; top: calc(50% - 9px); }
+    .orb-b { left: calc(50% - 9px); top: calc(50% - 9px); }
+    .orb-c { right: 192px; top: calc(50% - 9px); }
+
+    .ux-design-system-media {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #1a1a1a;
+    }
+
+    .ux-design-system-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.86;
+      display: block;
+    }
+
+    .ux-style-guide-trigger {
+      position: absolute;
+      left: 22px;
+      bottom: 22px;
+      margin: 0;
+      z-index: 4;
+      background: rgba(13,13,13,0.62);
+      border-radius: 100px;
+      backdrop-filter: blur(10px);
+    }
+
+    @media (max-width: 980px) {
+      .ux-research-visual,
+      .ux-ia-visual,
+      .ux-prototype-visual,
+      .ux-strategy-visual { min-height: 300px; }
+
+      .ux-note { width: 132px; }
+      .ux-insight-core { width: 146px; height: 146px; }
+      .prototype-frame { width: 118px; height: 178px; }
+      .strategy-card { width: 145px; }
+    }
+
     /* MULTIMODAL PIPELINES CARD ALIGNMENT */
     #mm-1 .capability-feature-copy {
       justify-content: flex-start;
@@ -2424,118 +2745,230 @@
     </div>
 
     <div class="tab-panel active" id="ux-0">
-      <div class="hero-triple">
-        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>UX Research — Image 01</span></div></div>
-        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>UX Research — Image 02</span></div></div>
-        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>UX Research — Image 03</span></div></div>
-      </div>
-      <div class="tab-body">
-        <div class="tab-meta">
-          <div class="drawer-meta-item"><label>Discipline</label><p>UX Research</p></div>
-          <div class="drawer-meta-item"><label>Methods</label><p>Discovery · User Interviews · Usability Testing · Competitive Analysis</p></div>
-          <div class="drawer-meta-item"><label>Tools</label><p>Dovetail · Maze · UserTesting · Figma</p></div>
+      <div class="capability-feature ux-capability-feature">
+        <div class="capability-feature-media ux-visual-media">
+          <div class="ux-research-visual" aria-label="UX research synthesis visual">
+            <div class="ux-visual-label-row">
+              <span>Discovery</span>
+              <span>Patterns</span>
+              <span>Decisions</span>
+            </div>
+            <div class="ux-research-board">
+              <div class="ux-note ux-note-a"><strong>User Interview</strong><span>Pain point cluster</span></div>
+              <div class="ux-note ux-note-b"><strong>Behavior Signal</strong><span>Repeated friction</span></div>
+              <div class="ux-note ux-note-c"><strong>Opportunity</strong><span>Reduce steps</span></div>
+              <div class="ux-note ux-note-d"><strong>Testing Insight</strong><span>Clearer path</span></div>
+              <div class="ux-insight-core"><strong>Validated Insight</strong><span>Research → Product Direction</span></div>
+            </div>
+          </div>
         </div>
-        <div class="tab-copy">
-          <h3>Discovery, testing, and strategic synthesis</h3>
-          <p>Placeholder — add your UX research case study content here including discovery, user interviews, usability testing, competitive analysis, and product strategy work.</p>
-          <div class="drawer-copy-cols">
-            <p>Describe your research methodology, participant recruitment, and synthesis process.</p>
-            <p>Outline the strategic recommendations and how they influenced product direction.</p>
+
+        <div class="capability-feature-copy">
+          <div class="capability-feature-inner">
+            <div class="capability-kicker">UX Research</div>
+            <h3 class="capability-title">Discovery, testing, and strategic synthesis for product decisions</h3>
+            <p class="capability-desc">I use research to turn messy product questions into clear design direction: discovery interviews, competitive analysis, usability testing, behavioral synthesis, and stakeholder-ready recommendations that connect user needs to business outcomes.</p>
+
+            <div class="capability-meta-grid">
+              <div class="capability-meta-card">
+                <label>Role</label>
+                <p>UX Researcher · Product Designer · Strategic Synthesizer</p>
+              </div>
+              <div class="capability-meta-card">
+                <label>Methods</label>
+                <div class="capability-pill-row" aria-label="UX research methods">
+                  <span class="capability-pill">Discovery</span>
+                  <span class="capability-pill">User Interviews</span>
+                  <span class="capability-pill">Usability Testing</span>
+                  <span class="capability-pill">Competitive Analysis</span>
+                  <span class="capability-pill">Journey Mapping</span>
+                  <span class="capability-pill">Synthesis</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
     <div class="tab-panel" id="ux-1">
-      <div class="hero-triple">
-        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Information Architecture — Image 01</span></div></div>
-        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Information Architecture — Image 02</span></div></div>
-        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Information Architecture — Image 03</span></div></div>
-      </div>
-      <div class="tab-body">
-        <div class="tab-meta">
-          <div class="drawer-meta-item"><label>Discipline</label><p>Information Architecture</p></div>
-          <div class="drawer-meta-item"><label>Methods</label><p>Sitemaps · Navigation Systems · Content Hierarchy · Taxonomy</p></div>
-          <div class="drawer-meta-item"><label>Tools</label><p>Figma · Miro · Optimal Workshop</p></div>
+      <div class="capability-feature ux-capability-feature">
+        <div class="capability-feature-media ux-visual-media">
+          <div class="ux-ia-visual" aria-label="Information architecture map visual">
+            <div class="ux-visual-label-row">
+              <span>Content</span>
+              <span>Structure</span>
+              <span>Navigation</span>
+            </div>
+            <svg class="ux-ia-svg" viewBox="0 0 560 360" preserveAspectRatio="xMidYMid meet">
+              <defs>
+                <filter id="uxIaGlow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="7" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+              </defs>
+              <path class="ux-ia-line" d="M280 88 C190 122 160 170 112 220"/>
+              <path class="ux-ia-line soft" d="M280 88 C238 130 225 184 205 246"/>
+              <path class="ux-ia-line" d="M280 88 C320 135 338 185 354 246"/>
+              <path class="ux-ia-line soft" d="M280 88 C370 122 408 170 452 220"/>
+              <g class="ux-ia-node hub"><rect x="208" y="58" width="144" height="60" rx="30"/><text x="280" y="93" text-anchor="middle">Primary Task</text></g>
+              <g class="ux-ia-node"><rect x="44" y="198" width="136" height="46" rx="23"/><text x="112" y="226" text-anchor="middle">Discover</text></g>
+              <g class="ux-ia-node"><rect x="137" y="224" width="136" height="46" rx="23"/><text x="205" y="252" text-anchor="middle">Compare</text></g>
+              <g class="ux-ia-node"><rect x="286" y="224" width="136" height="46" rx="23"/><text x="354" y="252" text-anchor="middle">Configure</text></g>
+              <g class="ux-ia-node"><rect x="384" y="198" width="136" height="46" rx="23"/><text x="452" y="226" text-anchor="middle">Convert</text></g>
+            </svg>
+          </div>
         </div>
-        <div class="tab-copy">
-          <h3>Structuring complexity into clarity</h3>
-          <p>Placeholder — add your IA case study content here.</p>
-          <div class="drawer-copy-cols">
-            <p>Describe your approach to sitemap design, navigation hierarchy, and content modeling.</p>
-            <p>Outline how the IA decisions improved findability and reduced user friction.</p>
+
+        <div class="capability-feature-copy">
+          <div class="capability-feature-inner">
+            <div class="capability-kicker">Information Architecture</div>
+            <h3 class="capability-title">Structuring complex products into clear paths and usable systems</h3>
+            <p class="capability-desc">I organize content, actions, navigation, and product logic into systems users can understand quickly. The work covers sitemaps, taxonomies, task flows, hierarchy, and navigation models for enterprise, ecommerce, and immersive experiences.</p>
+
+            <div class="capability-meta-grid">
+              <div class="capability-meta-card">
+                <label>Role</label>
+                <p>Information Architect · UX Designer · Product Systems Thinker</p>
+              </div>
+              <div class="capability-meta-card">
+                <label>Methods</label>
+                <div class="capability-pill-row" aria-label="Information architecture methods">
+                  <span class="capability-pill">Sitemaps</span>
+                  <span class="capability-pill">Taxonomy</span>
+                  <span class="capability-pill">Navigation</span>
+                  <span class="capability-pill">User Flows</span>
+                  <span class="capability-pill">Content Hierarchy</span>
+                  <span class="capability-pill">Miro</span>
+                  <span class="capability-pill">Figma</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
     <div class="tab-panel" id="ux-2">
-      <div class="hero-triple">
-        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Prototyping — Image 01</span></div></div>
-        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Prototyping — Image 02</span></div></div>
-        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Prototyping — Image 03</span></div></div>
-      </div>
-      <div class="tab-body">
-        <div class="tab-meta">
-          <div class="drawer-meta-item"><label>Discipline</label><p>Prototyping</p></div>
-          <div class="drawer-meta-item"><label>Methods</label><p>Wireframing · Hi-Fi Prototypes · Interaction Design · Usability Validation</p></div>
-          <div class="drawer-meta-item"><label>Tools</label><p>Figma · Principle · Framer</p></div>
+      <div class="capability-feature ux-capability-feature">
+        <div class="capability-feature-media ux-visual-media">
+          <div class="ux-prototype-visual" aria-label="Interactive prototype visual">
+            <div class="prototype-frame frame-one">
+              <div class="prototype-top"></div><div class="prototype-line wide"></div><div class="prototype-line"></div><div class="prototype-button"></div>
+            </div>
+            <div class="prototype-frame frame-two">
+              <div class="prototype-top"></div><div class="prototype-card"></div><div class="prototype-line wide"></div><div class="prototype-line short"></div>
+            </div>
+            <div class="prototype-frame frame-three">
+              <div class="prototype-top"></div><div class="prototype-card glow"></div><div class="prototype-button"></div>
+            </div>
+            <svg class="prototype-flow" viewBox="0 0 560 360" preserveAspectRatio="none">
+              <path class="prototype-arrow" d="M170 178 C210 142 250 142 292 178"/>
+              <path class="prototype-arrow" d="M340 178 C386 214 420 214 466 178"/>
+            </svg>
+          </div>
         </div>
-        <div class="tab-copy">
-          <h3>From wireframe to validated interaction</h3>
-          <p>Placeholder — add your prototyping case study content here.</p>
-          <div class="drawer-copy-cols">
-            <p>Describe your prototyping process, fidelity decisions, and how prototypes were used in testing.</p>
-            <p>Outline how prototype feedback directly shaped the final shipped product.</p>
+
+        <div class="capability-feature-copy">
+          <div class="capability-feature-inner">
+            <div class="capability-kicker">Prototyping</div>
+            <h3 class="capability-title">From rough wireframes to polished interactions that can be tested and sold</h3>
+            <p class="capability-desc">I prototype to make ideas tangible fast: low-fidelity flows for alignment, high-fidelity interactions for user testing, and presentation-ready prototypes that help stakeholders understand how the experience should feel before engineering commits.</p>
+
+            <div class="capability-meta-grid">
+              <div class="capability-meta-card">
+                <label>Role</label>
+                <p>UX Designer · Interaction Designer · Prototype Builder</p>
+              </div>
+              <div class="capability-meta-card">
+                <label>Tools</label>
+                <div class="capability-pill-row" aria-label="Prototyping tools">
+                  <span class="capability-pill">Figma</span>
+                  <span class="capability-pill">Framer</span>
+                  <span class="capability-pill">Principle</span>
+                  <span class="capability-pill">Wireframes</span>
+                  <span class="capability-pill">Hi-Fi Flows</span>
+                  <span class="capability-pill">Usability Validation</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
     <div class="tab-panel" id="ux-3">
-      <div class="hero-triple">
-        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>UX Strategy — Image 01</span></div></div>
-        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>UX Strategy — Image 02</span></div></div>
-        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>UX Strategy — Image 03</span></div></div>
-      </div>
-      <div class="tab-body">
-        <div class="tab-meta">
-          <div class="drawer-meta-item"><label>Discipline</label><p>UX Strategy</p></div>
-          <div class="drawer-meta-item"><label>Methods</label><p>Product Vision · Experience Principles · Roadmapping · Stakeholder Alignment</p></div>
-          <div class="drawer-meta-item"><label>Tools</label><p>Miro · Notion · Figma · Confluence</p></div>
+      <div class="capability-feature ux-capability-feature">
+        <div class="capability-feature-media ux-visual-media">
+          <div class="ux-strategy-visual" aria-label="UX strategy roadmap visual">
+            <div class="strategy-axis"></div>
+            <div class="strategy-card card-a"><label>Now</label><strong>Find Friction</strong><span>Research signals</span></div>
+            <div class="strategy-card card-b"><label>Next</label><strong>Define Principles</strong><span>Experience direction</span></div>
+            <div class="strategy-card card-c"><label>Later</label><strong>Ship Roadmap</strong><span>Product outcomes</span></div>
+            <div class="strategy-orb orb-a"></div>
+            <div class="strategy-orb orb-b"></div>
+            <div class="strategy-orb orb-c"></div>
+          </div>
         </div>
-        <div class="tab-copy">
-          <h3>Aligning design with business outcomes</h3>
-          <p>Placeholder — add your UX strategy case study content here.</p>
-          <div class="drawer-copy-cols">
-            <p>Describe how you developed experience principles and aligned stakeholders around a product vision.</p>
-            <p>Outline the measurable outcomes that resulted from the strategic design decisions.</p>
+
+        <div class="capability-feature-copy">
+          <div class="capability-feature-inner">
+            <div class="capability-kicker">UX Strategy</div>
+            <h3 class="capability-title">Aligning product design with business goals, user needs, and execution plans</h3>
+            <p class="capability-desc">I help translate broad product ambiguity into a design strategy teams can act on. That includes product vision, experience principles, roadmap framing, stakeholder alignment, and practical design direction tied to measurable outcomes.</p>
+
+            <div class="capability-meta-grid">
+              <div class="capability-meta-card">
+                <label>Role</label>
+                <p>Senior Product Designer · UX Strategist · Workshop Facilitator</p>
+              </div>
+              <div class="capability-meta-card">
+                <label>Methods</label>
+                <div class="capability-pill-row" aria-label="UX strategy methods">
+                  <span class="capability-pill">Product Vision</span>
+                  <span class="capability-pill">Roadmapping</span>
+                  <span class="capability-pill">Stakeholder Alignment</span>
+                  <span class="capability-pill">Journey Maps</span>
+                  <span class="capability-pill">Principles</span>
+                  <span class="capability-pill">Workshops</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
     <div class="tab-panel" id="ux-4">
-      <div class="hero-triple">
-        <div class="hero-triple-img"><img src="images/verizon-superbowl-header.webp" alt="Verizon Portal Design System"></div>
-        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Design Systems — Image 02</span></div></div>
-        <div class="hero-triple-img"><div class="drawer-hero-placeholder"><span>Design Systems — Image 03</span></div></div>
-      </div>
-      <button class="lightbox-trigger" id="lightbox-btn">
-        <span class="lightbox-trigger-inner">View Style Guide ↗</span>
-      </button>
-      <div class="tab-body">
-        <div class="tab-meta">
-          <div class="drawer-meta-item"><label>Discipline</label><p>Design Systems</p></div>
-          <div class="drawer-meta-item"><label>Methods</label><p>Component Libraries · Tokens · Motion Guidelines · Accessibility</p></div>
-          <div class="drawer-meta-item"><label>Tools</label><p>Figma · Storybook · Zeplin · Chromatic</p></div>
+      <div class="capability-feature ux-capability-feature">
+        <div class="hero-triple-img capability-feature-media ux-design-system-media">
+          <img src="images/verizon-superbowl-header.webp" alt="Verizon Portal Design System">
+          <button class="lightbox-trigger ux-style-guide-trigger" id="lightbox-btn" type="button">
+            <span class="lightbox-trigger-inner">View Style Guide ↗</span>
+          </button>
         </div>
-        <div class="tab-copy">
-          <h3>Verizon "Portal" Immersive Multi-channel Video</h3>
-          <p>Built and maintained design systems across AR/XR, enterprise SaaS, and consumer products — from token architecture to component documentation to motion specs.</p>
-          <div class="drawer-copy-cols">
-            <p>Maintained multi-platform component libraries for Verizon Portal and Guidewire InsuranceNow, coordinating with engineering across multiple sprint cycles.</p>
-            <p>Established motion guidelines, accessibility standards, and interaction patterns across platforms including mobile web, native app, and AR overlays.</p>
+
+        <div class="capability-feature-copy">
+          <div class="capability-feature-inner">
+            <div class="capability-kicker">Design Systems</div>
+            <h3 class="capability-title">Verizon Portal immersive multi-channel video design system</h3>
+            <p class="capability-desc">Built and maintained design systems across AR/XR, enterprise SaaS, and consumer products: component documentation, interaction rules, accessibility standards, motion guidance, and handoff details that keep design and engineering aligned.</p>
+
+            <div class="capability-meta-grid">
+              <div class="capability-meta-card">
+                <label>Role</label>
+                <p>UX Designer · Design Systems · Interaction Designer</p>
+              </div>
+              <div class="capability-meta-card">
+                <label>Tools</label>
+                <div class="capability-pill-row" aria-label="Design systems toolset">
+                  <span class="capability-pill">Figma</span>
+                  <span class="capability-pill">Components</span>
+                  <span class="capability-pill">Tokens</span>
+                  <span class="capability-pill">Motion Guidelines</span>
+                  <span class="capability-pill">Accessibility</span>
+                  <span class="capability-pill">Zeplin</span>
+                  <span class="capability-pill">Storybook</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -2553,9 +2986,9 @@
         <div class="case">
           <div class="case-meta">
             <div class="case-tags">
-              <span class="case-tag primary">CASE STUDY</span>
+              <span class="case-tag primary">AR</span>
               <span class="case-tag-sep">·</span>
-              <span class="case-tag">IDEATION · RESEARCH · PROTOTYPING · UAT</span>
+              <span class="case-tag">UX Research</span>
               <span class="case-tag-sep">·</span>
               <span class="case-tag">Gamification</span>
             </div>
