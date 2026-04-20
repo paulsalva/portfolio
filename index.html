@@ -1788,15 +1788,13 @@
     .revenue-tooltip {
       opacity: 0;
       pointer-events: none;
-      transform: translateY(8px);
-      transition: opacity 0.18s ease, transform 0.18s ease;
+      transition: opacity 0.18s ease;
     }
 
     .revenue-point:hover .revenue-tooltip,
     .revenue-point:focus .revenue-tooltip,
     .revenue-point:focus-within .revenue-tooltip {
       opacity: 1;
-      transform: translateY(0);
     }
 
     .revenue-tooltip-box {
@@ -1910,7 +1908,7 @@
     }
 
     .viz-row-top .viz-sample-card { height: 100%; min-height: 360px; }
-    .viz-row-bottom .viz-sample-card { height: 260px; }
+    .viz-row-bottom .viz-sample-card { height: 300px; }
 
     .viz-sample-card::before {
       content: "";
@@ -1950,7 +1948,32 @@
       flex: 1;
       min-height: 0;
       width: 100%;
-      padding: 0 8px 8px;
+      padding: 0 18px 18px;
+    }
+
+    .viz-row-bottom .viz-visual {
+      padding: 8px 26px 28px;
+    }
+
+    .viz-funnel-visual {
+      padding: 8px 30px 34px;
+    }
+
+    .viz-svg-legend-label {
+      fill: rgba(232,230,223,0.44);
+      font-family: "Syne", sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+
+    .viz-svg-legend-value {
+      fill: rgba(232,230,223,0.26);
+      font-family: "Syne", sans-serif;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
     .viz-visual svg { width: 100%; height: 100%; display: block; overflow: visible; }
@@ -2011,7 +2034,8 @@
       stroke-width: 28;
       stroke-linecap: round;
       transform: rotate(-90deg);
-      transform-origin: 310px 110px;
+      transform-box: fill-box;
+      transform-origin: center;
       opacity: 0;
       stroke-dasharray: 0 999;
     }
@@ -3174,8 +3198,8 @@
         <div class="viz-sample-copy">
           <h3 class="viz-sample-title">Conversion Funnel</h3>
         </div>
-        <div class="viz-visual">
-          <svg viewBox="0 0 620 260" preserveAspectRatio="xMidYMid meet">
+        <div class="viz-visual viz-funnel-visual">
+          <svg viewBox="0 0 760 300" preserveAspectRatio="xMidYMid meet">
             <defs>
               <linearGradient id="sharedVizGradient" x1="0" y1="0" x2="1" y2="1">
                 <stop offset="0%" stop-color="#1a6fcc"/>
@@ -3187,11 +3211,20 @@
                 <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
               </filter>
             </defs>
-            <g class="funnel-step"><rect x="70" y="20" width="480" height="40" rx="20" fill="rgba(61,154,255,0.34)"/><text class="viz-label" x="98" y="45">VISIT</text><text class="viz-label" x="490" y="45">100%</text></g>
-            <g class="funnel-step"><rect x="105" y="72" width="410" height="40" rx="20" fill="rgba(61,154,255,0.27)"/><text class="viz-label" x="133" y="97">QUOTE</text><text class="viz-label" x="452" y="97">74%</text></g>
-            <g class="funnel-step"><rect x="140" y="124" width="340" height="40" rx="20" fill="rgba(61,154,255,0.22)"/><text class="viz-label" x="168" y="149">APPLICATION</text><text class="viz-label" x="418" y="149">51%</text></g>
-            <g class="funnel-step"><rect x="175" y="176" width="270" height="40" rx="20" fill="rgba(61,154,255,0.18)"/><text class="viz-label" x="203" y="201">APPROVAL</text><text class="viz-label" x="383" y="201">36%</text></g>
-            <g class="funnel-step"><rect x="220" y="228" width="180" height="40" rx="20" fill="url(#sharedVizGradient)" filter="url(#sharedVizGlow)"/><text class="viz-label" x="248" y="253" fill="rgba(13,13,13,0.8)">PURCHASE</text></g>
+            <g transform="translate(22 8) scale(0.88)">
+              <g class="funnel-step"><rect x="70" y="20" width="480" height="40" rx="20" fill="rgba(61,154,255,0.34)"/><text class="viz-label" x="98" y="45">VISIT</text><text class="viz-label" x="490" y="45">100%</text></g>
+              <g class="funnel-step"><rect x="105" y="72" width="410" height="40" rx="20" fill="rgba(61,154,255,0.27)"/><text class="viz-label" x="133" y="97">QUOTE</text><text class="viz-label" x="452" y="97">74%</text></g>
+              <g class="funnel-step"><rect x="140" y="124" width="340" height="40" rx="20" fill="rgba(61,154,255,0.22)"/><text class="viz-label" x="168" y="149">APPLICATION</text><text class="viz-label" x="418" y="149">51%</text></g>
+              <g class="funnel-step"><rect x="175" y="176" width="270" height="40" rx="20" fill="rgba(61,154,255,0.18)"/><text class="viz-label" x="203" y="201">APPROVAL</text><text class="viz-label" x="383" y="201">36%</text></g>
+              <g class="funnel-step"><rect x="220" y="228" width="180" height="40" rx="20" fill="url(#sharedVizGradient)" filter="url(#sharedVizGlow)"/><text class="viz-label" x="248" y="253" fill="rgba(13,13,13,0.8)">PURCHASE</text></g>
+            </g>
+            <g transform="translate(615 78)">
+              <circle cx="0" cy="0" r="5" fill="rgba(61,154,255,0.34)"/><text class="viz-svg-legend-label" x="16" y="4">Visit</text><text class="viz-svg-legend-value" x="16" y="18">$1.20M</text>
+              <circle cx="0" cy="45" r="5" fill="rgba(61,154,255,0.27)"/><text class="viz-svg-legend-label" x="16" y="49">Quote</text><text class="viz-svg-legend-value" x="16" y="63">$888K</text>
+              <circle cx="0" cy="90" r="5" fill="rgba(61,154,255,0.22)"/><text class="viz-svg-legend-label" x="16" y="94">Application</text><text class="viz-svg-legend-value" x="16" y="108">$612K</text>
+              <circle cx="0" cy="135" r="5" fill="rgba(61,154,255,0.18)"/><text class="viz-svg-legend-label" x="16" y="139">Approval</text><text class="viz-svg-legend-value" x="16" y="153">$432K</text>
+              <circle cx="0" cy="180" r="5" fill="#3d9aff"/><text class="viz-svg-legend-label" x="16" y="184">Purchase</text><text class="viz-svg-legend-value" x="16" y="198">$288K</text>
+            </g>
           </svg>
         </div>
       </div>
@@ -3240,6 +3273,12 @@
               <rect class="heat-cell" x="382" y="158" width="40" height="40" rx="8" fill="rgba(126,200,255,0.58)" style="animation-delay:1.73s"/>
               <rect class="heat-cell" x="434" y="158" width="40" height="40" rx="8" fill="rgba(61,154,255,0.20)" style="animation-delay:1.79s"/>
             </g>
+            <g transform="translate(518 56)">
+              <circle cx="0" cy="0" r="5" fill="rgba(61,154,255,0.16)"/><text class="viz-svg-legend-label" x="16" y="4">Low</text><text class="viz-svg-legend-value" x="16" y="18">0-25%</text>
+              <circle cx="0" cy="42" r="5" fill="rgba(61,154,255,0.34)"/><text class="viz-svg-legend-label" x="16" y="46">Medium</text><text class="viz-svg-legend-value" x="16" y="60">26-50%</text>
+              <circle cx="0" cy="84" r="5" fill="rgba(126,200,255,0.58)"/><text class="viz-svg-legend-label" x="16" y="88">High</text><text class="viz-svg-legend-value" x="16" y="102">51-75%</text>
+              <circle cx="0" cy="126" r="5" fill="rgba(126,200,255,0.78)"/><text class="viz-svg-legend-label" x="16" y="130">Peak</text><text class="viz-svg-legend-value" x="16" y="144">76-100%</text>
+            </g>
           </svg>
         </div>
       </div>
@@ -3276,18 +3315,17 @@
         </div>
         <div class="viz-visual">
           <svg viewBox="0 0 620 210" preserveAspectRatio="xMidYMid meet">
-            <circle class="donut-track" cx="310" cy="96" r="76"/>
-            <circle class="donut-segment segment-a" cx="310" cy="96" r="76" stroke="#3d9aff" stroke-dasharray="292 478" stroke-dashoffset="0"/>
-            <circle class="donut-segment segment-b" cx="310" cy="96" r="76" stroke="#7ec8ff" stroke-dasharray="150 478" stroke-dashoffset="-292"/>
-            <circle class="donut-segment segment-c" cx="310" cy="96" r="76" stroke="#1a6fcc" stroke-dasharray="75 478" stroke-dashoffset="-455"/>
-            <text class="donut-center-value" x="310" y="92" text-anchor="middle">58%</text>
-            <text class="donut-center-label" x="310" y="114" text-anchor="middle">Enterprise</text>
-            <text class="viz-label" x="100" y="196">Enterprise 58%</text>
-            <text class="viz-label" x="262" y="196">Consumer 27%</text>
-            <text class="viz-label" x="424" y="196">Growth 15%</text>
-            <circle cx="84" cy="192" r="5" fill="#3d9aff"/>
-            <circle cx="246" cy="192" r="5" fill="#7ec8ff"/>
-            <circle cx="408" cy="192" r="5" fill="#1a6fcc"/>
+            <circle class="donut-track" cx="230" cy="98" r="72"/>
+            <circle class="donut-segment segment-a" cx="230" cy="98" r="72" stroke="#3d9aff" stroke-dasharray="262 452" stroke-dashoffset="0"/>
+            <circle class="donut-segment segment-b" cx="230" cy="98" r="72" stroke="#7ec8ff" stroke-dasharray="122 452" stroke-dashoffset="-262"/>
+            <circle class="donut-segment segment-c" cx="230" cy="98" r="72" stroke="#1a6fcc" stroke-dasharray="68 452" stroke-dashoffset="-384"/>
+            <text class="donut-center-value" x="230" y="94" text-anchor="middle">58%</text>
+            <text class="donut-center-label" x="230" y="116" text-anchor="middle">Enterprise</text>
+            <g transform="translate(410 62)">
+              <circle cx="0" cy="0" r="5" fill="#3d9aff"/><text class="viz-svg-legend-label" x="16" y="4">Enterprise</text><text class="viz-svg-legend-value" x="16" y="18">58%</text>
+              <circle cx="0" cy="48" r="5" fill="#7ec8ff"/><text class="viz-svg-legend-label" x="16" y="52">Consumer</text><text class="viz-svg-legend-value" x="16" y="66">27%</text>
+              <circle cx="0" cy="96" r="5" fill="#1a6fcc"/><text class="viz-svg-legend-label" x="16" y="100">Growth</text><text class="viz-svg-legend-value" x="16" y="114">15%</text>
+            </g>
           </svg>
         </div>
       </div>
