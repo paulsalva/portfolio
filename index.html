@@ -2823,6 +2823,44 @@
 
     .footer-link:hover { color: #3d9aff; }
 
+    .footer-copy-btn {
+      border: none;
+      background: transparent;
+      font-family: 'Syne', sans-serif;
+      padding: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 7px;
+    }
+
+    .footer-copy-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #3d9aff;
+      opacity: 0;
+      transform: translateX(-4px);
+      transition: opacity 0.18s ease, transform 0.18s ease;
+      pointer-events: none;
+    }
+
+    .footer-copy-status svg {
+      width: 9px;
+      height: 9px;
+      stroke: #3d9aff;
+      stroke-width: 2;
+    }
+
+    .footer-copy-btn.is-copied .footer-copy-status {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
     @media (max-width: 720px) {
       .hero { grid-template-columns: 1fr; }
       .hero-right {
@@ -4293,9 +4331,16 @@
   <footer class="footer">
     <div class="footer-cta">Let's build something <span class="footer-rare">rare.</span></div>
     <div class="footer-links">
-      <a href="mailto:hello@paulsalva.work" class="footer-link">Contact</a>
-      <a href="#" class="footer-link">LinkedIn</a>
-      <a href="#" class="footer-link">Resume</a>
+      <button type="button" class="footer-link footer-copy-btn" id="footer-copy-email" data-email="psalva@gmail.com" aria-label="Copy email address">
+        <span>Contact</span>
+        <span class="footer-copy-status" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 6.2 4.8 9 10 3"/>
+          </svg>
+          Copied
+        </span>
+      </button>
+      <a href="https://www.linkedin.com/in/paulsalva" class="footer-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </div>
   </footer>
 
@@ -4715,6 +4760,33 @@
     if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
     if (lightboxOverlay) lightboxOverlay.addEventListener('click', (e) => { if (e.target === lightboxOverlay) closeLightbox(); });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+
+    const footerCopyEmail = document.getElementById('footer-copy-email');
+    if (footerCopyEmail) {
+      footerCopyEmail.addEventListener('click', async () => {
+        const email = footerCopyEmail.dataset.email || 'psalva@gmail.com';
+
+        try {
+          await navigator.clipboard.writeText(email);
+        } catch (err) {
+          const fallback = document.createElement('textarea');
+          fallback.value = email;
+          fallback.setAttribute('readonly', '');
+          fallback.style.position = 'fixed';
+          fallback.style.left = '-9999px';
+          document.body.appendChild(fallback);
+          fallback.select();
+          document.execCommand('copy');
+          document.body.removeChild(fallback);
+        }
+
+        footerCopyEmail.classList.add('is-copied');
+        clearTimeout(footerCopyEmail.copyTimer);
+        footerCopyEmail.copyTimer = setTimeout(() => {
+          footerCopyEmail.classList.remove('is-copied');
+        }, 1800);
+      });
+    }
 
     /* LAZY LOOPING HERO VIDEOS */
     const lazyVideos = document.querySelectorAll('.lazy-video');
