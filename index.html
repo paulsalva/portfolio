@@ -843,15 +843,440 @@
       position: relative;
       border-radius: 8px;
       overflow: hidden;
-      background: #1a1a1a;
+      background:
+        radial-gradient(circle at 50% 48%, rgba(61,154,255,0.12), transparent 34%),
+        radial-gradient(circle at 20% 20%, rgba(61,154,255,0.08), transparent 28%),
+        linear-gradient(135deg, rgba(255,255,255,0.035), rgba(255,255,255,0.01));
+      border: 0.5px solid rgba(255,255,255,0.06);
+      min-height: 360px;
     }
 
-    .ux-design-system-media img {
+    .ux-design-system-visual {
+      position: relative;
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      opacity: 0.86;
+      min-height: 360px;
+      overflow: hidden;
+      padding: 28px;
+    }
+
+    .ux-design-system-visual::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.028) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.028) 1px, transparent 1px);
+      background-size: 38px 38px;
+      opacity: 0.75;
+      pointer-events: none;
+    }
+
+    .ux-design-system-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at center, transparent 42%, rgba(0,0,0,0.36) 100%),
+        linear-gradient(90deg, rgba(0,0,0,0.26), transparent 30%, transparent 70%, rgba(0,0,0,0.26));
+      pointer-events: none;
+    }
+
+    .ds-flow-lines {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+      overflow: visible;
+    }
+
+    .ds-flow-line {
+      fill: none;
+      stroke: url(#dsLineGradient);
+      stroke-width: 1.25;
+      stroke-linecap: round;
+      stroke-dasharray: 6 9;
+      opacity: 0.52;
+      animation: dsLineMove 4.2s linear infinite;
+    }
+
+    .ds-flow-line.soft {
+      stroke-width: 0.9;
+      opacity: 0.32;
+      animation-duration: 6.2s;
+    }
+
+    .ds-system-hub {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 116px;
+      height: 116px;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      z-index: 4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        radial-gradient(circle at 35% 28%, rgba(126,200,255,0.25), transparent 34%),
+        linear-gradient(135deg, rgba(61,154,255,0.22), rgba(61,154,255,0.05));
+      border: 0.5px solid rgba(61,154,255,0.32);
+      box-shadow:
+        0 0 34px rgba(61,154,255,0.20),
+        inset 0 0 26px rgba(61,154,255,0.08);
+    }
+
+    .ds-system-hub::before,
+    .ds-system-hub::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      border: 0.5px solid rgba(61,154,255,0.18);
+      animation: dsPulse 4s ease-in-out infinite;
+    }
+
+    .ds-system-hub::before { inset: -12px; }
+    .ds-system-hub::after { inset: -25px; animation-delay: 1.1s; opacity: 0.55; }
+
+    .ds-hub-inner {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .ds-hub-icon {
+      width: 34px;
+      height: 34px;
+      margin: 0 auto 8px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px;
+    }
+
+    .ds-hub-icon span {
+      border-radius: 5px;
+      background: #3d9aff;
+      box-shadow: 0 0 14px rgba(61,154,255,0.48);
+    }
+
+    .ds-hub-title {
+      font-family: "Syne", sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #e8e6df;
+    }
+
+    .ds-token-card,
+    .ds-component-card,
+    .ds-pattern-card,
+    .ds-usage-card {
+      position: absolute;
+      z-index: 3;
+      border-radius: 12px;
+      border: 0.5px solid rgba(255,255,255,0.1);
+      background: rgba(13,13,13,0.54);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+    }
+
+    .ds-token-card {
+      left: 26px;
+      top: 30px;
+      width: 178px;
+      padding: 18px;
+    }
+
+    .ds-component-card {
+      right: 26px;
+      top: 38px;
+      width: 210px;
+      padding: 18px;
+    }
+
+    .ds-pattern-card {
+      left: 42px;
+      bottom: 34px;
+      width: 218px;
+      padding: 16px;
+    }
+
+    .ds-usage-card {
+      right: 48px;
+      bottom: 38px;
+      width: 184px;
+      padding: 16px;
+    }
+
+    .ds-card-label {
+      font-family: "Syne", sans-serif;
+      font-size: 8.5px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(61,154,255,0.82);
+      margin-bottom: 12px;
+    }
+
+    .ds-color-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 15px;
+    }
+
+    .ds-swatch {
+      width: 21px;
+      height: 21px;
+      border-radius: 50%;
+      background: rgba(61,154,255,var(--a));
+      border: 0.5px solid rgba(255,255,255,0.1);
+      box-shadow: 0 0 14px rgba(61,154,255,0.18);
+    }
+
+    .ds-type-row {
+      display: flex;
+      align-items: flex-end;
+      gap: 14px;
+      margin-bottom: 13px;
+      color: rgba(232,230,223,0.62);
+      font-weight: 700;
+    }
+
+    .ds-type-lg { font-size: 25px; line-height: 1; }
+    .ds-type-md { font-size: 18px; line-height: 1; }
+    .ds-type-sm { font-size: 13px; line-height: 1; }
+
+    .ds-token-line {
+      height: 8px;
+      border-radius: 100px;
+      background: rgba(61,154,255,0.16);
+      margin-top: 7px;
+    }
+
+    .ds-token-line.short { width: 62%; }
+    .ds-token-line.mid { width: 82%; }
+
+    .ds-button-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .ds-button {
+      height: 32px;
+      border-radius: 7px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Syne", sans-serif;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: rgba(232,230,223,0.72);
+      border: 0.5px solid rgba(255,255,255,0.12);
+      flex: 1;
+    }
+
+    .ds-button.primary {
+      background: #3d9aff;
+      color: #0d0d0d;
+      border-color: rgba(61,154,255,0.85);
+      box-shadow: 0 0 18px rgba(61,154,255,0.26);
+    }
+
+    .ds-input {
+      height: 32px;
+      border-radius: 7px;
+      border: 0.5px solid rgba(255,255,255,0.1);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+      color: rgba(232,230,223,0.32);
+      font-size: 9px;
+    }
+
+    .ds-control-row {
+      display: flex;
+      gap: 11px;
+      align-items: center;
+    }
+
+    .ds-check {
+      width: 16px;
+      height: 16px;
+      border-radius: 4px;
+      border: 0.5px solid rgba(61,154,255,0.44);
+      background: rgba(61,154,255,0.18);
+      position: relative;
+    }
+
+    .ds-check::after {
+      content: "";
+      position: absolute;
+      left: 5px;
+      top: 2px;
+      width: 4px;
+      height: 8px;
+      border: solid #3d9aff;
+      border-width: 0 1.5px 1.5px 0;
+      transform: rotate(45deg);
+    }
+
+    .ds-toggle {
+      width: 34px;
+      height: 18px;
+      border-radius: 100px;
+      background: rgba(61,154,255,0.18);
+      border: 0.5px solid rgba(61,154,255,0.22);
+      position: relative;
+    }
+
+    .ds-toggle::after {
+      content: "";
+      position: absolute;
+      right: 3px;
+      top: 3px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #3d9aff;
+      box-shadow: 0 0 10px rgba(61,154,255,0.55);
+    }
+
+    .ds-pattern-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .ds-pattern-tile {
+      height: 52px;
+      border-radius: 7px;
+      border: 0.5px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.035);
+      padding: 8px;
+    }
+
+    .ds-pattern-tile span {
       display: block;
+      height: 5px;
+      border-radius: 100px;
+      background: rgba(61,154,255,0.35);
+      margin-bottom: 6px;
+    }
+
+    .ds-pattern-tile em {
+      display: block;
+      width: 70%;
+      height: 5px;
+      border-radius: 100px;
+      background: rgba(232,230,223,0.12);
+      margin-bottom: 5px;
+    }
+
+    .ds-mini-chart {
+      display: grid;
+      grid-template-columns: 70px 1fr;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .ds-ring {
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      background: conic-gradient(#3d9aff 0 86%, rgba(255,255,255,0.08) 86% 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .ds-ring::after {
+      content: "";
+      position: absolute;
+      inset: 11px;
+      border-radius: 50%;
+      background: #0d0d0d;
+    }
+
+    .ds-ring strong {
+      position: relative;
+      z-index: 2;
+      font-size: 15px;
+      color: #e8e6df;
+      letter-spacing: -0.04em;
+    }
+
+    .ds-dot-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 7px);
+      gap: 6px;
+    }
+
+    .ds-dot-grid span {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(232,230,223,0.12);
+    }
+
+    .ds-dot-grid span:nth-child(3n),
+    .ds-dot-grid span:nth-child(7),
+    .ds-dot-grid span:nth-child(18) {
+      background: rgba(61,154,255,0.78);
+      box-shadow: 0 0 10px rgba(61,154,255,0.35);
+    }
+
+    .ds-floating-node {
+      position: absolute;
+      z-index: 4;
+      min-width: 82px;
+      height: 34px;
+      border-radius: 100px;
+      border: 0.5px solid rgba(61,154,255,0.24);
+      background: rgba(13,13,13,0.52);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(232,230,223,0.58);
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      box-shadow: 0 0 18px rgba(61,154,255,0.08);
+    }
+
+    .ds-node-a { left: 252px; top: 54px; }
+    .ds-node-b { right: 274px; top: 78px; }
+    .ds-node-c { left: 287px; bottom: 62px; }
+    .ds-node-d { right: 292px; bottom: 82px; }
+
+    @keyframes dsLineMove {
+      to { stroke-dashoffset: -72; }
+    }
+
+    @keyframes dsPulse {
+      0%, 100% { opacity: 0.42; transform: scale(1); }
+      50% { opacity: 0.9; transform: scale(1.04); }
+    }
+
+    @media (max-width: 980px) {
+      .ux-design-system-visual { min-height: 420px; }
+      .ds-token-card,
+      .ds-component-card,
+      .ds-pattern-card,
+      .ds-usage-card { transform: scale(0.88); }
+      .ds-token-card { transform-origin: top left; }
+      .ds-component-card { transform-origin: top right; }
+      .ds-pattern-card { transform-origin: bottom left; }
+      .ds-usage-card { transform-origin: bottom right; }
+      .ds-floating-node { display: none; }
     }
 
     .ux-style-guide-trigger {
@@ -3200,8 +3625,84 @@
 
     <div class="tab-panel" id="ux-4">
       <div class="capability-feature ux-capability-feature">
-        <div class="hero-triple-img capability-feature-media ux-design-system-media">
-          <img src="images/verizon-superbowl-header.webp" alt="Verizon Portal Design System">
+        <div class="capability-feature-media ux-design-system-media">
+          <div class="ux-design-system-visual" aria-label="Coded design system component library graphic">
+            <svg class="ds-flow-lines" viewBox="0 0 720 360" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="dsLineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="rgba(61,154,255,0.04)" />
+                  <stop offset="50%" stop-color="rgba(61,154,255,0.72)" />
+                  <stop offset="100%" stop-color="rgba(126,200,255,0.08)" />
+                </linearGradient>
+              </defs>
+              <path class="ds-flow-line" d="M118 102 C225 120, 268 168, 360 180 C452 192, 504 104, 612 96"/>
+              <path class="ds-flow-line soft" d="M132 264 C245 228, 282 202, 360 180 C444 156, 510 224, 610 244"/>
+              <path class="ds-flow-line" d="M224 58 C272 116, 302 150, 360 180 C418 210, 468 96, 545 73"/>
+              <path class="ds-flow-line soft" d="M240 302 C282 248, 314 204, 360 180 C416 150, 462 238, 552 282"/>
+            </svg>
+
+            <div class="ds-floating-node ds-node-a">Atoms</div>
+            <div class="ds-floating-node ds-node-b">Components</div>
+            <div class="ds-floating-node ds-node-c">Patterns</div>
+            <div class="ds-floating-node ds-node-d">Rules</div>
+
+            <div class="ds-system-hub">
+              <div class="ds-hub-inner">
+                <div class="ds-hub-icon"><span></span><span></span><span></span><span></span></div>
+                <div class="ds-hub-title">Library</div>
+              </div>
+            </div>
+
+            <div class="ds-token-card">
+              <div class="ds-card-label">Tokens</div>
+              <div class="ds-color-row">
+                <span class="ds-swatch" style="--a:.95"></span>
+                <span class="ds-swatch" style="--a:.72"></span>
+                <span class="ds-swatch" style="--a:.48"></span>
+                <span class="ds-swatch" style="--a:.25"></span>
+              </div>
+              <div class="ds-type-row"><span class="ds-type-lg">Ag</span><span class="ds-type-md">Ag</span><span class="ds-type-sm">Ag</span></div>
+              <div class="ds-token-line mid"></div>
+              <div class="ds-token-line short"></div>
+            </div>
+
+            <div class="ds-component-card">
+              <div class="ds-card-label">Component Library</div>
+              <div class="ds-button-row">
+                <div class="ds-button primary">Button</div>
+                <div class="ds-button">Secondary</div>
+              </div>
+              <div class="ds-input">Dropdown</div>
+              <div class="ds-input">Search</div>
+              <div class="ds-control-row">
+                <div class="ds-check"></div>
+                <div class="ds-toggle"></div>
+                <div class="ds-toggle"></div>
+              </div>
+            </div>
+
+            <div class="ds-pattern-card">
+              <div class="ds-card-label">Patterns</div>
+              <div class="ds-pattern-grid">
+                <div class="ds-pattern-tile"><span></span><em></em><em></em></div>
+                <div class="ds-pattern-tile"><span></span><em></em><em></em></div>
+                <div class="ds-pattern-tile"><span></span><em></em><em></em></div>
+              </div>
+            </div>
+
+            <div class="ds-usage-card">
+              <div class="ds-card-label">Usage</div>
+              <div class="ds-mini-chart">
+                <div class="ds-ring"><strong>98%</strong></div>
+                <div class="ds-dot-grid">
+                  <span></span><span></span><span></span><span></span><span></span>
+                  <span></span><span></span><span></span><span></span><span></span>
+                  <span></span><span></span><span></span><span></span><span></span>
+                  <span></span><span></span><span></span><span></span><span></span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="capability-feature-copy">
