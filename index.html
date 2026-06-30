@@ -3390,9 +3390,143 @@
       .footer { padding: 48px 24px; flex-direction: column; gap: 40px; align-items: flex-start; }
       .nav-pill { font-size: 10px; padding: 5px 10px; }
     }
+
+    /* ============================================================
+       MOBILE GATE — shown only on small screens (<= 768px)
+       ============================================================ */
+    .mobile-gate { display: none; }
+
+    @media (max-width: 768px) {
+      body { overflow: hidden; }
+
+      .mobile-gate {
+        display: flex;
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 40px 28px;
+        background:
+          radial-gradient(circle at 50% 18%, rgba(61,154,255,0.10), transparent 42%),
+          #0d0d0d;
+      }
+
+      .mobile-gate-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        max-width: 420px;
+        width: 100%;
+        opacity: 0;
+        transform: translateY(14px);
+        animation: mobileGateIn 0.9s cubic-bezier(0.16,1,0.3,1) 0.1s forwards;
+      }
+
+      .mobile-gate-name {
+        font-size: clamp(34px, 13vw, 56px);
+        font-weight: 800;
+        line-height: 0.95;
+        letter-spacing: 0.01em;
+        text-transform: uppercase;
+        color: #e8e6df;
+      }
+
+      .mobile-gate-tagline {
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #3d9aff;
+        margin-top: 16px;
+      }
+
+      .mobile-gate-location {
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(232,230,223,0.28);
+        margin-top: 8px;
+      }
+
+      .mobile-gate-divider {
+        width: 40px;
+        height: 1px;
+        background: rgba(255,255,255,0.14);
+        margin: 30px 0;
+      }
+
+      .mobile-gate-icon {
+        color: rgba(232,230,223,0.5);
+        margin-bottom: 18px;
+      }
+
+      .mobile-gate-message {
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 1.6;
+        color: rgba(232,230,223,0.55);
+        max-width: 300px;
+      }
+
+      .mobile-gate-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        margin-top: 32px;
+        padding: 14px 26px;
+        border-radius: 100px;
+        background: #3d9aff;
+        color: #0d0d0d;
+        font-family: 'Syne', sans-serif;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-decoration: none;
+        transition: transform 0.2s cubic-bezier(0.16,1,0.3,1), background 0.2s;
+      }
+
+      .mobile-gate-cta:active { transform: scale(0.97); }
+
+      .mobile-gate-cta svg { display: block; }
+    }
+
+    @keyframes mobileGateIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 <body>
+
+  <!-- MOBILE GATE (shown only on small screens) -->
+  <div class="mobile-gate" role="region" aria-label="Mobile notice">
+    <div class="mobile-gate-inner">
+      <div class="mobile-gate-name">PAUL SAL<span class="kern-tight">V</span><span class="kern-tighter">A</span></div>
+      <div class="mobile-gate-tagline">Senior Product Designer &amp; AI Design Strategist</div>
+      <div class="mobile-gate-location">Los Angeles</div>
+
+      <div class="mobile-gate-divider" aria-hidden="true"></div>
+
+      <svg class="mobile-gate-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="2" y="3" width="20" height="14" rx="2"></rect>
+        <path d="M8 21h8"></path>
+        <path d="M12 17v4"></path>
+      </svg>
+      <p class="mobile-gate-message">The full portfolio is best experienced on desktop. Reach out anytime and I&apos;ll be glad to connect.</p>
+
+      <a class="mobile-gate-cta" href="mailto:psalva@gmail.com">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+        </svg>
+        psalva@gmail.com
+      </a>
+    </div>
+  </div>
 
   <!-- FLOATING NAV -->
   <nav class="nav">
@@ -4909,7 +5043,7 @@
     <div class="tab-panel" id="cd-6">
       <div class="capability-feature">
         <div class="hero-triple-img capability-feature-media">
-          <div class="drawer-hero-placeholder"><span>Art Direction — Hero</span></div>
+          <div class="drawer-hero-placeholder"><span>Art Direction ��� Hero</span></div>
         </div>
 
         <div class="capability-feature-copy">
